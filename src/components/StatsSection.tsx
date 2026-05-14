@@ -50,17 +50,17 @@ const stats: {
   decimalPlaces?: number;
 }[] = [
   {
-    label: "Avg. hours saved per loan file",
-    value: 6.5,
+    label: "Avg. weekly hours reclaimed per loan desk",
+    value: 45,
     suffix: " hrs",
-    decimalPlaces: 1,
+    decimalPlaces: 0,
   },
-  { label: "Exceptions caught pre-underwrite", value: 38, suffix: "%" },
+  { label: "Pipeline steps completed without manual chase", value: 74, suffix: "%" },
   {
-    label: "Investor findings tied to source pages",
-    value: 99.2,
+    label: "Borrower and lender touchpoints in one workspace",
+    value: 99,
     suffix: "%",
-    decimalPlaces: 1,
+    decimalPlaces: 0,
   },
 ];
 
@@ -68,10 +68,10 @@ export function StatsSection() {
   return (
     <section
       id="results"
-      className="scroll-mt-24 border-y border-white/5 bg-gradient-to-b from-ink-900/50 to-ink-950 py-24"
+      className="relative scroll-mt-8 border-y border-organ-800 marble-slate py-20 sm:py-24"
       aria-labelledby="stats-heading"
     >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -81,13 +81,13 @@ export function StatsSection() {
         >
           <h2
             id="stats-heading"
-            className="text-3xl font-semibold tracking-tight text-white sm:text-4xl"
+            className="font-serif text-3xl font-semibold tracking-tight text-organ-50 sm:text-4xl"
           >
-            Outcomes teams measure in weeks, not slides.
+            Outcomes you measure in funded loans — not heroic inbox sprints.
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-mist/65">
-            Benchmarks from blended retail &amp; correspondent pipelines — your
-            mileage improves as models absorb your overlays.
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-organ-200">
+            Illustrative benchmarks from lending teams that consolidated origination work in
+            one governed workspace.
           </p>
         </motion.div>
 
@@ -99,16 +99,16 @@ export function StatsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.45, delay: i * 0.07 }}
-              className="rounded-2xl border border-white/10 bg-ink-950/70 px-8 py-10 text-center shadow-lg shadow-black/30"
+              className="rounded-xl border border-organ-600/50 border-t-2 border-t-gold/50 bg-organ-900/45 px-5 py-8 text-center shadow-lg shadow-black/20 backdrop-blur-sm sm:px-8 sm:py-10"
             >
-              <p className="font-mono text-4xl font-semibold text-white sm:text-5xl">
+              <p className="font-mono text-4xl font-semibold text-organ-50 sm:text-5xl">
                 <AnimatedNumber
                   value={s.value}
                   suffix={s.suffix}
                   decimalPlaces={s.decimalPlaces}
                 />
               </p>
-              <p className="mt-4 text-sm leading-snug text-mist/60">{s.label}</p>
+              <p className="mt-4 text-sm leading-snug text-organ-200">{s.label}</p>
             </motion.div>
           ))}
         </div>

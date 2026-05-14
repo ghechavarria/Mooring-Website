@@ -2,20 +2,193 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .btn-primary-gold {
+    @apply inline-flex items-center justify-center rounded-md bg-gold font-semibold text-slate-950 ring-1 ring-gold/65 transition;
+    box-shadow: 0 4px 16px rgba(181, 154, 109, 0.45);
+  }
+  .btn-primary-gold:hover {
+    @apply bg-glow ring-gold/90;
+    box-shadow: 0 8px 28px rgba(181, 154, 109, 0.55);
+  }
+  .btn-primary-gold:active {
+    transform: translateY(1px);
+  }
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-ink-950 text-mist antialiased;
+    @apply font-sans antialiased;
+    background-color: theme("colors.organ.50");
+    color: theme("colors.organ.900");
   }
   ::selection {
-    @apply bg-tide/30 text-white;
+    background-color: color-mix(in srgb, theme("colors.organ.800") 22%, transparent);
+    color: theme("colors.organ.950");
+  }
+}
+
+@keyframes hero-ecg-drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(calc(-1 * var(--ecg-beat-width, 100px)), 0, 0);
   }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  /** SVG `<g>`: Framer `x` on motion.g is unreliable; sync `--ecg-beat-width` to one beat in the path `d` */
+  .hero-ecg-drift {
+    animation: hero-ecg-drift var(--ecg-beat, 1500ms) linear infinite;
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-ecg-drift {
+      animation: none;
+    }
+  }
+
+  /** AI orb: one smooth breath per `--ai-pulse-beat` (sin half-wave, many stops ≈ smooth curve). */
+  @keyframes hero-ai-pulse-swell {
+    0% {
+      transform: scale3d(1, 1, 1);
+    }
+    4.167% {
+      transform: scale3d(1.00365, 1.00365, 1);
+    }
+    8.333% {
+      transform: scale3d(1.00725, 1.00725, 1);
+    }
+    12.5% {
+      transform: scale3d(1.01072, 1.01072, 1);
+    }
+    16.667% {
+      transform: scale3d(1.014, 1.014, 1);
+    }
+    20.833% {
+      transform: scale3d(1.01705, 1.01705, 1);
+    }
+    25% {
+      transform: scale3d(1.0198, 1.0198, 1);
+    }
+    29.167% {
+      transform: scale3d(1.02221, 1.02221, 1);
+    }
+    33.333% {
+      transform: scale3d(1.02425, 1.02425, 1);
+    }
+    37.5% {
+      transform: scale3d(1.02587, 1.02587, 1);
+    }
+    41.667% {
+      transform: scale3d(1.02705, 1.02705, 1);
+    }
+    45.833% {
+      transform: scale3d(1.02776, 1.02776, 1);
+    }
+    50% {
+      transform: scale3d(1.028, 1.028, 1);
+    }
+    54.167% {
+      transform: scale3d(1.02776, 1.02776, 1);
+    }
+    58.333% {
+      transform: scale3d(1.02705, 1.02705, 1);
+    }
+    62.5% {
+      transform: scale3d(1.02587, 1.02587, 1);
+    }
+    66.667% {
+      transform: scale3d(1.02425, 1.02425, 1);
+    }
+    70.833% {
+      transform: scale3d(1.02221, 1.02221, 1);
+    }
+    75% {
+      transform: scale3d(1.0198, 1.0198, 1);
+    }
+    79.167% {
+      transform: scale3d(1.01705, 1.01705, 1);
+    }
+    83.333% {
+      transform: scale3d(1.014, 1.014, 1);
+    }
+    87.5% {
+      transform: scale3d(1.01072, 1.01072, 1);
+    }
+    91.667% {
+      transform: scale3d(1.00725, 1.00725, 1);
+    }
+    95.833% {
+      transform: scale3d(1.00365, 1.00365, 1);
+    }
+    100% {
+      transform: scale3d(1, 1, 1);
+    }
+  }
+
+  .hero-ai-pulse-swell {
+    animation: hero-ai-pulse-swell var(--ai-pulse-beat, 1500ms) linear infinite;
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-ai-pulse-swell {
+      animation: none;
+    }
+  }
+
+  /* Dark organic slate + marble veining (for contrast bands) */
+  .marble-slate {
+    position: relative;
+    isolation: isolate;
+    background-color: theme("colors.organ.950");
+    background-image:
+      linear-gradient(118deg, rgba(255, 255, 255, 0.055) 0%, transparent 46%),
+      linear-gradient(218deg, rgba(181, 154, 109, 0.1) 0%, transparent 44%),
+      linear-gradient(352deg, rgba(0, 0, 0, 0.28) 0%, transparent 52%),
+      radial-gradient(ellipse 95% 75% at 50% -5%, rgba(71, 85, 105, 0.16), transparent 58%);
+  }
+  .marble-slate::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 0.42;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)' opacity='0.55'/%3E%3C/svg%3E");
+  }
+
+  /* Light warm slate marble wash */
+  .marble-organ-light {
+    position: relative;
+    isolation: isolate;
+    background-color: theme("colors.organ.100");
+    background-image:
+      linear-gradient(122deg, rgba(63, 56, 51, 0.07) 0%, transparent 48%),
+      linear-gradient(300deg, rgba(181, 154, 109, 0.06) 0%, transparent 40%),
+      radial-gradient(ellipse 80% 60% at 100% 0%, rgba(255, 255, 255, 0.35), transparent 50%);
+  }
+  .marble-organ-light::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 0.28;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.45'/%3E%3C/svg%3E");
   }
 }

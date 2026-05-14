@@ -4,7 +4,7 @@ export function ContactCTA() {
   return (
     <section
       id="contact"
-      className="relative scroll-mt-24 py-24"
+      className="relative scroll-mt-8 bg-canvas py-20 sm:py-24"
       aria-labelledby="cta-heading"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -13,43 +13,35 @@ export function ContactCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.55 }}
-          className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-ink-800/90 via-ink-900 to-ink-950 px-8 py-16 text-center shadow-2xl shadow-black/40 sm:px-16"
+          className="relative z-10 overflow-hidden rounded-xl border border-organ-200/95 bg-organ-50 px-5 py-12 text-center shadow-card-md sm:px-14 sm:py-16"
         >
-          <motion.div
-            className="pointer-events-none absolute -left-24 top-0 h-72 w-72 rounded-full bg-tide/25 blur-[100px]"
-            animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0.75, 0.5] }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-            aria-hidden
-          />
-          <motion.div
-            className="pointer-events-none absolute -right-20 bottom-0 h-64 w-64 rounded-full bg-cyan-400/15 blur-[90px]"
-            animate={{ scale: [1, 1.1, 1], opacity: [0.4, 0.65, 0.4] }}
-            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+          <div
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(181,154,109,0.08),transparent_55%)]"
             aria-hidden
           />
 
-          <div className="relative mx-auto max-w-2xl">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-glow">
+          <div className="relative z-10 mx-auto max-w-2xl">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-organ-800">
               Ready when you are
             </p>
             <h2
               id="cta-heading"
-              className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl"
+              className="mt-4 font-serif text-3xl font-semibold tracking-tight text-ink-950 sm:text-4xl"
             >
-              Put AI where your files actually live.
+              Get a guided look at an AI-assisted origination workspace.
             </h2>
-            <p className="mt-5 text-lg text-mist/70">
-              We&apos;ll map your LOS, queues, and investor paths — then stand up a
-              pilot lane so you can compare cycle times with receipts.
+            <p className="mt-5 text-lg text-organ-800">
+              On a short call we map intake to closing, show how loan and ops teams stay
+              coordinated, and save deeper configuration for when you are ready.
             </p>
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <div className="mx-auto mt-10 flex w-full max-w-md flex-col items-stretch justify-center gap-4 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center">
               <a
-                href="mailto:hello@clearledger.example"
-                className="inline-flex rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-ink-950 shadow-xl transition hover:bg-mist"
+                href="mailto:hello@basereality.example"
+                className="btn-primary-gold w-full px-8 py-3.5 text-center text-sm sm:w-auto"
               >
                 Email our solutions team
               </a>
-              <span className="text-sm text-mist/45">
+              <span className="text-center text-sm text-organ-600 sm:text-left">
                 Response within one business day
               </span>
             </div>
