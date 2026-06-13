@@ -51,9 +51,9 @@ export function HeroSessionPulse({
 
   if (variant === "integrated") {
     return (
-      <div className="flex w-full flex-col bg-gradient-to-b from-[#020617] via-[#030d18] to-[#020617] text-sky-100">
+      <div className="flex w-full flex-col bg-[#020617] text-sky-100">
         <div aria-hidden>
-          <div className="layout-header-px flex shrink-0 items-center justify-between border-b border-sky-500/25 bg-slate-950 py-3">
+          <div className="layout-header-px flex shrink-0 items-center justify-between border-b border-slate-800 bg-slate-950 py-1.5 sm:py-2">
             <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-300 sm:text-[11px]">
               Session pulse
             </span>

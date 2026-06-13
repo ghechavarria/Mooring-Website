@@ -5,11 +5,11 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative scroll-mt-24 border-b border-slate-800/90 bg-[#020617] pt-5 md:pt-7"
+      className="relative scroll-mt-24 border-b border-slate-800/90 bg-[#020617] pt-0"
       aria-labelledby="hero-heading"
     >
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_100%_55%_at_50%_-5%,rgba(56,189,248,0.11),transparent_52%),radial-gradient(ellipse_80%_45%_at_80%_35%,rgba(30,112,214,0.09),transparent_50%),radial-gradient(ellipse_70%_50%_at_10%_80%,rgba(15,23,42,0.65),transparent_55%),radial-gradient(ellipse_80%_40%_at_80%_30%,rgba(191,211,230,0.05),transparent_45%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_100%_55%_at_50%_12%,rgba(56,189,248,0.1),transparent_52%),radial-gradient(ellipse_80%_45%_at_80%_35%,rgba(30,112,214,0.09),transparent_50%),radial-gradient(ellipse_70%_50%_at_10%_80%,rgba(15,23,42,0.65),transparent_55%),radial-gradient(ellipse_80%_40%_at_80%_30%,rgba(191,211,230,0.05),transparent_45%)]"
         aria-hidden
       />
 

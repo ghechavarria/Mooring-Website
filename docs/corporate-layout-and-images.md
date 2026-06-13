@@ -25,7 +25,7 @@ To replace stock photography, drop files under `public/images/` and update the `
 ## Files
 
 - `src/components/Header.tsx` — corporate top navigation.
-- `src/components/Hero.tsx` — dark hero on **`#020617`** with cool radials ([hero-section-background.md](./hero-section-background.md)); top **`pt-5 md:pt-7`** + **`scroll-mt-24`** so content clears the sticky header; **`HeroSessionPulse`** + copy only (no motion band).
+- `src/components/Hero.tsx` — dark hero on **`#020617`** with cool radials ([hero-section-background.md](./hero-section-background.md)); **`pt-0`** + **`scroll-mt-24`** so the pulse strip meets the header without a padding band; **`HeroSessionPulse`** + copy only (no motion band).
 - `src/components/HeroSessionPulse.tsx` — session pulse (`integrated` in hero).
 - `src/components/HeroLattice.tsx` — **silver** diagonal lattice SVG (used inside **`HeroMotionBand`**).
 - `src/components/HeroMotionBand.tsx` — full lattice / motion / **Mooring ERP** block.
