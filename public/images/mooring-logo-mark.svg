@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" role="img" aria-label="Mooring ERP mark">
-  <!-- Matches `LogoMark` header: surface dark + navBorder (theme: gold #b59a6d, slate bars, organ-300 H #c9c1b8 border, panel H slate-950/90) -->
-  <rect x="0.5" y="0.5" width="35" height="35" fill="#121a27" stroke="#c9c1b8" stroke-width="1" />
-  <rect x="10" y="17" width="4" height="12" fill="#f1f5f9" />
-  <rect x="16" y="9" width="4" height="20" fill="#b59a6d" />
-  <rect x="22" y="19" width="4" height="10" fill="#94a3b8" />
-  <rect x="4" y="28" width="28" height="1" fill="#b59a6d" />
-</svg>

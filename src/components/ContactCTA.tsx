@@ -7,7 +7,7 @@ export function ContactCTA() {
       className="relative scroll-mt-8 bg-canvas py-20 sm:py-24"
       aria-labelledby="cta-heading"
     >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="layout-shell">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}

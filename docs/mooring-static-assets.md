@@ -4,18 +4,14 @@
 
 | File | Use |
 | --- | --- |
-| [public/images/mooring-small-logo.png](../public/images/mooring-small-logo.png) | **Header** sticky bar — logo tile beside **Mooring ERP** text lockup (`Header.tsx`). |
+| [public/images/mooring-small-logo.png](../public/images/mooring-small-logo.png) | **Header** sticky bar — logo tile beside **Mooring ERP** text lockup (`Header.tsx`); also **favicon** via `index.html`. |
 | [public/images/mooring-logo.png](../public/images/mooring-logo.png) | **Footer** — full lockup on navy; **`alt="Mooring ERP"`**; copyright **Mooring ERP** (`Footer.tsx`). |
 
-Square **1024×1024** sources; layout uses fixed **height** + **`w-auto`** + **`object-contain`** so aspect ratio stays correct.
+Square **1024×1024** sources; layout uses fixed **height** + **`w-auto`** + **`object-contain`** so aspect ratio stays correct. Main sections use **`.layout-shell`**; the sticky header uses fluid **`.layout-header`** — see [layout-shell.md](./layout-shell.md).
 
-## Logo mark (SVG)
+## Favicon
 
-**Path:** [public/images/mooring-logo-mark.svg](../public/images/mooring-logo-mark.svg)
-
-Flat 36×36 SVG aligned with the React **`LogoMark`** component (same bar layout and palette when `surface="dark"` and `navBorder` are used). Use for favicons, Open Graph images, email templates, or anywhere a single static file is simpler than rendering the component.
-
-**Further detail:** [logo-mark.md](./logo-mark.md) (usage examples and design parity notes).
+**Path:** same as the header small lockup — [public/images/mooring-small-logo.png](../public/images/mooring-small-logo.png). [`index.html`](../index.html) sets `<link rel="icon" type="image/png" href="/images/mooring-small-logo.png" />` so the tab icon matches the nav logo tile.
 
 ## Theme reference
 

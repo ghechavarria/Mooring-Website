@@ -53,7 +53,7 @@ export function HeroSessionPulse({
     return (
       <div className="flex w-full flex-col bg-gradient-to-b from-slate-950 via-[#070d18] to-slate-950 text-sky-100">
         <div aria-hidden>
-          <div className="flex shrink-0 items-center justify-between border-b border-sky-500/25 bg-slate-950 px-5 py-3 sm:px-6">
+          <div className="layout-header-px flex shrink-0 items-center justify-between border-b border-sky-500/25 bg-slate-950 py-3">
             <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-300 sm:text-[11px]">
               Session pulse
             </span>
@@ -63,7 +63,7 @@ export function HeroSessionPulse({
           </div>
 
           <div className="grid grid-cols-1 border-b border-slate-800 bg-slate-900 sm:grid-cols-[minmax(0,17rem)_1fr]">
-          <div className="flex items-center gap-4 border-slate-800 px-5 py-5 sm:border-r sm:px-6 sm:py-6">
+          <div className="layout-header-px flex items-center gap-4 border-slate-800 py-5 sm:border-r sm:py-6">
             <div
               className={`relative flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-sky-500/60 bg-slate-950 shadow-[0_0_0_1px_rgba(14,165,233,0.25),0_0_24px_rgba(56,189,248,0.2)] sm:h-[4.5rem] sm:w-[4.5rem]${reduceMotion ? "" : " hero-ai-pulse-swell"}`}
               style={
@@ -170,12 +170,12 @@ export function HeroSessionPulse({
               className="pointer-events-none absolute inset-0 bg-[linear-gradient(165deg,rgba(181,154,109,0.07)_0%,transparent_42%)]"
               aria-hidden
             />
-            <div className="relative px-4 py-10 sm:px-6 sm:py-12 lg:px-12 lg:py-14 xl:px-20 xl:py-16">{children}</div>
+            <div className="relative layout-header py-10 sm:py-12 lg:py-14 xl:py-16">{children}</div>
           </div>
         ) : null}
 
-        <p className="border-t border-slate-800 bg-black px-5 py-2.5 text-center font-mono text-[9px] font-medium uppercase tracking-[0.14em] text-slate-500 sm:px-6">
-          Preview: your origination command center
+        <p className="layout-header-px border-t border-slate-800 bg-black py-2.5 text-center font-mono text-[9px] font-medium uppercase tracking-[0.14em] text-slate-500">
+          Mooring ERP — illustrative session for this visit
         </p>
       </div>
     );
@@ -285,7 +285,7 @@ export function HeroSessionPulse({
           />
         </div>
         <p className="border-t border-organ-200/80 bg-organ-50/95 px-4 py-3 text-center font-mono text-[9px] uppercase tracking-[0.14em] text-slate-600 sm:px-5">
-          Preview: your origination command center
+          Mooring ERP — illustrative session for this visit
         </p>
       </div>
     </aside>

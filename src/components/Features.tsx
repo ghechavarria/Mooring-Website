@@ -71,7 +71,7 @@ export function Features() {
       aria-labelledby="features-heading"
     >
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-organ-700/25 to-transparent" aria-hidden />
-      <div className="mx-auto max-w-6xl px-4 pb-12 sm:px-6 sm:pb-14">
+      <div className="layout-shell pb-12 sm:pb-14">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-14">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -106,9 +106,6 @@ export function Features() {
               loading="lazy"
               decoding="async"
             />
-            <figcaption className="border-t border-organ-200 px-4 py-3 text-xs leading-snug text-organ-600">
-              Alignment across origination, processing, and partner milestones.
-            </figcaption>
           </motion.figure>
         </div>
 
@@ -123,7 +120,7 @@ export function Features() {
         className="relative bg-gradient-to-b from-organ-50/45 to-organ-100/65 py-14 sm:py-20"
         aria-hidden
       >
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="layout-shell">
           <div className="mx-auto max-w-3xl h-px bg-gradient-to-r from-transparent via-gold/65 to-transparent" />
         </div>
       </div>

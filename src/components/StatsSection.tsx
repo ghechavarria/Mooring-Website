@@ -71,7 +71,7 @@ export function StatsSection() {
       className="relative scroll-mt-8 border-y border-organ-800 marble-slate py-20 sm:py-24"
       aria-labelledby="stats-heading"
     >
-      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="layout-shell z-10">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}

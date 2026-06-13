@@ -5,7 +5,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative scroll-mt-4 border-b border-slate-800 bg-slate-950"
+      className="relative scroll-mt-24 border-b border-slate-800 bg-slate-950 pt-5 md:pt-7"
       aria-labelledby="hero-heading"
     >
       <div

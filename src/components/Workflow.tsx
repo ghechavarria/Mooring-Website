@@ -29,7 +29,7 @@ export function Workflow() {
       className="relative scroll-mt-8 border-t-0 marble-organ-light pb-20 pt-12 sm:pb-24 sm:pt-14"
       aria-labelledby="workflow-heading"
     >
-      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="layout-shell z-10">
         <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <motion.div
             initial={{ opacity: 0, x: -16 }}

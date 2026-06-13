@@ -10,7 +10,7 @@ export function Footer() {
       <p className="border-b border-white/5 py-3 text-center font-display text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400">
         Borrower experience · Loan team velocity · AI-assisted confidence
       </p>
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-8 px-4 py-10 sm:flex-row sm:px-6">
+      <div className="layout-shell flex flex-col items-center justify-between gap-8 py-10 sm:flex-row">
         <div className="flex shrink-0 items-center justify-center sm:justify-start">
           <span className="relative h-16 w-16 shrink-0 overflow-hidden rounded-[10px] sm:h-[4.5rem] sm:w-[4.5rem]">
             <img
