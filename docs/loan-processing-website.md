@@ -1,6 +1,6 @@
-# BaseReality marketing site
+# Mooring ERP marketing site
 
-Single-page React application for **BaseReality** — a fictional **AI-assisted mortgage origination** platform. Copy and structure emphasize a **governed workspace** for loan teams (intake through closing), with AI supporting officer and processor judgment rather than replacing it.
+Single-page React application for **Mooring ERP** — a fictional **AI-assisted mortgage origination** platform. Copy and structure emphasize a **governed workspace** for loan teams (intake through closing), with AI supporting officer and processor judgment rather than replacing it.
 
 ## Stack
 
@@ -45,11 +45,11 @@ npm run preview
 | `src/components/StatsSection.tsx` | Animated metrics (`#results`) |
 | `src/components/ContactCTA.tsx` | Contact band (`#contact`) |
 | `src/components/Footer.tsx` | Footer links and branding |
-| `src/components/LogoMark.tsx` | Shared mark (header + footer) |
+| `src/components/LogoMark.tsx` | Optional bar mark (SVG parity); header/footer use branded PNGs |
 
 ## Design notes
 
-- **Brand:** BaseReality — mortgage origination positioning; warm **organ** / **gold** palette on light sections, **slate** / **sky** on the hero instrument strip.
+- **Brand:** Mooring ERP — mortgage origination positioning; warm **organ** / **gold** palette on light sections, **slate** / **sky** on the hero instrument strip.
 - **Motion:** Sections use `whileInView` for scroll-triggered motion; hero strip uses CSS-driven ECG drift and AI orb pulse (see `docs/hero-session-pulse.md`).
 - **Accessibility:** Landmark sections include headings and `aria-labelledby` where appropriate; decorative layers use `aria-hidden`.
 

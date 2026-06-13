@@ -83,7 +83,7 @@ export function HeroMotionBand() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
-            BaseReality
+            Mooring ERP
           </motion.p>
         </div>
 

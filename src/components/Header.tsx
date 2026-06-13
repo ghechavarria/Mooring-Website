@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import { LogoMark } from "./LogoMark";
 
 const links = [
   { label: "Overview", href: "#top" },
@@ -61,15 +60,30 @@ export function Header() {
     <header className="sticky top-0 z-40 shrink-0 border-b border-organ-200/90 bg-white shadow-[0_1px_0_rgba(15,23,42,0.06),0_8px_24px_-4px_rgba(15,23,42,0.08)]">
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-gold/0 via-gold/35 to-gold/0" aria-hidden />
       <div className="mx-auto flex h-[4.25rem] max-w-6xl items-center justify-between gap-3 px-4 sm:gap-4 sm:px-6">
-        <a href="#top" className="flex min-w-0 flex-1 items-center gap-2.5 sm:gap-3 md:flex-initial">
-          <LogoMark surface="dark" navBorder />
-          <span className="min-w-0">
-            <span className="block truncate font-display text-[12px] font-bold uppercase tracking-[0.14em] text-organ-950 sm:text-[13px] sm:tracking-[0.16em]">
-              BaseReality
-            </span>
-            <span className="block truncate text-[11px] font-medium text-organ-600">
-              Mortgage origination
-            </span>
+        <a
+          href="#top"
+          className="group flex min-w-0 flex-1 items-center gap-3 rounded-xl py-1 pl-1 pr-2 transition-colors hover:bg-organ-50/90 sm:gap-3.5 sm:pr-3 md:flex-initial"
+        >
+          <span
+            className="relative h-10 w-10 shrink-0 overflow-hidden rounded-[10px] ring-1 ring-organ-200/90 shadow-[0_1px_2px_rgba(15,23,42,0.05),0_4px_12px_-4px_rgba(15,23,42,0.12)] transition-[box-shadow,ring-color] group-hover:ring-gold/40 sm:h-[2.75rem] sm:w-[2.75rem]"
+            aria-hidden
+          >
+            <img
+              src="/images/mooring-small-logo.png"
+              alt=""
+              width={1024}
+              height={1024}
+              className="h-full w-full object-cover"
+              decoding="async"
+            />
+          </span>
+          <span
+            className="pointer-events-none hidden h-9 w-px shrink-0 bg-gradient-to-b from-organ-100 via-gold/45 to-organ-100 sm:block"
+            aria-hidden
+          />
+          <span className="min-w-0 font-display text-[1.0625rem] font-extrabold uppercase leading-none tracking-[0.04em] sm:text-lg sm:tracking-[0.06em]">
+            <span className="text-organ-950">Mooring </span>
+            <span className="text-[#1e70d6]">ERP</span>
           </span>
         </a>
 

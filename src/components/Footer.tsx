@@ -1,5 +1,3 @@
-import { LogoMark } from "./LogoMark";
-
 const links = [
   { label: "Security", href: "#" },
   { label: "Privacy", href: "#" },
@@ -13,10 +11,16 @@ export function Footer() {
         Borrower experience · Loan team velocity · AI-assisted confidence
       </p>
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-8 px-4 py-10 sm:flex-row sm:px-6">
-        <div className="flex items-center gap-3">
-          <LogoMark surface="dark" />
-          <span className="font-display text-xs font-bold uppercase tracking-[0.18em] text-white">
-            BaseReality
+        <div className="flex shrink-0 items-center justify-center sm:justify-start">
+          <span className="relative h-16 w-16 shrink-0 overflow-hidden rounded-[10px] sm:h-[4.5rem] sm:w-[4.5rem]">
+            <img
+              src="/images/mooring-logo.png"
+              alt="Mooring ERP"
+              width={1024}
+              height={1024}
+              className="h-full w-full object-cover"
+              decoding="async"
+            />
           </span>
         </div>
         <nav className="flex flex-wrap justify-center gap-8" aria-label="Footer">
@@ -31,7 +35,7 @@ export function Footer() {
           ))}
         </nav>
         <p className="font-mono text-xs text-slate-400">
-          © {new Date().getFullYear()} BaseReality
+          © {new Date().getFullYear()} Mooring ERP
         </p>
       </div>
     </footer>

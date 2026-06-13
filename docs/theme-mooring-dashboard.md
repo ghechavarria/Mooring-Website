@@ -1,6 +1,6 @@
-# BaseReality + enterprise dashboard theme
+# Mooring ERP + enterprise dashboard theme
 
-This document describes the visual system: **BaseReality brand** (navy, ivory, muted gold) with an **enterprise** marketing presentation (light surfaces, restrained shadow, serif headlines for editorial tone).
+This document describes the visual system: **Mooring ERP brand** (navy, ivory, muted gold) with an **enterprise** marketing presentation (light surfaces, restrained shadow, serif headlines for editorial tone).
 
 ## Layout
 

@@ -26,7 +26,7 @@ export function Hero() {
           >
             <p className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-gold/90">
               <span className="h-px w-10 shrink-0 bg-gold sm:w-14" aria-hidden />
-              AI-assisted mortgage origination
+              Intelligent Automation. Real Results.
             </p>
             <h1
               id="hero-heading"
@@ -35,7 +35,7 @@ export function Hero() {
               The pipeline from first conversation to funded loan — without the scramble.
             </h1>
             <p className="mt-5 max-w-none text-base leading-relaxed text-slate-300 sm:text-lg lg:mt-6 lg:max-w-4xl xl:max-w-5xl xl:text-xl xl:leading-relaxed">
-              BaseReality is a governed workspace for loan teams: intake, documentation, credit
+              Mooring ERP is a governed workspace for loan teams: intake, documentation, credit
               context, and lender milestones in one place — with AI accelerating the work you
               already do, not replacing your judgment.
             </p>
@@ -47,7 +47,7 @@ export function Hero() {
                 href="#platform"
                 className="inline-flex w-full items-center justify-center rounded-md border border-gold/45 bg-slate-950/60 px-6 py-3 text-sm font-semibold text-slate-100 shadow-sm backdrop-blur-sm transition hover:border-gold hover:bg-slate-900/80 sm:w-auto"
               >
-                See the platform
+                Explore capabilities
               </a>
             </div>
             <dl className="mt-10 grid w-full gap-8 border-t border-slate-700/80 pt-8 sm:grid-cols-3 sm:gap-10 lg:mt-12 lg:gap-14 lg:pt-10 xl:gap-20">

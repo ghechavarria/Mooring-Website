@@ -150,7 +150,7 @@ export function Workflow() {
                 className="mt-10 flex w-full flex-col justify-center gap-5 border-t border-organ-600/25 pt-8 sm:gap-6 sm:pt-10 lg:mt-0 lg:w-56 lg:shrink-0 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0 xl:w-64"
                 aria-hidden
               >
-                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-organ-500">
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/90">
                   Stages (illustrative)
                 </p>
                 {[
@@ -159,7 +159,7 @@ export function Workflow() {
                   ["Lender round-trip", "91%"],
                 ].map(([label, width]) => (
                   <div key={label}>
-                    <p className="text-[11px] font-medium text-organ-500">{label}</p>
+                    <p className="text-xs font-medium text-organ-100">{label}</p>
                     <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-organ-950/75">
                       <div
                         className="h-full rounded-full bg-gradient-to-r from-gold/70 to-gold"

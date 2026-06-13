@@ -22,5 +22,5 @@
 
 - **Hero:** CTA row stacks full-width buttons on small screens (`flex-col` → `sm:flex-row`).
 - **Workflow:** “Pipeline snapshot” stats card is **visible on all breakpoints** (previously `hidden` until `lg`).
-- **HeroMotionBand:** “BaseReality” headline scales down on small viewports with tighter letter-spacing to avoid overflow.
-- **Features / LogoMark / Workflow:** Replaced invalid **`organ-300`** utilities (not in `tailwind.config.js`) with **`organ-200`** or **`organ-500`** as appropriate.
+- **HeroMotionBand:** “Mooring ERP” headline scales down on small viewports with tighter letter-spacing to avoid overflow.
+- **Features / LogoMark / Workflow:** Replaced invalid **`organ-300`** utilities (not in `tailwind.config.js`) with defined steps such as **`organ-200`** where needed. On **`marble-slate`**, avoid **`organ-400`**–**`500`** (also undefined) so text does not inherit an unreadable default color — see [workflow-pipeline-snapshot.md](./workflow-pipeline-snapshot.md).
