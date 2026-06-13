@@ -62,29 +62,33 @@ export function HeroSessionPulse({
             </span>
           </div>
 
-          <div className="grid grid-cols-1 border-b border-slate-800 bg-slate-900 sm:grid-cols-[minmax(0,17rem)_1fr]">
-          <div className="layout-header-px flex items-center gap-4 border-slate-800 py-5 sm:border-r sm:py-6">
+          <div className="grid grid-cols-1 border-b border-slate-800 bg-slate-900 sm:grid-cols-[minmax(0,24rem)_1fr]">
+          <div className="layout-header-px flex h-[8.5rem] shrink-0 items-center gap-4 overflow-hidden border-slate-800 sm:h-[8.75rem] lg:h-[10rem] xl:h-[10.5rem] 2xl:h-[11rem] sm:border-r sm:border-slate-800">
             <div
-              className={`relative flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-sky-500/60 bg-slate-950 shadow-[0_0_0_1px_rgba(14,165,233,0.25),0_0_24px_rgba(56,189,248,0.2)] sm:h-[4.5rem] sm:w-[4.5rem]${reduceMotion ? "" : " hero-ai-pulse-swell"}`}
+              className={`relative flex h-[5rem] w-[5rem] shrink-0 items-center justify-center rounded-full border border-sky-500/60 bg-slate-950 shadow-[0_0_0_1px_rgba(14,165,233,0.25),0_0_24px_rgba(56,189,248,0.2)]${reduceMotion ? "" : " hero-ai-pulse-swell"}`}
               style={
                 reduceMotion
                   ? undefined
                   : ({ "--ai-pulse-beat": `${beatMs}ms` } as CSSProperties)
               }
             >
-              <span className="font-mono text-xs font-bold uppercase tracking-wide text-sky-200">
+              <span className="font-mono text-sm font-bold uppercase tracking-wide text-sky-200">
                 AI
               </span>
             </div>
-            <div className="min-w-0">
-              <p className="text-xs font-semibold text-slate-200">Intelligence layer</p>
-              <p className="mt-1 font-mono text-[11px] leading-snug text-sky-400 sm:text-xs">
-                {statusLines[tick % statusLines.length]}
+            <div className="flex min-h-0 min-w-0 flex-1 flex-col justify-center">
+              <p className="line-clamp-2 text-sm font-semibold leading-snug text-slate-200 sm:text-base">
+                Intelligence layer
               </p>
+              <div className="mt-1.5 h-[4.5rem] w-full min-w-0 overflow-hidden sm:h-[5.125rem]">
+                <p className="line-clamp-4 font-mono text-xs leading-snug text-sky-400 sm:text-sm sm:leading-snug">
+                  {statusLines[tick % statusLines.length]}
+                </p>
+              </div>
             </div>
           </div>
 
-          <div className="relative min-h-[4.5rem] overflow-hidden border-t border-slate-800 bg-[#030712] sm:min-h-[5.25rem] sm:border-l sm:border-t-0 sm:border-slate-800">
+          <div className="relative flex min-h-[4.5rem] items-stretch overflow-hidden border-t border-slate-800 bg-[#030712] sm:h-full sm:min-h-0 sm:items-center sm:border-l sm:border-t-0 sm:border-slate-800">
             <div
               className="pointer-events-none absolute inset-0 opacity-[0.07]"
               style={{
@@ -96,7 +100,7 @@ export function HeroSessionPulse({
             <svg
               viewBox="0 0 360 56"
               preserveAspectRatio="xMidYMid meet"
-              className="relative z-[1] block h-full min-h-[4.5rem] w-full sm:min-h-[5.25rem]"
+              className="relative z-[1] block h-[4.5rem] w-full shrink-0 sm:h-[5.25rem] sm:min-h-0 lg:h-[7.25rem] xl:h-[8rem] 2xl:h-[8.75rem]"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               aria-hidden
@@ -140,13 +144,12 @@ export function HeroSessionPulse({
                   }
                 >
                   <path
+                    className="integrated-ecg-path"
                     d={ecgScrollPath}
                     stroke={`url(#${gid}-int-stroke)`}
-                    strokeWidth="1.35"
                     strokeLinecap="butt"
                     strokeLinejoin="miter"
                     strokeMiterlimit="8"
-                    vectorEffect="non-scaling-stroke"
                     shapeRendering="geometricPrecision"
                   />
                 </g>

@@ -78,6 +78,30 @@
     }
   }
 
+  /**
+   * Integrated hero ECG path: `vector-effect: non-scaling-stroke` keeps phone/tablet crisp.
+   * Wider viewports use a taller SVG; bump stroke so the trace does not read as a hairline.
+   */
+  .integrated-ecg-path {
+    vector-effect: non-scaling-stroke;
+    stroke-width: 1.35px;
+  }
+  @media (min-width: 1024px) {
+    .integrated-ecg-path {
+      stroke-width: 1.85px;
+    }
+  }
+  @media (min-width: 1280px) {
+    .integrated-ecg-path {
+      stroke-width: 2.05px;
+    }
+  }
+  @media (min-width: 1536px) {
+    .integrated-ecg-path {
+      stroke-width: 2.25px;
+    }
+  }
+
   /** AI orb: one smooth breath per `--ai-pulse-beat` (sin half-wave, many stops ≈ smooth curve). */
   @keyframes hero-ai-pulse-swell {
     0% {
