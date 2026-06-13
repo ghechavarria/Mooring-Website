@@ -63,9 +63,9 @@ export function HeroSessionPulse({
           </div>
 
           <div className="grid grid-cols-1 border-b border-slate-800 bg-slate-900 sm:grid-cols-[minmax(0,17rem)_1fr]">
-          <div className="layout-header-px flex items-center gap-4 border-slate-800 py-5 sm:border-r sm:py-6">
+          <div className="layout-header-px flex items-start gap-4 border-slate-800 py-5 sm:border-r sm:py-6">
             <div
-              className={`relative flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-sky-500/60 bg-slate-950 shadow-[0_0_0_1px_rgba(14,165,233,0.25),0_0_24px_rgba(56,189,248,0.2)] sm:h-[4.5rem] sm:w-[4.5rem]${reduceMotion ? "" : " hero-ai-pulse-swell"}`}
+              className={`relative mt-0.5 flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-sky-500/60 bg-slate-950 shadow-[0_0_0_1px_rgba(14,165,233,0.25),0_0_24px_rgba(56,189,248,0.2)] sm:h-[4.5rem] sm:w-[4.5rem]${reduceMotion ? "" : " hero-ai-pulse-swell"}`}
               style={
                 reduceMotion
                   ? undefined
@@ -78,7 +78,7 @@ export function HeroSessionPulse({
             </div>
             <div className="min-w-0">
               <p className="text-xs font-semibold text-slate-200">Intelligence layer</p>
-              <p className="mt-1 font-mono text-[11px] leading-snug text-sky-400 sm:text-xs">
+              <p className="mt-1 min-h-[5lh] font-mono text-[11px] leading-snug text-sky-400 sm:text-xs">
                 {statusLines[tick % statusLines.length]}
               </p>
             </div>
