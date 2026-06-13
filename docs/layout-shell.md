@@ -19,7 +19,7 @@ The **sticky header** does **not** use that cap: it uses **`.layout-header`** in
 | `2xl` | `max-w-[90rem]`, `px-12` |
 | `min-width: 1800px` | `max-w-[100rem]` |
 
-Used by [`Features.tsx`](../src/components/Features.tsx), [`Workflow.tsx`](../src/components/Workflow.tsx), [`HeroMotionBand.tsx`](../src/components/HeroMotionBand.tsx), [`StatsSection.tsx`](../src/components/StatsSection.tsx), [`ContactCTA.tsx`](../src/components/ContactCTA.tsx), [`Footer.tsx`](../src/components/Footer.tsx).
+Used by [`Features.tsx`](../src/components/Features.tsx), [`Workflow.tsx`](../src/components/Workflow.tsx), [`HeroMotionBand.tsx`](../src/components/HeroMotionBand.tsx), [`StatsSection.tsx`](../src/components/StatsSection.tsx), [`TeamSection.tsx`](../src/components/TeamSection.tsx), [`ContactCTA.tsx`](../src/components/ContactCTA.tsx), [`Footer.tsx`](../src/components/Footer.tsx).
 
 ## `.layout-header` (nav only)
 

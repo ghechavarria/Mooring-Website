@@ -18,15 +18,15 @@
     @apply relative mx-auto w-full max-w-none layout-header-px;
   }
 
-  .btn-primary-gold {
-    @apply inline-flex items-center justify-center rounded-md bg-gold font-semibold text-slate-950 ring-1 ring-gold/65 transition;
-    box-shadow: 0 4px 16px rgba(181, 154, 109, 0.45);
+  .btn-primary-silver {
+    @apply inline-flex items-center justify-center rounded-md bg-accent font-semibold text-slate-950 ring-1 ring-accent/65 transition;
+    box-shadow: 0 4px 18px rgba(191, 211, 230, 0.48);
   }
-  .btn-primary-gold:hover {
-    @apply bg-glow ring-gold/90;
-    box-shadow: 0 8px 28px rgba(181, 154, 109, 0.55);
+  .btn-primary-silver:hover {
+    @apply bg-accent-light ring-accent/90;
+    box-shadow: 0 8px 32px rgba(191, 211, 230, 0.58);
   }
-  .btn-primary-gold:active {
+  .btn-primary-silver:active {
     transform: translateY(1px);
   }
 }
@@ -169,16 +169,19 @@
     }
   }
 
-  /* Dark organic slate + marble veining (for contrast bands) */
+  /* Dark slate + marble veining — same navy family as hero / logo tile (#020617), not flat charcoal */
   .marble-slate {
     position: relative;
     isolation: isolate;
-    background-color: theme("colors.organ.950");
+    background-color: #020617;
     background-image:
+      linear-gradient(180deg, rgba(5, 16, 28, 0.55) 0%, transparent 42%, rgba(10, 22, 36, 0.5) 100%),
       linear-gradient(118deg, rgba(255, 255, 255, 0.055) 0%, transparent 46%),
-      linear-gradient(218deg, rgba(181, 154, 109, 0.1) 0%, transparent 44%),
-      linear-gradient(352deg, rgba(0, 0, 0, 0.28) 0%, transparent 52%),
-      radial-gradient(ellipse 95% 75% at 50% -5%, rgba(71, 85, 105, 0.16), transparent 58%);
+      linear-gradient(218deg, rgba(191, 211, 230, 0.11) 0%, transparent 44%),
+      linear-gradient(352deg, rgba(15, 23, 42, 0.38) 0%, transparent 52%),
+      radial-gradient(ellipse 95% 75% at 50% -5%, rgba(30, 112, 214, 0.14), transparent 58%),
+      radial-gradient(ellipse 85% 55% at 100% 12%, rgba(56, 189, 248, 0.09), transparent 50%),
+      radial-gradient(ellipse 75% 45% at 0% 100%, rgba(15, 23, 42, 0.55), transparent 55%);
   }
   .marble-slate::before {
     content: "";
@@ -198,7 +201,7 @@
     background-color: theme("colors.organ.100");
     background-image:
       linear-gradient(122deg, rgba(63, 56, 51, 0.07) 0%, transparent 48%),
-      linear-gradient(300deg, rgba(181, 154, 109, 0.06) 0%, transparent 40%),
+      linear-gradient(300deg, rgba(191, 211, 230, 0.1) 0%, transparent 40%),
       radial-gradient(ellipse 80% 60% at 100% 0%, rgba(255, 255, 255, 0.35), transparent 50%);
   }
   .marble-organ-light::before {

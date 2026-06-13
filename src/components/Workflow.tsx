@@ -47,7 +47,7 @@ export function Workflow() {
               Replace duct-taped portals and spreadsheets with one pipeline that respects
               your compliance story — and still feels fast on the front line.
             </p>
-            <figure className="mt-10 overflow-hidden border border-organ-200/90 bg-white shadow-sm">
+            <figure className="mt-10 overflow-hidden rounded-xl border border-organ-200/90 bg-white shadow-sm">
               <img
                 src={operationsWorkspace}
                 alt="Mortgage operations team collaborating over loan files and systems"
@@ -57,9 +57,6 @@ export function Workflow() {
                 loading="lazy"
                 decoding="async"
               />
-              <figcaption className="border-t border-organ-200 px-4 py-3 text-xs text-organ-600">
-                Origination and operations on one governed view of the loan.
-              </figcaption>
             </figure>
           </motion.div>
 
@@ -86,12 +83,12 @@ export function Workflow() {
                       ease: [0.22, 1, 0.36, 1],
                     }}
                   >
-                    <span className="block h-full w-px shrink-0 rounded-full bg-gradient-to-b from-gold/45 via-organ-200/90 to-gold/40" />
+                    <span className="block h-full w-px shrink-0 rounded-full bg-gradient-to-b from-accent/45 via-organ-200/90 to-accent/40" />
                   </motion.div>
                 ) : null}
                 <div className="relative z-[1] flex items-start gap-6">
                   <motion.span
-                    className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-gold/45 bg-ink-950 font-mono text-xs font-semibold text-gold shadow-[0_0_20px_rgba(181,154,109,0.28)]"
+                    className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-accent/45 bg-ink-950 font-mono text-xs font-semibold text-accent shadow-[0_0_20px_rgba(191,211,230,0.28)]"
                     whileHover={{ scale: 1.08 }}
                   >
                     {i + 1}
@@ -114,13 +111,13 @@ export function Workflow() {
             viewport={{ once: true }}
           >
             <div
-              className="pointer-events-none absolute -right-24 -top-28 h-72 w-72 rounded-full bg-gold/10 blur-3xl"
+              className="pointer-events-none absolute -right-24 -top-28 h-72 w-72 rounded-full bg-accent/10 blur-3xl"
               aria-hidden
             />
             <div className="pointer-events-none absolute -bottom-16 left-1/3 h-48 w-96 -translate-x-1/2 rounded-full bg-sky-500/5 blur-3xl" aria-hidden />
             <div className="relative z-10 lg:flex lg:flex-row lg:items-stretch lg:justify-between lg:gap-12 xl:gap-16">
               <div className="min-w-0 flex-1 lg:max-w-xl">
-                <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-gold">
+                <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
                   Pipeline snapshot
                 </p>
                 <p className="mt-5 text-4xl font-semibold tabular-nums text-organ-50 sm:text-5xl">
@@ -138,7 +135,7 @@ export function Workflow() {
                 </p>
                 <div className="mt-8 h-2 overflow-hidden rounded-full bg-organ-950/80 sm:mt-10">
                   <motion.div
-                    className="h-full rounded-full bg-gradient-to-r from-gold to-glow"
+                    className="h-full rounded-full bg-gradient-to-r from-accent to-accent-light"
                     initial={{ width: "0%" }}
                     whileInView={{ width: "94%" }}
                     viewport={{ once: true }}
@@ -150,7 +147,7 @@ export function Workflow() {
                 className="mt-10 flex w-full flex-col justify-center gap-5 border-t border-organ-600/25 pt-8 sm:gap-6 sm:pt-10 lg:mt-0 lg:w-56 lg:shrink-0 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0 xl:w-64"
                 aria-hidden
               >
-                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/90">
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent/90">
                   Stages (illustrative)
                 </p>
                 {[
@@ -162,7 +159,7 @@ export function Workflow() {
                     <p className="text-xs font-medium text-organ-100">{label}</p>
                     <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-organ-950/75">
                       <div
-                        className="h-full rounded-full bg-gradient-to-r from-gold/70 to-gold"
+                        className="h-full rounded-full bg-gradient-to-r from-accent/70 to-accent"
                         style={{ width }}
                       />
                     </div>

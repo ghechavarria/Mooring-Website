@@ -1,16 +1,17 @@
 # Hero motion band (`HeroMotionBand.tsx`)
 
-Full-bleed **dark organic slate** strip with **gold** lattice, motion, and the **Mooring ERP** wordmark. **`App.tsx`** renders it **after** **`Workflow`** and **before** **`StatsSection`**.
+Full-bleed **ink–navy** strip with **silver** lattice, motion, and the **Mooring ERP** wordmark. **`App.tsx`** renders it **after** **`Workflow`** and **before** **`StatsSection`**.
 
 ## Visual ingredients
 
-- **Base:** Warm **charcoal–gold** corner gradient (`#1a1612` → `organ-900` → `#2c261c`) plus a **stack of gold radials** (center bloom, top arc, right and left corners) and a **diagonal gold veil** so the whole strip sits in a gold atmosphere like the original band.
+- **Base:** Deep **blue-black** gradient (`#020617` → `#05101c` → `#0a1624`, Tailwind `slate-950` family) so the band reads like the logo tile, not a flat warm gray.
+- **Wash:** Radials mix **sky** (`rgba(56,189,248,…)`) and **ERP blue** (`rgba(30,112,214,…)`) with **accent** silver mist and a **slate-900** corner anchor for depth.
 - **Texture:** SVG noise overlay (`mix-blend-overlay`, ~35% opacity) for a stone-like grain.
 - **Grid:** **`HeroLattice`** — SVG diagonal lattice; `animate-grid-breathe` (see [hero-lattice.md](./hero-lattice.md)).
-- **Light:** Large **gold** blur drifts on a slow loop; right-side drift blends **gold into organ** (`from-gold/18 to-organ-700/30`) when motion is allowed.
-- **Scan:** A thin gold gradient line moves vertically when motion is allowed.
-- **Word:** **Mooring ERP** — `Montserrat`, gold → ivory gradient fill, `bg-clip-text`, `animate-shimmer-slow`, uppercase tracking.
-- **Caption:** Small mono **“Mortgage workspace”** (`text-gold/85`); supporting line **`text-slate-100/95`** with a light **text-shadow** for legibility on the gold wash — mortgage journey language (borrower touchpoints, lender conditions, clear-to-close).
+- **Light:** Large **silver-toned** blur drifts on a slow loop; right-side drift blends **accent into `blue-950`** when motion is allowed.
+- **Scan:** A thin silver gradient line moves vertically when motion is allowed.
+- **Word:** **Mooring ERP** — `Montserrat`, **`accent` → white → `accent`** horizontal gradient, `bg-clip-text`, `animate-shimmer-slow`, uppercase tracking.
+- **Caption:** Small mono **“Mortgage workspace”** (`text-accent-light/90`); supporting line **`text-slate-200/95`** with a light **text-shadow** for legibility on the metallic wash — mortgage journey language (borrower touchpoints, lender conditions, clear-to-close).
 
 ## Motion safety
 
@@ -18,4 +19,4 @@ Full-bleed **dark organic slate** strip with **gold** lattice, motion, and the *
 
 ## Tokens
 
-Uses `organ-*`, `gold`, `slate`, and custom animations from `tailwind.config.js` (`grid-breathe`, `shimmer-slow`).
+Uses **`accent`** (silver-toned), **`blue-950`**, **`slate`**, and custom animations from `tailwind.config.js` (`grid-breathe`, `shimmer-slow`).

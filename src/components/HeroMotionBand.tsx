@@ -5,9 +5,9 @@ export function HeroMotionBand() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <div className="relative overflow-hidden border-y border-gold/35 bg-gradient-to-br from-[#1a1612] via-organ-900 to-[#2c261c]">
+    <div className="relative overflow-hidden border-y border-accent/40 bg-gradient-to-br from-[#020617] via-[#05101c] to-[#0a1624]">
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_120%_90%_at_50%_45%,rgba(181,154,109,0.22),transparent_62%),radial-gradient(ellipse_85%_65%_at_50%_-10%,rgba(181,154,109,0.32),transparent_55%),radial-gradient(ellipse_75%_60%_at_100%_40%,rgba(181,154,109,0.18),transparent_52%),radial-gradient(ellipse_60%_50%_at_0%_100%,rgba(181,154,109,0.16),transparent_48%),linear-gradient(155deg,rgba(181,154,109,0.11)_0%,transparent_42%,rgba(181,154,109,0.09)_100%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_120%_90%_at_50%_45%,rgba(191,211,230,0.14),transparent_62%),radial-gradient(ellipse_85%_65%_at_50%_-10%,rgba(56,189,248,0.14),transparent_55%),radial-gradient(ellipse_75%_60%_at_100%_40%,rgba(30,112,214,0.12),transparent_52%),radial-gradient(ellipse_60%_50%_at_0%_100%,rgba(15,23,42,0.55),transparent_48%),linear-gradient(155deg,rgba(191,211,230,0.06)_0%,transparent_42%,rgba(30,112,214,0.05)_100%)]"
         aria-hidden
       />
       <div
@@ -20,7 +20,7 @@ export function HeroMotionBand() {
       />
 
       <motion.div
-        className="pointer-events-none absolute -left-1/4 top-1/2 h-[120%] w-[70%] rounded-full bg-gold/28 blur-[100px]"
+        className="pointer-events-none absolute -left-1/4 top-1/2 h-[120%] w-[70%] rounded-full bg-accent/28 blur-[100px]"
         aria-hidden
         animate={
           reduceMotion
@@ -30,7 +30,7 @@ export function HeroMotionBand() {
         transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="pointer-events-none absolute -right-1/4 top-0 h-full w-[55%] rounded-full bg-gradient-to-bl from-gold/18 to-organ-700/30 blur-[90px]"
+        className="pointer-events-none absolute -right-1/4 top-0 h-full w-[55%] rounded-full bg-gradient-to-bl from-accent/25 to-blue-950/45 blur-[90px]"
         aria-hidden
         animate={
           reduceMotion
@@ -44,7 +44,7 @@ export function HeroMotionBand() {
 
       {!reduceMotion ? (
         <motion.div
-          className="pointer-events-none absolute left-[8%] right-[8%] h-px bg-gradient-to-r from-transparent via-gold/70 to-transparent shadow-[0_0_24px_rgba(181,154,109,0.45)]"
+          className="pointer-events-none absolute left-[8%] right-[8%] h-px bg-gradient-to-r from-transparent via-accent/70 to-transparent shadow-[0_0_24px_rgba(191,211,230,0.45)]"
           aria-hidden
           initial={{ top: "18%" }}
           animate={{ top: ["18%", "78%", "22%", "70%", "18%"] }}
@@ -52,14 +52,14 @@ export function HeroMotionBand() {
         />
       ) : (
         <div
-          className="pointer-events-none absolute left-[8%] right-[8%] top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-gold/50 to-transparent"
+          className="pointer-events-none absolute left-[8%] right-[8%] top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-accent/50 to-transparent"
           aria-hidden
         />
       )}
 
       <div className="layout-shell z-10 flex flex-col items-center py-14 text-center sm:py-20">
         <motion.p
-          className="font-mono text-[11px] font-medium uppercase tracking-[0.35em] text-gold/85"
+          className="font-mono text-[11px] font-medium uppercase tracking-[0.35em] text-accent-light"
           initial={reduceMotion ? undefined : { opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -70,14 +70,14 @@ export function HeroMotionBand() {
         <div className="relative mt-6">
           {!reduceMotion ? (
             <motion.span
-              className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-28 w-[min(92vw,540px)] rounded-full bg-gold/18 blur-3xl"
+              className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-28 w-[min(92vw,540px)] rounded-full bg-accent/30 blur-3xl"
               aria-hidden
               animate={{ opacity: [0.35, 0.75, 0.35], scale: [0.96, 1.06, 0.96] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             />
           ) : null}
           <motion.p
-            className="relative z-10 bg-gradient-to-r from-gold via-[#f4ead8] to-gold bg-[length:200%_100%] bg-clip-text font-display text-3xl font-extrabold uppercase tracking-[0.12em] text-transparent sm:text-5xl sm:tracking-[0.22em] md:text-6xl md:tracking-[0.26em] lg:text-7xl lg:tracking-[0.28em] animate-shimmer-slow"
+            className="relative z-10 bg-gradient-to-r from-accent via-white to-accent bg-[length:200%_100%] bg-clip-text font-display text-3xl font-extrabold uppercase tracking-[0.12em] text-transparent sm:text-5xl sm:tracking-[0.22em] md:text-6xl md:tracking-[0.26em] lg:text-7xl lg:tracking-[0.28em] animate-shimmer-slow"
             initial={reduceMotion ? undefined : { opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -87,9 +87,9 @@ export function HeroMotionBand() {
           </motion.p>
         </div>
 
-        <p className="relative z-10 mt-8 max-w-md text-sm leading-relaxed text-slate-100/95 [text-shadow:0_1px_2px_rgba(0,0,0,0.35)]">
+        <p className="relative z-10 mt-8 max-w-md text-sm leading-relaxed text-slate-200/95 [text-shadow:0_1px_2px_rgba(0,0,0,0.35)]">
           Borrower touchpoints, lender conditions, and your checklist — one governed flow
-          from first doc to clear-to-close, with gold-threaded controls on organic slate.
+          from first doc to clear-to-close, with silver-threaded controls on organic slate.
         </p>
       </div>
     </div>

@@ -4,7 +4,7 @@ Decorative **session pulse** for the marketing hero: a **live-styled** monitor s
 
 ## Theme
 
-Uses Tailwind **`slate` / `sky` / `blue`** utilities on the strip for contrast (near-black chart well `#030712`, readable `text-sky-400` status). **`gold` / `glow`** appear on the main hero when copy is passed as **`children`** (see `Hero.tsx`). Optional **`pulse.*`** tokens in `tailwind.config.js` remain for other surfaces.
+Uses Tailwind **`slate` / `sky` / `blue`** utilities on the strip for contrast (near-black chart well `#030712`, readable `text-sky-400` status). The **`integrated`** outer wrapper uses **`#020617`** (slate-950 family) vertical gradient so the slab matches the **logo ink** field, not a warm gray. **`accent` / `accent-light`** (silver-toned) appear on the main hero when copy is passed as **`children`** (see `Hero.tsx`). Optional **`pulse.*`** tokens in `tailwind.config.js` remain for other surfaces.
 
 ## Variants
 

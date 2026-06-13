@@ -18,9 +18,12 @@ export default {
         },
         mist: "#0f172a",
         navy: "#0a0e14",
-        tide: "#b59a6d",
-        gold: "#b59a6d",
-        glow: "#e8dcc8",
+        /** Luminous cool silver (logo-adjacent); brighter than earlier muted slate */
+        tide: "#bfd3e6",
+        accent: {
+          DEFAULT: "#bfd3e6",
+          light: "#f4f9fc",
+        },
         canvas: "#f8fafc",
         ivory: "#f2f2f2",
         organ: {
@@ -51,7 +54,7 @@ export default {
       },
       backgroundImage: {
         "grid-fade":
-          "linear-gradient(to right, rgba(181,154,109,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(181,154,109,0.06) 1px, transparent 1px)",
+          "linear-gradient(to right, rgba(191,211,230,0.09) 1px, transparent 1px), linear-gradient(to bottom, rgba(191,211,230,0.09) 1px, transparent 1px)",
       },
       animation: {
         float: "float 18s ease-in-out infinite",
@@ -78,8 +81,8 @@ export default {
           "100%": { top: "88%" },
         },
         "grid-breathe": {
-          "0%, 100%": { opacity: "0.12" },
-          "50%": { opacity: "0.28" },
+          "0%, 100%": { opacity: "0.32" },
+          "50%": { opacity: "0.58" },
         },
         drift: {
           "0%, 100%": { transform: "translate(0, 0) scale(1)" },

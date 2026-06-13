@@ -6,6 +6,7 @@ const links = [
   { label: "Capabilities", href: "#platform" },
   { label: "Workflow", href: "#workflow" },
   { label: "Outcomes", href: "#results" },
+  { label: "Team", href: "#team" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -67,14 +68,14 @@ export function Header() {
   return (
     <>
     <header className="sticky inset-x-0 top-0 z-40 w-full max-w-none min-w-0 shrink-0 self-stretch border-b border-organ-200/90 bg-white shadow-[0_1px_0_rgba(15,23,42,0.06),0_8px_24px_-4px_rgba(15,23,42,0.08)]">
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-gold/0 via-gold/35 to-gold/0" aria-hidden />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-accent/0 via-accent/35 to-accent/0" aria-hidden />
       <div className="layout-header flex h-[4.25rem] items-center justify-between gap-3 xl:gap-x-6">
         <a
           href="#top"
           className="group flex min-w-0 shrink-0 items-center gap-3 rounded-xl py-1 pl-1 pr-2 transition-colors hover:bg-organ-50/90 sm:gap-3.5 sm:pr-3"
         >
           <span
-            className="relative h-10 w-10 shrink-0 overflow-hidden rounded-[10px] ring-1 ring-organ-200/90 shadow-[0_1px_2px_rgba(15,23,42,0.05),0_4px_12px_-4px_rgba(15,23,42,0.12)] transition-[box-shadow,ring-color] group-hover:ring-gold/40 sm:h-[2.75rem] sm:w-[2.75rem]"
+            className="relative h-10 w-10 shrink-0 overflow-hidden rounded-[10px] ring-1 ring-organ-200/90 shadow-[0_1px_2px_rgba(15,23,42,0.05),0_4px_12px_-4px_rgba(15,23,42,0.12)] transition-[box-shadow,ring-color] group-hover:ring-accent/40 sm:h-[2.75rem] sm:w-[2.75rem]"
             aria-hidden
           >
             <img
@@ -87,7 +88,7 @@ export function Header() {
             />
           </span>
           <span
-            className="pointer-events-none hidden h-9 w-px shrink-0 bg-gradient-to-b from-organ-100 via-gold/45 to-organ-100 sm:block"
+            className="pointer-events-none hidden h-9 w-px shrink-0 bg-gradient-to-b from-organ-100 via-accent/45 to-organ-100 sm:block"
             aria-hidden
           />
           <span className="min-w-0 font-display text-[1.0625rem] font-extrabold uppercase leading-none tracking-[0.04em] sm:text-lg sm:tracking-[0.06em]">
@@ -108,7 +109,7 @@ export function Header() {
               </a>
             ))}
           </nav>
-          <a href="#contact" className="btn-primary-gold shrink-0 px-4 py-2.5 text-sm">
+          <a href="#contact" className="btn-primary-silver shrink-0 px-4 py-2.5 text-sm">
             Request a briefing
           </a>
         </div>
@@ -173,7 +174,7 @@ export function Header() {
                 ))}
                 <a
                   href="#contact"
-                  className="btn-primary-gold mt-3 w-full px-3 py-3.5 text-center text-base font-semibold"
+                  className="btn-primary-silver mt-3 w-full px-3 py-3.5 text-center text-base font-semibold"
                   onClick={() => setMenuOpen(false)}
                 >
                   Request a briefing

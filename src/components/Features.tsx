@@ -7,22 +7,22 @@ const features = [
   {
     title: "Guided intake",
     body: "Borrower onboarding, questionnaires, and uploads land in one structured file — no mystery attachments.",
-    accent: "from-gold/30 to-transparent",
+    accent: "from-accent/30 to-transparent",
   },
   {
     title: "AI-ready document flow",
     body: "Paperwork is organized and prioritized so your team sees what matters next — before underwriting has to ask twice.",
-    accent: "from-glow/25 to-transparent",
+    accent: "from-accent-light/25 to-transparent",
   },
   {
     title: "Credit through package",
     body: "Pre-approval momentum carries into application prep and lender submission without re-keying the story of the loan.",
-    accent: "from-gold/20 to-transparent",
+    accent: "from-accent/20 to-transparent",
   },
   {
     title: "Milestone visibility",
     body: "Conditional items, lender feedback, and closing checkpoints read as a single timeline — not five inboxes.",
-    accent: "from-glow/20 to-transparent",
+    accent: "from-accent-light/20 to-transparent",
   },
 ] as const;
 
@@ -95,7 +95,7 @@ export function Features() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.5 }}
-            className="overflow-hidden border border-organ-200 bg-white shadow-sm"
+            className="overflow-hidden rounded-xl border border-organ-200 bg-white shadow-sm"
           >
             <img
               src={leadershipCollaboration}
@@ -121,7 +121,7 @@ export function Features() {
         aria-hidden
       >
         <div className="layout-shell">
-          <div className="mx-auto max-w-3xl h-px bg-gradient-to-r from-transparent via-gold/65 to-transparent" />
+          <div className="mx-auto max-w-3xl h-px bg-gradient-to-r from-transparent via-accent/65 to-transparent" />
         </div>
       </div>
     </section>

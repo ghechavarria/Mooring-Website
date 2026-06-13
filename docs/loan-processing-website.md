@@ -34,21 +34,22 @@ npm run preview
 | `index.html` | HTML shell, fonts, page title, meta description, **PNG favicon** (`/images/mooring-small-logo.png`) |
 | `src/main.tsx` | React bootstrapping |
 | `src/App.tsx` | Section order; outer shell uses **`flex-1 min-h-0 w-full`** so it fills **`#root`** |
-| `src/index.css` | Tailwind layers; **`#root`** flex column + **`html`/`body`** `w-full`; **`.btn-primary-gold`**, **`.layout-shell`**, **`.layout-header`** / **`.layout-header-px`**, ECG / AI utilities |
+| `src/index.css` | Tailwind layers; **`#root`** flex column + **`html`/`body`** `w-full`; **`.btn-primary-silver`**, **`.layout-shell`**, **`.layout-header`** / **`.layout-header-px`**, ECG / AI utilities |
 | `src/components/Header.tsx` | Sticky top navigation |
-| `src/components/Hero.tsx` | Dark hero with **`HeroSessionPulse`** (`integrated`) and headline |
+| `src/components/Hero.tsx` | Dark hero (`#020617` + cool radials; see [hero-section-background.md](./hero-section-background.md)) with **`HeroSessionPulse`** (`integrated`) and headline |
 | `src/components/HeroSessionPulse.tsx` | Session pulse strip (integrated hero + optional panel variant) |
-| `src/components/Features.tsx` | Platform pillars (`#platform`) and leadership imagery |
-| `src/components/Workflow.tsx` | Four-step origination pipeline (`#workflow`) |
+| `src/components/Features.tsx` | Platform pillars (`#platform`) and leadership imagery ([features-workflow-imagery.md](./features-workflow-imagery.md)) |
+| `src/components/Workflow.tsx` | Four-step origination pipeline (`#workflow`); operations photo ([features-workflow-imagery.md](./features-workflow-imagery.md)) |
 | `src/components/HeroMotionBand.tsx` | Full-bleed motion band between Workflow and stats |
-| `src/components/HeroLattice.tsx` | Decorative gold lattice SVG inside the motion band |
-| `src/components/StatsSection.tsx` | Animated metrics (`#results`) |
+| `src/components/HeroLattice.tsx` | Decorative silver lattice SVG inside the motion band |
+| `src/components/StatsSection.tsx` | Animated metrics (`#results`); **white** headline + silver **glow**, **`accent-light`** subcopy, **bright** figure gradient (`accent-light` → **white** → `accent`), **`border-t-white`** + **`accent`** chrome on `marble-slate` |
+| `src/components/TeamSection.tsx` | Team roster (`#team`); portraits + title placeholder — [team-section.md](./team-section.md) |
 | `src/components/ContactCTA.tsx` | Contact band (`#contact`) |
 | `src/components/Footer.tsx` | Footer links and branding |
 
 ## Design notes
 
-- **Brand:** Mooring ERP — mortgage origination positioning; warm **organ** / **gold** palette on light sections, **slate** / **sky** on the hero instrument strip.
+- **Brand:** Mooring ERP — mortgage origination positioning; warm **organ** / silver-toned **`accent`** on light sections, **slate** / **sky** on the hero instrument strip.
 - **Motion:** Sections use `whileInView` for scroll-triggered motion; hero strip uses CSS-driven ECG drift and AI orb pulse (see `docs/hero-session-pulse.md`).
 - **Accessibility:** Landmark sections include headings and `aria-labelledby` where appropriate; decorative layers use `aria-hidden`.
 

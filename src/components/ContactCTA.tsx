@@ -16,7 +16,7 @@ export function ContactCTA() {
           className="relative z-10 overflow-hidden rounded-xl border border-organ-200/95 bg-organ-50 px-5 py-12 text-center shadow-card-md sm:px-14 sm:py-16"
         >
           <div
-            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(181,154,109,0.08),transparent_55%)]"
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(191,211,230,0.08),transparent_55%)]"
             aria-hidden
           />
 
@@ -37,7 +37,7 @@ export function ContactCTA() {
             <div className="mx-auto mt-10 flex w-full max-w-md flex-col items-stretch justify-center gap-4 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center">
               <a
                 href="mailto:hello@mooring-erp.example"
-                className="btn-primary-gold w-full px-8 py-3.5 text-center text-sm sm:w-auto"
+                className="btn-primary-silver w-full px-8 py-3.5 text-center text-sm sm:w-auto"
               >
                 Email our solutions team
               </a>

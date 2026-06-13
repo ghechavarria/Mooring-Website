@@ -4,6 +4,7 @@ import { Features } from "./components/Features";
 import { Workflow } from "./components/Workflow";
 import { HeroMotionBand } from "./components/HeroMotionBand";
 import { StatsSection } from "./components/StatsSection";
+import { TeamSection } from "./components/TeamSection";
 import { ContactCTA } from "./components/ContactCTA";
 import { Footer } from "./components/Footer";
 
@@ -17,6 +18,7 @@ export default function App() {
         <Workflow />
         <HeroMotionBand />
         <StatsSection />
+        <TeamSection />
         <ContactCTA />
       </main>
       <Footer />

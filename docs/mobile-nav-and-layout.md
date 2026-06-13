@@ -11,7 +11,7 @@
 - **Drawer chrome:** Top row labels **Menu** and includes an in-drawer **Close** control (header toggle is covered while open).
 - **Keyboard:** **Escape** closes the menu (`keydown` listener while open).
 - **Scroll lock:** `document.body.style.overflow = "hidden"` while the menu is open.
-- **Primary links (desktop + mobile):** **Overview** (`#top`), **Capabilities** (`#platform`), **Workflow** (`#workflow`), **Outcomes** (`#results`), **Contact** (`#contact`).
+- **Primary links (desktop + mobile):** **Overview** (`#top`), **Capabilities** (`#platform`), **Workflow** (`#workflow`), **Outcomes** (`#results`), **Team** (`#team`), **Contact** (`#contact`).
 - **Mobile links:** Same anchors as desktop, plus **Request a briefing** (`#contact`).
 
 ## Site shell

@@ -51,7 +51,7 @@ export function HeroSessionPulse({
 
   if (variant === "integrated") {
     return (
-      <div className="flex w-full flex-col bg-gradient-to-b from-slate-950 via-[#070d18] to-slate-950 text-sky-100">
+      <div className="flex w-full flex-col bg-gradient-to-b from-[#020617] via-[#030d18] to-[#020617] text-sky-100">
         <div aria-hidden>
           <div className="layout-header-px flex shrink-0 items-center justify-between border-b border-sky-500/25 bg-slate-950 py-3">
             <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-300 sm:text-[11px]">
@@ -165,9 +165,9 @@ export function HeroSessionPulse({
         </div>
 
         {children != null ? (
-          <div className="relative z-10 border-t border-gold/30 bg-gradient-to-b from-slate-950/90 via-slate-950/95 to-slate-950 backdrop-blur-md">
+          <div className="relative z-10 border-t border-accent/30 bg-gradient-to-b from-slate-950/90 via-slate-950/95 to-slate-950 backdrop-blur-md">
             <div
-              className="pointer-events-none absolute inset-0 bg-[linear-gradient(165deg,rgba(181,154,109,0.07)_0%,transparent_42%)]"
+              className="pointer-events-none absolute inset-0 bg-[linear-gradient(165deg,rgba(191,211,230,0.07)_0%,transparent_42%)]"
               aria-hidden
             />
             <div className="relative layout-header py-10 sm:py-12 lg:py-14 xl:py-16">{children}</div>
