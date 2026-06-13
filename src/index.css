@@ -19,12 +19,12 @@
   }
 
   .btn-primary-silver {
-    @apply inline-flex items-center justify-center rounded-md bg-accent font-semibold text-slate-950 ring-1 ring-accent/65 transition;
-    box-shadow: 0 4px 18px rgba(191, 211, 230, 0.48);
+    @apply inline-flex items-center justify-center rounded-md bg-erp font-semibold text-white ring-1 ring-erp/40 transition;
+    box-shadow: 0 4px 18px rgba(30, 112, 214, 0.35);
   }
   .btn-primary-silver:hover {
-    @apply bg-accent-light ring-accent/90;
-    box-shadow: 0 8px 32px rgba(191, 211, 230, 0.58);
+    @apply bg-erp-600 ring-erp/55;
+    box-shadow: 0 8px 28px rgba(30, 112, 214, 0.42);
   }
   .btn-primary-silver:active {
     transform: translateY(1px);

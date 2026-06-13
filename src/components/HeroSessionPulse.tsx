@@ -62,26 +62,26 @@ export function HeroSessionPulse({
             </span>
           </div>
 
-          <div className="grid grid-cols-1 border-b border-slate-800 bg-slate-900 sm:grid-cols-[minmax(0,24rem)_1fr]">
-          <div className="layout-header-px flex h-[8.5rem] shrink-0 items-center gap-4 overflow-hidden border-slate-800 sm:h-[8.75rem] lg:h-[10rem] xl:h-[10.5rem] 2xl:h-[11rem] sm:border-r sm:border-slate-800">
+          <div className="grid min-w-0 grid-cols-1 border-b border-slate-800 bg-slate-900 sm:grid-cols-[minmax(0,24rem)_1fr]">
+          <div className="layout-header-px flex min-w-0 shrink-0 items-center gap-4 overflow-hidden border-slate-800 max-sm:h-auto max-sm:min-h-0 max-sm:items-start max-sm:gap-2.5 max-sm:py-2 sm:h-[8rem] sm:items-center sm:gap-4 sm:py-0 lg:h-[9.25rem] xl:h-[9.75rem] 2xl:h-[10.25rem] sm:border-r sm:border-slate-800">
             <div
-              className={`relative flex h-[5rem] w-[5rem] shrink-0 items-center justify-center rounded-full border border-sky-500/60 bg-slate-950 shadow-[0_0_0_1px_rgba(14,165,233,0.25),0_0_24px_rgba(56,189,248,0.2)]${reduceMotion ? "" : " hero-ai-pulse-swell"}`}
+              className={`relative flex h-9 w-9 shrink-0 items-center justify-center self-start rounded-full border border-sky-500/60 bg-slate-950 shadow-[0_0_0_1px_rgba(14,165,233,0.25),0_0_24px_rgba(56,189,248,0.2)] sm:h-[5rem] sm:w-[5rem] sm:self-auto${reduceMotion ? "" : " hero-ai-pulse-swell"}`}
               style={
                 reduceMotion
                   ? undefined
                   : ({ "--ai-pulse-beat": `${beatMs}ms` } as CSSProperties)
               }
             >
-              <span className="font-mono text-sm font-bold uppercase tracking-wide text-sky-200">
+              <span className="font-mono text-[9px] font-bold uppercase tracking-wide text-sky-200 sm:text-sm">
                 AI
               </span>
             </div>
-            <div className="flex min-h-0 min-w-0 flex-1 flex-col justify-center">
-              <p className="line-clamp-2 text-sm font-semibold leading-snug text-slate-200 sm:text-base">
+            <div className="flex min-h-0 min-w-0 flex-1 flex-col justify-center max-sm:justify-start max-sm:pt-0">
+              <p className="line-clamp-2 text-xs font-semibold leading-snug text-slate-200 sm:text-base sm:leading-snug">
                 Intelligence layer
               </p>
-              <div className="mt-1.5 h-[4.5rem] w-full min-w-0 overflow-hidden sm:h-[5.125rem]">
-                <p className="line-clamp-4 font-mono text-xs leading-snug text-sky-400 sm:text-sm sm:leading-snug">
+              <div className="mt-1.5 h-[4.5rem] w-full min-w-0 overflow-hidden max-sm:mt-0.5 max-sm:h-auto max-sm:min-h-0 sm:h-[4.75rem]">
+                <p className="line-clamp-2 font-mono text-[11px] leading-snug text-sky-400 max-sm:leading-[1.2rem] sm:line-clamp-4 sm:text-sm sm:leading-snug">
                   {statusLines[tick % statusLines.length]}
                 </p>
               </div>

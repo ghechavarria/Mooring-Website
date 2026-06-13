@@ -26,6 +26,12 @@ export default {
         },
         canvas: "#f8fafc",
         ivory: "#f2f2f2",
+        /** Wordmark “ERP” + primary CTAs (see `.btn-primary-silver` in `src/index.css`) */
+        erp: {
+          DEFAULT: "#1e70d6",
+          600: "#185cbd",
+          700: "#154a9e",
+        },
         organ: {
           50: "#faf8f6",
           100: "#f3f0ec",

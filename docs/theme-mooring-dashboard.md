@@ -8,7 +8,7 @@ This document describes the visual system: **Mooring ERP brand** (navy, ivory, *
 
 ## Color tokens (Tailwind)
 
-See [silver-accent-palette.md](./silver-accent-palette.md) for the **`accent`** / **`accent-light`** tokens (silver-toned; avoid a Tailwind color literally named `silver`) and the **`.btn-primary-silver`** CTA class.
+See [silver-accent-palette.md](./silver-accent-palette.md) for the **`accent`** / **`accent-light`** tokens (silver-toned; avoid a Tailwind color literally named `silver`), the **`erp`** token (**`#1e70d6`**, wordmark + CTAs), and the **`.btn-primary-silver`** CTA class.
 
 | Token | Hex / role |
 | --- | --- |
