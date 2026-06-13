@@ -81,7 +81,7 @@ export function HeroSessionPulse({
                 Intelligence layer
               </p>
               <div className="mt-1.5 h-[4.5rem] w-full min-w-0 overflow-hidden max-sm:mt-0.5 max-sm:h-auto max-sm:min-h-0 sm:h-[4.75rem]">
-                <p className="line-clamp-2 font-mono text-[11px] leading-snug text-sky-400 max-sm:leading-[1.2rem] sm:line-clamp-4 sm:text-sm sm:leading-snug">
+                <p className="min-w-0 font-mono text-[11px] leading-snug text-sky-400 max-sm:truncate max-sm:leading-[1.2rem] sm:line-clamp-4 sm:text-sm sm:leading-snug">
                   {statusLines[tick % statusLines.length]}
                 </p>
               </div>
