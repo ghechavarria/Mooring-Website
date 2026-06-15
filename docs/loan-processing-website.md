@@ -43,7 +43,7 @@ npm run preview
 | `src/components/HeroMotionBand.tsx` | Full-bleed motion band between Workflow and stats |
 | `src/components/HeroLattice.tsx` | Decorative silver lattice SVG inside the motion band |
 | `src/components/StatsSection.tsx` | Animated metrics (`#results`); **white** headline + silver **glow**, **`accent-light`** subcopy, **bright** figure gradient (`accent-light` → **white** → `accent`), **`border-t-white`** + **`accent`** chrome on `marble-slate` |
-| `src/components/TeamSection.tsx` | Team roster (`#team`); portraits + title placeholder — [team-section.md](./team-section.md) |
+| `src/components/TeamSection.tsx` | Team roster (`#team`); portraits + role titles — [team-section.md](./team-section.md) |
 | `src/components/ContactCTA.tsx` | Contact band (`#contact`) |
 | `src/components/Footer.tsx` | Footer links and branding |
 

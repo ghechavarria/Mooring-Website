@@ -1,17 +1,17 @@
 # Team section (`TeamSection.tsx`)
 
-Renders **`#team`**: six people in a fixed order with a **photo slot**, **name**, and a **dashed-underlined** line showing the literal placeholder copy **`Placeholder Title`** until real roles replace it.
+Renders **`#team`**: six people in a fixed order with a **photo slot**, **name**, and **role title** (chief-officer line-up).
 
-## Order & image files
+## Order, titles & image files
 
-| Order | Name | `public/images/team/` filename |
-| --- | --- | --- |
-| 1 | Yegiao Guo | `yegiao-guo.png` |
-| 2 | James Jones | `james.png` |
-| 3 | Zhen Wu | `zhen-wu.png` |
-| 4 | Erik Ruiz | `erik-ruiz.png` |
-| 5 | Grace Hechavarria | `grace-hechavarria.png` |
-| 6 | Joanne Rossi | `joanne.png` |
+| Order | Name | Title | `public/images/team/` filename |
+| --- | --- | --- | --- |
+| 1 | Yegiao Guo | Chief Executive Officer | `yegiao-guo.png` |
+| 2 | James Jones | Chief Operating Officer | `james.png` |
+| 3 | Zhen Wu | Chief Financial Officer | `zhen-wu.png` |
+| 4 | Erik Ruiz | Chief Information Security Officer | `erik-ruiz.png` |
+| 5 | Grace Hechavarria | Chief Information Officer | `grace-hechavarria.png` |
+| 6 | Joanne Rossi | Chief Quality and Compliance Officer | `joanne.png` |
 
 Use **PNG** (path in code: `/images/team/{slug}.png`). Rough portrait **4:5** crop reads well in the frame (`aspect-[4/5]`, `object-cover`).
 
@@ -22,7 +22,7 @@ If a file is missing or fails to load, the card shows **initials** on a navy–s
 ## Accessibility
 
 - Each member is an **`article`** with an **`h3`** name.
-- The title line is a visible **`Placeholder Title`** (`text-sm italic text-organ-500`) with a dashed bottom border; swap this string per member when roles are ready.
+- The title line under each name shows the member’s **role** — `text-balance`, subtle **top rule** (`border-organ-200/90`), and **`text-[0.8125rem]` / `sm:text-sm`** with **`font-medium`** / **`leading-snug`** (`sm:leading-relaxed`) on **`text-organ-700`** for readable multi-line titles.
 - The photo uses **`alt=""`** because the name is repeated in the heading immediately below.
 
 ## Navigation

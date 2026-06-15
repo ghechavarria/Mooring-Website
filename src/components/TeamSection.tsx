@@ -2,12 +2,12 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 
 const members = [
-  { name: "Yegiao Guo", slug: "yegiao-guo" },
-  { name: "James Jones", slug: "james" },
-  { name: "Zhen Wu", slug: "zhen-wu" },
-  { name: "Erik Ruiz", slug: "erik-ruiz" },
-  { name: "Grace Hechavarria", slug: "grace-hechavarria" },
-  { name: "Joanne Rossi", slug: "joanne" },
+  { name: "Yegiao Guo", slug: "yegiao-guo", title: "Chief Executive Officer" },
+  { name: "James Jones", slug: "james", title: "Chief Operating Officer" },
+  { name: "Zhen Wu", slug: "zhen-wu", title: "Chief Financial Officer" },
+  { name: "Erik Ruiz", slug: "erik-ruiz", title: "Chief Information Security Officer" },
+  { name: "Grace Hechavarria", slug: "grace-hechavarria", title: "Chief Information Officer" },
+  { name: "Joanne Rossi", slug: "joanne", title: "Chief Quality and Compliance Officer" },
 ] as const;
 
 function initialsFrom(name: string) {
@@ -20,10 +20,12 @@ function initialsFrom(name: string) {
 function TeamMemberCard({
   name,
   slug,
+  title,
   index,
 }: {
   name: string;
   slug: string;
+  title: string;
   index: number;
 }) {
   const [photoFailed, setPhotoFailed] = useState(false);
@@ -58,8 +60,8 @@ function TeamMemberCard({
         )}
       </div>
       <h3 className="mt-4 text-lg font-semibold tracking-tight text-ink-950">{name}</h3>
-      <p className="mx-auto mt-3 max-w-[220px] border-b border-dashed border-organ-400 pb-1 text-sm italic text-organ-500">
-        Placeholder Title
+      <p className="mx-auto mt-3.5 max-w-[min(100%,15rem)] border-t border-organ-200/90 pt-3 text-center text-[0.8125rem] font-medium leading-snug text-organ-700 text-balance sm:max-w-[17rem] sm:text-sm sm:leading-relaxed">
+        {title}
       </p>
     </motion.article>
   );
@@ -89,7 +91,7 @@ export function TeamSection() {
 
         <div className="mt-12 grid grid-cols-2 gap-x-6 gap-y-10 sm:gap-x-8 md:grid-cols-3 lg:gap-x-10">
           {members.map((m, i) => (
-            <TeamMemberCard key={m.slug} name={m.name} slug={m.slug} index={i} />
+            <TeamMemberCard key={m.slug} name={m.name} slug={m.slug} title={m.title} index={i} />
           ))}
         </div>
       </div>
