@@ -7,7 +7,6 @@ const links = [
   { label: "Workflow", href: "#workflow" },
   { label: "Outcomes", href: "#results" },
   { label: "Team", href: "#team" },
-  { label: "Contact", href: "#contact" },
 ];
 
 function MenuIcon({ open }: { open: boolean }) {
@@ -79,7 +78,7 @@ export function Header() {
             aria-hidden
           >
             <img
-              src="/images/mooring-small-logo.png"
+              src="/images/square-logo-blue.svg"
               alt=""
               width={1024}
               height={1024}

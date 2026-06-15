@@ -31,11 +31,11 @@ npm run preview
 
 | Path | Purpose |
 |------|---------|
-| `index.html` | HTML shell, fonts, page title, meta description, **PNG favicon** (`/images/mooring-small-logo.png`) |
+| `index.html` | HTML shell, fonts, page title, meta description, **PNG favicon** (`/images/square-logo-color-bkgrnd.png` — see [favicon.md](./favicon.md)) |
 | `src/main.tsx` | React bootstrapping |
 | `src/App.tsx` | Section order; outer shell uses **`flex-1 min-h-0 w-full`** so it fills **`#root`** |
 | `src/index.css` | Tailwind layers; **`#root`** flex column + **`html`/`body`** `w-full`; **`.btn-primary-silver`**, **`.layout-shell`**, **`.layout-header`** / **`.layout-header-px`**, ECG / AI utilities |
-| `src/components/Header.tsx` | Sticky top navigation |
+| `src/components/Header.tsx` | Sticky top navigation; brand tile **`/images/square-logo-blue.svg`** beside wordmark |
 | `src/components/Hero.tsx` | Dark hero (`#020617` + cool radials; see [hero-section-background.md](./hero-section-background.md)) with **`HeroSessionPulse`** (`integrated`) and headline |
 | `src/components/HeroSessionPulse.tsx` | Session pulse strip (integrated hero + optional panel variant) |
 | `src/components/Features.tsx` | Platform pillars (`#platform`) and leadership imagery ([features-workflow-imagery.md](./features-workflow-imagery.md)) |

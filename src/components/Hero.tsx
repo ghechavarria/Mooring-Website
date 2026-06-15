@@ -14,7 +14,7 @@ export function Hero() {
       />
 
       <div className="relative w-full">
-        <HeroSessionPulse variant="integrated">
+        <HeroSessionPulse>
           <p className="sr-only">
             Decorative session strip above; main headline and body copy follow.
           </p>

@@ -31,14 +31,7 @@ const ecgScrollPath = ecgPathRepeats(28);
 const bpm = 40;
 const beatMs = Math.round(60000 / bpm);
 
-export function HeroSessionPulse({
-  variant = "panel",
-  children,
-}: {
-  variant?: "panel" | "integrated";
-  /** When `integrated`, main hero copy is rendered inside the same strip as the pulse. */
-  children?: ReactNode;
-}) {
+export function HeroSessionPulse({ children }: { children?: ReactNode }) {
   const reduceMotion = useReducedMotion();
   const gid = useId().replace(/:/g, "");
   const [tick, setTick] = useState(0);
@@ -49,8 +42,7 @@ export function HeroSessionPulse({
     return () => window.clearInterval(id);
   }, [reduceMotion]);
 
-  if (variant === "integrated") {
-    return (
+  return (
       <div className="flex w-full flex-col bg-[#020617] text-sky-100">
         <div aria-hidden>
           <div className="layout-header-px flex shrink-0 items-center justify-between border-b border-slate-800 bg-slate-950 py-1.5 sm:py-2">
@@ -182,115 +174,4 @@ export function HeroSessionPulse({
         </p>
       </div>
     );
-  }
-
-  return (
-    <aside
-      className="relative overflow-hidden border border-slate-600 bg-slate-100 shadow-card-md ring-1 ring-slate-900/25"
-      aria-labelledby="session-pulse-heading"
-    >
-      <h2 id="session-pulse-heading" className="sr-only">
-        Illustrative mortgage session activity for this page visit
-      </h2>
-      <div className="flex items-center justify-between border-b border-sky-500/30 bg-slate-950 px-4 py-2.5">
-        <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-300 sm:text-[11px]">
-          Session pulse
-        </span>
-        <span className="rounded border border-sky-400/45 bg-blue-950/70 px-2 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-wider text-sky-200">
-          Live
-        </span>
-      </div>
-      <div className="space-y-4 bg-slate-100 p-4 sm:p-5">
-        <div className="flex items-center gap-4">
-          <div
-            className={`relative flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-sky-500/55 bg-slate-950 shadow-[0_0_20px_rgba(56,189,248,0.18)]${reduceMotion ? "" : " hero-ai-pulse-swell"}`}
-            style={
-              reduceMotion ? undefined : ({ "--ai-pulse-beat": `${beatMs}ms` } as CSSProperties)
-            }
-          >
-            <span className="font-mono text-[10px] font-bold uppercase tracking-wide text-sky-200">
-              AI
-            </span>
-          </div>
-          <div className="min-w-0 flex-1">
-            <p className="text-[11px] font-medium text-slate-800">Intelligence layer</p>
-            <p className="mt-0.5 truncate font-mono text-[10px] leading-snug text-blue-900">
-              {statusLines[tick % statusLines.length]}
-            </p>
-          </div>
-        </div>
-        <div className="relative overflow-hidden rounded-md border border-slate-700 bg-[#030712]">
-          <svg
-            viewBox="0 0 360 56"
-            preserveAspectRatio="xMidYMid meet"
-            className="relative z-[1] h-14 w-full"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden
-          >
-            <defs>
-              <clipPath id={`${gid}-waveclip`}>
-                <rect x="0" y="0" width="360" height="56" />
-              </clipPath>
-              <linearGradient id={`${gid}-ecg`} x1="0" y1="0" x2="360" y2="0" gradientUnits="userSpaceOnUse">
-                <stop offset="0" stopColor="#0c4a6e" />
-                <stop offset="0.45" stopColor="#38bdf8" />
-                <stop offset="1" stopColor="#0369a1" />
-              </linearGradient>
-              <linearGradient id={`${gid}-wave-edgeshade`} x1="0" y1="0" x2="360" y2="0" gradientUnits="userSpaceOnUse">
-                <stop offset="0" stopColor="#fff" stopOpacity="0" />
-                <stop offset="0.04" stopColor="#fff" stopOpacity="0.12" />
-                <stop offset="0.1" stopColor="#fff" stopOpacity="0.42" />
-                <stop offset="0.18" stopColor="#fff" stopOpacity="0.8" />
-                <stop offset="0.3" stopColor="#fff" stopOpacity="1" />
-                <stop offset="0.7" stopColor="#fff" stopOpacity="1" />
-                <stop offset="0.82" stopColor="#fff" stopOpacity="0.8" />
-                <stop offset="0.9" stopColor="#fff" stopOpacity="0.42" />
-                <stop offset="0.96" stopColor="#fff" stopOpacity="0.12" />
-                <stop offset="1" stopColor="#fff" stopOpacity="0" />
-              </linearGradient>
-              <mask id={`${gid}-wave-edgemask`} maskUnits="userSpaceOnUse" x="0" y="0" width="360" height="56">
-                <rect width="360" height="56" fill={`url(#${gid}-wave-edgeshade)`} />
-              </mask>
-            </defs>
-            <g clipPath={`url(#${gid}-waveclip)`} mask={`url(#${gid}-wave-edgemask)`}>
-              <g
-                className={reduceMotion ? undefined : "hero-ecg-drift"}
-                style={
-                  reduceMotion
-                    ? undefined
-                    : ({
-                        "--ecg-beat": `${beatMs}ms`,
-                        "--ecg-beat-width": "100px",
-                      } as CSSProperties)
-                }
-              >
-                <path
-                  d={ecgScrollPath}
-                  stroke={`url(#${gid}-ecg)`}
-                  strokeWidth="1.25"
-                  strokeLinecap="butt"
-                  strokeLinejoin="miter"
-                  strokeMiterlimit="8"
-                  vectorEffect="non-scaling-stroke"
-                  shapeRendering="geometricPrecision"
-                />
-              </g>
-            </g>
-          </svg>
-          <div
-            className="pointer-events-none absolute inset-0 z-[2]"
-            style={{
-              background:
-                "linear-gradient(90deg, rgb(3 7 18) 0%, rgb(3 7 18 / 0.82) 6%, rgb(3 7 18 / 0.35) 18%, transparent 34%, transparent 66%, rgb(3 7 18 / 0.35) 82%, rgb(3 7 18 / 0.82) 94%, rgb(3 7 18) 100%)",
-            }}
-            aria-hidden
-          />
-        </div>
-        <p className="border-t border-organ-200/80 bg-organ-50/95 px-4 py-3 text-center font-mono text-[9px] uppercase tracking-[0.14em] text-slate-600 sm:px-5">
-          Mooring ERP — give your loan team this clarity on every file
-        </p>
-      </div>
-    </aside>
-  );
 }

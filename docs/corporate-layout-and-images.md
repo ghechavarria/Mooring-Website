@@ -2,14 +2,14 @@
 
 ## Layout
 
-- **Global header:** Sticky top bar (`Header.tsx`) — **opaque `bg-white`**, full width (`w-full min-w-0`), soft **double shadow** so it stays readable over **dark hero / slate strips** without translucent blur. **Brand:** **`mooring-small-logo.png`** plus **Mooring ERP** wordmark (**Mooring** in organ, **ERP** in **`text-erp`** / **`#1e70d6`**) beside it, nav **`font-medium text-organ-800`**, **`.btn-primary-silver`** (same **`erp`** blue fill) for briefing. The inner row uses **`.layout-header`** (fluid full width, no `max-w` cap — see [layout-shell.md](./layout-shell.md)) with **`justify-between`** and **`xl:gap-x-6`**: brand stays **left**, **nav + briefing** stay **right** from **`xl`** up with **`xl:ml-10` / `2xl:ml-14` / `min-[1800px]:ml-20`** on the link cluster (below **`xl`**, the **drawer** pattern is used — see [mobile-nav-and-layout.md](./mobile-nav-and-layout.md)). The integrated hero uses **`.layout-header-px`** on full-bleed rows so **session chrome** lines up with this rail.
+- **Global header:** Sticky top bar (`Header.tsx`) — **opaque `bg-white`**, full width (`w-full min-w-0`), soft **double shadow** so it stays readable over **dark hero / slate strips** without translucent blur. **Brand:** **`square-logo-blue.svg`** plus **Mooring ERP** wordmark (**Mooring** in organ, **ERP** in **`text-erp`** / **`#1e70d6`**) beside it, nav **`font-medium text-organ-800`**, **`.btn-primary-silver`** (same **`erp`** blue fill) for briefing. The inner row uses **`.layout-header`** (fluid full width, no `max-w` cap — see [layout-shell.md](./layout-shell.md)) with **`justify-between`** and **`xl:gap-x-6`**: brand stays **left**, **nav + briefing** stay **right** from **`xl`** up with **`xl:ml-10` / `2xl:ml-14` / `min-[1800px]:ml-20`** on the link cluster (below **`xl`**, the **drawer** pattern is used — see [mobile-nav-and-layout.md](./mobile-nav-and-layout.md)). The integrated hero uses **`.layout-header-px`** on full-bleed rows so **session chrome** lines up with this rail.
 - **Breakpoints:** Primary navigation shows from **`xl`** up; narrower viewports use the **drawer** pattern (see [mobile-nav-and-layout.md](./mobile-nav-and-layout.md)).
 - **Page shell:** Single-column `App` — `Header`, then `main` (`Hero` → `Features` → `Workflow` → **`HeroMotionBand`** (full motion band) → `StatsSection` → **`TeamSection`** → `ContactCTA`), then `Footer`. No sidebar rail.
 
 ## Typography (corporate)
 
 - **Editorial headings:** `font-serif` — **Source Serif 4** (loaded in `index.html`, extended in `tailwind.config.js`).
-- **Navigation and UI:** Inter; header brand lockup is **Mooring ERP** (`mooring-small-logo.png` + styled text in `Header.tsx`).
+- **Navigation and UI:** Inter; header brand lockup is **Mooring ERP** (`square-logo-blue.svg` + styled text in `Header.tsx`).
 
 ## Imagery & hero visuals
 

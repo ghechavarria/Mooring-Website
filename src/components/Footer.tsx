@@ -12,9 +12,9 @@ export function Footer() {
       </p>
       <div className="layout-shell flex flex-col items-center justify-between gap-8 py-10 sm:flex-row">
         <div className="flex shrink-0 items-center justify-center sm:justify-start">
-          <span className="relative h-16 w-16 shrink-0 overflow-hidden rounded-[10px] sm:h-[4.5rem] sm:w-[4.5rem]">
+          <span className="relative h-20 w-20 shrink-0 overflow-hidden rounded-[10px] sm:h-28 sm:w-28">
             <img
-              src="/images/mooring-logo.png"
+              src="/images/full-logo-no-background.svg"
               alt="Mooring ERP"
               width={1024}
               height={1024}
