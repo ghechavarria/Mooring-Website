@@ -7,11 +7,11 @@ Renders **`#team`**: six people in a fixed order with a **photo slot**, **name**
 | Order | Name | `public/images/team/` filename |
 | --- | --- | --- |
 | 1 | Yegiao Guo | `yegiao-guo.png` |
-| 2 | James Jones | `james-jones.png` |
+| 2 | James Jones | `james.png` |
 | 3 | Zhen Wu | `zhen-wu.png` |
 | 4 | Erik Ruiz | `erik-ruiz.png` |
 | 5 | Grace Hechavarria | `grace-hechavarria.png` |
-| 6 | Joanne Rossi | `joanne-rossi.png` |
+| 6 | Joanne Rossi | `joanne.png` |
 
 Use **PNG** (path in code: `/images/team/{slug}.png`). Rough portrait **4:5** crop reads well in the frame (`aspect-[4/5]`, `object-cover`).
 
