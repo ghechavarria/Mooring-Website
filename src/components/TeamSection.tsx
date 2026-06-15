@@ -3,11 +3,11 @@ import { useState } from "react";
 
 const members = [
   { name: "Yegiao Guo", slug: "yegiao-guo", title: "Chief Executive Officer" },
-  { name: "James Jones", slug: "james", title: "Chief Operating Officer" },
+  { name: "James Jones", slug: "james-jones", title: "Chief Operating Officer" },
   { name: "Zhen Wu", slug: "zhen-wu", title: "Chief Financial Officer" },
   { name: "Erik Ruiz", slug: "erik-ruiz", title: "Chief Information Security Officer" },
   { name: "Grace Hechavarria", slug: "grace-hechavarria", title: "Chief Information Officer" },
-  { name: "Joanne Rossi", slug: "joanne", title: "Chief Quality and Compliance Officer" },
+  { name: "Joanne Rossi", slug: "joanne-rossi", title: "Chief Quality and Compliance Officer" },
 ] as const;
 
 function initialsFrom(name: string) {

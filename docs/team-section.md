@@ -7,11 +7,11 @@ Renders **`#team`**: six people in a fixed order with a **photo slot**, **name**
 | Order | Name | Title | `public/images/team/` filename |
 | --- | --- | --- | --- |
 | 1 | Yegiao Guo | Chief Executive Officer | `yegiao-guo.png` |
-| 2 | James Jones | Chief Operating Officer | `james.png` |
+| 2 | James Jones | Chief Operating Officer | `james-jones.png` |
 | 3 | Zhen Wu | Chief Financial Officer | `zhen-wu.png` |
 | 4 | Erik Ruiz | Chief Information Security Officer | `erik-ruiz.png` |
 | 5 | Grace Hechavarria | Chief Information Officer | `grace-hechavarria.png` |
-| 6 | Joanne Rossi | Chief Quality and Compliance Officer | `joanne.png` |
+| 6 | Joanne Rossi | Chief Quality and Compliance Officer | `joanne-rossi.png` |
 
 Use **PNG** (path in code: `/images/team/{slug}.png`). Rough portrait **4:5** crop reads well in the frame (`aspect-[4/5]`, `object-cover`).
 
