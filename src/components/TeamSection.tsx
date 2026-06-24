@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 
 const members = [
-  { name: "Yegiao Guo", slug: "yegiao-guo", title: "Chief Executive Officer" },
+  { name: "Yeqiao Guo", slug: "yeqiao-guo", title: "Chief Executive Officer" },
   { name: "James Jones", slug: "james-jones", title: "Chief Operating Officer" },
   { name: "Zhen Wu", slug: "zhen-wu", title: "Chief Financial Officer" },
   { name: "Erik Ruiz", slug: "erik-ruiz", title: "Chief Information Security Officer" },

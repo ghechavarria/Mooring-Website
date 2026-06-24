@@ -1,6 +1,6 @@
 # Hero motion band (`HeroMotionBand.tsx`)
 
-Full-bleed **ink–navy** strip with **silver** lattice, motion, and the **Mooring ERP** wordmark. **`App.tsx`** renders it **after** **`Workflow`** and **before** **`StatsSection`**.
+Full-bleed **ink–navy** strip with **silver** lattice, motion, and the **Mooric ERP** wordmark. **`App.tsx`** renders it **after** **`Workflow`** and **before** **`StatsSection`**.
 
 ## Visual ingredients
 
@@ -10,12 +10,12 @@ Full-bleed **ink–navy** strip with **silver** lattice, motion, and the **Moori
 - **Grid:** **`HeroLattice`** — SVG diagonal lattice; `animate-grid-breathe` (see [hero-lattice.md](./hero-lattice.md)).
 - **Light:** Large **silver-toned** blur drifts on a slow loop; right-side drift blends **accent into `blue-950`** when motion is allowed.
 - **Scan:** A thin silver gradient line moves vertically when motion is allowed.
-- **Word:** **Mooring ERP** — `Montserrat`, **`accent` → white → `accent`** horizontal gradient, `bg-clip-text`, `animate-shimmer-slow`, uppercase tracking.
+- **Word:** **Mooric ERP** — `Montserrat`, **`accent` → white → `accent`** horizontal gradient, `bg-clip-text`, `animate-shimmer-slow`, uppercase tracking.
 - **Caption:** Small mono **“Mortgage workspace”** (`text-accent-light/90`); supporting line **`text-slate-200/95`** with a light **text-shadow** for legibility on the metallic wash — mortgage journey language (borrower touchpoints, lender conditions, clear-to-close).
 
 ## Motion safety
 
-`useReducedMotion()` disables drifting blobs, the moving scan line, and the pulsing glow; the lattice grid and gradient **Mooring ERP** word remain readable.
+`useReducedMotion()` disables drifting blobs, the moving scan line, and the pulsing glow; the lattice grid and gradient **Mooric ERP** word remain readable.
 
 ## Tokens
 

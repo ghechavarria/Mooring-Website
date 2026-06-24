@@ -36,7 +36,7 @@ export function ContactCTA() {
             </p>
             <div className="mx-auto mt-10 flex w-full max-w-md flex-col items-stretch justify-center gap-4 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center">
               <a
-                href="mailto:hello@mooring-erp.example"
+                href="mailto:hello@mooric-erp.example"
                 className="btn-primary-silver w-full px-8 py-3.5 text-center text-sm sm:w-auto"
               >
                 Email our solutions team

@@ -91,7 +91,7 @@ export function Header() {
             aria-hidden
           />
           <span className="min-w-0 font-display text-[1.0625rem] font-extrabold uppercase leading-none tracking-[0.04em] sm:text-lg sm:tracking-[0.06em]">
-            <span className="text-organ-950">Mooring </span>
+            <span className="text-organ-950">Mooric </span>
             <span className="text-erp">ERP</span>
           </span>
         </a>

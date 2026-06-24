@@ -35,7 +35,7 @@ export function Hero() {
               The pipeline from first conversation to funded loan — without the scramble.
             </h1>
             <p className="mt-5 max-w-none text-base leading-relaxed text-slate-300 sm:text-lg lg:mt-6 lg:max-w-4xl xl:max-w-5xl xl:text-xl xl:leading-relaxed">
-              Mooring ERP is a governed workspace for loan teams: intake, documentation, credit
+              Mooric ERP is a governed workspace for loan teams: intake, documentation, credit
               context, and lender milestones in one place — with AI accelerating the work you
               already do, not replacing your judgment.
             </p>

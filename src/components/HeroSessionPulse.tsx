@@ -170,7 +170,7 @@ export function HeroSessionPulse({ children }: { children?: ReactNode }) {
         ) : null}
 
         <p className="layout-header-px border-t border-slate-800 bg-black py-2.5 text-center font-mono text-[9px] font-medium uppercase tracking-[0.14em] text-slate-500">
-          Mooring ERP — give your loan team this clarity on every file
+          Mooric ERP — give your loan team this clarity on every file
         </p>
       </div>
     );

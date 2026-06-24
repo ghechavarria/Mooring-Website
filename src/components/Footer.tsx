@@ -15,7 +15,7 @@ export function Footer() {
           <span className="relative h-20 w-20 shrink-0 overflow-hidden rounded-[10px] sm:h-28 sm:w-28">
             <img
               src="/images/full-logo-no-background.svg"
-              alt="Mooring ERP"
+              alt="Mooric ERP"
               width={1024}
               height={1024}
               className="h-full w-full object-cover"
@@ -35,7 +35,7 @@ export function Footer() {
           ))}
         </nav>
         <p className="font-mono text-xs text-slate-400">
-          © {new Date().getFullYear()} Mooring ERP
+          © {new Date().getFullYear()} Mooric ERP
         </p>
       </div>
     </footer>

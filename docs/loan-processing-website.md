@@ -1,6 +1,6 @@
-# Mooring ERP marketing site
+# Mooric ERP marketing site
 
-Single-page React application for **Mooring ERP** — a fictional **AI-assisted mortgage origination** platform. Copy and structure emphasize a **governed workspace** for loan teams (intake through closing), with AI supporting officer and processor judgment rather than replacing it.
+Single-page React application for **Mooric ERP** — a fictional **AI-assisted mortgage origination** platform. Copy and structure emphasize a **governed workspace** for loan teams (intake through closing), with AI supporting officer and processor judgment rather than replacing it.
 
 ## Stack
 
@@ -49,7 +49,7 @@ npm run preview
 
 ## Design notes
 
-- **Brand:** Mooring ERP — mortgage origination positioning; warm **organ** / silver-toned **`accent`** on light sections, **slate** / **sky** on the hero instrument strip.
+- **Brand:** Mooric ERP — mortgage origination positioning; warm **organ** / silver-toned **`accent`** on light sections, **slate** / **sky** on the hero instrument strip.
 - **Motion:** Sections use `whileInView` for scroll-triggered motion; hero strip uses CSS-driven ECG drift and AI orb pulse (see `docs/hero-session-pulse.md`).
 - **Accessibility:** Landmark sections include headings and `aria-labelledby` where appropriate; decorative layers use `aria-hidden`.
 

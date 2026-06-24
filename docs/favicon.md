@@ -16,4 +16,4 @@ Browsers cache favicons aggressively. After replacing the PNG or changing the `h
 
 ## Related
 
-- [mooring-static-assets.md](./mooring-static-assets.md) — other logo files and header/footer usage.
+- [mooric-static-assets.md](./mooric-static-assets.md) — other logo files and header/footer usage.
