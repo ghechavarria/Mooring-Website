@@ -69,14 +69,14 @@ npm run preview
 
 | Label | Anchor |
 |-------|--------|
-| How it works | `#demo` |
 | Why Mooric | `#memory` |
 | Features | `#features` |
+| Pipeline | `#pipeline` |
 | Team | `#team` |
 
-The nav matches scroll order: proof (demo in hero) → differentiator (memory) → product capabilities (features, then pipeline and assistant by scrolling) → company (team). Logo links to `#top`. Pipeline and Assistant have no dedicated nav item.
+The nav maps to real content sections below the hero in scroll order: differentiator (memory) → features → pipeline → company (team). Logo links to `#top`. The interactive Before/After demo lives inside the hero (`#demo`), so it has no nav item; the hero's secondary CTA is **See why it's different** → `#memory`. LO Assistant (`#assistant`) and Contact (`#contact`) have no dedicated nav item.
 
-Footer mirrors the same four section anchors; Security / Privacy / Status remain placeholder `#` links.
+Footer is logo + social icons + copyright only (no link row). Header holds section navigation.
 
 CTA: **Request a briefing** → opens contact modal (see [contact-form-modal.md](./contact-form-modal.md))
 

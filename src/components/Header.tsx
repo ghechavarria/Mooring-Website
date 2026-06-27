@@ -4,9 +4,9 @@ import { useContactModal } from "../context/ContactModalContext";
 import { SHOW_CONTACT_ACTIONS } from "../config/contactActions";
 
 const links = [
-  { label: "How it works", href: "#demo" },
   { label: "Why Mooric", href: "#memory" },
   { label: "Features", href: "#features" },
+  { label: "Pipeline", href: "#pipeline" },
   { label: "Team", href: "#team" },
 ];
 

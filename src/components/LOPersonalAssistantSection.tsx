@@ -23,7 +23,7 @@ export function LOPersonalAssistantSection() {
   return (
     <section
       id="assistant"
-      className="relative scroll-mt-8 border-t border-organ-200/90 bg-white py-24 sm:py-32"
+      className="relative scroll-mt-8 border-t border-organ-200/90 bg-white py-28 sm:py-40"
       aria-labelledby="assistant-heading"
     >
       <div className="layout-shell">
@@ -49,7 +49,7 @@ export function LOPersonalAssistantSection() {
           </p>
         </motion.div>
 
-        <div className="mt-14 grid gap-5 sm:grid-cols-2">
+        <div className="mt-16 grid gap-5 sm:grid-cols-2">
           {capabilities.map((item, i) => (
             <motion.article
               key={item.title}

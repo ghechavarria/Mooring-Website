@@ -20,12 +20,12 @@ Implemented in [Hero.tsx](../src/components/Hero.tsx):
 
 ## Navigation
 
-- **How it works** (`#demo` in [Header.tsx](../src/components/Header.tsx)) scrolls to the demo block inside the hero.
-- **See how it works** CTA in hero copy also links to `#demo`.
+- **How it works** is no longer a nav link (the demo is inline in the hero).
+- **See why it's different** CTA in hero copy links to `#memory`.
 
 ## Spacing
 
-Hero content padding: `py-14 sm:py-16 lg:py-20 xl:py-24` inside `HeroSessionPulse`. Grid gaps: `gap-12 lg:gap-16 xl:gap-20`; stats span the grid with `lg:col-span-2`.
+Hero content padding: `py-8 sm:py-10 lg:py-12` inside `HeroSessionPulse` (the hero fills `100svh - 4.25rem` and centers content). Grid gaps: `gap-14 lg:gap-20 xl:gap-24`; stats span the grid with `lg:col-span-2`.
 
 ## Related
 

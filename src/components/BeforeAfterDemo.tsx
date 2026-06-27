@@ -197,12 +197,12 @@ function StatusPill({ label, tone }: { label: string; tone: string }) {
 
 function BeforePanel() {
   return (
-    <div className="space-y-4 p-4 sm:p-5">
-      <p className="text-xs text-organ-600 sm:text-sm">
+    <div className="space-y-4 p-4 @sm:p-5">
+      <p className="text-xs text-organ-600 @sm:text-sm">
         Files scattered across folders with no clear structure. Dates tracked in a separate Excel sheet.
       </p>
 
-      <div className="grid gap-3 sm:grid-cols-3">
+      <div className="grid gap-3 @md:grid-cols-2 @xl:grid-cols-3">
         {folders.map((folder) => (
           <div
             key={folder.name}
@@ -211,7 +211,7 @@ function BeforePanel() {
             <div className="flex items-start justify-between gap-2">
               <div className="flex min-w-0 items-center gap-2">
                 <FolderIcon />
-                <p className="truncate text-xs font-semibold text-ink-950 sm:text-sm">{folder.name}</p>
+                <p className="truncate text-xs font-semibold text-ink-950 @sm:text-sm">{folder.name}</p>
               </div>
               <span className="shrink-0 rounded bg-organ-100 px-1.5 py-0.5 text-[10px] font-medium text-organ-600">
                 {folder.count} files
@@ -219,7 +219,7 @@ function BeforePanel() {
             </div>
             <ul className="mt-2.5 space-y-1">
               {folder.files.map((file) => (
-                <li key={file} className="flex items-center gap-1.5 font-mono text-[10px] text-organ-700 sm:text-[11px]">
+                <li key={file} className="flex items-center gap-1.5 font-mono text-[10px] text-organ-700 @sm:text-[11px]">
                   <PageIcon />
                   <span className="truncate">{file}</span>
                 </li>
@@ -232,12 +232,12 @@ function BeforePanel() {
       <div className="overflow-hidden rounded-lg border border-organ-200 shadow-sm">
         <div className="flex items-center gap-2 bg-green-700 px-3 py-2 text-white">
           <TableIcon />
-          <p className="truncate font-mono text-[11px] font-semibold sm:text-xs">
+          <p className="truncate font-mono text-[11px] font-semibold @sm:text-xs">
             Pipeline tracker v3 FINAL (2).xlsx
           </p>
         </div>
         <div className="overflow-x-auto">
-          <table className="min-w-[36rem] w-full border-collapse font-mono text-[10px] sm:text-xs">
+          <table className="min-w-[36rem] w-full border-collapse font-mono text-[10px] @sm:text-xs">
             <thead>
               <tr className="bg-organ-100 text-organ-800">
                 <th className="border border-organ-200 px-2 py-1.5 text-left font-semibold">Borrower</th>
@@ -367,7 +367,7 @@ function DemoChrome({
   const panelId = `${idPrefix}-panel`;
 
   return (
-    <div className="flex flex-wrap items-center justify-between gap-3 border-b border-organ-200 bg-organ-50 px-3 py-2 sm:px-4">
+    <div className="flex flex-wrap items-center justify-between gap-3 border-b border-organ-200 bg-organ-50 px-3 py-2 @sm:px-4">
       <div
         className="flex rounded-lg border border-organ-200 bg-white p-0.5"
         role="tablist"
@@ -379,7 +379,7 @@ function DemoChrome({
           id={beforeTabId}
           aria-selected={view === "before"}
           aria-controls={panelId}
-          className={`flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-semibold transition sm:text-sm ${
+          className={`flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs font-semibold transition @sm:px-3 @sm:text-sm ${
             view === "before" ? "bg-organ-100 text-ink-950" : "text-organ-600 hover:text-organ-900"
           }`}
           onClick={() => onViewChange("before")}
@@ -393,7 +393,7 @@ function DemoChrome({
           id={afterTabId}
           aria-selected={view === "after"}
           aria-controls={panelId}
-          className={`flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-semibold transition sm:text-sm ${
+          className={`flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs font-semibold transition @sm:px-3 @sm:text-sm ${
             view === "after" ? "bg-organ-100 text-ink-950" : "text-organ-600 hover:text-organ-900"
           }`}
           onClick={() => onViewChange("after")}
@@ -407,7 +407,7 @@ function DemoChrome({
           After Mooric
         </button>
       </div>
-      <div className="flex items-center gap-2 text-organ-500" aria-hidden>
+      <div className="hidden items-center gap-2 text-organ-500 @md:flex" aria-hidden>
         <span className="text-xs">Click to compare</span>
         <span className="text-sm tracking-widest">···</span>
       </div>
@@ -464,7 +464,7 @@ export function InteractiveDemoCard({
 
   return (
     <div
-      className={`overflow-hidden rounded-xl border border-organ-200/90 bg-white shadow-card-md ${className}`}
+      className={`@container min-w-0 overflow-hidden rounded-xl border border-organ-200/90 bg-white shadow-card-md ${className}`}
     >
       <DemoChrome view={view} onViewChange={setView} idPrefix={idPrefix} />
       <div

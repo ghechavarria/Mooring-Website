@@ -19,7 +19,7 @@ export function CentralLoanMemorySection() {
   return (
     <section
       id="memory"
-      className="relative scroll-mt-8 border-y border-organ-200 marble-organ-light py-24 sm:py-32"
+      className="relative scroll-mt-8 border-y border-organ-200 marble-organ-light py-28 sm:py-40"
       aria-labelledby="memory-heading"
     >
       <div className="layout-shell z-10">
@@ -45,7 +45,7 @@ export function CentralLoanMemorySection() {
           </p>
         </motion.div>
 
-        <div className="mt-16 grid gap-6 lg:grid-cols-3">
+        <div className="mt-20 grid gap-6 lg:grid-cols-3">
           {contrasts.map((item, i) => (
             <motion.article
               key={item.title}
@@ -66,7 +66,7 @@ export function CentralLoanMemorySection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.15 }}
-          className="mx-auto mt-14 max-w-2xl rounded-xl border border-erp/25 bg-white px-6 py-8 text-center shadow-card sm:px-10 sm:py-10"
+          className="mx-auto mt-16 max-w-2xl rounded-xl border border-erp/25 bg-white px-6 py-8 text-center shadow-card sm:px-10 sm:py-10"
         >
           <p className="font-mono text-4xl font-semibold tabular-nums text-erp sm:text-5xl">
             ~1 hr

@@ -18,7 +18,7 @@ Use **PNG** (path in code: `/images/team/{slug}.png`). Rough portrait **4:5** cr
 
 ## Layout
 
-- **Surface:** **`bg-organ-50`** with **`py-24 sm:py-32`** — faint tint alternates with the white **LO Personal Assistant** section above
+- **Surface:** **`bg-organ-50`** with **`py-28 sm:py-40`** — faint tint alternates with the white **LO Personal Assistant** section above
 - **Header:** Centered block with eyebrow `The people`, headline “Our team”, and intro line about mortgage technology veterans
 - Container: **`flex flex-wrap justify-center`** with horizontal/vertical gaps — not a fixed grid.
 - Cards: **`w-[calc(50%-0.75rem)]`** on mobile (two per row), **`sm:w-56`**, **`md:w-60`** on larger viewports.

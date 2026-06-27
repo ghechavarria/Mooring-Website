@@ -11,7 +11,7 @@
 - **Drawer chrome:** Top row labels **Menu** and includes an in-drawer **Close** control (header toggle is covered while open).
 - **Keyboard:** **Escape** closes the menu (`keydown` listener while open).
 - **Scroll lock:** `document.body.style.overflow = "hidden"` while the menu is open.
-- **Primary links (desktop + mobile):** **How it works** (`#demo`), **Why Mooric** (`#memory`), **Features** (`#features`), **Team** (`#team`). Pipeline and LO Personal Assistant are part of the product scroll after Features — no separate nav item. Logo links to `#top`.
+- **Primary links (desktop + mobile):** **Why Mooric** (`#memory`), **Features** (`#features`), **Pipeline** (`#pipeline`), **Team** (`#team`). The interactive demo is inline in the hero, so there is no "How it works" link; LO Personal Assistant and Contact have no separate nav item. Logo links to `#top`.
 - **Mobile links:** Same anchors as desktop, plus **Request a briefing** (opens the contact modal).
 
 ## Site shell

@@ -25,11 +25,11 @@ export function PipelineSection() {
   return (
     <section
       id="pipeline"
-      className="relative scroll-mt-8 border-t border-organ-200 bg-organ-50 py-24 sm:py-32"
+      className="relative scroll-mt-8 border-t border-organ-200 bg-organ-50 py-28 sm:py-40"
       aria-labelledby="pipeline-heading"
     >
       <div className="layout-shell z-10">
-        <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+        <div className="grid gap-16 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <motion.div
             initial={{ opacity: 0, x: -16 }}
             whileInView={{ opacity: 1, x: 0 }}

@@ -7,7 +7,7 @@ export function ContactCTA() {
   return (
     <section
       id="contact"
-      className="relative scroll-mt-8 bg-canvas py-24 sm:py-32"
+      className="relative scroll-mt-8 bg-canvas pb-36 pt-20 sm:pb-48 sm:pt-28"
       aria-labelledby="cta-heading"
     >
       <div className="layout-shell">

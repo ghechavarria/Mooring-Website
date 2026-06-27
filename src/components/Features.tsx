@@ -67,7 +67,7 @@ export function Features() {
   return (
     <section
       id="features"
-      className="relative scroll-mt-8 border-t border-organ-200/90 bg-white py-24 sm:py-32"
+      className="relative scroll-mt-8 border-t border-organ-200/90 bg-white py-28 sm:py-40"
       aria-labelledby="features-heading"
     >
       <div className="layout-shell">
@@ -112,7 +112,7 @@ export function Features() {
           </motion.figure>
         </div>
 
-        <div className="mt-20 grid gap-5 sm:grid-cols-2">
+        <div className="mt-24 grid gap-5 sm:grid-cols-2">
           {features.map((f, i) => (
             <PlatformFeatureCard key={f.title} step={i + 1} delay={i * 0.06} item={f} />
           ))}

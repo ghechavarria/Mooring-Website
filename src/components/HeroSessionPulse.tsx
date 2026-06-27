@@ -153,7 +153,7 @@ export function HeroSessionPulse({ children }: { children?: ReactNode }) {
             className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(0,117,255,0.06),transparent_55%)]"
             aria-hidden
           />
-          <div className="relative layout-header py-14 sm:py-16 lg:py-20 xl:py-24">{children}</div>
+          <div className="relative layout-header py-8 sm:py-10 lg:py-12">{children}</div>
         </div>
       ) : null}
 

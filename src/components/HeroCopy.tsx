@@ -50,10 +50,10 @@ export function HeroCopy({
           Request a briefing
         </button>
         <a
-          href="#demo"
+          href="#memory"
           className="inline-flex w-full items-center justify-center rounded-md border border-organ-200 bg-white px-6 py-3 text-sm font-semibold text-ink-950 shadow-sm transition hover:border-erp hover:text-erp sm:w-auto"
         >
-          See how it works
+          See why it's different
         </a>
       </div>
     </div>

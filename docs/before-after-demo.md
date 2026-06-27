@@ -22,6 +22,15 @@ Shows the transformation from how LOs and processors work today versus with Moor
 - Default view: **Before Mooric**
 - In hero: wrapped in `DemoAppWindow` for app-window framing
 
+## Responsiveness (container queries)
+
+The card root (`InteractiveDemoCard`) is a **`@container`**, so the panels adapt to the **card's own width**, not the viewport. This matters because the demo sits in the hero's two-column grid on `lg+`, where it is only ~half the viewport wide. Uses the `@tailwindcss/container-queries` plugin (registered in [tailwind.config.js](../tailwind.config.js)).
+
+- **Chrome:** tab labels shrink padding below `@sm`; “Click to compare” hint hidden below `@md`.
+- **Before folders:** `grid` → `@md:grid-cols-2` → `@xl:grid-cols-3` (stack when the card is narrow).
+- **Before tracker table:** `min-w-[36rem]` with `overflow-x-auto` — scrolls horizontally on narrow cards.
+- **After panel:** uses viewport breakpoints — single column, becomes `md:grid-cols-[0.85fr_1.15fr]` at the `md` viewport; inner padding/text step at `sm`.
+
 ## Interaction
 
 - Toggle: **Before Mooric** | **After Mooric** (folder / sparkle icons in chrome bar)
@@ -30,7 +39,8 @@ Shows the transformation from how LOs and processors work today versus with Moor
 
 ## Before panel
 
-- Caption: files scattered across folders; dates in a separate Excel sheet.
+- **Before panel:** uses container-query variants so it fits the card width at any viewport. The card root carries **`min-w-0`** (and the hero demo wrapper too) so the wide tracker table's `overflow-x-auto` is contained instead of forcing the layout wider than the screen.
+  - Caption: files scattered across folders; dates in a separate Excel sheet.
 - **Three folder cards** (amber folder icon, file count badge): Johnson docs, Martinez - refi, Kim Purchase NEW — each lists messy filenames from the brief.
 - **Excel tracker:** green title bar `Pipeline tracker v3 FINAL (2).xlsx`, table with Borrower / App date / LE sent / CTC target / HOA due / Status and color-coded cells (`TBD`, `OVERDUE`, `??`, etc.). Horizontal scroll on narrow viewports.
 
@@ -43,7 +53,7 @@ Shows the transformation from how LOs and processors work today versus with Moor
 
 ## Entry point
 
-[Hero.tsx](../src/components/Hero.tsx) hosts `#demo`. **See how it works** and nav **How it works** scroll to the interactive card.
+[Hero.tsx](../src/components/Hero.tsx) hosts `#demo` inside the hero. The demo is shown inline, so there is no nav link to it; the hero's **See why it's different** CTA points to `#memory`.
 
 ## Content source
 

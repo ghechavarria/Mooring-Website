@@ -71,7 +71,7 @@ Sections alternate between plain white and a faint **`organ-50`** tint for verti
 | Team | `bg-organ-50` |
 | Contact CTA | `bg-canvas` |
 
-All product sections use **`py-24 sm:py-32`** and **`border-t border-organ-200`** seams between bands. Hero inner padding uses **`py-14 sm:py-16 lg:py-20 xl:py-24`** via `HeroSessionPulse`.
+All product sections use **`py-28 sm:py-40`** and **`border-t border-organ-200`** seams between bands. Hero inner padding uses **`py-16 sm:py-20 lg:py-24 xl:py-28`** via `HeroSessionPulse`.
 
 ## Unified feature cards
 

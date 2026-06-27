@@ -72,7 +72,7 @@ export function TeamSection() {
   return (
     <section
       id="team"
-      className="relative scroll-mt-8 border-t border-organ-200/90 bg-organ-50 py-24 sm:py-32"
+      className="relative scroll-mt-8 border-t border-organ-200/90 bg-organ-50 pb-16 pt-28 sm:pb-24 sm:pt-40"
       aria-labelledby="team-heading"
     >
       <div className="layout-shell">
@@ -98,7 +98,7 @@ export function TeamSection() {
           </p>
         </motion.div>
 
-        <div className="mt-12 flex flex-wrap justify-center gap-x-6 gap-y-10 sm:gap-x-8 lg:gap-x-10">
+        <div className="mt-16 flex flex-wrap justify-center gap-x-6 gap-y-10 sm:gap-x-8 lg:gap-x-10">
           {members.map((m, i) => (
             <TeamMemberCard key={m.slug} name={m.name} slug={m.slug} title={m.title} index={i} />
           ))}
