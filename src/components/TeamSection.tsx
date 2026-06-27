@@ -8,6 +8,7 @@ const members = [
   { name: "Erik Ruiz", slug: "erik-ruiz", title: "Chief Information Security Officer" },
   { name: "Grace Hechavarria", slug: "grace-hechavarria", title: "Chief Information Officer" },
   { name: "Joanne Rossi", slug: "joanne-rossi", title: "Chief Quality and Compliance Officer" },
+  { name: "Andrew", slug: "andrew", title: "SVP Product Development" },
 ] as const;
 
 function initialsFrom(name: string) {
@@ -36,7 +37,7 @@ function TeamMemberCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.45, delay: index * 0.06 }}
-      className="text-center"
+      className="w-[calc(50%-0.75rem)] text-center sm:w-56 md:w-60"
     >
       <div className="relative mx-auto aspect-[4/5] max-w-[220px] overflow-hidden rounded-2xl border border-organ-200/90 bg-organ-100 shadow-card">
         {!photoFailed ? (
@@ -89,7 +90,7 @@ export function TeamSection() {
           </h2>
         </motion.div>
 
-        <div className="mt-12 grid grid-cols-2 gap-x-6 gap-y-10 sm:gap-x-8 md:grid-cols-3 lg:gap-x-10">
+        <div className="mt-12 flex flex-wrap justify-center gap-x-6 gap-y-10 sm:gap-x-8 lg:gap-x-10">
           {members.map((m, i) => (
             <TeamMemberCard key={m.slug} name={m.name} slug={m.slug} title={m.title} index={i} />
           ))}

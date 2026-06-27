@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { HeroSessionPulse } from "./HeroSessionPulse";
+import { useContactModal } from "../context/ContactModalContext";
 
 export function Hero() {
+  const { openContactModal } = useContactModal();
   return (
     <section
       id="top"
@@ -32,47 +34,52 @@ export function Hero() {
               id="hero-heading"
               className="mt-3 text-balance font-serif text-4xl font-semibold leading-[1.1] tracking-tight text-slate-50 sm:text-5xl lg:text-6xl xl:text-[3.35rem] xl:leading-[1.08]"
             >
-              The pipeline from first conversation to funded loan — without the scramble.
+              Less chasing paperwork. More time closing loans.
             </h1>
             <p className="mt-5 max-w-none text-base leading-relaxed text-slate-300 sm:text-lg lg:mt-6 lg:max-w-4xl xl:max-w-5xl xl:text-xl xl:leading-relaxed">
-              Mooric ERP is a governed workspace for loan teams: intake, documentation, credit
-              context, and lender milestones in one place — with AI accelerating the work you
-              already do, not replacing your judgment.
+              You did not get into this business to re-enter borrower data, hunt down documents,
+              or update five spreadsheets before your first coffee. Mooric ERP handles that
+              overhead so you can focus on what actually needs your judgment — advising
+              borrowers and getting files to the finish line.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-3 lg:mt-10">
-              <a href="#contact" className="btn-primary-silver w-full px-6 py-3 text-center text-sm sm:w-auto sm:px-6">
+              <button
+                type="button"
+                className="btn-primary-silver w-full px-6 py-3 text-center text-sm sm:w-auto sm:px-6"
+                onClick={() => openContactModal("briefing")}
+              >
                 Request a briefing
-              </a>
+              </button>
               <a
                 href="#platform"
                 className="inline-flex w-full items-center justify-center rounded-md border border-accent/45 bg-slate-950/60 px-6 py-3 text-sm font-semibold text-slate-100 shadow-sm backdrop-blur-sm transition hover:border-accent hover:bg-slate-900/80 sm:w-auto"
               >
-                Explore capabilities
+                See how it works
               </a>
             </div>
             <dl className="mt-10 grid w-full gap-8 border-t border-slate-700/80 pt-8 sm:grid-cols-3 sm:gap-10 lg:mt-12 lg:gap-14 lg:pt-10 xl:gap-20">
               <div>
                 <dt className="text-[11px] font-semibold uppercase tracking-wide text-accent/85">
-                  Pipeline
+                  1003
                 </dt>
                 <dd className="mt-1 text-sm font-medium text-slate-300 sm:text-base">
-                  One thread from intake to post-close
+                  Complete the application without three rounds of borrower follow-up
                 </dd>
               </div>
               <div>
                 <dt className="text-[11px] font-semibold uppercase tracking-wide text-accent/85">
-                  Control
+                  Conditions
                 </dt>
                 <dd className="mt-1 text-sm font-medium text-slate-300 sm:text-base">
-                  Built for regulated lending
+                  Cleared, outstanding, and overdue — one view, no email archaeology
                 </dd>
               </div>
               <div>
                 <dt className="text-[11px] font-semibold uppercase tracking-wide text-accent/85">
-                  Velocity
+                  Closing
                 </dt>
                 <dd className="mt-1 text-sm font-medium text-slate-300 sm:text-base">
-                  Fewer stalls, clearer next steps
+                  TRID, title, HOI, and appraisal deadlines tracked in one place
                 </dd>
               </div>
             </dl>

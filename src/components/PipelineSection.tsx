@@ -5,29 +5,28 @@ const operationsWorkspace =
 
 const steps = [
   {
-    title: "Engage",
-    detail: "Borrowers enter through guided links and protected uploads — encrypted in transit and at rest.",
+    title: "Full pipeline visibility, one screen",
+    detail:
+      "From the moment you first speak to a prospect to the day the loan funds, every file has a clear status. No more spreadsheets with columns of dates to manually update. No more wondering where a file stands.",
   },
   {
-    title: "Enrich",
-    detail: "AI summarizes what is in the file and flags gaps so your team is never surprised at underwriting.",
+    title: "Daily summary — know what needs attention today",
+    detail:
+      "The Summary view surfaces everything that needs your attention right now — overdue conditions, upcoming TRID deadlines, files that have been sitting without an update. Start every day knowing exactly where to focus.",
   },
   {
-    title: "Advance",
-    detail: "Conditions, lender asks, and internal checkpoints route to the right owner with a clear SLA.",
-  },
-  {
-    title: "Close",
-    detail: "Every touch leaves an audit-friendly trail from first contact through clear-to-close.",
+    title: "Closed loan performance",
+    detail:
+      "See your closed loan history summarized by month, quarter, or year — volume, average loan size, time to close. Simple visibility into your own production without building a report.",
   },
 ];
 
-export function Workflow() {
+export function PipelineSection() {
   return (
     <section
-      id="workflow"
+      id="pipeline"
       className="relative scroll-mt-8 border-t-0 marble-organ-light pb-20 pt-12 sm:pb-24 sm:pt-14"
-      aria-labelledby="workflow-heading"
+      aria-labelledby="pipeline-heading"
     >
       <div className="layout-shell z-10">
         <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
@@ -38,19 +37,21 @@ export function Workflow() {
             transition={{ duration: 0.55 }}
           >
             <h2
-              id="workflow-heading"
+              id="pipeline-heading"
               className="font-serif text-3xl font-semibold tracking-tight text-ink-950 sm:text-4xl"
             >
-              A backbone that matches how mortgages actually move.
+              Pipeline management — no more Excel tracking.
             </h2>
             <p className="mt-4 text-lg text-organ-800">
-              Replace duct-taped portals and spreadsheets with one pipeline that respects
-              your compliance story — and still feels fast on the front line.
+              One of the most common pain points for independent LOs is managing a pipeline
+              across spreadsheets, sticky notes, and calendar reminders. Mooric ERP replaces
+              all of that with a single view that follows every loan from first conversation
+              to funded.
             </p>
             <figure className="mt-10 overflow-hidden rounded-xl border border-organ-200/90 bg-white shadow-sm">
               <img
                 src={operationsWorkspace}
-                alt="Mortgage operations team collaborating over loan files and systems"
+                alt="Loan officer managing mortgage pipeline on screen"
                 width={1400}
                 height={933}
                 className="aspect-[3/2] w-full object-cover object-center"
@@ -95,9 +96,7 @@ export function Workflow() {
                   </motion.span>
                   <div className="min-w-0 flex-1 pt-0.5">
                     <h3 className="text-lg font-semibold text-ink-950">{s.title}</h3>
-                    <p className="mt-2 max-w-md leading-relaxed text-organ-800">
-                      {s.detail}
-                    </p>
+                    <p className="mt-2 max-w-md leading-relaxed text-organ-800">{s.detail}</p>
                   </div>
                 </div>
               </motion.li>
@@ -114,55 +113,39 @@ export function Workflow() {
               className="pointer-events-none absolute -right-24 -top-28 h-72 w-72 rounded-full bg-accent/10 blur-3xl"
               aria-hidden
             />
-            <div className="pointer-events-none absolute -bottom-16 left-1/3 h-48 w-96 -translate-x-1/2 rounded-full bg-sky-500/5 blur-3xl" aria-hidden />
+            <div
+              className="pointer-events-none absolute -bottom-16 left-1/3 h-48 w-96 -translate-x-1/2 rounded-full bg-sky-500/5 blur-3xl"
+              aria-hidden
+            />
             <div className="relative z-10 lg:flex lg:flex-row lg:items-stretch lg:justify-between lg:gap-12 xl:gap-16">
               <div className="min-w-0 flex-1 lg:max-w-xl">
                 <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
-                  Pipeline snapshot
+                  Your production at a glance
                 </p>
-                <p className="mt-5 text-4xl font-semibold tabular-nums text-organ-50 sm:text-5xl">
-                  <motion.span
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                  >
-                    94%
-                  </motion.span>
+                <p className="mt-5 font-serif text-2xl font-semibold text-organ-50 sm:text-3xl">
+                  Closed loan performance, without building a spreadsheet
                 </p>
                 <p className="mt-3 max-w-md text-sm leading-relaxed text-organ-200 sm:text-base">
-                  Teams report fewer surprise stalls after rollout — with audit-grade
-                  lineage baked in.
+                  Volume, average loan size, and time to close — broken down by month, quarter,
+                  or year. The numbers you need to understand your own book, already in the
+                  platform.
                 </p>
-                <div className="mt-8 h-2 overflow-hidden rounded-full bg-organ-950/80 sm:mt-10">
-                  <motion.div
-                    className="h-full rounded-full bg-gradient-to-r from-accent to-accent-light"
-                    initial={{ width: "0%" }}
-                    whileInView={{ width: "94%" }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-                  />
-                </div>
               </div>
               <div
                 className="mt-10 flex w-full flex-col justify-center gap-5 border-t border-organ-600/25 pt-8 sm:gap-6 sm:pt-10 lg:mt-0 lg:w-56 lg:shrink-0 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0 xl:w-64"
                 aria-hidden
               >
                 <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent/90">
-                  Stages (illustrative)
+                  Example view
                 </p>
                 {[
-                  ["Intake", "58%"],
-                  ["Conditions", "76%"],
-                  ["Lender round-trip", "91%"],
-                ].map(([label, width]) => (
+                  ["Volume", "12 loans"],
+                  ["Avg. loan size", "$385K"],
+                  ["Avg. days to close", "32"],
+                ].map(([label, value]) => (
                   <div key={label}>
                     <p className="text-xs font-medium text-organ-100">{label}</p>
-                    <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-organ-950/75">
-                      <div
-                        className="h-full rounded-full bg-gradient-to-r from-accent/70 to-accent"
-                        style={{ width }}
-                      />
-                    </div>
+                    <p className="mt-1 font-mono text-sm tabular-nums text-accent-light">{value}</p>
                   </div>
                 ))}
               </div>

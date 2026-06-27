@@ -64,7 +64,7 @@ export function HeroMotionBand() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Mortgage workspace
+          Mortgage pipeline
         </motion.p>
 
         <div className="relative mt-6">
@@ -88,8 +88,8 @@ export function HeroMotionBand() {
         </div>
 
         <p className="relative z-10 mt-8 max-w-md text-sm leading-relaxed text-slate-200/95 [text-shadow:0_1px_2px_rgba(0,0,0,0.35)]">
-          Borrower touchpoints, lender conditions, and your checklist — one governed flow
-          from first doc to clear-to-close, with silver-threaded controls on organic slate.
+          Your pipeline, conditions, and closing deadlines — one place, built for how
+          independent LOs actually work.
         </p>
       </div>
     </div>

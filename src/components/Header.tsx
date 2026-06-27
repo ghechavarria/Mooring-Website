@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import { useContactModal } from "../context/ContactModalContext";
 
 const links = [
-  { label: "Overview", href: "#top" },
-  { label: "Capabilities", href: "#platform" },
-  { label: "Workflow", href: "#workflow" },
-  { label: "Outcomes", href: "#results" },
+  { label: "Features", href: "#platform" },
+  { label: "Loan Memory", href: "#memory" },
+  { label: "Pipeline", href: "#pipeline" },
   { label: "Team", href: "#team" },
 ];
 
@@ -38,6 +38,7 @@ function MenuIcon({ open }: { open: boolean }) {
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { openContactModal } = useContactModal();
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -108,9 +109,13 @@ export function Header() {
               </a>
             ))}
           </nav>
-          <a href="#contact" className="btn-primary-silver shrink-0 px-4 py-2.5 text-sm">
+          <button
+            type="button"
+            className="btn-primary-silver shrink-0 px-4 py-2.5 text-sm"
+            onClick={() => openContactModal("briefing")}
+          >
             Request a briefing
-          </a>
+          </button>
         </div>
 
         <button
@@ -171,13 +176,16 @@ export function Header() {
                     {item.label}
                   </a>
                 ))}
-                <a
-                  href="#contact"
+                <button
+                  type="button"
                   className="btn-primary-silver mt-3 w-full px-3 py-3.5 text-center text-base font-semibold"
-                  onClick={() => setMenuOpen(false)}
+                  onClick={() => {
+                    setMenuOpen(false);
+                    openContactModal();
+                  }}
                 >
                   Request a briefing
-                </a>
+                </button>
               </nav>
             </div>
           </div>,

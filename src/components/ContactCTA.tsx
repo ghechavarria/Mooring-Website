@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
+import { useContactModal } from "../context/ContactModalContext";
 
 export function ContactCTA() {
+  const { openContactModal } = useContactModal();
   return (
     <section
       id="contact"
@@ -28,19 +30,20 @@ export function ContactCTA() {
               id="cta-heading"
               className="mt-4 font-serif text-3xl font-semibold tracking-tight text-ink-950 sm:text-4xl"
             >
-              Get a guided look at an AI-assisted origination workspace.
+              See how Mooric ERP fits your day-to-day workflow.
             </h2>
             <p className="mt-5 text-lg text-organ-800">
-              On a short call we map intake to closing, show how loan and ops teams stay
-              coordinated, and save deeper configuration for when you are ready.
+              On a short call we walk through the 1003, condition tracking, pipeline view, and
+              Central Loan Memory — using the kind of file you work every week.
             </p>
             <div className="mx-auto mt-10 flex w-full max-w-md flex-col items-stretch justify-center gap-4 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center">
-              <a
-                href="mailto:hello@mooric-erp.example"
+              <button
+                type="button"
                 className="btn-primary-silver w-full px-8 py-3.5 text-center text-sm sm:w-auto"
+                onClick={() => openContactModal("walkthrough")}
               >
-                Email our solutions team
-              </a>
+                Book a walkthrough
+              </button>
               <span className="text-center text-sm text-organ-600 sm:text-left">
                 Response within one business day
               </span>

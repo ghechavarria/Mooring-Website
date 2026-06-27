@@ -4,7 +4,7 @@
 
 The CTA card uses **`marble-slate`** (navy `#020617` family) with **`text-white`**. If that utility failed to paint as expected in some builds, copy could read as **white on a light wash** and disappear.
 
-The card is now an explicit **light band**: **`bg-organ-50`**, **`border-organ-200`**, soft **silver radial** at very low alpha only. Typography uses **`text-organ-800`** (kicker), **`text-ink-950`** (headline), **`text-organ-800`** (body), **`text-organ-600`** (supporting line). Primary action: **`btn-primary-silver`** — **ERP** brand blue (**`erp`** / **`#1e70d6`**, white label; see [button-primary-silver.md](./button-primary-silver.md)) for the mail CTA — label **Email our solutions team** (Mooric ERP builds software *for* lenders, not a consumer lending desk).
+The card is now an explicit **light band**: **`bg-organ-50`**, **`border-organ-200`**, soft **silver radial** at very low alpha only. Typography uses **`text-organ-800`** (kicker), **`text-ink-950`** (headline), **`text-organ-800`** (body), **`text-organ-600`** (supporting line). Primary action: **`btn-primary-silver`** opens the **Netlify contact modal** — label **Book a walkthrough** (see [contact-form-modal.md](./contact-form-modal.md)).
 
 ## `Footer.tsx`
 

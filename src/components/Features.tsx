@@ -5,23 +5,23 @@ const leadershipCollaboration =
 
 const features = [
   {
-    title: "Guided intake",
-    body: "Borrower onboarding, questionnaires, and uploads land in one structured file — no mystery attachments.",
+    title: "Complete loan application, faster",
+    body: "Collect everything needed for the 1003 without going back to the borrower three times. Mooric ERP knows what is missing and tells you — before underwriting has to ask.",
     accent: "from-accent/30 to-transparent",
   },
   {
-    title: "AI-ready document flow",
-    body: "Paperwork is organized and prioritized so your team sees what matters next — before underwriting has to ask twice.",
+    title: "Fit the borrower to the right program",
+    body: "Build a complete picture of their financials, employment, and property — then surface the program that actually fits. Conventional, FHA, VA, DSCR, WVOE — the right answer, not just the obvious one.",
     accent: "from-accent-light/25 to-transparent",
   },
   {
-    title: "Credit through package",
-    body: "Pre-approval momentum carries into application prep and lender submission without re-keying the story of the loan.",
+    title: "Condition tracking",
+    body: "Every underwriting condition in one place. See at a glance what has been cleared, what is still outstanding, and what is overdue — without digging through email or making calls to find out where things stand.",
     accent: "from-accent/20 to-transparent",
   },
   {
-    title: "Milestone visibility",
-    body: "Conditional items, lender feedback, and closing checkpoints read as a single timeline — not five inboxes.",
+    title: "TRID, Title, HOI, and Appraisal tracking",
+    body: "Closing has a lot of moving parts with hard deadlines. Track Closing Disclosure timing, title search status, homeowners insurance, and appraisal order in a single view — so nothing is missed.",
     accent: "from-accent-light/20 to-transparent",
   },
 ] as const;
@@ -83,11 +83,12 @@ export function Features() {
               id="features-heading"
               className="font-serif text-3xl font-semibold tracking-tight text-ink-950 sm:text-4xl"
             >
-              Built for the full mortgage journey — not another point fix.
+              The work you do every day — without the manual overhead.
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-organ-800">
-              Loan officers, processors, and lender partners work from the same governed surface,
-              with AI quietly clearing noise so humans stay on high-value decisions.
+              Independent LOs and processors juggle multiple files at once. Mooric ERP is built
+              around the tasks that eat your day: completing applications, matching programs,
+              clearing conditions, and hitting closing deadlines.
             </p>
           </motion.div>
           <motion.figure
@@ -99,7 +100,7 @@ export function Features() {
           >
             <img
               src={leadershipCollaboration}
-              alt="Loan and operations leaders reviewing pipeline performance together"
+              alt="Loan officer reviewing borrower files at a desk"
               width={1600}
               height={1067}
               className="aspect-[4/3] w-full object-cover object-center"

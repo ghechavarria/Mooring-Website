@@ -2,7 +2,7 @@
 
 ## Header (`Header.tsx`)
 
-- **Breakpoint:** Primary nav and desktop CTAs use **`xl:flex`** (from **1280px** up); the menu control and overlay are **`xl:hidden`** below that. This keeps the top bar from cramming five links plus **Request a briefing** on mid-width viewports (tablets and small laptops), where the rail used to feel misaligned with the hero.
+- **Breakpoint:** Primary nav and desktop CTAs use **`xl:flex`** (from **1280px** up); the menu control and overlay are **`xl:hidden`** below that. This keeps the top bar from cramming the links plus **Request a briefing** on mid-width viewports (tablets and small laptops), where the rail used to feel misaligned with the hero.
 - **Viewport growth:** A **`matchMedia("(min-width: 1280px)")`** listener closes the drawer when the window crosses into desktop width so the sheet does not stay open after resize.
 - **Control:** Icon button (hamburger / close) with `aria-expanded`, `aria-controls="mobile-nav-panel"`, and `aria-label` for open vs close.
 - **Panel:** `role="dialog"` with `aria-modal="true"` and `aria-label="Site navigation"`. A full-area **dimmed backdrop** (`bg-organ-950/45`) sits under the sheet; clicking it closes the menu.
@@ -11,8 +11,8 @@
 - **Drawer chrome:** Top row labels **Menu** and includes an in-drawer **Close** control (header toggle is covered while open).
 - **Keyboard:** **Escape** closes the menu (`keydown` listener while open).
 - **Scroll lock:** `document.body.style.overflow = "hidden"` while the menu is open.
-- **Primary links (desktop + mobile):** **Overview** (`#top`), **Capabilities** (`#platform`), **Workflow** (`#workflow`), **Outcomes** (`#results`), **Team** (`#team`).
-- **Mobile links:** Same anchors as desktop, plus **Request a briefing** (`#contact`).
+- **Primary links (desktop + mobile):** **Features** (`#platform`), **Loan Memory** (`#memory`), **Pipeline** (`#pipeline`), **Team** (`#team`). Trimmed from six to four for clarity — the logo links to the top (`#top`), and the Assistant section is reached by scrolling through the product story rather than its own nav item.
+- **Mobile links:** Same anchors as desktop, plus **Request a briefing** (opens the contact modal).
 
 ## Site shell
 

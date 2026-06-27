@@ -8,7 +8,7 @@ export function Footer() {
   return (
     <footer className="border-t border-white/[0.06] bg-navy">
       <p className="border-b border-white/5 py-3 text-center font-display text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400">
-        Borrower experience · Loan team velocity · AI-assisted confidence
+        1003 completion · Condition tracking · Pipeline without Excel
       </p>
       <div className="layout-shell flex flex-col items-center justify-between gap-8 py-10 sm:flex-row">
         <div className="flex shrink-0 items-center justify-center sm:justify-start">

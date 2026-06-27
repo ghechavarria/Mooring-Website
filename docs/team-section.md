@@ -1,23 +1,30 @@
 # Team section (`TeamSection.tsx`)
 
-Renders **`#team`**: six people in a fixed order with a **photo slot**, **name**, and **role title** (chief-officer line-up).
+Renders **`#team`**: seven people in a fixed order with a **photo slot**, **name**, and **role title**.
 
 ## Order, titles & image files
 
 | Order | Name | Title | `public/images/team/` filename |
 | --- | --- | --- | --- |
-| 1 | Yegiao Guo | Chief Executive Officer | `yegiao-guo.png` |
+| 1 | Yeqiao Guo | Chief Executive Officer | `yeqiao-guo.png` |
 | 2 | James Jones | Chief Operating Officer | `james-jones.png` |
 | 3 | Zhen Wu | Chief Financial Officer | `zhen-wu.png` |
 | 4 | Erik Ruiz | Chief Information Security Officer | `erik-ruiz.png` |
 | 5 | Grace Hechavarria | Chief Information Officer | `grace-hechavarria.png` |
 | 6 | Joanne Rossi | Chief Quality and Compliance Officer | `joanne-rossi.png` |
+| 7 | Andrew | SVP Product Development | `andrew.png` |
 
 Use **PNG** (path in code: `/images/team/{slug}.png`). Rough portrait **4:5** crop reads well in the frame (`aspect-[4/5]`, `object-cover`).
 
+## Layout
+
+- Container: **`flex flex-wrap justify-center`** with horizontal/vertical gaps — not a fixed grid.
+- Cards: **`w-[calc(50%-0.75rem)]`** on mobile (two per row), **`sm:w-56`**, **`md:w-60`** on larger viewports.
+- Odd member counts (e.g. seven) center the last row instead of leaving an orphaned card left-aligned in a 3-column grid.
+
 ## Fallback
 
-If a file is missing or fails to load, the card shows **initials** on a navy–slate gradient (`from-ink-800 to-slate-800`, `text-accent-light`) so the grid never shows a broken image icon.
+If a file is missing or fails to load, the card shows **initials** on a navy–slate gradient (`from-ink-800 to-slate-800`, `text-accent-light`) so the roster never shows a broken image icon.
 
 ## Accessibility
 
@@ -31,4 +38,4 @@ If a file is missing or fails to load, the card shows **initials** on a navy–s
 
 ## Page order
 
-[`App.tsx`](../src/App.tsx): **`StatsSection`** → **`TeamSection`** → **`ContactCTA`**.
+[`App.tsx`](../src/App.tsx): **`HeroMotionBand`** → **`TeamSection`** → **`ContactCTA`**.
