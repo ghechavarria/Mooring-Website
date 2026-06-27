@@ -1,3 +1,4 @@
+import { BeforeAfterDemo } from "./components/BeforeAfterDemo";
 import { ContactModalProvider } from "./context/ContactModalContext";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
@@ -18,6 +19,7 @@ export default function App() {
         <Header />
         <main className="min-w-0 flex-1 overflow-x-hidden">
           <Hero />
+          <BeforeAfterDemo />
           <Features />
           <CentralLoanMemorySection />
           <PipelineSection />

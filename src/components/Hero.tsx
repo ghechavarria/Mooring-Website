@@ -52,7 +52,7 @@ export function Hero() {
                 Request a briefing
               </button>
               <a
-                href="#platform"
+                href="#demo"
                 className="inline-flex w-full items-center justify-center rounded-md border border-accent/45 bg-slate-950/60 px-6 py-3 text-sm font-semibold text-slate-100 shadow-sm backdrop-blur-sm transition hover:border-accent hover:bg-slate-900/80 sm:w-auto"
               >
                 See how it works

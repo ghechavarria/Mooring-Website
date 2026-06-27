@@ -39,6 +39,7 @@ npm run preview
 | `src/components/Header.tsx` | Sticky top navigation; brand tile **`/images/square-logo-blue.svg`** beside wordmark |
 | `src/components/Hero.tsx` | Dark hero (`#top`) with **`HeroSessionPulse`** (`integrated`) and LO-focused headline |
 | `src/components/HeroSessionPulse.tsx` | Session pulse strip (integrated hero + optional panel variant) |
+| `src/components/BeforeAfterDemo.tsx` | Interactive before/after toggle (`#demo`) — [before-after-demo.md](./before-after-demo.md) |
 | `src/components/Features.tsx` | Core value props (`#platform`) — [features-workflow-imagery.md](./features-workflow-imagery.md) |
 | `src/components/CentralLoanMemorySection.tsx` | Central Loan Memory differentiator (`#memory`) — [central-loan-memory-section.md](./central-loan-memory-section.md) |
 | `src/components/PipelineSection.tsx` | Pipeline management (`#pipeline`) — [pipeline-section.md](./pipeline-section.md) |
@@ -54,14 +55,15 @@ npm run preview
 
 1. Header
 2. Hero (`#top`)
-3. Features (`#platform`)
-4. Central Loan Memory (`#memory`)
-5. Pipeline (`#pipeline`)
-6. LO Personal Assistant (`#assistant`)
-7. HeroMotionBand (decorative)
-8. Team (`#team`)
-9. Contact (`#contact`)
-10. Footer
+3. Before/After demo (`#demo`)
+4. Features (`#platform`)
+5. Central Loan Memory (`#memory`)
+6. Pipeline (`#pipeline`)
+7. LO Personal Assistant (`#assistant`)
+8. HeroMotionBand (decorative)
+9. Team (`#team`)
+10. Contact (`#contact`)
+11. Footer
 
 ## Header navigation
 
@@ -79,7 +81,7 @@ CTA: **Request a briefing** → opens contact modal (see [contact-form-modal.md]
 ## Design notes
 
 - **Brand:** Mooric ERP — warm **organ** / silver-toned **`accent`** on light sections, **slate** / **sky** on the hero instrument strip.
-- **Audience:** Independent LOs and brokers; practitioner tone per [Web 1.docx](./Web%201.docx).
+- **Audience:** Independent LOs and brokers; practitioner tone per [Web 1.docx](./Web%201.docx); interactive demo per [Web 2.docx](./Web%202.docx).
 - **Motion:** Sections use `whileInView` for scroll-triggered motion; hero strip uses CSS-driven ECG drift and AI orb pulse (see [hero-session-pulse.md](./hero-session-pulse.md)).
 - **Accessibility:** Landmark sections include headings and `aria-labelledby` where appropriate; decorative layers use `aria-hidden`.
 
