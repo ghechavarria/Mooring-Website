@@ -19,7 +19,7 @@ export function CentralLoanMemorySection() {
   return (
     <section
       id="memory"
-      className="relative scroll-mt-8 border-y border-organ-200 marble-organ-light py-20 sm:py-24"
+      className="relative scroll-mt-8 border-y border-organ-200 marble-organ-light py-24 sm:py-32"
       aria-labelledby="memory-heading"
     >
       <div className="layout-shell z-10">
@@ -30,7 +30,7 @@ export function CentralLoanMemorySection() {
           transition={{ duration: 0.5 }}
           className="mx-auto max-w-3xl text-center"
         >
-          <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-erp">
+          <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-erp">
             Core differentiator
           </p>
           <h2

@@ -23,7 +23,7 @@ export function LOPersonalAssistantSection() {
   return (
     <section
       id="assistant"
-      className="relative scroll-mt-8 border-t border-organ-200/90 bg-white pb-20 pt-16 sm:pb-24 sm:pt-20"
+      className="relative scroll-mt-8 border-t border-organ-200/90 bg-white py-24 sm:py-32"
       aria-labelledby="assistant-heading"
     >
       <div className="layout-shell">
@@ -34,7 +34,7 @@ export function LOPersonalAssistantSection() {
           transition={{ duration: 0.55 }}
           className="mx-auto max-w-3xl text-center"
         >
-          <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-erp">
+          <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-erp">
             LO Personal Assistant
           </p>
           <h2
@@ -57,7 +57,7 @@ export function LOPersonalAssistantSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.45, delay: i * 0.06 }}
-              className="rounded-xl border border-organ-200/90 bg-organ-50/90 p-6 shadow-card sm:p-8"
+              className="rounded-xl border border-organ-200 bg-white p-6 shadow-card transition hover:-translate-y-0.5 hover:shadow-card-md sm:p-8"
             >
               <h3 className="text-lg font-semibold text-ink-950">{item.title}</h3>
               <p className="mt-3 leading-relaxed text-organ-800">{item.body}</p>

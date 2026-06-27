@@ -46,7 +46,7 @@ function PlatformFeatureCard({
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.45, delay }}
       whileHover={{ y: -3 }}
-      className={`group relative overflow-hidden rounded-xl border border-organ-200/90 bg-organ-50/90 p-6 shadow-card transition-shadow hover:border-organ-600 hover:shadow-card-md sm:p-8 ${className}`}
+      className={`group relative overflow-hidden rounded-xl border border-organ-200 bg-white p-6 shadow-card transition hover:-translate-y-0.5 hover:shadow-card-md sm:p-8 ${className}`}
     >
       <div
         className={`pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-gradient-to-br ${item.accent} blur-3xl transition-opacity group-hover:opacity-100`}
@@ -67,11 +67,10 @@ export function Features() {
   return (
     <section
       id="features"
-      className="relative scroll-mt-8 border-t border-organ-200/90 bg-white pb-0 pt-20 sm:pt-24"
+      className="relative scroll-mt-8 border-t border-organ-200/90 bg-white py-24 sm:py-32"
       aria-labelledby="features-heading"
     >
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-organ-700/25 to-transparent" aria-hidden />
-      <div className="layout-shell pb-12 sm:pb-14">
+      <div className="layout-shell">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-14">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -79,9 +78,12 @@ export function Features() {
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.55 }}
           >
+            <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-erp">
+              The daily workflow
+            </p>
             <h2
               id="features-heading"
-              className="font-serif text-3xl font-semibold tracking-tight text-ink-950 sm:text-4xl"
+              className="mt-4 font-serif text-3xl font-semibold tracking-tight text-ink-950 sm:text-4xl"
             >
               The work you do every day — without the manual overhead.
             </h2>
@@ -110,19 +112,10 @@ export function Features() {
           </motion.figure>
         </div>
 
-        <div className="mt-16 grid gap-5 sm:grid-cols-2">
+        <div className="mt-20 grid gap-5 sm:grid-cols-2">
           {features.map((f, i) => (
             <PlatformFeatureCard key={f.title} step={i + 1} delay={i * 0.06} item={f} />
           ))}
-        </div>
-      </div>
-
-      <div
-        className="relative bg-gradient-to-b from-organ-50/45 to-organ-100/65 py-14 sm:py-20"
-        aria-hidden
-      >
-        <div className="layout-shell">
-          <div className="mx-auto max-w-3xl h-px bg-gradient-to-r from-transparent via-erp/40 to-transparent" />
         </div>
       </div>
     </section>

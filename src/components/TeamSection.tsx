@@ -72,7 +72,7 @@ export function TeamSection() {
   return (
     <section
       id="team"
-      className="relative scroll-mt-8 border-t border-organ-200/90 bg-white py-16 sm:py-20"
+      className="relative scroll-mt-8 border-t border-organ-200/90 bg-organ-50 py-24 sm:py-32"
       aria-labelledby="team-heading"
     >
       <div className="layout-shell">
@@ -81,13 +81,21 @@ export function TeamSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5 }}
+          className="mx-auto max-w-3xl text-center"
         >
+          <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-erp">
+            The people
+          </p>
           <h2
             id="team-heading"
-            className="font-serif text-3xl font-semibold tracking-tight text-ink-950 sm:text-4xl"
+            className="mt-4 font-serif text-3xl font-semibold tracking-tight text-ink-950 sm:text-4xl"
           >
             Our team
           </h2>
+          <p className="mt-4 text-lg leading-relaxed text-organ-800">
+            Mortgage technology veterans building the platform independent loan officers actually
+            need.
+          </p>
         </motion.div>
 
         <div className="mt-12 flex flex-wrap justify-center gap-x-6 gap-y-10 sm:gap-x-8 lg:gap-x-10">

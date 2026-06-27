@@ -37,9 +37,10 @@ npm run preview
 | `src/context/ContactModalContext.tsx` | Shared `openContactModal` / `closeContactModal` state |
 | `src/index.css` | Tailwind layers; **`#root`** flex column + **`html`/`body`** `w-full`; **`.btn-primary-silver`**, **`.layout-shell`**, **`.layout-header`** / **`.layout-header-px`**, ECG / AI utilities |
 | `src/components/Header.tsx` | Sticky top navigation; brand tile **`/images/square-logo-blue.svg`** beside wordmark |
-| `src/components/Hero.tsx` | Light hero (`#top`) with dark **`HeroSessionPulse`** monitor strip + LO-focused headline on white |
+| `src/components/Hero.tsx` | Two-column hero (`#top`) with embedded interactive demo (`#demo`) — [hero-section-background.md](./hero-section-background.md) |
+| `src/components/HeroCopy.tsx` | Shared hero copy + stats — [hero-copy.md](./hero-copy.md) |
 | `src/components/HeroSessionPulse.tsx` | Session pulse strip (integrated hero + optional panel variant) |
-| `src/components/BeforeAfterDemo.tsx` | Interactive before/after toggle (`#demo`) — [before-after-demo.md](./before-after-demo.md) |
+| `src/components/BeforeAfterDemo.tsx` | `InteractiveDemoCard`, `DemoAppWindow`, panel exports — [before-after-demo.md](./before-after-demo.md) |
 | `src/components/Features.tsx` | Core value props (`#features`) — [features-workflow-imagery.md](./features-workflow-imagery.md) |
 | `src/components/CentralLoanMemorySection.tsx` | Central Loan Memory differentiator (`#memory`) — [central-loan-memory-section.md](./central-loan-memory-section.md) |
 | `src/components/PipelineSection.tsx` | Pipeline management (`#pipeline`) — [pipeline-section.md](./pipeline-section.md) |
@@ -54,16 +55,15 @@ npm run preview
 ## Section order (`App.tsx`)
 
 1. Header
-2. Hero (`#top`)
-3. Before/After demo (`#demo`)
-4. Central Loan Memory (`#memory`)
-5. Features (`#features`)
-6. Pipeline (`#pipeline`)
-7. LO Personal Assistant (`#assistant`)
-8. HeroMotionBand (decorative)
-9. Team (`#team`)
-10. Contact (`#contact`)
-11. Footer
+2. Hero (`#top`) — includes interactive Before/After demo (`#demo`)
+3. Central Loan Memory (`#memory`)
+4. Features (`#features`)
+5. Pipeline (`#pipeline`)
+6. LO Personal Assistant (`#assistant`)
+7. HeroMotionBand (decorative)
+8. Team (`#team`)
+9. Contact (`#contact`)
+10. Footer
 
 ## Header navigation
 
@@ -74,7 +74,7 @@ npm run preview
 | Features | `#features` |
 | Team | `#team` |
 
-The nav matches scroll order: proof (demo) → differentiator (memory) → product capabilities (features, then pipeline and assistant by scrolling) → company (team). Logo links to `#top`. Pipeline and Assistant have no dedicated nav item.
+The nav matches scroll order: proof (demo in hero) → differentiator (memory) → product capabilities (features, then pipeline and assistant by scrolling) → company (team). Logo links to `#top`. Pipeline and Assistant have no dedicated nav item.
 
 Footer mirrors the same four section anchors; Security / Privacy / Status remain placeholder `#` links.
 

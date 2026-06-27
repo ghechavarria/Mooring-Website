@@ -7,7 +7,7 @@ export function ContactCTA() {
   return (
     <section
       id="contact"
-      className="relative scroll-mt-8 bg-canvas py-20 sm:py-24"
+      className="relative scroll-mt-8 bg-canvas py-24 sm:py-32"
       aria-labelledby="cta-heading"
     >
       <div className="layout-shell">
@@ -24,7 +24,7 @@ export function ContactCTA() {
           />
 
           <div className="relative z-10 mx-auto max-w-2xl">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-erp">
+            <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-erp">
               Ready when you are
             </p>
             <h2
@@ -33,7 +33,7 @@ export function ContactCTA() {
             >
               See how Mooric ERP fits your day-to-day workflow.
             </h2>
-            <p className="mt-5 text-lg text-organ-800">
+            <p className="mt-4 text-lg leading-relaxed text-organ-800">
               On a short call we walk through the 1003, condition tracking, pipeline view, and
               Central Loan Memory — using the kind of file you work every week.
             </p>

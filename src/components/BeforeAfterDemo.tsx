@@ -1,5 +1,5 @@
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 
 type View = "before" | "after";
 
@@ -270,7 +270,7 @@ function BeforePanel() {
   );
 }
 
-function AfterPanel() {
+export function AfterPanel() {
   return (
     <div className="space-y-4 p-4 sm:p-5">
       <div className="flex items-center gap-2 rounded-lg border border-organ-200 bg-white px-3 py-2.5 shadow-sm">
@@ -356,10 +356,16 @@ function AfterPanel() {
 function DemoChrome({
   view,
   onViewChange,
+  idPrefix,
 }: {
   view: View;
   onViewChange: (v: View) => void;
+  idPrefix: string;
 }) {
+  const beforeTabId = `${idPrefix}-tab-before`;
+  const afterTabId = `${idPrefix}-tab-after`;
+  const panelId = `${idPrefix}-panel`;
+
   return (
     <div className="flex flex-wrap items-center justify-between gap-3 border-b border-organ-200 bg-organ-50 px-3 py-2 sm:px-4">
       <div
@@ -370,9 +376,9 @@ function DemoChrome({
         <button
           type="button"
           role="tab"
-          id="demo-tab-before"
+          id={beforeTabId}
           aria-selected={view === "before"}
-          aria-controls="demo-panel"
+          aria-controls={panelId}
           className={`flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-semibold transition sm:text-sm ${
             view === "before" ? "bg-organ-100 text-ink-950" : "text-organ-600 hover:text-organ-900"
           }`}
@@ -384,9 +390,9 @@ function DemoChrome({
         <button
           type="button"
           role="tab"
-          id="demo-tab-after"
+          id={afterTabId}
           aria-selected={view === "after"}
-          aria-controls="demo-panel"
+          aria-controls={panelId}
           className={`flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-semibold transition sm:text-sm ${
             view === "after" ? "bg-organ-100 text-ink-950" : "text-organ-600 hover:text-organ-900"
           }`}
@@ -409,10 +415,80 @@ function DemoChrome({
   );
 }
 
-export function BeforeAfterDemo() {
-  const [view, setView] = useState<View>("before");
-  const reduceMotion = useReducedMotion();
+export function DemoAppWindow({
+  children,
+  className = "",
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  return (
+    <div className={`relative ${className}`}>
+      <div className="pointer-events-none absolute -inset-4 rounded-2xl bg-erp/10 blur-3xl" aria-hidden />
+      <div className="relative overflow-hidden rounded-xl border border-organ-200 bg-white shadow-card-md">
+        <div className="flex items-center justify-between gap-3 border-b border-organ-200 bg-organ-50 px-3 py-2 sm:px-4">
+          <div className="flex items-center gap-2">
+            <span className="flex gap-1" aria-hidden>
+              <span className="h-2 w-2 rounded-full bg-organ-300" />
+              <span className="h-2 w-2 rounded-full bg-organ-300" />
+              <span className="h-2 w-2 rounded-full bg-organ-300" />
+            </span>
+            <span className="font-mono text-[10px] font-medium text-organ-700 sm:text-[11px]">
+              Mooric ERP — Pipeline
+            </span>
+          </div>
+          <span className="rounded border border-erp/30 bg-erp/10 px-2 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-wider text-erp">
+            Live
+          </span>
+        </div>
+        {children}
+      </div>
+    </div>
+  );
+}
 
+export function InteractiveDemoCard({
+  idPrefix = "demo",
+  className = "",
+  defaultView = "before" as View,
+}: {
+  idPrefix?: string;
+  className?: string;
+  defaultView?: View;
+}) {
+  const [view, setView] = useState<View>(defaultView);
+  const reduceMotion = useReducedMotion();
+  const beforeTabId = `${idPrefix}-tab-before`;
+  const afterTabId = `${idPrefix}-tab-after`;
+  const panelId = `${idPrefix}-panel`;
+
+  return (
+    <div
+      className={`overflow-hidden rounded-xl border border-organ-200/90 bg-white shadow-card-md ${className}`}
+    >
+      <DemoChrome view={view} onViewChange={setView} idPrefix={idPrefix} />
+      <div
+        id={panelId}
+        role="tabpanel"
+        aria-labelledby={view === "before" ? beforeTabId : afterTabId}
+      >
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            key={view}
+            initial={reduceMotion ? false : { opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={reduceMotion ? undefined : { opacity: 0, y: -8 }}
+            transition={{ duration: 0.2 }}
+          >
+            {view === "before" ? <BeforePanel /> : <AfterPanel />}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    </div>
+  );
+}
+
+export function BeforeAfterDemo() {
   return (
     <section
       id="demo"
@@ -429,26 +505,7 @@ export function BeforeAfterDemo() {
           </h2>
         </div>
 
-        <div className="mx-auto mt-8 max-w-4xl overflow-hidden rounded-xl border border-organ-200/90 bg-white shadow-card-md">
-          <DemoChrome view={view} onViewChange={setView} />
-          <div
-            id="demo-panel"
-            role="tabpanel"
-            aria-labelledby={view === "before" ? "demo-tab-before" : "demo-tab-after"}
-          >
-            <AnimatePresence mode="wait" initial={false}>
-              <motion.div
-                key={view}
-                initial={reduceMotion ? false : { opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={reduceMotion ? undefined : { opacity: 0, y: -8 }}
-                transition={{ duration: 0.2 }}
-              >
-                {view === "before" ? <BeforePanel /> : <AfterPanel />}
-              </motion.div>
-            </AnimatePresence>
-          </div>
-        </div>
+        <InteractiveDemoCard className="mx-auto mt-8 max-w-4xl" />
       </div>
     </section>
   );

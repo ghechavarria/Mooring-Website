@@ -25,7 +25,7 @@ export function PipelineSection() {
   return (
     <section
       id="pipeline"
-      className="relative scroll-mt-8 border-t border-organ-200 bg-white pb-20 pt-12 sm:pb-24 sm:pt-14"
+      className="relative scroll-mt-8 border-t border-organ-200 bg-organ-50 py-24 sm:py-32"
       aria-labelledby="pipeline-heading"
     >
       <div className="layout-shell z-10">
@@ -36,13 +36,16 @@ export function PipelineSection() {
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.55 }}
           >
+            <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-erp">
+              Pipeline
+            </p>
             <h2
               id="pipeline-heading"
-              className="font-serif text-3xl font-semibold tracking-tight text-ink-950 sm:text-4xl"
+              className="mt-4 font-serif text-3xl font-semibold tracking-tight text-ink-950 sm:text-4xl"
             >
               Pipeline management — no more Excel tracking.
             </h2>
-            <p className="mt-4 text-lg text-organ-800">
+            <p className="mt-4 text-lg leading-relaxed text-organ-800">
               One of the most common pain points for independent LOs is managing a pipeline
               across spreadsheets, sticky notes, and calendar reminders. Mooric ERP replaces
               all of that with a single view that follows every loan from first conversation

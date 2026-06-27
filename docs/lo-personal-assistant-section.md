@@ -17,8 +17,10 @@ Four capability cards:
 
 ## Layout
 
-- Light **white / organ** band (follows Features and Pipeline in the product scroll)
+- Light **white** band with **`py-24 sm:py-32`** (alternates with tinted Pipeline above and Team below)
+- **Header:** Eyebrow `LO Personal Assistant` + centered serif headline + intro
 - Centered intro + 2×2 card grid
+- **Cards:** Unified white card style — `rounded-xl border border-organ-200 bg-white p-6 shadow-card transition hover:-translate-y-0.5 hover:shadow-card-md sm:p-8` (matches **Features** `PlatformFeatureCard`)
 
 ## Navigation
 

@@ -43,9 +43,43 @@ See [silver-accent-palette.md](./silver-accent-palette.md) for the **`accent`** 
 Defined in `src/index.css` under `@layer utilities`:
 
 - **`marble-slate`** — **`#020617`** navy base (same family as hero pulse strip / motion band) with vertical blue depth, **slate-900** veils instead of pure black, **ERP / sky** radial hints, **silver-tinted** highlights, and a grain overlay (`::before`). Retained on **HeroMotionBand** and the pulse monitor; most product sections now use light surfaces instead.
-- **`marble-organ-light`** — Cool light marble wash on `organ-100`; use for full-width sections that should feel stone-like without going dark (e.g. **Central Loan Memory**, **Pipeline**).
+- **`marble-organ-light`** — Cool light marble wash on `organ-100`; use for full-width sections that should feel stone-like without going dark (e.g. **Central Loan Memory**).
 
 Keep **`accent`** (silver-toned) primarily on **dark marble** or **navy** surfaces. On white or `organ-50`, use **`text-erp`** eyebrows and **`organ-800`** body copy.
+
+## Section header pattern (Copperlane rhythm)
+
+Every major section leads with the same three-part intro:
+
+1. **Eyebrow** — `font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-erp`
+2. **Headline** — `mt-4 font-serif text-3xl font-semibold tracking-tight text-ink-950 sm:text-4xl`
+3. **Intro** — `mt-4 text-lg leading-relaxed text-organ-800`
+
+Eyebrow labels by section: **Core differentiator** (Central Loan Memory), **The daily workflow** (Features), **Pipeline**, **LO Personal Assistant**, **The people** (Team), **Ready when you are** (Contact).
+
+## Surface alternation
+
+Sections alternate between plain white and a faint **`organ-50`** tint for vertical rhythm (Copperlane-style), with special surfaces kept as-is:
+
+| Section | Surface |
+| --- | --- |
+| Hero (demo embedded) | `bg-white` |
+| Central Loan Memory | `marble-organ-light` |
+| Features | `bg-white` |
+| Pipeline | `bg-organ-50` |
+| LO Personal Assistant | `bg-white` |
+| Team | `bg-organ-50` |
+| Contact CTA | `bg-canvas` |
+
+All product sections use **`py-24 sm:py-32`** and **`border-t border-organ-200`** seams between bands. Hero inner padding uses **`py-14 sm:py-16 lg:py-20 xl:py-24`** via `HeroSessionPulse`.
+
+## Unified feature cards
+
+**Features** (`PlatformFeatureCard`) and **LO Personal Assistant** capability cards share one style:
+
+`rounded-xl border border-organ-200 bg-white p-6 shadow-card transition hover:-translate-y-0.5 hover:shadow-card-md sm:p-8`
+
+White cards read clearly on both white sections and the faint `organ-50` tint in Pipeline.
 
 ## Asset reference
 

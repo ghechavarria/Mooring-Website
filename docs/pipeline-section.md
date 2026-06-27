@@ -17,9 +17,10 @@ Speaks to independent LOs who manage pipelines across spreadsheets and sticky no
 
 ## Layout
 
-- **Surface:** Plain **`bg-white`** with **`border-t border-organ-200`** (no `marble-organ-light`) so the section does not double-stack texture against **Central Loan Memory** above it
+- **Surface:** **`bg-organ-50`** with **`border-t border-organ-200`** and **`py-24 sm:py-32`** — faint tint alternates with adjacent white sections (Features, Assistant) without stacking marble texture against **Central Loan Memory** above
+- **Header:** Eyebrow `Pipeline` + serif headline + intro (shared section-header pattern)
 - Two-column grid: intro + Unsplash operations image on the left, numbered timeline on the right
-- Full-width **light** card below for closed-loan performance (`bg-white`, `border-organ-200`, blue metric values)
+- Full-width **white** card below for closed-loan performance (`bg-white`, `border-organ-200`, blue metric values) — pops on the tinted band
 
 ## Navigation
 

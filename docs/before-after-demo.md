@@ -1,22 +1,32 @@
 # Before/After demo (`BeforeAfterDemo.tsx`)
 
-Interactive toggle section (`#demo`) per [Web 2.docx](./Web%202.docx). Rendered in [App.tsx](../src/App.tsx) immediately after **Hero** and before **Central Loan Memory**.
+Interactive toggle demo per [Web 2.docx](./Web%202.docx). **Embedded in the hero** at `#demo` — not a standalone section.
 
 ## Purpose
 
 Shows the transformation from how LOs and processors work today versus with Mooric ERP. The visual is the message — same four borrowers (Johnson, Martinez, Kim, Williams) appear in both views.
 
+## Exports
+
+| Export | Use |
+| --- | --- |
+| `InteractiveDemoCard` | Full interactive card (tabs + panels); used in [Hero.tsx](../src/components/Hero.tsx) |
+| `DemoAppWindow` | Optional browser chrome wrapper around the card |
+| `AfterPanel` / `BeforePanel` | Panel content |
+| `BeforeAfterDemo` | Legacy section wrapper (unused in [App.tsx](../src/App.tsx); kept for reference) |
+
 ## Layout
 
-- **Window chrome bar** at top of the mock app: segmented toggle (Before / After), “Click to compare” hint, decorative dots.
-- **Panel width:** `max-w-4xl` app-window card with border and shadow.
-- Default view: **Before Mooric**.
+- **Window chrome bar:** segmented toggle (Before / After), “Click to compare” hint
+- **Card:** `rounded-xl border border-organ-200/90 bg-white shadow-card-md`
+- Default view: **Before Mooric**
+- In hero: wrapped in `DemoAppWindow` for app-window framing
 
 ## Interaction
 
 - Toggle: **Before Mooric** | **After Mooric** (folder / sparkle icons in chrome bar)
 - Panel swaps with short fade (`framer-motion`); respects `prefers-reduced-motion`
-- Accessible: `role="tablist"` / `role="tabpanel"`, `aria-selected` on tabs
+- Accessible: `role="tablist"` / `role="tabpanel"`, `aria-selected` on tabs; `idPrefix` prop keeps tab IDs unique per instance
 
 ## Before panel
 
@@ -33,7 +43,7 @@ Shows the transformation from how LOs and processors work today versus with Moor
 
 ## Entry point
 
-[Hero.tsx](../src/components/Hero.tsx) **See how it works** CTA scrolls to `#demo`.
+[Hero.tsx](../src/components/Hero.tsx) hosts `#demo`. **See how it works** and nav **How it works** scroll to the interactive card.
 
 ## Content source
 

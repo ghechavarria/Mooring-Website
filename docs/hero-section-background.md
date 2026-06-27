@@ -1,11 +1,17 @@
 # Hero section background (`Hero.tsx`)
 
-The marketing hero uses a **light** field below the dark session pulse strip, aligned with a cleaner Copperlane-style marketing surface while keeping the signature ECG monitor.
+The marketing hero uses a **light** Copperlane-inspired **two-column** layout below the brand-blue session pulse strip: copy on the left, the interactive demo on the right, then stats spanning below.
 
 ## Surface
 
-- **Section:** `bg-white` with `border-organ-200`. **`min-h-[calc(100svh-4.25rem)]`** fills the first viewport below the sticky header (`4.25rem`); **`flex flex-col`** so the tagline strip sits on the bottom edge on load. **`pt-0`** so the session strip meets the site header with no extra padding band; **`scroll-mt-24`** for in-page anchors below the sticky header.
+- **Section:** `bg-white` with `border-organ-200`. **`scroll-mt-24`** for in-page anchors below the sticky header. No fixed viewport height — the embedded demo sets natural height.
 - **Radial wash (decorative):** Faint **`#0075FF`** ellipses at the top — subtle brand blue, not a heavy dark wash.
-- **Copy block (inside `HeroSessionPulse` children):** White background with a soft blue radial at the top; dark ink text (`text-ink-950`, `text-organ-800`). Grows with **`flex-1`** and vertically centers copy so the brand-blue tagline rests at the viewport bottom.
+- **Copy block (inside `HeroSessionPulse` children):** Left column uses [HeroCopy.tsx](../src/components/HeroCopy.tsx). Right column hosts the **`#demo`** interactive Before/After card from [BeforeAfterDemo.tsx](../src/components/BeforeAfterDemo.tsx). Full-width **1003 / Conditions / Closing** stats ([HeroStats.tsx](../src/components/HeroCopy.tsx)) span both columns below.
+- **Trust badge:** Pill above the eyebrow — “Built for independent loan officers” with brand-blue dot.
 
-Related: [hero-session-pulse.md](./hero-session-pulse.md) for the **`integrated`** pulse slab (dark monitor strip + light copy block).
+## Spacing
+
+- Inner padding: `py-14 sm:py-16 lg:py-20 xl:py-24` (via `HeroSessionPulse`)
+- Grid gaps: `gap-12 lg:gap-16 xl:gap-20`; stats use `lg:col-span-2`.
+
+Related: [hero-session-pulse.md](./hero-session-pulse.md) for the pulse strip + tagline; [hero-product-preview.md](./hero-product-preview.md) for the embedded interactive demo.
