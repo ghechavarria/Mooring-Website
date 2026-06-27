@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { useContactModal } from "../context/ContactModalContext";
+import { SHOW_CONTACT_ACTIONS } from "../config/contactActions";
 
 const links = [
   { label: "Features", href: "#platform" },
@@ -111,7 +112,7 @@ export function Header() {
           </nav>
           <button
             type="button"
-            className="btn-primary-silver shrink-0 px-4 py-2.5 text-sm"
+            className={`btn-primary-silver shrink-0 px-4 py-2.5 text-sm${SHOW_CONTACT_ACTIONS ? "" : " hidden"}`}
             onClick={() => openContactModal("briefing")}
           >
             Request a briefing
@@ -178,10 +179,10 @@ export function Header() {
                 ))}
                 <button
                   type="button"
-                  className="btn-primary-silver mt-3 w-full px-3 py-3.5 text-center text-base font-semibold"
+                  className={`btn-primary-silver mt-3 w-full px-3 py-3.5 text-center text-base font-semibold${SHOW_CONTACT_ACTIONS ? "" : " hidden"}`}
                   onClick={() => {
                     setMenuOpen(false);
-                    openContactModal();
+                    openContactModal("briefing");
                   }}
                 >
                   Request a briefing

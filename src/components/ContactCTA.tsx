@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useContactModal } from "../context/ContactModalContext";
+import { SHOW_CONTACT_ACTIONS } from "../config/contactActions";
 
 export function ContactCTA() {
   const { openContactModal } = useContactModal();
@@ -36,7 +37,9 @@ export function ContactCTA() {
               On a short call we walk through the 1003, condition tracking, pipeline view, and
               Central Loan Memory — using the kind of file you work every week.
             </p>
-            <div className="mx-auto mt-10 flex w-full max-w-md flex-col items-stretch justify-center gap-4 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center">
+            <div
+              className={`mx-auto mt-10 flex w-full max-w-md flex-col items-stretch justify-center gap-4 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center${SHOW_CONTACT_ACTIONS ? "" : " hidden"}`}
+            >
               <button
                 type="button"
                 className="btn-primary-silver w-full px-8 py-3.5 text-center text-sm sm:w-auto"

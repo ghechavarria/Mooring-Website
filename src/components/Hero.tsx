@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { HeroSessionPulse } from "./HeroSessionPulse";
 import { useContactModal } from "../context/ContactModalContext";
+import { SHOW_CONTACT_ACTIONS } from "../config/contactActions";
 
 export function Hero() {
   const { openContactModal } = useContactModal();
@@ -45,7 +46,7 @@ export function Hero() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-3 lg:mt-10">
               <button
                 type="button"
-                className="btn-primary-silver w-full px-6 py-3 text-center text-sm sm:w-auto sm:px-6"
+                className={`btn-primary-silver w-full px-6 py-3 text-center text-sm sm:w-auto sm:px-6${SHOW_CONTACT_ACTIONS ? "" : " hidden"}`}
                 onClick={() => openContactModal("briefing")}
               >
                 Request a briefing

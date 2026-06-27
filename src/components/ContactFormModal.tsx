@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { createPortal } from "react-dom";
 import { useContactModal } from "../context/ContactModalContext";
+import { SHOW_CONTACT_ACTIONS } from "../config/contactActions";
 
 function encodeFormBody(data: Record<string, string>) {
   return new URLSearchParams(data).toString();
@@ -193,7 +194,9 @@ export function ContactFormModal() {
                 >
                   {status === "submitting" ? "Sending…" : modalTitle}
                 </button>
-                <p className="text-center text-xs text-organ-600 sm:text-right">
+                <p
+                  className={`text-center text-xs text-organ-600 sm:text-right${SHOW_CONTACT_ACTIONS ? "" : " hidden"}`}
+                >
                   Response within one business day
                 </p>
               </div>

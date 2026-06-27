@@ -12,6 +12,10 @@ Popup Netlify contact form opened from site CTAs. Implemented as [ContactFormMod
 
 The modal heading and submit button label match the CTA that opened it (`openContactModal("walkthrough")` vs default `"briefing"`).
 
+## Temporary hide
+
+Contact CTAs and “Response within one business day” are gated by **`SHOW_CONTACT_ACTIONS`** in [`src/config/contactActions.ts`](../src/config/contactActions.ts). Set to **`true`** when the contact email / Netlify form is ready for production.
+
 The `#contact` section remains on the page for anchor/SEO; buttons open the modal instead of scrolling or `mailto:`.
 
 ## Netlify Forms (SPA)
