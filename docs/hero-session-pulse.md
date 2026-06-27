@@ -4,7 +4,7 @@ Decorative **session pulse** for the marketing hero: a **live-styled** monitor s
 
 ## Theme
 
-Uses Tailwind **`slate` / `sky` / `blue`** utilities on the strip for contrast (near-black chart well `#030712`, readable `text-sky-400` status). The **`integrated`** outer wrapper uses a solid **`#020617`** fill on the **monitor strip only**; when copy is passed as **`children`** (see `Hero.tsx`), the headline block sits on a **white** surface with a faint **`#0075FF`** radial wash. **`accent` / `accent-light`** (silver-toned) remain on the dark monitor chrome; hero copy uses **`text-erp`** for eyebrows and stat labels.
+Uses brand blue **`bg-erp`** (`#0075FF`) for the **Brand-Blue Band** session strip (Option 3): compact single row with **Live** pill, **Session pulse** label, rotating status copy, and a white smooth sine-wave ECG on the right. Decorative strip is **`aria-hidden`**; hero copy uses **`text-erp`** for eyebrows and stat labels on the white **`children`** block below.
 
 ## Variants
 

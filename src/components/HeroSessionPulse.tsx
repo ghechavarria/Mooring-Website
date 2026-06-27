@@ -10,30 +10,106 @@ const statusLines = [
   "Securing an audit-friendly trail for this visit…",
 ];
 
-/** One beat = 100px wide, baseline y=28 (vertical center of 56px viewBox) — only `H`/`L`. */
 const ECG_BEAT_PX = 100;
+const bpm = 40;
+const beatMs = Math.round(60000 / bpm);
 
-function ecgAngularBeatFrom(x0: number): string {
-  return `H${x0 + 12} L${x0 + 14} 26 L${x0 + 16} 28 L${x0 + 18} 25 L${x0 + 20} 28 H${x0 + 28} L${x0 + 30} 28 L${x0 + 32} 6 L${x0 + 34} 28 L${x0 + 36} 46 L${x0 + 38} 28 H${x0 + 46} L${x0 + 48} 27 L${x0 + 50} 28 L${x0 + 52} 30 L${x0 + 54} 28 H${x0 + ECG_BEAT_PX}`;
-}
-
-function ecgPathRepeats(n: number): string {
-  let d = "M0 28";
-  for (let k = 0; k < n; k++) {
-    d += ecgAngularBeatFrom(k * ECG_BEAT_PX);
+function ecgWavePath(width: number, amplitude: number, baseline: number, step: number): string {
+  let d = `M0 ${baseline}`;
+  for (let x = step; x <= width; x += step) {
+    d += ` L${x} ${baseline + Math.sin((x / ECG_BEAT_PX) * Math.PI * 2) * amplitude}`;
   }
   return d;
 }
 
-const ecgScrollPath = ecgPathRepeats(28);
+const ecgWaveScrollPath = ecgWavePath(2800, 10, 28, 4);
 
-/** Calm cadence: strip drift, AI swell, and status tick share this interval (~40 bpm). */
-const bpm = 40;
-const beatMs = Math.round(60000 / bpm);
+function DriftingEcg({
+  pathD,
+  stroke,
+  strokeWidth,
+  heightClass,
+  viewHeight,
+  vignette,
+  reduceMotion,
+}: {
+  pathD: string;
+  stroke: string;
+  strokeWidth: number;
+  heightClass: string;
+  viewHeight: number;
+  vignette: string;
+  reduceMotion: boolean | null;
+}) {
+  const gid = useId().replace(/:/g, "");
+
+  return (
+    <div className={`relative flex min-w-0 flex-1 items-stretch overflow-hidden ${heightClass}`}>
+      <svg
+        viewBox={`0 0 360 ${viewHeight}`}
+        preserveAspectRatio="xMidYMid meet"
+        className={`relative z-[1] block w-full shrink-0 ${heightClass}`}
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden
+      >
+        <defs>
+          <clipPath id={`${gid}-clip`}>
+            <rect x="0" y="0" width="360" height={viewHeight} />
+          </clipPath>
+          <linearGradient id={`${gid}-edgeshade`} x1="0" y1="0" x2="360" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stopColor="#fff" stopOpacity="0" />
+            <stop offset="0.04" stopColor="#fff" stopOpacity="0.12" />
+            <stop offset="0.1" stopColor="#fff" stopOpacity="0.42" />
+            <stop offset="0.18" stopColor="#fff" stopOpacity="0.8" />
+            <stop offset="0.3" stopColor="#fff" stopOpacity="1" />
+            <stop offset="0.7" stopColor="#fff" stopOpacity="1" />
+            <stop offset="0.82" stopColor="#fff" stopOpacity="0.8" />
+            <stop offset="0.9" stopColor="#fff" stopOpacity="0.42" />
+            <stop offset="0.96" stopColor="#fff" stopOpacity="0.12" />
+            <stop offset="1" stopColor="#fff" stopOpacity="0" />
+          </linearGradient>
+          <mask id={`${gid}-edgemask`} maskUnits="userSpaceOnUse" x="0" y="0" width="360" height={viewHeight}>
+            <rect width="360" height={viewHeight} fill={`url(#${gid}-edgeshade)`} />
+          </mask>
+        </defs>
+        <g clipPath={`url(#${gid}-clip)`} mask={`url(#${gid}-edgemask)`}>
+          <g
+            className={reduceMotion ? undefined : "hero-ecg-drift"}
+            style={
+              reduceMotion
+                ? undefined
+                : ({
+                    "--ecg-beat": `${beatMs}ms`,
+                    "--ecg-beat-width": "100px",
+                  } as CSSProperties)
+            }
+          >
+            <path
+              className="integrated-ecg-path"
+              d={pathD}
+              stroke={stroke}
+              strokeWidth={strokeWidth}
+              strokeLinecap="butt"
+              strokeLinejoin="miter"
+              strokeMiterlimit="8"
+              shapeRendering="geometricPrecision"
+              vectorEffect="non-scaling-stroke"
+            />
+          </g>
+        </g>
+      </svg>
+      <div
+        className="pointer-events-none absolute inset-0 z-[2]"
+        style={{ background: vignette }}
+        aria-hidden
+      />
+    </div>
+  );
+}
 
 export function HeroSessionPulse({ children }: { children?: ReactNode }) {
   const reduceMotion = useReducedMotion();
-  const gid = useId().replace(/:/g, "");
   const [tick, setTick] = useState(0);
 
   useEffect(() => {
@@ -43,135 +119,47 @@ export function HeroSessionPulse({ children }: { children?: ReactNode }) {
   }, [reduceMotion]);
 
   return (
-      <div className="flex w-full flex-1 flex-col bg-[#020617] text-sky-100">
-        <div aria-hidden>
-          <div className="layout-header-px flex shrink-0 items-center justify-between border-b border-slate-800 bg-slate-950 py-1.5 sm:py-2">
-            <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-300 sm:text-[11px]">
-              Session pulse
-            </span>
-            <span className="rounded border border-sky-400/50 bg-blue-950/80 px-2.5 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-wider text-sky-200">
+    <div className="flex w-full flex-1 flex-col bg-white text-white">
+      <div aria-hidden className="shrink-0 bg-erp">
+        <div className="layout-header-px flex min-h-[3.5rem] flex-col gap-2 py-3 sm:min-h-0 sm:flex-row sm:items-center sm:gap-6 sm:py-3.5">
+          <div className="flex shrink-0 items-center gap-2">
+            <span className="rounded border border-white/40 bg-white/10 px-2 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-wider">
               Live
             </span>
+            <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-white/90">
+              Session pulse
+            </span>
           </div>
-
-          <div className="grid min-w-0 grid-cols-1 border-b border-slate-800 bg-slate-900 sm:grid-cols-[minmax(0,24rem)_1fr]">
-          <div className="layout-header-px flex min-w-0 shrink-0 items-center gap-4 overflow-hidden border-slate-800 max-sm:h-auto max-sm:min-h-0 max-sm:items-start max-sm:gap-2.5 max-sm:py-2 sm:h-[8rem] sm:items-center sm:gap-4 sm:py-0 lg:h-[9.25rem] xl:h-[9.75rem] 2xl:h-[10.25rem] sm:border-r sm:border-slate-800">
-            <div
-              className={`relative flex h-9 w-9 shrink-0 items-center justify-center self-start rounded-full border border-sky-500/60 bg-slate-950 shadow-[0_0_0_1px_rgba(14,165,233,0.25),0_0_24px_rgba(56,189,248,0.2)] sm:h-[5rem] sm:w-[5rem] sm:self-auto${reduceMotion ? "" : " hero-ai-pulse-swell"}`}
-              style={
-                reduceMotion
-                  ? undefined
-                  : ({ "--ai-pulse-beat": `${beatMs}ms` } as CSSProperties)
-              }
-            >
-              <span className="font-mono text-[9px] font-bold uppercase tracking-wide text-sky-200 sm:text-sm">
-                AI
-              </span>
-            </div>
-            <div className="flex min-h-0 min-w-0 flex-1 flex-col justify-center max-sm:justify-start max-sm:pt-0">
-              <p className="line-clamp-2 text-xs font-semibold leading-snug text-slate-200 sm:text-base sm:leading-snug">
-                Intelligence layer
-              </p>
-              <div className="mt-1.5 h-[4.5rem] w-full min-w-0 overflow-hidden max-sm:mt-0.5 max-sm:h-auto max-sm:min-h-0 sm:h-[4.75rem]">
-                <p className="min-w-0 font-mono text-[11px] leading-snug text-sky-400 max-sm:truncate max-sm:leading-[1.2rem] sm:line-clamp-4 sm:text-sm sm:leading-snug">
-                  {statusLines[tick % statusLines.length]}
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="relative flex min-h-[4.5rem] items-stretch overflow-hidden border-t border-slate-800 bg-[#030712] sm:h-full sm:min-h-0 sm:items-center sm:border-l sm:border-t-0 sm:border-slate-800">
-            <div
-              className="pointer-events-none absolute inset-0 opacity-[0.07]"
-              style={{
-                backgroundImage:
-                  "linear-gradient(90deg, transparent 0%, rgba(56,189,248,0.12) 50%, transparent 100%), repeating-linear-gradient(90deg, transparent, transparent 47px, rgba(51,65,85,0.35) 47px, rgba(51,65,85,0.35) 48px)",
-              }}
-              aria-hidden
-            />
-            <svg
-              viewBox="0 0 360 56"
-              preserveAspectRatio="xMidYMid meet"
-              className="relative z-[1] block h-[4.5rem] w-full shrink-0 sm:h-[5.25rem] sm:min-h-0 lg:h-[7.25rem] xl:h-[8rem] 2xl:h-[8.75rem]"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden
-            >
-              <defs>
-                <clipPath id={`${gid}-int-clip`}>
-                  <rect x="0" y="0" width="360" height="56" />
-                </clipPath>
-                <linearGradient id={`${gid}-int-stroke`} x1="0" y1="0" x2="360" y2="0" gradientUnits="userSpaceOnUse">
-                  <stop offset="0" stopColor="#0c4a6e" />
-                  <stop offset="0.35" stopColor="#38bdf8" />
-                  <stop offset="0.65" stopColor="#bae6fd" />
-                  <stop offset="1" stopColor="#0284c7" />
-                </linearGradient>
-                <linearGradient id={`${gid}-int-edgeshade`} x1="0" y1="0" x2="360" y2="0" gradientUnits="userSpaceOnUse">
-                  <stop offset="0" stopColor="#fff" stopOpacity="0" />
-                  <stop offset="0.04" stopColor="#fff" stopOpacity="0.12" />
-                  <stop offset="0.1" stopColor="#fff" stopOpacity="0.42" />
-                  <stop offset="0.18" stopColor="#fff" stopOpacity="0.8" />
-                  <stop offset="0.3" stopColor="#fff" stopOpacity="1" />
-                  <stop offset="0.7" stopColor="#fff" stopOpacity="1" />
-                  <stop offset="0.82" stopColor="#fff" stopOpacity="0.8" />
-                  <stop offset="0.9" stopColor="#fff" stopOpacity="0.42" />
-                  <stop offset="0.96" stopColor="#fff" stopOpacity="0.12" />
-                  <stop offset="1" stopColor="#fff" stopOpacity="0" />
-                </linearGradient>
-                <mask id={`${gid}-int-edgemask`} maskUnits="userSpaceOnUse" x="0" y="0" width="360" height="56">
-                  <rect width="360" height="56" fill={`url(#${gid}-int-edgeshade)`} />
-                </mask>
-              </defs>
-              <g clipPath={`url(#${gid}-int-clip)`} mask={`url(#${gid}-int-edgemask)`}>
-                <g
-                  className={reduceMotion ? undefined : "hero-ecg-drift"}
-                  style={
-                    reduceMotion
-                      ? undefined
-                      : ({
-                          "--ecg-beat": `${beatMs}ms`,
-                          "--ecg-beat-width": "100px",
-                        } as CSSProperties)
-                  }
-                >
-                  <path
-                    className="integrated-ecg-path"
-                    d={ecgScrollPath}
-                    stroke={`url(#${gid}-int-stroke)`}
-                    strokeLinecap="butt"
-                    strokeLinejoin="miter"
-                    strokeMiterlimit="8"
-                    shapeRendering="geometricPrecision"
-                  />
-                </g>
-              </g>
-            </svg>
-            <div
-              className="pointer-events-none absolute inset-0 z-[2]"
-              style={{
-                background:
-                  "linear-gradient(90deg, rgb(3 7 18) 0%, rgb(3 7 18 / 0.82) 6%, rgb(3 7 18 / 0.35) 18%, transparent 34%, transparent 66%, rgb(3 7 18 / 0.35) 82%, rgb(3 7 18 / 0.82) 94%, rgb(3 7 18) 100%)",
-              }}
-              aria-hidden
+          <p className="min-w-0 flex-1 truncate font-mono text-[11px] text-white/85 sm:text-xs">
+            {statusLines[tick % statusLines.length]}
+          </p>
+          <div className="relative min-w-0 flex-1 sm:max-w-md">
+            <DriftingEcg
+              pathD={ecgWaveScrollPath}
+              stroke="rgba(255,255,255,0.92)"
+              strokeWidth={1.75}
+              heightClass="h-8 sm:h-9"
+              viewHeight={40}
+              vignette="linear-gradient(90deg, rgb(0 117 255) 0%, rgb(0 117 255 / 0.7) 10%, transparent 30%, transparent 70%, rgb(0 117 255 / 0.7) 90%, rgb(0 117 255) 100%)"
+              reduceMotion={reduceMotion}
             />
           </div>
         </div>
-        </div>
-
-        {children != null ? (
-          <div className="relative z-10 flex flex-1 flex-col justify-center border-t border-organ-200 bg-white">
-            <div
-              className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(0,117,255,0.06),transparent_55%)]"
-              aria-hidden
-            />
-            <div className="relative layout-header py-10 sm:py-12 lg:py-14 xl:py-16">{children}</div>
-          </div>
-        ) : null}
-
-        <p className="layout-header-px shrink-0 border-t border-erp-600 bg-erp py-2.5 text-center font-mono text-[9px] font-medium uppercase tracking-[0.14em] text-white/90">
-          Mooric ERP — built for LOs who are tired of running their pipeline out of Excel
-        </p>
       </div>
-    );
+
+      {children != null ? (
+        <div className="relative z-10 flex flex-1 flex-col justify-center border-t border-organ-200 bg-white text-ink-950">
+          <div
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(0,117,255,0.06),transparent_55%)]"
+            aria-hidden
+          />
+          <div className="relative layout-header py-10 sm:py-12 lg:py-14 xl:py-16">{children}</div>
+        </div>
+      ) : null}
+
+      <p className="layout-header-px shrink-0 border-t border-erp-600 bg-erp py-2.5 text-center font-mono text-[9px] font-medium uppercase tracking-[0.14em] text-white/90">
+        Mooric ERP — built for LOs who are tired of running their pipeline out of Excel
+      </p>
+    </div>
+  );
 }
