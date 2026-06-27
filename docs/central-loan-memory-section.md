@@ -1,6 +1,6 @@
 # Central Loan Memory section
 
-Dedicated marketing section (`#memory`) in [CentralLoanMemorySection.tsx](../src/components/CentralLoanMemorySection.tsx). Rendered in [App.tsx](../src/App.tsx) after **Features** and before **Pipeline**.
+Dedicated marketing section (`#memory`) in [CentralLoanMemorySection.tsx](../src/components/CentralLoanMemorySection.tsx). Rendered in [App.tsx](../src/App.tsx) after **Before/After demo** and before **Features**.
 
 ## Purpose
 
@@ -15,7 +15,7 @@ Presents **Central Loan Memory** as Mooric ERP’s core differentiator — not b
 
 ## Navigation
 
-Header link: **Loan Memory** → `#memory`
+Header link: **Why Mooric** → `#memory`
 
 ## Content source
 

@@ -11,7 +11,7 @@
 - **Drawer chrome:** Top row labels **Menu** and includes an in-drawer **Close** control (header toggle is covered while open).
 - **Keyboard:** **Escape** closes the menu (`keydown` listener while open).
 - **Scroll lock:** `document.body.style.overflow = "hidden"` while the menu is open.
-- **Primary links (desktop + mobile):** **Features** (`#platform`), **Loan Memory** (`#memory`), **Pipeline** (`#pipeline`), **Team** (`#team`). Trimmed from six to four for clarity — the logo links to the top (`#top`), and the Assistant section is reached by scrolling through the product story rather than its own nav item.
+- **Primary links (desktop + mobile):** **How it works** (`#demo`), **Why Mooric** (`#memory`), **Features** (`#features`), **Team** (`#team`). Pipeline and LO Personal Assistant are part of the product scroll after Features — no separate nav item. Logo links to `#top`.
 - **Mobile links:** Same anchors as desktop, plus **Request a briefing** (opens the contact modal).
 
 ## Site shell

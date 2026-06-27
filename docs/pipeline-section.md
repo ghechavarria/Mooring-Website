@@ -1,6 +1,6 @@
 # Pipeline section
 
-Pipeline management section (`#pipeline`) in [PipelineSection.tsx](../src/components/PipelineSection.tsx). Replaces the former **Workflow** component. Rendered after **Central Loan Memory** and before **LO Personal Assistant**.
+Pipeline management section (`#pipeline`) in [PipelineSection.tsx](../src/components/PipelineSection.tsx). Replaces the former **Workflow** component. Rendered after **Features** and before **LO Personal Assistant**.
 
 ## Purpose
 
@@ -23,7 +23,7 @@ Speaks to independent LOs who manage pipelines across spreadsheets and sticky no
 
 ## Navigation
 
-Header link: **Pipeline** → `#pipeline`
+Reached by scrolling past **Features** — no dedicated header link. Anchor: `#pipeline`.
 
 ## Content source
 

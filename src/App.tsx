@@ -20,8 +20,8 @@ export default function App() {
         <main className="min-w-0 flex-1 overflow-x-hidden">
           <Hero />
           <BeforeAfterDemo />
-          <Features />
           <CentralLoanMemorySection />
+          <Features />
           <PipelineSection />
           <LOPersonalAssistantSection />
           <HeroMotionBand />

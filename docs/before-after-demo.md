@@ -1,6 +1,6 @@
 # Before/After demo (`BeforeAfterDemo.tsx`)
 
-Interactive toggle section (`#demo`) per [Web 2.docx](./Web%202.docx). Rendered in [App.tsx](../src/App.tsx) immediately after **Hero** and before **Features**.
+Interactive toggle section (`#demo`) per [Web 2.docx](./Web%202.docx). Rendered in [App.tsx](../src/App.tsx) immediately after **Hero** and before **Central Loan Memory**.
 
 ## Purpose
 

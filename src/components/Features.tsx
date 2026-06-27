@@ -66,7 +66,7 @@ function PlatformFeatureCard({
 export function Features() {
   return (
     <section
-      id="platform"
+      id="features"
       className="relative scroll-mt-8 border-t border-organ-200/90 bg-white pb-0 pt-20 sm:pt-24"
       aria-labelledby="features-heading"
     >

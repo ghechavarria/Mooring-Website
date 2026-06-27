@@ -40,7 +40,7 @@ npm run preview
 | `src/components/Hero.tsx` | Light hero (`#top`) with dark **`HeroSessionPulse`** monitor strip + LO-focused headline on white |
 | `src/components/HeroSessionPulse.tsx` | Session pulse strip (integrated hero + optional panel variant) |
 | `src/components/BeforeAfterDemo.tsx` | Interactive before/after toggle (`#demo`) — [before-after-demo.md](./before-after-demo.md) |
-| `src/components/Features.tsx` | Core value props (`#platform`) — [features-workflow-imagery.md](./features-workflow-imagery.md) |
+| `src/components/Features.tsx` | Core value props (`#features`) — [features-workflow-imagery.md](./features-workflow-imagery.md) |
 | `src/components/CentralLoanMemorySection.tsx` | Central Loan Memory differentiator (`#memory`) — [central-loan-memory-section.md](./central-loan-memory-section.md) |
 | `src/components/PipelineSection.tsx` | Pipeline management (`#pipeline`) — [pipeline-section.md](./pipeline-section.md) |
 | `src/components/LOPersonalAssistantSection.tsx` | LO Personal Assistant (`#assistant`) — [lo-personal-assistant-section.md](./lo-personal-assistant-section.md) |
@@ -56,8 +56,8 @@ npm run preview
 1. Header
 2. Hero (`#top`)
 3. Before/After demo (`#demo`)
-4. Features (`#platform`)
-5. Central Loan Memory (`#memory`)
+4. Central Loan Memory (`#memory`)
+5. Features (`#features`)
 6. Pipeline (`#pipeline`)
 7. LO Personal Assistant (`#assistant`)
 8. HeroMotionBand (decorative)
@@ -69,12 +69,14 @@ npm run preview
 
 | Label | Anchor |
 |-------|--------|
-| Features | `#platform` |
-| Loan Memory | `#memory` |
-| Pipeline | `#pipeline` |
+| How it works | `#demo` |
+| Why Mooric | `#memory` |
+| Features | `#features` |
 | Team | `#team` |
 
-The nav is intentionally trimmed to four destinations. The logo links to the top (`#top`); the Assistant section is reached by scrolling the product story rather than a dedicated nav item.
+The nav matches scroll order: proof (demo) → differentiator (memory) → product capabilities (features, then pipeline and assistant by scrolling) → company (team). Logo links to `#top`. Pipeline and Assistant have no dedicated nav item.
+
+Footer mirrors the same four section anchors; Security / Privacy / Status remain placeholder `#` links.
 
 CTA: **Request a briefing** → opens contact modal (see [contact-form-modal.md](./contact-form-modal.md))
 

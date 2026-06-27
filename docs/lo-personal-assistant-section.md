@@ -17,12 +17,12 @@ Four capability cards:
 
 ## Layout
 
-- Light **white / organ** band (alternates with the dark Central Loan Memory section)
+- Light **white / organ** band (follows Features and Pipeline in the product scroll)
 - Centered intro + 2×2 card grid
 
 ## Navigation
 
-Header link: **Assistant** → `#assistant`
+Reached by scrolling past **Pipeline** — no dedicated header link. Anchor: `#assistant`.
 
 ## Content source
 

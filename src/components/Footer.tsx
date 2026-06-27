@@ -1,4 +1,11 @@
-const links = [
+const sectionLinks = [
+  { label: "How it works", href: "#demo" },
+  { label: "Why Mooric", href: "#memory" },
+  { label: "Features", href: "#features" },
+  { label: "Team", href: "#team" },
+];
+
+const legalLinks = [
   { label: "Security", href: "#" },
   { label: "Privacy", href: "#" },
   { label: "Status", href: "#" },
@@ -23,12 +30,21 @@ export function Footer() {
             />
           </span>
         </div>
-        <nav className="flex flex-wrap justify-center gap-8" aria-label="Footer">
-          {links.map((l) => (
+        <nav className="flex flex-wrap justify-center gap-x-8 gap-y-3" aria-label="Footer">
+          {sectionLinks.map((l) => (
             <a
               key={l.label}
               href={l.href}
               className="text-sm text-slate-300 underline-offset-4 transition hover:text-sky-300 hover:underline"
+            >
+              {l.label}
+            </a>
+          ))}
+          {legalLinks.map((l) => (
+            <a
+              key={l.label}
+              href={l.href}
+              className="text-sm text-slate-500 underline-offset-4 transition hover:text-slate-300 hover:underline"
             >
               {l.label}
             </a>
