@@ -34,7 +34,7 @@ export function LOPersonalAssistantSection() {
           transition={{ duration: 0.55 }}
           className="mx-auto max-w-3xl text-center"
         >
-          <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-organ-800">
+          <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-erp">
             LO Personal Assistant
           </p>
           <h2

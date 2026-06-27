@@ -43,7 +43,7 @@ export function HeroSessionPulse({ children }: { children?: ReactNode }) {
   }, [reduceMotion]);
 
   return (
-      <div className="flex w-full flex-col bg-[#020617] text-sky-100">
+      <div className="flex w-full flex-1 flex-col bg-[#020617] text-sky-100">
         <div aria-hidden>
           <div className="layout-header-px flex shrink-0 items-center justify-between border-b border-slate-800 bg-slate-950 py-1.5 sm:py-2">
             <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-300 sm:text-[11px]">
@@ -160,16 +160,16 @@ export function HeroSessionPulse({ children }: { children?: ReactNode }) {
         </div>
 
         {children != null ? (
-          <div className="relative z-10 border-t border-accent/30 bg-gradient-to-b from-slate-950/90 via-slate-950/95 to-slate-950 backdrop-blur-md">
+          <div className="relative z-10 flex flex-1 flex-col justify-center border-t border-organ-200 bg-white">
             <div
-              className="pointer-events-none absolute inset-0 bg-[linear-gradient(165deg,rgba(191,211,230,0.07)_0%,transparent_42%)]"
+              className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(0,117,255,0.06),transparent_55%)]"
               aria-hidden
             />
             <div className="relative layout-header py-10 sm:py-12 lg:py-14 xl:py-16">{children}</div>
           </div>
         ) : null}
 
-        <p className="layout-header-px border-t border-slate-800 bg-black py-2.5 text-center font-mono text-[9px] font-medium uppercase tracking-[0.14em] text-slate-500">
+        <p className="layout-header-px shrink-0 border-t border-erp-600 bg-erp py-2.5 text-center font-mono text-[9px] font-medium uppercase tracking-[0.14em] text-white/90">
           Mooric ERP — built for LOs who are tired of running their pipeline out of Excel
         </p>
       </div>

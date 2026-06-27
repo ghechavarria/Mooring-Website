@@ -13,12 +13,13 @@ Speaks to independent LOs who manage pipelines across spreadsheets and sticky no
 | Full pipeline visibility | Prospect → funded, one screen, no manual spreadsheet date columns |
 | Daily summary | Overdue conditions, TRID deadlines, stale files — start day with focus |
 | Closed loan performance | Volume, avg loan size, time to close by month/quarter/year |
-| Dark callout card | Example production metrics (illustrative) |
+| Dark callout card | Example production metrics (illustrative) — **light** card with **`text-erp`** accents |
 
 ## Layout
 
+- **Surface:** Plain **`bg-white`** with **`border-t border-organ-200`** (no `marble-organ-light`) so the section does not double-stack texture against **Central Loan Memory** above it
 - Two-column grid: intro + Unsplash operations image on the left, numbered timeline on the right
-- Full-width dark **marble-slate** card below for closed-loan performance
+- Full-width **light** card below for closed-loan performance (`bg-white`, `border-organ-200`, blue metric values)
 
 ## Navigation
 

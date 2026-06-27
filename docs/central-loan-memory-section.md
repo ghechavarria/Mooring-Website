@@ -8,10 +8,10 @@ Presents **Central Loan Memory** as Mooric ERP’s core differentiator — not b
 
 ## Layout
 
-- Dark **marble-slate** band (visual language inherited from the former Stats section)
-- Centered headline + intro
-- Three contrast cards (problem → Mooric approach → recommendation behavior)
-- Highlight callout with **~1 hr** per-file savings
+- Light **marble-organ-light** band (cool wash, subtle texture)
+- Centered headline + intro with **`text-erp`** eyebrow and **`~1 hr`** stat
+- Three white contrast cards with **`border-t-erp`** accent
+- Light callout card with blue border for **~1 hr** per-file savings
 
 ## Navigation
 

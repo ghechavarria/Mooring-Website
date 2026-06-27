@@ -37,7 +37,7 @@ npm run preview
 | `src/context/ContactModalContext.tsx` | Shared `openContactModal` / `closeContactModal` state |
 | `src/index.css` | Tailwind layers; **`#root`** flex column + **`html`/`body`** `w-full`; **`.btn-primary-silver`**, **`.layout-shell`**, **`.layout-header`** / **`.layout-header-px`**, ECG / AI utilities |
 | `src/components/Header.tsx` | Sticky top navigation; brand tile **`/images/square-logo-blue.svg`** beside wordmark |
-| `src/components/Hero.tsx` | Dark hero (`#top`) with **`HeroSessionPulse`** (`integrated`) and LO-focused headline |
+| `src/components/Hero.tsx` | Light hero (`#top`) with dark **`HeroSessionPulse`** monitor strip + LO-focused headline on white |
 | `src/components/HeroSessionPulse.tsx` | Session pulse strip (integrated hero + optional panel variant) |
 | `src/components/BeforeAfterDemo.tsx` | Interactive before/after toggle (`#demo`) — [before-after-demo.md](./before-after-demo.md) |
 | `src/components/Features.tsx` | Core value props (`#platform`) — [features-workflow-imagery.md](./features-workflow-imagery.md) |
@@ -80,7 +80,7 @@ CTA: **Request a briefing** → opens contact modal (see [contact-form-modal.md]
 
 ## Design notes
 
-- **Brand:** Mooric ERP — warm **organ** / silver-toned **`accent`** on light sections, **slate** / **sky** on the hero instrument strip.
+- **Brand:** Mooric ERP — predominantly **light** marketing surface (white / cool `organ` neutrals), **brand blue** `#0075FF` on light sections, **dark** signature bands for the hero pulse strip and **HeroMotionBand** lattice.
 - **Audience:** Independent LOs and brokers; practitioner tone per [Web 1.docx](./Web%201.docx); interactive demo per [Web 2.docx](./Web%202.docx).
 - **Motion:** Sections use `whileInView` for scroll-triggered motion; hero strip uses CSS-driven ECG drift and AI orb pulse (see [hero-session-pulse.md](./hero-session-pulse.md)).
 - **Accessibility:** Landmark sections include headings and `aria-labelledby` where appropriate; decorative layers use `aria-hidden`.

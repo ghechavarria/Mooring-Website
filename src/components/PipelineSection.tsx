@@ -25,7 +25,7 @@ export function PipelineSection() {
   return (
     <section
       id="pipeline"
-      className="relative scroll-mt-8 border-t-0 marble-organ-light pb-20 pt-12 sm:pb-24 sm:pt-14"
+      className="relative scroll-mt-8 border-t border-organ-200 bg-white pb-20 pt-12 sm:pb-24 sm:pt-14"
       aria-labelledby="pipeline-heading"
     >
       <div className="layout-shell z-10">
@@ -84,12 +84,12 @@ export function PipelineSection() {
                       ease: [0.22, 1, 0.36, 1],
                     }}
                   >
-                    <span className="block h-full w-px shrink-0 rounded-full bg-gradient-to-b from-accent/45 via-organ-200/90 to-accent/40" />
+                    <span className="block h-full w-px shrink-0 rounded-full bg-gradient-to-b from-erp/40 via-organ-200/90 to-erp/30" />
                   </motion.div>
                 ) : null}
                 <div className="relative z-[1] flex items-start gap-6">
                   <motion.span
-                    className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-accent/45 bg-ink-950 font-mono text-xs font-semibold text-accent shadow-[0_0_20px_rgba(191,211,230,0.28)]"
+                    className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-erp/30 bg-erp font-mono text-xs font-semibold text-white shadow-[0_0_20px_rgba(0,117,255,0.2)]"
                     whileHover={{ scale: 1.08 }}
                   >
                     {i + 1}
@@ -104,38 +104,38 @@ export function PipelineSection() {
           </ol>
 
           <motion.div
-            className="relative block overflow-hidden rounded-xl border border-organ-700/50 marble-slate p-6 shadow-card-md sm:p-8 lg:col-span-2 lg:p-10"
+            className="relative block overflow-hidden rounded-xl border border-organ-200 bg-white p-6 shadow-card-md sm:p-8 lg:col-span-2 lg:p-10"
             initial={{ opacity: 0.85 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
             <div
-              className="pointer-events-none absolute -right-24 -top-28 h-72 w-72 rounded-full bg-accent/10 blur-3xl"
+              className="pointer-events-none absolute -right-24 -top-28 h-72 w-72 rounded-full bg-erp/8 blur-3xl"
               aria-hidden
             />
             <div
-              className="pointer-events-none absolute -bottom-16 left-1/3 h-48 w-96 -translate-x-1/2 rounded-full bg-sky-500/5 blur-3xl"
+              className="pointer-events-none absolute -bottom-16 left-1/3 h-48 w-96 -translate-x-1/2 rounded-full bg-erp/5 blur-3xl"
               aria-hidden
             />
             <div className="relative z-10 lg:flex lg:flex-row lg:items-stretch lg:justify-between lg:gap-12 xl:gap-16">
               <div className="min-w-0 flex-1 lg:max-w-xl">
-                <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
+                <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-erp">
                   Your production at a glance
                 </p>
-                <p className="mt-5 font-serif text-2xl font-semibold text-organ-50 sm:text-3xl">
+                <p className="mt-5 font-serif text-2xl font-semibold text-ink-950 sm:text-3xl">
                   Closed loan performance, without building a spreadsheet
                 </p>
-                <p className="mt-3 max-w-md text-sm leading-relaxed text-organ-200 sm:text-base">
+                <p className="mt-3 max-w-md text-sm leading-relaxed text-organ-800 sm:text-base">
                   Volume, average loan size, and time to close — broken down by month, quarter,
                   or year. The numbers you need to understand your own book, already in the
                   platform.
                 </p>
               </div>
               <div
-                className="mt-10 flex w-full flex-col justify-center gap-5 border-t border-organ-600/25 pt-8 sm:gap-6 sm:pt-10 lg:mt-0 lg:w-56 lg:shrink-0 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0 xl:w-64"
+                className="mt-10 flex w-full flex-col justify-center gap-5 border-t border-organ-200 pt-8 sm:gap-6 sm:pt-10 lg:mt-0 lg:w-56 lg:shrink-0 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0 xl:w-64"
                 aria-hidden
               >
-                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent/90">
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-erp">
                   Example view
                 </p>
                 {[
@@ -144,8 +144,8 @@ export function PipelineSection() {
                   ["Avg. days to close", "32"],
                 ].map(([label, value]) => (
                   <div key={label}>
-                    <p className="text-xs font-medium text-organ-100">{label}</p>
-                    <p className="mt-1 font-mono text-sm tabular-nums text-accent-light">{value}</p>
+                    <p className="text-xs font-medium text-organ-800">{label}</p>
+                    <p className="mt-1 font-mono text-sm tabular-nums text-erp">{value}</p>
                   </div>
                 ))}
               </div>

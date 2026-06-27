@@ -19,12 +19,12 @@ export function ContactCTA() {
           className="relative z-10 overflow-hidden rounded-xl border border-organ-200/95 bg-organ-50 px-5 py-12 text-center shadow-card-md sm:px-14 sm:py-16"
         >
           <div
-            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(191,211,230,0.08),transparent_55%)]"
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(0,117,255,0.06),transparent_55%)]"
             aria-hidden
           />
 
           <div className="relative z-10 mx-auto max-w-2xl">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-organ-800">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-erp">
               Ready when you are
             </p>
             <h2

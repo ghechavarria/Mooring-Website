@@ -20,11 +20,11 @@
 
   .btn-primary-silver {
     @apply inline-flex items-center justify-center rounded-md bg-erp font-semibold text-white ring-1 ring-erp/40 transition;
-    box-shadow: 0 4px 18px rgba(30, 112, 214, 0.35);
+    box-shadow: 0 4px 18px rgba(0, 117, 255, 0.35);
   }
   .btn-primary-silver:hover {
     @apply bg-erp-600 ring-erp/55;
-    box-shadow: 0 8px 28px rgba(30, 112, 214, 0.42);
+    box-shadow: 0 8px 28px rgba(0, 117, 255, 0.42);
   }
   .btn-primary-silver:active {
     transform: translateY(1px);

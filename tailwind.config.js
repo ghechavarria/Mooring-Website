@@ -28,14 +28,14 @@ export default {
         ivory: "#f2f2f2",
         /** Wordmark “ERP” + primary CTAs (see `.btn-primary-silver` in `src/index.css`) */
         erp: {
-          DEFAULT: "#1e70d6",
-          600: "#185cbd",
-          700: "#154a9e",
+          DEFAULT: "#0075FF",
+          600: "#0062db",
+          700: "#0050b5",
         },
         organ: {
-          50: "#faf8f6",
-          100: "#f3f0ec",
-          200: "#e8e2da",
+          50: "#ffffff",
+          100: "#f4f6f9",
+          200: "#e7ebf1",
           600: "#6b645c",
           700: "#534c46",
           800: "#3f3833",

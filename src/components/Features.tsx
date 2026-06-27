@@ -7,22 +7,22 @@ const features = [
   {
     title: "Complete loan application, faster",
     body: "Collect everything needed for the 1003 without going back to the borrower three times. Mooric ERP knows what is missing and tells you — before underwriting has to ask.",
-    accent: "from-accent/30 to-transparent",
+    accent: "from-erp/20 to-transparent",
   },
   {
     title: "Fit the borrower to the right program",
     body: "Build a complete picture of their financials, employment, and property — then surface the program that actually fits. Conventional, FHA, VA, DSCR, WVOE — the right answer, not just the obvious one.",
-    accent: "from-accent-light/25 to-transparent",
+    accent: "from-erp/15 to-transparent",
   },
   {
     title: "Condition tracking",
     body: "Every underwriting condition in one place. See at a glance what has been cleared, what is still outstanding, and what is overdue — without digging through email or making calls to find out where things stand.",
-    accent: "from-accent/20 to-transparent",
+    accent: "from-erp/15 to-transparent",
   },
   {
     title: "TRID, Title, HOI, and Appraisal tracking",
     body: "Closing has a lot of moving parts with hard deadlines. Track Closing Disclosure timing, title search status, homeowners insurance, and appraisal order in a single view — so nothing is missed.",
-    accent: "from-accent-light/20 to-transparent",
+    accent: "from-erp/10 to-transparent",
   },
 ] as const;
 
@@ -53,7 +53,7 @@ function PlatformFeatureCard({
         aria-hidden
       />
       <div className="relative">
-        <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-organ-800">
+        <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-erp">
           {String(step).padStart(2, "0")}
         </span>
         <h3 className="mt-4 text-xl font-semibold text-ink-950">{item.title}</h3>
@@ -122,7 +122,7 @@ export function Features() {
         aria-hidden
       >
         <div className="layout-shell">
-          <div className="mx-auto max-w-3xl h-px bg-gradient-to-r from-transparent via-accent/65 to-transparent" />
+          <div className="mx-auto max-w-3xl h-px bg-gradient-to-r from-transparent via-erp/40 to-transparent" />
         </div>
       </div>
     </section>
