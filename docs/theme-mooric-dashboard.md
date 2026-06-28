@@ -55,7 +55,7 @@ Every major section leads with the same three-part intro:
 2. **Headline** — `mt-4 font-serif text-3xl font-semibold tracking-tight text-ink-950 sm:text-4xl`
 3. **Intro** — `mt-4 text-lg leading-relaxed text-organ-800`
 
-Eyebrow labels by section: **Core differentiator** (Central Loan Memory), **The daily workflow** (Features), **Pipeline**, **LO Personal Assistant**, **The people** (Team), **Ready when you are** (Contact).
+Eyebrow labels by section: **Core differentiator** (Central Loan Memory), **The daily workflow** (Features), **Pipeline**, **Loan Officer Personal Assistant**, **The people** (Team), **Ready when you are** (Contact).
 
 ## Surface alternation
 
@@ -67,7 +67,7 @@ Sections alternate between plain white and a faint **`organ-50`** tint for verti
 | Central Loan Memory | `marble-organ-light` |
 | Features | `bg-white` |
 | Pipeline | `bg-organ-50` |
-| LO Personal Assistant | `bg-white` |
+| Loan Officer Personal Assistant | `bg-white` |
 | Team | `bg-organ-50` |
 | Contact CTA | `bg-canvas` |
 
@@ -75,7 +75,7 @@ All product sections use **`py-28 sm:py-40`** and **`border-t border-organ-200`*
 
 ## Unified feature cards
 
-**Features** (`PlatformFeatureCard`) and **LO Personal Assistant** capability cards share one style:
+**Features** (`PlatformFeatureCard`) and **Loan Officer Personal Assistant** capability cards share one style:
 
 `rounded-xl border border-organ-200 bg-white p-6 shadow-card transition hover:-translate-y-0.5 hover:shadow-card-md sm:p-8`
 

@@ -1,6 +1,6 @@
-# Hero copy and stats (`HeroCopy.tsx`)
+# Hero copy (`HeroCopy.tsx`)
 
-Shared hero headline block and stats strip used by [Hero.tsx](../src/components/Hero.tsx).
+Shared hero headline block used by [Hero.tsx](../src/components/Hero.tsx).
 
 ## `HeroCopy`
 
@@ -9,12 +9,8 @@ Shared hero headline block and stats strip used by [Hero.tsx](../src/components/
 - **CTAs:** Request a briefing (gated by `SHOW_CONTACT_ACTIONS`) + **See why it's different** → `#memory`
 - **Centered mode:** `mx-auto max-w-3xl text-center` with centered badge, eyebrow, and CTA row
 
-## `HeroStats`
-
-- Three-up grid: **1003**, **Conditions**, **Closing** with `text-erp` labels and `text-organ-800` descriptions
-- Top border + padding: `border-t border-organ-200 pt-10 lg:pt-12`
-
 ## Related
 
 - [hero-section-background.md](./hero-section-background.md) — two-column hero layout
 - [hero-product-preview.md](./hero-product-preview.md) — interactive demo below copy
+- [central-loan-memory-section.md](./central-loan-memory-section.md) — 1003 / Conditions / Closing track panel lives in `#memory`

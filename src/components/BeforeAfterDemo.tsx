@@ -272,31 +272,31 @@ function BeforePanel() {
 
 export function AfterPanel() {
   return (
-    <div className="space-y-4 p-4 sm:p-5">
-      <div className="flex items-center gap-2 rounded-lg border border-organ-200 bg-white px-3 py-2.5 shadow-sm">
+    <div className="flex h-full flex-col gap-3 p-3 sm:p-4">
+      <div className="flex items-center gap-2 rounded-lg border border-organ-200 bg-white px-3 py-2 shadow-sm">
         <SearchIcon />
-        <span className="text-sm text-organ-500">Search any loan, document, or date…</span>
+        <span className="text-xs text-organ-500">Search any loan, document, or date…</span>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-[0.85fr_1.15fr]">
-        <div className="rounded-lg border border-organ-200 bg-white p-3 shadow-sm sm:p-4">
+      <div className="grid flex-1 gap-3 md:grid-cols-[0.85fr_1.15fr]">
+        <div className="flex flex-col rounded-lg border border-organ-200 bg-white p-3 shadow-sm">
           <div className="flex items-center justify-between gap-2">
-            <p className="text-sm font-semibold text-ink-950">Pipeline</p>
+            <p className="text-[13px] font-semibold text-ink-950">Pipeline</p>
             <span className="rounded-full bg-organ-100 px-2 py-0.5 text-[10px] font-semibold text-organ-700">
               4 active
             </span>
           </div>
-          <ul className="mt-3 space-y-2">
+          <ul className="mt-3 flex-1 space-y-2">
             {pipeline.map((loan) => (
               <li
                 key={loan.name}
-                className={`rounded-lg border px-3 py-2.5 ${
+                className={`rounded-lg border px-3 py-2 ${
                   loan.selected ? "border-erp bg-erp/5" : "border-organ-100 bg-organ-50/50"
                 }`}
               >
-                <p className="text-sm font-semibold text-ink-950">{loan.name}</p>
+                <p className="text-[13px] font-semibold text-ink-950">{loan.name}</p>
                 <p className="mt-0.5 text-xs text-organ-700">{loan.detail}</p>
-                <div className="mt-2 flex flex-wrap gap-1.5">
+                <div className="mt-1.5 flex flex-wrap gap-1.5">
                   {loan.pills.map((pill) => (
                     <StatusPill key={pill.label} label={pill.label} tone={pill.tone} />
                   ))}
@@ -306,14 +306,14 @@ export function AfterPanel() {
           </ul>
         </div>
 
-        <div className="space-y-4">
-          <div className="rounded-lg border border-organ-200 bg-white p-3 shadow-sm sm:p-4">
-            <p className="text-sm font-semibold text-ink-950">Key dates — Johnson, Michael</p>
-            <ul className="mt-3 space-y-2">
+        <div className="grid gap-3 md:grid-rows-[0.9fr_1.1fr]">
+          <div className="flex flex-col rounded-lg border border-organ-200 bg-white p-3 shadow-sm">
+            <p className="text-[13px] font-semibold text-ink-950">Key dates — Johnson, Michael</p>
+            <ul className="mt-3 flex-1 space-y-2">
               {keyDates.map((item) => (
                 <li
                   key={item.label}
-                  className="flex flex-wrap items-center justify-between gap-2 border-b border-organ-100 pb-2 last:border-0 last:pb-0"
+                  className="flex flex-wrap items-center justify-between gap-2 border-b border-organ-100 pb-1.5 last:border-0 last:pb-0"
                 >
                   <div className="min-w-0">
                     <p className="text-xs font-medium text-ink-950">{item.label}</p>
@@ -325,18 +325,18 @@ export function AfterPanel() {
             </ul>
           </div>
 
-          <div className="rounded-lg border border-organ-200 bg-white p-3 shadow-sm sm:p-4">
+          <div className="flex flex-col rounded-lg border border-organ-200 bg-white p-3 shadow-sm">
             <div className="flex flex-wrap items-center justify-between gap-2">
-              <p className="text-sm font-semibold text-ink-950">Documents</p>
+              <p className="text-[13px] font-semibold text-ink-950">Documents</p>
               <span className="rounded-full bg-erp/10 px-2 py-0.5 text-[10px] font-semibold text-erp">
                 4 files · AI classified
               </span>
             </div>
-            <ul className="mt-3 space-y-2">
+            <ul className="mt-3 flex-1 space-y-2">
               {documents.map((doc) => (
                 <li
                   key={doc.title}
-                  className="flex flex-wrap items-start justify-between gap-2 rounded-md border border-organ-100 px-2.5 py-2"
+                  className="flex flex-wrap items-start justify-between gap-2 rounded-md border border-organ-100 px-2.5 py-1.5"
                 >
                   <div className="min-w-0 flex-1">
                     <p className="text-xs font-medium text-ink-950">{doc.title}</p>
@@ -367,7 +367,7 @@ function DemoChrome({
   const panelId = `${idPrefix}-panel`;
 
   return (
-    <div className="flex flex-wrap items-center justify-between gap-3 border-b border-organ-200 bg-organ-50 px-3 py-2 @sm:px-4">
+    <div className="flex flex-wrap items-center gap-3 border-b border-organ-200 bg-organ-50 px-3 py-2 @sm:px-4">
       <div
         className="flex rounded-lg border border-organ-200 bg-white p-0.5"
         role="tablist"
@@ -406,10 +406,6 @@ function DemoChrome({
           </svg>
           After Mooric
         </button>
-      </div>
-      <div className="hidden items-center gap-2 text-organ-500 @md:flex" aria-hidden>
-        <span className="text-xs">Click to compare</span>
-        <span className="text-sm tracking-widest">···</span>
       </div>
     </div>
   );
@@ -471,10 +467,12 @@ export function InteractiveDemoCard({
         id={panelId}
         role="tabpanel"
         aria-labelledby={view === "before" ? beforeTabId : afterTabId}
+        className="md:h-[30rem] md:overflow-y-auto lg:h-[36rem] xl:h-[42rem]"
       >
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={view}
+            className="h-full"
             initial={reduceMotion ? false : { opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={reduceMotion ? undefined : { opacity: 0, y: -8 }}

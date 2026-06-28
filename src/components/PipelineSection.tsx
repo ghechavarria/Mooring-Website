@@ -46,7 +46,7 @@ export function PipelineSection() {
               Pipeline management — no more Excel tracking.
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-organ-800">
-              One of the most common pain points for independent LOs is managing a pipeline
+              One of the most common pain points for independent Loan Officers is managing a pipeline
               across spreadsheets, sticky notes, and calendar reminders. Mooric ERP replaces
               all of that with a single view that follows every loan from first conversation
               to funded.

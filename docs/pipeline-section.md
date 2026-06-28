@@ -4,7 +4,7 @@ Pipeline management section (`#pipeline`) in [PipelineSection.tsx](../src/compon
 
 ## Purpose
 
-Speaks to independent LOs who manage pipelines across spreadsheets and sticky notes. Three timeline steps plus a closed-loan performance callout.
+Speaks to independent Loan Officers who manage pipelines across spreadsheets and sticky notes. Three timeline steps plus a closed-loan performance callout.
 
 ## Content blocks
 

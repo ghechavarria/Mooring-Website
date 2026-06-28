@@ -7,8 +7,10 @@ The hero (`#top`) embeds the full **interactive Before/After demo** at **`#demo`
 Implemented in [Hero.tsx](../src/components/Hero.tsx):
 
 1. Session pulse strip + bottom tagline ([HeroSessionPulse.tsx](../src/components/HeroSessionPulse.tsx))
-2. Two-column grid on large screens: hero copy + CTAs left ([HeroCopy.tsx](../src/components/HeroCopy.tsx)), interactive demo right ([InteractiveDemoCard](../src/components/BeforeAfterDemo.tsx))
-3. Three-up stats strip spanning both columns ([HeroStats.tsx](../src/components/HeroCopy.tsx))
+2. Two-column grid from the **`md`** breakpoint: hero copy + CTAs left ([HeroCopy.tsx](../src/components/HeroCopy.tsx), compact sizing from `md`), interactive demo right ([InteractiveDemoCard](../src/components/BeforeAfterDemo.tsx), **After** default, capped panel height + internal scroll from `md+`)
+3. Brand-blue tagline strip = bottom edge of the viewport
+
+The **1003 / Conditions / Closing** track panel lives in [Central Loan Memory](../src/components/CentralLoanMemorySection.tsx) (`#memory`) — see [central-loan-memory-section.md](./central-loan-memory-section.md).
 
 ## Components
 
@@ -25,7 +27,7 @@ Implemented in [Hero.tsx](../src/components/Hero.tsx):
 
 ## Spacing
 
-Hero content padding: `py-8 sm:py-10 lg:py-12` inside `HeroSessionPulse` (the hero fills `100svh - 4.25rem` and centers content). Grid gaps: `gap-14 lg:gap-20 xl:gap-24`; stats span the grid with `lg:col-span-2`.
+Hero content padding: `py-8 sm:py-10 lg:py-6 xl:py-8` inside `HeroSessionPulse`. On `lg+`, the hero block is pinned to `100svh - 4.25rem` with the blue tagline strip as the bottom edge. Grid gaps: `gap-14 lg:gap-x-20 xl:gap-x-24`.
 
 ## Related
 

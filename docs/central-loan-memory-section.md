@@ -1,6 +1,6 @@
 # Central Loan Memory section
 
-Dedicated marketing section (`#memory`) in [CentralLoanMemorySection.tsx](../src/components/CentralLoanMemorySection.tsx). Rendered in [App.tsx](../src/App.tsx) after **Before/After demo** and before **Features**.
+Dedicated marketing section (`#memory`) in [CentralLoanMemorySection.tsx](../src/components/CentralLoanMemorySection.tsx). Rendered in [App.tsx](../src/App.tsx) after the hero and before **Features**.
 
 ## Purpose
 
@@ -8,14 +8,18 @@ Presents **Central Loan Memory** as Mooric ERP’s core differentiator — not b
 
 ## Layout
 
-- Light **marble-organ-light** band (cool wash, subtle texture)
-- Centered headline + intro with **`text-erp`** eyebrow and **`~1 hr`** stat
-- Three white contrast cards with **`border-t-erp`** accent
-- Light callout card with blue border for **~1 hr** per-file savings
+1. **Intro** — centered headline + body on the **marble-organ-light** band (`text-erp` eyebrow, serif `h2`). Bridge line: *“From application through closing — one living record.”*
+2. **`MemoryTrackPanel`** — white divided panel (`shadow-card-md`) on the marble texture, between intro and contrast cards:
+   - Header eyebrow: **What memory keeps on track**
+   - Three cells: **1003**, **Conditions**, **Closing** — icon tile + bold `text-erp` label + supporting caption
+   - `sm:grid-cols-3` with hairline dividers; `py-10 sm:py-12` cell padding
+3. **Contrast cards** — three white cards with **`border-t-erp`** accent explaining why memory is different
+4. **~1 hr callout** — light card with blue border for per-file savings on loan structuring
 
 ## Navigation
 
-Header link: **Why Mooric** → `#memory`
+Header link: **Why Mooric** → `#memory`  
+Hero CTA: **See why it's different** → `#memory`
 
 ## Content source
 

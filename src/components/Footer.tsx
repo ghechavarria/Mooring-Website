@@ -17,10 +17,10 @@ function YouTubeIcon() {
 export function Footer() {
   return (
     <footer className="border-t border-white/[0.06] bg-navy">
-      <p className="border-b border-white/5 py-4 text-center font-display text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400">
+      <p className="border-b border-white/5 py-[0.52rem] text-center font-display text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400">
         1003 completion · Condition tracking · Pipeline without Excel
       </p>
-      <div className="layout-shell flex flex-col items-center justify-between gap-8 py-14 sm:flex-row">
+      <div className="layout-shell flex flex-col items-center justify-between gap-8 py-[1.8rem] sm:flex-row">
         <div className="flex shrink-0 items-center justify-center sm:justify-start">
           <span className="relative h-20 w-20 shrink-0 overflow-hidden rounded-[10px] sm:h-28 sm:w-28">
             <img

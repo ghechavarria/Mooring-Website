@@ -119,7 +119,7 @@ export function HeroSessionPulse({ children }: { children?: ReactNode }) {
   }, [reduceMotion]);
 
   return (
-    <div className="flex w-full flex-1 flex-col bg-white text-white">
+    <div className="flex w-full min-h-0 flex-1 flex-col bg-white text-white">
       <div aria-hidden className="shrink-0 bg-erp">
         <div className="layout-header-px flex min-h-[3.5rem] flex-col gap-2 py-3 sm:min-h-0 sm:flex-row sm:items-center sm:gap-6 sm:py-3.5">
           <div className="flex shrink-0 items-center gap-2">
@@ -148,17 +148,17 @@ export function HeroSessionPulse({ children }: { children?: ReactNode }) {
       </div>
 
       {children != null ? (
-        <div className="relative z-10 flex flex-1 flex-col justify-center border-t border-organ-200 bg-white text-ink-950">
+        <div className="relative z-10 flex min-h-0 flex-1 flex-col justify-center border-t border-organ-200 bg-white text-ink-950">
           <div
             className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(0,117,255,0.06),transparent_55%)]"
             aria-hidden
           />
-          <div className="relative layout-header py-8 sm:py-10 lg:py-12">{children}</div>
+          <div className="relative layout-header py-8 sm:py-10 lg:py-6 xl:py-8">{children}</div>
         </div>
       ) : null}
 
       <p className="layout-header-px shrink-0 border-t border-erp-600 bg-erp py-2.5 text-center font-mono text-[9px] font-medium uppercase tracking-[0.14em] text-white/90">
-        Mooric ERP — built for LOs who are tired of running their pipeline out of Excel
+        Mooric ERP — built for Loan Officers who are tired of running their pipeline out of Excel
       </p>
     </div>
   );

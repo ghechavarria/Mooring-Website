@@ -1,10 +1,10 @@
-# LO Personal Assistant section
+# Loan Officer Personal Assistant section
 
 Dedicated section (`#assistant`) in [LOPersonalAssistantSection.tsx](../src/components/LOPersonalAssistantSection.tsx). Rendered after **Pipeline** and before **HeroMotionBand**.
 
 ## Purpose
 
-Positions the LO Personal Assistant as an always-on work partner — not a chatbot or help center. Headline: **“The assistant that already knows your file.”**
+Positions the Loan Officer Personal Assistant as an always-on work partner — not a chatbot or help center. Headline: **“The assistant that already knows your file.”**
 
 ## Content blocks
 
@@ -18,7 +18,7 @@ Four capability cards:
 ## Layout
 
 - Light **white** band with **`py-28 sm:py-40`** (alternates with tinted Pipeline above and Team below)
-- **Header:** Eyebrow `LO Personal Assistant` + centered serif headline + intro
+- **Header:** Eyebrow `Loan Officer Personal Assistant` + centered serif headline + intro
 - Centered intro + 2×2 card grid
 - **Cards:** Unified white card style — `rounded-xl border border-organ-200 bg-white p-6 shadow-card transition hover:-translate-y-0.5 hover:shadow-card-md sm:p-8` (matches **Features** `PlatformFeatureCard`)
 

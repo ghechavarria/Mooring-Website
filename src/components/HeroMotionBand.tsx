@@ -89,7 +89,7 @@ export function HeroMotionBand() {
 
         <p className="relative z-10 mt-8 max-w-md text-sm leading-relaxed text-slate-200/95 [text-shadow:0_1px_2px_rgba(0,0,0,0.35)]">
           Your pipeline, conditions, and closing deadlines — one place, built for how
-          independent LOs actually work.
+          independent Loan Officers actually work.
         </p>
       </div>
     </div>

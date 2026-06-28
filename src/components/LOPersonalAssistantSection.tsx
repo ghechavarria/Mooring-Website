@@ -35,7 +35,7 @@ export function LOPersonalAssistantSection() {
           className="mx-auto max-w-3xl text-center"
         >
           <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-erp">
-            LO Personal Assistant
+            Loan Officer Personal Assistant
           </p>
           <h2
             id="assistant-heading"

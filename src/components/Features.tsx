@@ -88,7 +88,7 @@ export function Features() {
               The work you do every day — without the manual overhead.
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-organ-800">
-              Independent LOs and processors juggle multiple files at once. Mooric ERP is built
+              Independent Loan Officers and processors juggle multiple files at once. Mooric ERP is built
               around the tasks that eat your day: completing applications, matching programs,
               clearing conditions, and hitting closing deadlines.
             </p>
