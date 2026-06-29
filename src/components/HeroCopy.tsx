@@ -12,7 +12,7 @@ export function HeroCopy({
   const centered = align === "center";
 
   return (
-    <div className={centered ? "mx-auto max-w-3xl text-center" : "max-[1099px]:mt-6"}>
+    <div className={`[container-type:inline-size] ${centered ? "mx-auto max-w-3xl text-center" : "max-[1099px]:mt-6"}`}>
       <p
         className={`inline-flex items-center gap-2 rounded-full border border-organ-200 bg-white px-3 py-1 text-xs text-organ-700${centered ? " justify-center" : ""}`}
       >
@@ -27,9 +27,10 @@ export function HeroCopy({
       </p>
       <h1
         id={headingId}
-        className="mt-3 text-balance font-serif text-4xl font-semibold leading-[1.1] tracking-tight text-ink-950 sm:text-5xl min-[1100px]:text-[2.5rem] min-[1100px]:leading-[1.08] min-[1200px]:text-[2.75rem] xl:text-6xl"
+        className="mt-3 font-serif text-[clamp(1rem,7.5cqi,3.75rem)] font-semibold leading-[1.1] tracking-tight text-ink-950 min-[1100px]:leading-[1.08]"
       >
-        Less chasing paperwork.<br></br>More time closing loans.
+        <span className="block whitespace-nowrap">Less chasing paperwork.</span>
+        <span className="block whitespace-nowrap">More time closing loans.</span>
       </h1>
       <p
         className={`mt-5 text-base leading-relaxed text-organ-800 sm:text-lg min-[1100px]:mt-4 min-[1100px]:text-base min-[1200px]:mt-6 min-[1200px]:text-lg xl:text-xl xl:leading-relaxed${centered ? " mx-auto max-w-2xl" : " max-w-xl"}`}
