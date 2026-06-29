@@ -1,5 +1,8 @@
 # Session pulse showcase (removed)
 
-The temporary **Session pulse — pick a direction** showcase has been removed. **Option 3 — Brand-Blue Band** was selected and is now the production session strip in [HeroSessionPulse.tsx](../src/components/HeroSessionPulse.tsx).
+The temporary three-variant comparison has been removed. The selected production direction is **Option A — shorten all**:
 
-See [hero-session-pulse.md](./hero-session-pulse.md) for current behavior.
+- Narrow screens: **Live** pill + **Session pulse** label + shortened rotating status + compact wave, all on one line.
+- `sm+`: full rotating status copy + full-width wave.
+
+Current implementation lives in [HeroSessionPulse.tsx](../src/components/HeroSessionPulse.tsx). See [hero-session-pulse.md](./hero-session-pulse.md) for production behavior.

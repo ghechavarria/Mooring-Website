@@ -10,6 +10,14 @@ const statusLines = [
   "Securing an audit-friendly trail for this visit…",
 ];
 
+const statusLinesShort = [
+  "Prepping your file preview…",
+  "Tracing milestones…",
+  "Routing conditions…",
+  "Aligning borrower + lender…",
+  "Securing the audit trail…",
+];
+
 const ECG_BEAT_PX = 100;
 const bpm = 40;
 const beatMs = Math.round(60000 / bpm);
@@ -32,6 +40,7 @@ function DriftingEcg({
   viewHeight,
   vignette,
   reduceMotion,
+  compact = false,
 }: {
   pathD: string;
   stroke: string;
@@ -40,11 +49,14 @@ function DriftingEcg({
   viewHeight: number;
   vignette: string;
   reduceMotion: boolean | null;
+  compact?: boolean;
 }) {
   const gid = useId().replace(/:/g, "");
 
   return (
-    <div className={`relative flex min-w-0 flex-1 items-stretch overflow-hidden ${heightClass}`}>
+    <div
+      className={`relative flex min-w-0 items-stretch overflow-hidden ${compact ? "w-full" : "flex-1"} ${heightClass}`}
+    >
       <svg
         viewBox={`0 0 360 ${viewHeight}`}
         preserveAspectRatio="xMidYMid meet"
@@ -108,6 +120,70 @@ function DriftingEcg({
   );
 }
 
+function SessionPulseBadge() {
+  return (
+    <div className="flex shrink-0 items-center gap-2">
+      <span className="rounded border border-white/40 bg-white/10 px-2 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-wider">
+        Live
+      </span>
+      <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-white/90">
+        Session pulse
+      </span>
+    </div>
+  );
+}
+
+function SessionPulseWave({
+  reduceMotion,
+  compact = false,
+  className = "",
+}: {
+  reduceMotion: boolean | null;
+  compact?: boolean;
+  className?: string;
+}) {
+  return (
+    <div
+      className={`relative min-w-0 shrink-0 ${compact ? "w-[7rem] max-w-[7rem]" : "flex-1"} ${className}`}
+    >
+      <DriftingEcg
+        pathD={ecgWaveScrollPath}
+        stroke="rgba(255,255,255,0.92)"
+        strokeWidth={compact ? 1.5 : 1.75}
+        heightClass={compact ? "h-7" : "h-8 sm:h-9"}
+        viewHeight={40}
+        vignette="linear-gradient(90deg, rgb(0 117 255) 0%, rgb(0 117 255 / 0.7) 10%, transparent 30%, transparent 70%, rgb(0 117 255 / 0.7) 90%, rgb(0 117 255) 100%)"
+        reduceMotion={reduceMotion}
+        compact={compact}
+      />
+    </div>
+  );
+}
+
+function SessionPulseBar({
+  tick,
+  reduceMotion,
+}: {
+  tick: number;
+  reduceMotion: boolean | null;
+}) {
+  return (
+    <div aria-hidden className="shrink-0 bg-erp">
+      <div className="layout-header-px flex min-h-0 flex-row items-center gap-3 py-3 sm:gap-6 sm:py-3.5">
+        <SessionPulseBadge />
+        <p className="min-w-0 flex-1 truncate font-mono text-[10px] text-white/85 max-[400px]:hidden sm:hidden">
+          {statusLinesShort[tick % statusLinesShort.length]}
+        </p>
+        <p className="hidden min-w-0 flex-1 truncate font-mono text-[11px] text-white/85 sm:block sm:text-xs">
+          {statusLines[tick % statusLines.length]}
+        </p>
+        <SessionPulseWave reduceMotion={reduceMotion} compact className="max-[400px]:ml-auto sm:hidden" />
+        <SessionPulseWave reduceMotion={reduceMotion} className="hidden min-w-0 flex-1 sm:block sm:max-w-md" />
+      </div>
+    </div>
+  );
+}
+
 export function HeroSessionPulse({ children }: { children?: ReactNode }) {
   const reduceMotion = useReducedMotion();
   const [tick, setTick] = useState(0);
@@ -120,32 +196,7 @@ export function HeroSessionPulse({ children }: { children?: ReactNode }) {
 
   return (
     <div className="flex w-full min-h-0 flex-1 flex-col bg-white text-white">
-      <div aria-hidden className="shrink-0 bg-erp">
-        <div className="layout-header-px flex min-h-[3.5rem] flex-col gap-2 py-3 sm:min-h-0 sm:flex-row sm:items-center sm:gap-6 sm:py-3.5">
-          <div className="flex shrink-0 items-center gap-2">
-            <span className="rounded border border-white/40 bg-white/10 px-2 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-wider">
-              Live
-            </span>
-            <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-white/90">
-              Session pulse
-            </span>
-          </div>
-          <p className="min-w-0 flex-1 truncate font-mono text-[11px] text-white/85 sm:text-xs">
-            {statusLines[tick % statusLines.length]}
-          </p>
-          <div className="relative min-w-0 flex-1 sm:max-w-md">
-            <DriftingEcg
-              pathD={ecgWaveScrollPath}
-              stroke="rgba(255,255,255,0.92)"
-              strokeWidth={1.75}
-              heightClass="h-8 sm:h-9"
-              viewHeight={40}
-              vignette="linear-gradient(90deg, rgb(0 117 255) 0%, rgb(0 117 255 / 0.7) 10%, transparent 30%, transparent 70%, rgb(0 117 255 / 0.7) 90%, rgb(0 117 255) 100%)"
-              reduceMotion={reduceMotion}
-            />
-          </div>
-        </div>
-      </div>
+      <SessionPulseBar tick={tick} reduceMotion={reduceMotion} />
 
       {children != null ? (
         <div className="relative z-10 flex min-h-0 flex-1 flex-col justify-center border-t border-organ-200 bg-white text-ink-950">
