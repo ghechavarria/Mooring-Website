@@ -12,4 +12,4 @@ Extended palette **`pulse`** for the hero session strip: **dark slate / near-bla
 | `pulse-glow` | Sky / cyan highlight |
 | `pulse-ice` | High-contrast text on dark |
 
-Used primarily in `HeroSessionPulse.tsx` (`integrated` and `panel` variants).
+Used primarily in legacy pulse variants. The integrated hero top bar in [HeroSessionPulse.tsx](../src/components/HeroSessionPulse.tsx) now uses **`organ-100`** / **`organ-500`** for a silver/light-gray monitor strip; brand blue is reserved for the bottom tagline strip.

@@ -12,7 +12,7 @@ export function HeroCopy({
   const centered = align === "center";
 
   return (
-    <div className={centered ? "mx-auto max-w-3xl text-center" : ""}>
+    <div className={centered ? "mx-auto max-w-3xl text-center" : "max-[1099px]:mt-6"}>
       <p
         className={`inline-flex items-center gap-2 rounded-full border border-organ-200 bg-white px-3 py-1 text-xs text-organ-700${centered ? " justify-center" : ""}`}
       >
@@ -27,12 +27,12 @@ export function HeroCopy({
       </p>
       <h1
         id={headingId}
-        className="mt-3 text-balance font-serif text-4xl font-semibold leading-[1.1] tracking-tight text-ink-950 sm:text-5xl md:text-[2.5rem] md:leading-[1.08] lg:text-[2.75rem] xl:text-6xl"
+        className="mt-3 text-balance font-serif text-4xl font-semibold leading-[1.1] tracking-tight text-ink-950 sm:text-5xl min-[1100px]:text-[2.5rem] min-[1100px]:leading-[1.08] min-[1200px]:text-[2.75rem] xl:text-6xl"
       >
-        Less chasing paperwork. More time closing loans.
+        Less chasing paperwork.<br></br>More time closing loans.
       </h1>
       <p
-        className={`mt-5 text-base leading-relaxed text-organ-800 sm:text-lg md:mt-4 md:text-base lg:mt-6 lg:text-lg xl:text-xl xl:leading-relaxed${centered ? " mx-auto max-w-2xl" : " max-w-xl"}`}
+        className={`mt-5 text-base leading-relaxed text-organ-800 sm:text-lg min-[1100px]:mt-4 min-[1100px]:text-base min-[1200px]:mt-6 min-[1200px]:text-lg xl:text-xl xl:leading-relaxed${centered ? " mx-auto max-w-2xl" : " max-w-xl"}`}
       >
         You did not get into this business to re-enter borrower data, hunt down documents, or
         update five spreadsheets before your first coffee. Mooric ERP handles that overhead so
@@ -40,7 +40,7 @@ export function HeroCopy({
         to the finish line.
       </p>
       <div
-        className={`mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-3 md:mt-6 lg:mt-10${centered ? " items-center justify-center" : ""}`}
+        className={`mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-3 min-[1100px]:mt-6 min-[1200px]:mt-10${centered ? " items-center justify-center" : ""}`}
       >
         <button
           type="button"

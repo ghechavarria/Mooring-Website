@@ -123,10 +123,10 @@ function DriftingEcg({
 function SessionPulseBadge() {
   return (
     <div className="flex shrink-0 items-center gap-2">
-      <span className="rounded border border-white/40 bg-white/10 px-2 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-wider">
+      <span className="rounded border border-organ-200 bg-white px-2 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-wider text-organ-700">
         Live
       </span>
-      <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-white/90">
+      <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-organ-700">
         Session pulse
       </span>
     </div>
@@ -148,11 +148,11 @@ function SessionPulseWave({
     >
       <DriftingEcg
         pathD={ecgWaveScrollPath}
-        stroke="rgba(255,255,255,0.92)"
+        stroke="rgba(107,100,92,0.55)"
         strokeWidth={compact ? 1.5 : 1.75}
         heightClass={compact ? "h-7" : "h-8 sm:h-9"}
         viewHeight={40}
-        vignette="linear-gradient(90deg, rgb(0 117 255) 0%, rgb(0 117 255 / 0.7) 10%, transparent 30%, transparent 70%, rgb(0 117 255 / 0.7) 90%, rgb(0 117 255) 100%)"
+        vignette="linear-gradient(90deg, rgb(244 246 249) 0%, rgb(244 246 249 / 0.7) 10%, transparent 30%, transparent 70%, rgb(244 246 249 / 0.7) 90%, rgb(244 246 249) 100%)"
         reduceMotion={reduceMotion}
         compact={compact}
       />
@@ -168,13 +168,13 @@ function SessionPulseBar({
   reduceMotion: boolean | null;
 }) {
   return (
-    <div aria-hidden className="shrink-0 bg-erp">
+    <div aria-hidden className="shrink-0 border-b border-organ-200 bg-organ-100">
       <div className="layout-header-px flex min-h-0 flex-row items-center gap-3 py-3 sm:gap-6 sm:py-3.5">
         <SessionPulseBadge />
-        <p className="min-w-0 flex-1 truncate font-mono text-[10px] text-white/85 max-[400px]:hidden sm:hidden">
+        <p className="min-w-0 flex-1 truncate font-mono text-[10px] text-organ-700 max-[400px]:hidden sm:hidden">
           {statusLinesShort[tick % statusLinesShort.length]}
         </p>
-        <p className="hidden min-w-0 flex-1 truncate font-mono text-[11px] text-white/85 sm:block sm:text-xs">
+        <p className="hidden min-w-0 flex-1 truncate font-mono text-[11px] text-organ-700 sm:block sm:text-xs">
           {statusLines[tick % statusLines.length]}
         </p>
         <SessionPulseWave reduceMotion={reduceMotion} compact className="max-[400px]:ml-auto sm:hidden" />

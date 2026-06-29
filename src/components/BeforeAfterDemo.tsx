@@ -1,4 +1,4 @@
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "framer-motion";
 import { useState, type ReactNode } from "react";
 
 type View = "before" | "after";
@@ -197,7 +197,7 @@ function StatusPill({ label, tone }: { label: string; tone: string }) {
 
 function BeforePanel() {
   return (
-    <div className="space-y-4 p-4 @sm:p-5">
+    <div className="flex h-full flex-col gap-4 p-4 @sm:p-5">
       <p className="text-xs text-organ-600 @sm:text-sm">
         Files scattered across folders with no clear structure. Dates tracked in a separate Excel sheet.
       </p>
@@ -219,9 +219,11 @@ function BeforePanel() {
             </div>
             <ul className="mt-2.5 space-y-1">
               {folder.files.map((file) => (
-                <li key={file} className="flex items-center gap-1.5 font-mono text-[10px] text-organ-700 @sm:text-[11px]">
-                  <PageIcon />
-                  <span className="truncate">{file}</span>
+                <li key={file} className="flex items-start gap-1.5 font-mono text-[10px] text-organ-700 @sm:text-[11px]">
+                  <span className="mt-0.5">
+                    <PageIcon />
+                  </span>
+                  <span className="min-w-0 break-words">{file}</span>
                 </li>
               ))}
             </ul>
@@ -229,7 +231,7 @@ function BeforePanel() {
         ))}
       </div>
 
-      <div className="overflow-hidden rounded-lg border border-organ-200 shadow-sm">
+      <div className="flex min-h-0 flex-1 flex-col overflow-hidden rounded-lg border border-organ-200 shadow-sm">
         <div className="flex items-center gap-2 bg-green-700 px-3 py-2 text-white">
           <TableIcon />
           <p className="truncate font-mono text-[11px] font-semibold @sm:text-xs">
@@ -467,20 +469,22 @@ export function InteractiveDemoCard({
         id={panelId}
         role="tabpanel"
         aria-labelledby={view === "before" ? beforeTabId : afterTabId}
-        className="md:h-[30rem] md:overflow-y-auto lg:h-[36rem] xl:h-[42rem]"
+        className="min-[1100px]:h-[30rem] min-[1100px]:overflow-y-auto min-[1200px]:h-[36rem] xl:h-[42rem]"
       >
-        <AnimatePresence mode="wait" initial={false}>
-          <motion.div
-            key={view}
-            className="h-full"
-            initial={reduceMotion ? false : { opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={reduceMotion ? undefined : { opacity: 0, y: -8 }}
-            transition={{ duration: 0.2 }}
+        <div className="grid h-full grid-cols-[minmax(0,1fr)]">
+          <div
+            aria-hidden={view !== "before"}
+            className={`[grid-area:1/1] h-full min-w-0 ${reduceMotion ? "" : "transition-opacity duration-200"} ${view === "before" ? "opacity-100" : "invisible opacity-0"}`}
           >
-            {view === "before" ? <BeforePanel /> : <AfterPanel />}
-          </motion.div>
-        </AnimatePresence>
+            <BeforePanel />
+          </div>
+          <div
+            aria-hidden={view !== "after"}
+            className={`[grid-area:1/1] h-full min-w-0 ${reduceMotion ? "" : "transition-opacity duration-200"} ${view === "after" ? "opacity-100" : "invisible opacity-0"}`}
+          >
+            <AfterPanel />
+          </div>
+        </div>
       </div>
     </div>
   );

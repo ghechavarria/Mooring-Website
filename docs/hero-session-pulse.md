@@ -4,7 +4,7 @@ Decorative **session pulse** for the marketing hero: a **live-styled** monitor s
 
 ## Theme
 
-Uses brand blue **`bg-erp`** (`#0075FF`) for the session strip: compact single row with **Live** pill, **Session pulse** label, rotating status copy, and a white smooth sine-wave ECG on the right. Decorative strip is **`aria-hidden`**; hero copy uses **`text-erp`** for eyebrows and stat labels on the white **`children`** block below.
+**Top session strip:** calm silver/light-gray (`bg-organ-100`, `border-organ-200`) with dark organ text, soft gray ECG wave, and **Live** pill on white — less visually busy than the prior brand-blue bar. **Bottom tagline strip** remains brand blue **`bg-erp`** (`#0075FF`). Decorative top strip is **`aria-hidden`**; hero copy uses **`text-erp`** for eyebrows on the white **`children`** block below.
 
 ## Variants
 

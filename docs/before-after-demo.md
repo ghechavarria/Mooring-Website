@@ -20,7 +20,8 @@ Shows the transformation from how Loan Officers and processors work today versus
 - **Window chrome bar:** segmented toggle (Before / After) only — no “Click to compare” hint
 - **Card:** `rounded-xl border border-organ-200/90 bg-white shadow-card-md`
 - Default view in hero: **After Mooric** (`defaultView="after"` on `InteractiveDemoCard`)
-- **Capped height on `md+`:** tab panel uses `md:h-[30rem] lg:h-[36rem] xl:h-[42rem]` with `md:overflow-y-auto` so the demo scrolls internally and the pinned hero (two-column from `md`) keeps the blue tagline strip at the viewport bottom
+- **Equal-height panels:** both Before and After are rendered in a CSS grid overlap (`[grid-area:1/1]`); the inactive panel uses `invisible` so the container height always matches the taller panel. Toggling tabs does not change outer card height.
+- **Capped height on `min-[1100px]+`:** tab panel uses `min-[1100px]:h-[30rem] min-[1200px]:h-[36rem] xl:h-[42rem]` with `min-[1100px]:overflow-y-auto` so the demo scrolls internally and the pinned hero keeps the blue tagline strip at the viewport bottom. Below 1100px, height follows the taller panel with normal page scroll.
 
 ## Responsiveness (container queries)
 
@@ -39,13 +40,12 @@ The card root (`InteractiveDemoCard`) is a **`@container`**, so the panels adapt
 ## Interaction
 
 - Toggle: **Before Mooric** | **After Mooric** (folder / sparkle icons in chrome bar)
-- Panel swaps with short fade (`framer-motion`); respects `prefers-reduced-motion`
-- Accessible: `role="tablist"` / `role="tabpanel"`, `aria-selected` on tabs; `idPrefix` prop keeps tab IDs unique per instance
+- Panel swap uses opacity transition (`transition-opacity duration-200`); respects `prefers-reduced-motion`
+- Accessible: `role="tablist"` / `role="tabpanel"`, `aria-selected` on tabs, `aria-hidden` on inactive panel; `idPrefix` prop keeps tab IDs unique per instance
 
 ## Before panel
 
-- **Before panel:** uses container-query variants so it fits the card width at any viewport. The card root carries **`min-w-0`** (and the hero demo wrapper too) so the wide tracker table's `overflow-x-auto` is contained instead of forcing the layout wider than the screen.
-  - Caption: files scattered across folders; dates in a separate Excel sheet.
+- **Before panel:** uses container-query variants so it fits the card width at any viewport. Root is `flex h-full flex-col`; the Excel tracker card uses `flex-1 min-h-0` to fill remaining height when the panel is taller than its content.
 - **Three folder cards** (amber folder icon, file count badge): Johnson docs, Martinez - refi, Kim Purchase NEW — each lists messy filenames from the brief.
 - **Excel tracker:** green title bar `Pipeline tracker v3 FINAL (2).xlsx`, table with Borrower / App date / LE sent / CTC target / HOA due / Status and color-coded cells (`TBD`, `OVERDUE`, `??`, etc.). Horizontal scroll on narrow viewports.
 
