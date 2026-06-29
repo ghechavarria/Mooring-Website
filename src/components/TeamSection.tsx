@@ -8,7 +8,7 @@ const members = [
   { name: "Erik Ruiz", slug: "erik-ruiz", title: "Chief Information Security Officer" },
   { name: "Grace Hechavarria", slug: "grace-hechavarria", title: "Chief Information Officer" },
   { name: "Joanne Rossi", slug: "joanne-rossi", title: "Chief Quality and Compliance Officer" },
-  { name: "Andrew", slug: "andrew", title: "SVP Product Development" },
+  { name: "Andrew Li", slug: "andrew-li", title: "SVP Product Development" },
 ] as const;
 
 function initialsFrom(name: string) {
