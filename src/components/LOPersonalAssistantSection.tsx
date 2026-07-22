@@ -15,7 +15,7 @@ const capabilities = [
   },
   {
     title: "Stay in one place",
-    body: "No more context-switching between the loan file, a notes app, a calendar, and an email thread. Your work partner is already in the file.",
+                body: "No more context-switching between the loan file, a notes app, a calendar, and an email thread. Your work partner is already in one workspace — with the file.",
   },
 ] as const;
 
@@ -44,8 +44,8 @@ export function LOPersonalAssistantSection() {
             The assistant that already knows your file.
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-organ-800">
-            Not a chatbot. Not a help center. An always-on work partner that works the way you
-            actually work — with full loan context from the moment you open a file.
+            Not a chatbot. Not a help center. An always-on work partner in one workspace — with full
+            loan context from the moment you open a file.
           </p>
         </motion.div>
 

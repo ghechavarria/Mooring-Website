@@ -35,19 +35,19 @@ export function PipelineSection() {
             transition={{ duration: 0.55 }}
           >
             <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-erp">
-              04 · Pipeline
+              04 · Closed
             </p>
             <h2
               id="pipeline-heading"
               className="mt-4 font-serif text-3xl font-semibold tracking-tight text-ink-950 sm:text-4xl"
             >
-              Pipeline management — no more Excel tracking.
+              CLOSED — Pipeline & production
             </h2>
             <p className="mt-4 max-w-xl text-lg leading-relaxed text-organ-800">
-              One of the most common pain points for independent Loan Officers is managing a pipeline
-              across spreadsheets, sticky notes, and calendar reminders. Mooric ERP replaces
-              all of that with a single view that follows every loan from first conversation
-              to funded.
+              One of the most common pain points for independent LOs and broker shops is managing a
+              pipeline across spreadsheets, sticky notes, and calendar reminders. Mooric ERP brings
+              all of that into a single view that follows every loan from first conversation to
+              funded — end to end, no more Excel tracking.
             </p>
           </motion.div>
 

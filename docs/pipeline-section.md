@@ -4,7 +4,7 @@ Pipeline management section (`#pipeline`) in [PipelineSection.tsx](../src/compon
 
 ## Purpose
 
-Speaks to independent Loan Officers who manage pipelines across spreadsheets and sticky notes. Three timeline steps plus a closed-loan performance callout.
+Speaks to independent LOs and broker shops who manage pipelines across spreadsheets and sticky notes. Framed as **CLOSED — Pipeline & production** (stage label from the broker-side process). Three timeline steps plus a closed-loan performance callout.
 
 ## Content blocks
 
@@ -18,7 +18,7 @@ Speaks to independent Loan Officers who manage pipelines across spreadsheets and
 ## Layout
 
 - **Surface:** **`bg-organ-50`** with **`border-t border-organ-200`** and **`py-28 sm:py-40`** — faint tint alternates with adjacent white sections (Features, Assistant) without stacking marble texture against **Central Loan Memory** above
-- **Header:** Eyebrow `04 · Pipeline` (mono, normal weight) + serif headline + intro (shared section-header pattern)
+- **Header:** Eyebrow `04 · Closed` (mono, normal weight) + serif headline `CLOSED — Pipeline & production` + intro (Excel/spreadsheet tracking; end-to-end single view — not “replaces your LOS”)
 - Two-column grid: intro copy on the left, numbered timeline on the right
 - Mooric pipeline example panel underneath (scale-to-fit mock; see [mooric-pipeline-example-panel.md](./mooric-pipeline-example-panel.md))
 - Production glance card below the panel
@@ -30,4 +30,4 @@ Reached by scrolling past **Features** — no dedicated header link. Anchor: `#p
 
 ## Content source
 
-Copy direction from [Web 1.docx](./Web%201.docx) — “Pipeline Management — no more Excel tracking.”
+Web4 repositioning + earlier pipeline copy — stage-framed as Closed within the broker-side process.

@@ -34,8 +34,8 @@ export function ContactCTA() {
               Get early access — first month free.
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-organ-800">
-              Interested in Mooric or want a closer look? Leave your info and we&apos;ll reach out
-              personally.
+              Interested in one workspace for the entire broker-side process? Leave your info and
+              we&apos;ll reach out personally.
             </p>
             <div
               className={`mx-auto mt-10 flex w-full max-w-md flex-col items-stretch justify-center gap-4 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center${SHOW_CONTACT_ACTIONS ? "" : " hidden"}`}

@@ -15,7 +15,7 @@
 - **Keyboard:** **Escape** closes the menu (`keydown` listener while open).
 - **Scroll lock:** `document.body.style.overflow = "hidden"` while the menu is open.
 - **Primary links (desktop + mobile):** **Why Mooric** (`#memory`), **Features** (`#features`), **Pipeline** (`#pipeline`), **Team** (`#team`). The interactive demo is inline in the hero, so there is no "How it works" link; LO Personal Assistant and Contact have no separate nav item. Logo links to `#top`.
-- **Mobile links:** Same anchors as desktop, plus **Get early access — first month free** (opens the contact modal).
+- **Mobile links:** Same anchors as desktop, plus **Get early access** button with **First month free** as small gray text underneath (opens the contact modal).
 
 ## Site shell
 

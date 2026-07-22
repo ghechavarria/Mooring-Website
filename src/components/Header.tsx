@@ -185,8 +185,13 @@ export function Header() {
                     openContactModal("briefing");
                   }}
                 >
-                  Get early access — first month free
+                  Get early access
                 </button>
+                <p
+                  className={`mt-2 text-center text-xs text-organ-600${SHOW_CONTACT_ACTIONS ? "" : " hidden"}`}
+                >
+                  First month free
+                </p>
               </nav>
             </div>
           </div>,

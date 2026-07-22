@@ -1,6 +1,8 @@
 import { ContactModalProvider } from "./context/ContactModalContext";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
+import { LosCompatibilityStrip } from "./components/LosCompatibilityStrip";
+import { BrokerProcessFlowSection } from "./components/BrokerProcessFlowSection";
 import { ProblemSection } from "./components/ProblemSection";
 import { Features } from "./components/Features";
 import { CentralLoanMemorySection } from "./components/CentralLoanMemorySection";
@@ -19,6 +21,8 @@ export default function App() {
         <Header />
         <main className="min-w-0 flex-1 overflow-x-hidden">
           <Hero />
+          <BrokerProcessFlowSection />
+          <LosCompatibilityStrip />
           <ProblemSection />
           <CentralLoanMemorySection />
           <Features />

@@ -48,9 +48,9 @@ export function ProblemSection() {
             Where does your day actually go?
           </h2>
           <p className="mt-4 max-w-[700px] text-lg leading-relaxed text-organ-800">
-            Ask any independent Loan Officer. It’s not the borrowers, the guidelines, or the deals —
-            it’s the overhead between them. The same file, handled five different ways, in five
-            different places.
+            Ask independent LOs and broker shops. It’s not the borrowers, the guidelines, or the
+            deals — it’s the overhead between them. The same file, handled five different ways, in
+            five different places.
           </p>
         </motion.div>
 

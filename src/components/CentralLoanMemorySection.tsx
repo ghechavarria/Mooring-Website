@@ -278,8 +278,8 @@ function ConceptSplitLivingRecord() {
           Central Loan Memory
         </h2>
         <p className="mt-4 max-w-[680px] text-lg leading-relaxed text-[#334155]">
-          This is what makes Mooric ERP different from every other tool on the market. The system
-          does not reset between tasks — it remembers the file.
+          This is what ties the entire broker-side process together in one system. Mooric ERP does
+          not reset between tasks — it remembers the file end to end.
         </p>
       </motion.div>
 

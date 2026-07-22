@@ -7,7 +7,7 @@ Popup Netlify contact form opened from site CTAs. Implemented as [ContactFormMod
 | Location | Button label | Modal title |
 |----------|----------------|-------------|
 | [Header.tsx](../src/components/Header.tsx) — desktop | Get early access | Get early access |
-| [Header.tsx](../src/components/Header.tsx) — mobile | Get early access — first month free | Get early access |
+| [Header.tsx](../src/components/Header.tsx) — mobile | Get early access (+ “First month free” under button) | Get early access |
 | [HeroCopy.tsx](../src/components/HeroCopy.tsx) | Get early access — first month free | Get early access |
 | [ContactCTA.tsx](../src/components/ContactCTA.tsx) | Get early access | Get early access |
 
@@ -31,7 +31,7 @@ Contact CTAs are gated by **`SHOW_CONTACT_ACTIONS`** in [`src/config/contactActi
 | Role (`role`) | chip → hidden input | yes (Loan Officer / Processor / Broker Owner / Other) |
 | State (`state`) | select (US + DC) | yes |
 | Loans per month (`loans_per_month`) | chip → hidden input | yes (`1–3` / `4–10` / `10+`) |
-| Message | textarea | optional |
+| Message | textarea | yes |
 | bot-field | honeypot | no |
 
 ## UX

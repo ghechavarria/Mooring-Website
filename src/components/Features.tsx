@@ -3,21 +3,25 @@ import { motion } from "framer-motion";
 
 const features = [
   {
+    stage: "APPLICATION & SETUP",
     title: "Complete loan application, faster",
     body: "Collect everything needed for the 1003 without going back to the borrower three times. Mooric ERP knows what is missing and tells you — before underwriting has to ask.",
     accent: "from-erp/20 to-transparent",
   },
   {
+    stage: "APPLICATION & SETUP",
     title: "Fit the borrower to the right program",
     body: "Build a complete picture of their financials, employment, and property — then surface the program that actually fits. Conventional, FHA, VA, DSCR, WVOE — the right answer, not just the obvious one.",
     accent: "from-erp/15 to-transparent",
   },
   {
+    stage: "PROCESSING",
     title: "Condition tracking",
     body: "Every underwriting condition in one place. See at a glance what has been cleared, what is still outstanding, and what is overdue — without digging through email or making calls to find out where things stand.",
     accent: "from-erp/15 to-transparent",
   },
   {
+    stage: "PROCESSING",
     title: "TRID, Title, HOI, and Appraisal tracking",
     body: "Closing has a lot of moving parts with hard deadlines. Track Closing Disclosure timing, title search status, homeowners insurance, and appraisal order in a single view — so nothing is missed.",
     accent: "from-erp/10 to-transparent",
@@ -27,12 +31,10 @@ const features = [
 type FeatureEntry = (typeof features)[number];
 
 function PlatformFeatureCard({
-  step,
   delay,
   item,
   className = "",
 }: {
-  step: number;
   delay: number;
   item: FeatureEntry;
   className?: string;
@@ -52,7 +54,7 @@ function PlatformFeatureCard({
       />
       <div className="relative">
         <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-erp">
-          {String(step).padStart(2, "0")}
+          {item.stage}
         </span>
         <h3 className="mt-4 text-xl font-semibold text-ink-950">{item.title}</h3>
         <p className="mt-3 leading-relaxed text-organ-800">{item.body}</p>
@@ -77,7 +79,7 @@ export function Features() {
           className="max-w-3xl"
         >
           <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-erp">
-            03 · The daily workflow
+            03 · Broker-side process
           </p>
           <h2
             id="features-heading"
@@ -86,9 +88,9 @@ export function Features() {
             The work you do every day — without the manual overhead.
           </h2>
           <p className="mt-4 max-w-[720px] text-lg leading-relaxed text-organ-800">
-            Independent Loan Officers and processors juggle multiple files at once. Mooric ERP is built
-            around the tasks that eat your day: completing applications, matching programs,
-            clearing conditions, and hitting closing deadlines.
+            Independent LOs and broker shops juggle multiple files at once. Mooric ERP is one
+            workspace built around the stages that eat your day: completing applications, matching
+            programs, clearing conditions, and hitting closing deadlines.
           </p>
         </motion.div>
 
@@ -103,7 +105,7 @@ export function Features() {
 
         <div className="mt-16 grid gap-5 sm:grid-cols-2">
           {features.map((f, i) => (
-            <PlatformFeatureCard key={f.title} step={i + 1} delay={i * 0.06} item={f} />
+            <PlatformFeatureCard key={f.title} delay={i * 0.06} item={f} />
           ))}
         </div>
       </div>

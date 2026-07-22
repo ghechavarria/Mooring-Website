@@ -324,12 +324,13 @@ export function ContactFormModal() {
 
               <div>
                 <label htmlFor="contact-message" className="block text-sm font-medium text-organ-800">
-                  Message <span className="font-normal text-organ-600">(optional)</span>
+                  Message
                 </label>
                 <textarea
                   id="contact-message"
                   name="message"
                   rows={3}
+                  required
                   className="mt-1.5 w-full resize-y rounded-md border border-organ-200 bg-white px-3 py-2.5 text-ink-950 shadow-sm outline-none transition focus:border-erp focus:ring-2 focus:ring-erp/25"
                 />
               </div>

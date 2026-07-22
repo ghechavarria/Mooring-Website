@@ -4,7 +4,7 @@
 
 - **Global header:** Sticky top bar (`Header.tsx`) — **opaque `bg-white`**, full width (`w-full min-w-0`), soft **double shadow** so it stays readable over **dark hero / slate strips** without translucent blur. **Brand:** **`square-logo-blue.svg`** plus **Mooric ERP** wordmark (**Mooric** in organ, **ERP** in **`text-erp`** / **`#1e70d6`**) beside it, nav **`font-medium text-organ-800`**, **`.btn-primary-silver`** (same **`erp`** blue fill) for early access. The inner row uses **`.layout-header`** (fluid full width, no `max-w` cap — see [layout-shell.md](./layout-shell.md)) with **`justify-between`**: brand stays **left**, **nav + CTA** stay **right** from **`min-[1440px]`** up (compact density until **`min-[1800px]`**; below **1440px**, the **drawer** pattern is used — see [mobile-nav-and-layout.md](./mobile-nav-and-layout.md)). The integrated hero uses **`.layout-header-px`** on full-bleed rows so **session chrome** lines up with this rail.
 - **Breakpoints:** Primary navigation shows from **1440px** up; narrower viewports use the **drawer** pattern (see [mobile-nav-and-layout.md](./mobile-nav-and-layout.md)).
-- **Page shell:** Single-column `App` — `Header`, then `main` (`Hero` → `Features` → `Workflow` → **`HeroMotionBand`** (full motion band) → `StatsSection` → **`TeamSection`** → `ContactCTA`), then `Footer`. No sidebar rail.
+- **Page shell:** Single-column `App` — `Header`, then `main` (`Hero` → **`BrokerProcessFlowSection`** → **`LosCompatibilityStrip`** → `ProblemSection` → `CentralLoanMemorySection` → `Features` → `PipelineSection` → `LOPersonalAssistantSection` → **`HeroMotionBand`** → **`TeamSection`** → `ContactCTA`), then `Footer`. Feature cards and Pipeline use process-stage labels (`APPLICATION & SETUP` / `PROCESSING` / `CLOSED`). See [los-compatibility-strip.md](./los-compatibility-strip.md) and [broker-process-flow-section.md](./broker-process-flow-section.md).
 
 ## Typography (corporate)
 
@@ -29,7 +29,9 @@ To replace stock photography, drop files under `public/images/` and update the `
 - `src/components/HeroSessionPulse.tsx` — session pulse (`integrated` in hero).
 - `src/components/HeroLattice.tsx` — **silver** diagonal lattice SVG (used inside **`HeroMotionBand`**).
 - `src/components/HeroMotionBand.tsx` — full lattice / motion / **Mooric ERP** block.
-- `src/App.tsx` — page shell; **`HeroMotionBand`** after **`Workflow`**, before **`StatsSection`**; **`TeamSection`** before **`ContactCTA`**.
+- `src/App.tsx` — page shell; **`BrokerProcessFlowSection`** then **`LosCompatibilityStrip`** after **`Hero`**; **`HeroMotionBand`** after assistant, before **`TeamSection`**; **`TeamSection`** before **`ContactCTA`**.
+- `src/components/LosCompatibilityStrip.tsx` — LOS “works alongside” band ([los-compatibility-strip.md](./los-compatibility-strip.md)).
+- `src/components/BrokerProcessFlowSection.tsx` — four-stage process flow (`#process`; [broker-process-flow-section.md](./broker-process-flow-section.md)).
 - `src/components/TeamSection.tsx` — org roster (`#team`); photos under **`public/images/team/`** (see [team-section.md](./team-section.md)).
-- `src/components/Features.tsx` — platform pillars (`#platform`); full-width **footer band** below the four cards (organ wash + **single silver gradient hairline**, generous vertical padding) before **`Workflow`**.
-- `src/components/Workflow.tsx` — workflow steps (`#workflow`) with rounded operations photo (no caption).
+- `src/components/Features.tsx` — broker-side process stages (`#features`); cards labeled **APPLICATION & SETUP** / **PROCESSING**.
+- `src/components/PipelineSection.tsx` — **CLOSED — Pipeline & production** (`#pipeline`).
