@@ -1,7 +1,5 @@
 import { motion } from "framer-motion";
-
-const operationsWorkspace =
-  "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1400&q=80";
+import { MooricPipelineExamplePanel } from "./MooricPipelineExamplePanel";
 
 const steps = [
   {
@@ -29,15 +27,15 @@ export function PipelineSection() {
       aria-labelledby="pipeline-heading"
     >
       <div className="layout-shell z-10">
-        <div className="grid gap-16 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+        <div className="grid gap-16 lg:grid-cols-[0.95fr_1.05fr] lg:items-start lg:gap-20">
           <motion.div
             initial={{ opacity: 0, x: -16 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.55 }}
           >
-            <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-erp">
-              Pipeline
+            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-erp">
+              04 · Pipeline
             </p>
             <h2
               id="pipeline-heading"
@@ -45,23 +43,12 @@ export function PipelineSection() {
             >
               Pipeline management — no more Excel tracking.
             </h2>
-            <p className="mt-4 text-lg leading-relaxed text-organ-800">
+            <p className="mt-4 max-w-xl text-lg leading-relaxed text-organ-800">
               One of the most common pain points for independent Loan Officers is managing a pipeline
               across spreadsheets, sticky notes, and calendar reminders. Mooric ERP replaces
               all of that with a single view that follows every loan from first conversation
               to funded.
             </p>
-            <figure className="mt-10 overflow-hidden rounded-xl border border-organ-200/90 bg-white shadow-sm">
-              <img
-                src={operationsWorkspace}
-                alt="Loan officer managing mortgage pipeline on screen"
-                width={1400}
-                height={933}
-                className="aspect-[3/2] w-full object-cover object-center"
-                loading="lazy"
-                decoding="async"
-              />
-            </figure>
           </motion.div>
 
           <ol className="relative m-0 list-none space-y-0 p-0">
@@ -105,56 +92,65 @@ export function PipelineSection() {
               </motion.li>
             ))}
           </ol>
-
-          <motion.div
-            className="relative block overflow-hidden rounded-xl border border-organ-200 bg-white p-6 shadow-card-md sm:p-8 lg:col-span-2 lg:p-10"
-            initial={{ opacity: 0.85 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            <div
-              className="pointer-events-none absolute -right-24 -top-28 h-72 w-72 rounded-full bg-erp/8 blur-3xl"
-              aria-hidden
-            />
-            <div
-              className="pointer-events-none absolute -bottom-16 left-1/3 h-48 w-96 -translate-x-1/2 rounded-full bg-erp/5 blur-3xl"
-              aria-hidden
-            />
-            <div className="relative z-10 lg:flex lg:flex-row lg:items-stretch lg:justify-between lg:gap-12 xl:gap-16">
-              <div className="min-w-0 flex-1 lg:max-w-xl">
-                <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-erp">
-                  Your production at a glance
-                </p>
-                <p className="mt-5 font-serif text-2xl font-semibold text-ink-950 sm:text-3xl">
-                  Closed loan performance, without building a spreadsheet
-                </p>
-                <p className="mt-3 max-w-md text-sm leading-relaxed text-organ-800 sm:text-base">
-                  Volume, average loan size, and time to close — broken down by month, quarter,
-                  or year. The numbers you need to understand your own book, already in the
-                  platform.
-                </p>
-              </div>
-              <div
-                className="mt-10 flex w-full flex-col justify-center gap-5 border-t border-organ-200 pt-8 sm:gap-6 sm:pt-10 lg:mt-0 lg:w-56 lg:shrink-0 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0 xl:w-64"
-                aria-hidden
-              >
-                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-erp">
-                  Example view
-                </p>
-                {[
-                  ["Volume", "12 loans"],
-                  ["Avg. loan size", "$385K"],
-                  ["Avg. days to close", "32"],
-                ].map(([label, value]) => (
-                  <div key={label}>
-                    <p className="text-xs font-medium text-organ-800">{label}</p>
-                    <p className="mt-1 font-mono text-sm tabular-nums text-erp">{value}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.5 }}
+        >
+          <MooricPipelineExamplePanel />
+        </motion.div>
+
+        <motion.div
+          className="relative mt-16 block overflow-hidden rounded-xl border border-organ-200 bg-white p-6 shadow-card-md sm:p-8 lg:p-10"
+          initial={{ opacity: 0.85 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+        >
+          <div
+            className="pointer-events-none absolute -right-24 -top-28 h-72 w-72 rounded-full bg-erp/8 blur-3xl"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute -bottom-16 left-1/3 h-48 w-96 -translate-x-1/2 rounded-full bg-erp/5 blur-3xl"
+            aria-hidden
+          />
+          <div className="relative z-10 lg:flex lg:flex-row lg:items-stretch lg:justify-between lg:gap-12 xl:gap-16">
+            <div className="min-w-0 flex-1 lg:max-w-xl">
+              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-erp">
+                Your production at a glance
+              </p>
+              <p className="mt-5 font-serif text-2xl font-semibold text-ink-950 sm:text-3xl">
+                Closed loan performance, without building a spreadsheet
+              </p>
+              <p className="mt-3 max-w-md text-sm leading-relaxed text-organ-800 sm:text-base">
+                Volume, average loan size, and time to close — broken down by month, quarter,
+                or year. The numbers you need to understand your own book, already in the
+                platform.
+              </p>
+            </div>
+            <div
+              className="mt-10 flex w-full flex-col justify-center gap-5 border-t border-organ-200 pt-8 sm:gap-6 sm:pt-10 lg:mt-0 lg:w-56 lg:shrink-0 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0 xl:w-64"
+              aria-hidden
+            >
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-erp">
+                Example view
+              </p>
+              {[
+                ["Volume", "12 loans"],
+                ["Avg. loan size", "$385K"],
+                ["Avg. days to close", "32"],
+              ].map(([label, value]) => (
+                <div key={label}>
+                  <p className="text-xs font-medium text-organ-800">{label}</p>
+                  <p className="mt-1 font-mono text-sm tabular-nums text-erp">{value}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

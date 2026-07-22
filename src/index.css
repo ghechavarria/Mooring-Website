@@ -60,6 +60,25 @@
   }
 }
 
+@keyframes grid-breathe {
+  0%,
+  100% {
+    opacity: 0.32;
+  }
+  50% {
+    opacity: 0.58;
+  }
+}
+
+@keyframes hero-ticker-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -72,8 +91,22 @@
     backface-visibility: hidden;
   }
 
+  .hero-ticker-track {
+    animation: hero-ticker-marquee 160s linear infinite;
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+  }
+
+  .hero-ticker-track:hover {
+    animation-play-state: paused;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .hero-ecg-drift {
+      animation: none;
+    }
+    .hero-ticker-track {
       animation: none;
     }
   }

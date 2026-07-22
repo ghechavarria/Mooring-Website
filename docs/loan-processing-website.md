@@ -31,7 +31,7 @@ npm run preview
 
 | Path | Purpose |
 |------|---------|
-| `index.html` | HTML shell, fonts, page title, meta description, **hidden Netlify form**, **PNG favicon** (`/images/square-logo-color-bkgrnd.png` — see [favicon.md](./favicon.md)) |
+| `index.html` | HTML shell, fonts, page title, meta description, **hidden Netlify form**, **PNG favicon** (`/images/square-logo-blue.png` — see [favicon.md](./favicon.md)) |
 | `src/main.tsx` | React bootstrapping |
 | `src/App.tsx` | Section order; wrapped in **`ContactModalProvider`**; **`ContactFormModal`** at root |
 | `src/context/ContactModalContext.tsx` | Shared `openContactModal` / `closeContactModal` state |

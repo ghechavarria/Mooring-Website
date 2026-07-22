@@ -1,13 +1,13 @@
 # Hero section background (`Hero.tsx`)
 
-The marketing hero uses a **light** Copperlane-inspired layout: silver session pulse strip at top, copy on the left and interactive demo on the right from **1100px** up. The brand-blue tagline strip is the bottom edge of the viewport on load.
+The marketing hero uses a **dark** navy surface inspired by the team standalone mock: silver session pulse strip at top (unchanged), copy on the left and interactive demo on the right from **1100px** up. A smooth dark ticker strip is the bottom edge of the viewport on load.
 
 ## Surface
 
-- **Section:** `bg-white` with `border-organ-200`. The pinned hero block is **`min-h-[calc(100svh-4.25rem)]`** on all viewports and **`min-[1100px]:h-[calc(100svh-4.25rem)] min-[1100px]:overflow-hidden`** from 1100px up, so the hero is exactly one viewport tall at wide widths and the brand-blue tagline strip at the bottom of `HeroSessionPulse` is the visible end of the hero. **`flex flex-col`** with the middle region (`flex-1 justify-center`) vertically centering copy and demo. The flex-1 ancestors carry **`min-h-0`** so the content can shrink to the pinned height and the demo's internal `overflow-y-auto` absorbs any overflow. **`scroll-mt-24`** for in-page anchors. Below **1100px**, content stacks single-column with **Option B** layout: left-aligned copy, seam divider + **Live preview** eyebrow, full-width demo; equal-height Before/After panels with natural page scroll.
-- **Radial wash (decorative):** Faint **`#0075FF`** ellipses at the top — subtle brand blue, not a heavy dark wash.
-- **Copy block (inside `HeroSessionPulse` children):** Left column uses [HeroCopy.tsx](../src/components/HeroCopy.tsx). Right column hosts the **`#demo`** interactive Before/After card from [BeforeAfterDemo.tsx](../src/components/BeforeAfterDemo.tsx).
-- **Trust badge:** Pill above the eyebrow — “Built for independent loan officers” with brand-blue dot.
+- **Section:** `bg-[linear-gradient(to_bottom_right,#050910,#081120,#0a1626)]` with `border-white/[0.06]`. The pinned hero block is **`min-h-[calc(100svh-4.25rem)]`** on all viewports and **`min-[1100px]:h-[calc(100svh-4.25rem)] min-[1100px]:overflow-hidden`** from 1100px up. **`flex flex-col`** with the middle region (`flex-1 justify-center`) vertically centering copy and demo. **`scroll-mt-24`** for in-page anchors. Below **1100px**, content stacks single-column with **Option B** layout: left-aligned copy, seam divider + **Live preview** eyebrow, full-width demo; equal-height Before/After panels with natural page scroll.
+- **Radial wash:** Three blue ellipses — `rgba(37,99,235,0.22)` at 72%/20%, `rgba(30,64,175,0.18)` at 12%/85%, `rgba(96,165,250,0.14)` at 50%/-10%.
+- **Copy block (inside `HeroSessionPulse` children):** Transparent over the dark section so the gradient shows through. Left column uses [HeroCopy.tsx](../src/components/HeroCopy.tsx) (light-on-dark copy, early-access CTA, micro-stats). Right column hosts the **`#demo`** interactive Before/After card from [BeforeAfterDemo.tsx](../src/components/BeforeAfterDemo.tsx) with a blue glow halo.
+- **Trust badge:** Pill — “AI-powered · built for independent loan officers”.
 
 ## Spacing
 
@@ -16,4 +16,4 @@ The marketing hero uses a **light** Copperlane-inspired layout: silver session p
 
 The **1003 / Conditions / Closing** track panel is in [Central Loan Memory](../src/components/CentralLoanMemorySection.tsx) (`#memory`) — see [central-loan-memory-section.md](./central-loan-memory-section.md).
 
-Related: [hero-session-pulse.md](./hero-session-pulse.md) for the pulse strip + tagline; [hero-product-preview.md](./hero-product-preview.md) for the embedded interactive demo.
+Related: [hero-session-pulse.md](./hero-session-pulse.md) for the pulse strip + ticker; [hero-product-preview.md](./hero-product-preview.md) for the embedded interactive demo.

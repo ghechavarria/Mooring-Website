@@ -4,22 +4,32 @@ Decorative **session pulse** for the marketing hero: a **live-styled** monitor s
 
 ## Theme
 
-**Top session strip:** calm silver/light-gray (`bg-organ-100`, `border-organ-200`) with dark organ text, soft gray ECG wave, and **Live** pill on white — less visually busy than the prior brand-blue bar. **Bottom tagline strip** remains brand blue **`bg-erp`** (`#0075FF`). Decorative top strip is **`aria-hidden`**; hero copy uses **`text-erp`** for eyebrows on the white **`children`** block below.
+**Top session strip:** calm silver/light-gray (`bg-organ-100`, `border-organ-200`) with dark organ text, soft gray ECG wave, and **Live** pill on white — intentionally **not** restyled when the hero went dark. **Children block** is transparent so the dark hero gradient shows through. **Bottom strip** is the scrolling product ticker on ERP blue (`bg-erp`, `border-erp-600`, `text-white/90`).
 
-## Variants
+## Layout (current)
 
-- **`variant="integrated"`** (used in `Hero.tsx`) — **Full-bleed** slab: tight session bar, then **`bg-slate-900`** grid (`min-w-0`) with **`sm:grid-cols-[minmax(0,24rem)_1fr]`**. **AI row:** **`max-sm:`** — **`h-auto`**, **`min-h-0`**, **`items-start`**, **`gap-2.5`**, **`py-2`** (extra breathing room above/below the AI block; **`sm+`** still **`sm:py-0`**), **`2.25rem`** orb (**`h-9 w-9`**), **`AI`** at **`text-[9px]`**, title **`text-xs`** (**`line-clamp-2`**); text column **`justify-start`**, **`pt-0`**. Status slot **`h-auto`** / **`min-h-0`** with status copy **`max-sm:truncate`** (single line + ellipsis so rotating lines do not change row height), **`text-[11px]`** / **`leading-[1.2rem]`** on **`max-sm`**; **`sm+`** **`line-clamp-4`** in fixed-height slot. **`sm+`:** **`items-center`**, **`5rem`** orb, **`text-sm`** / **`sm:text-base`** title, **`line-clamp-4`** status, slightly tighter row heights **`sm:h-[8rem]`** … **`2xl:h-[10.25rem]`** (tablet/desktop only; **`max-sm`** unchanged), status slot **`sm:h-[4.75rem]`**. **ECG** + **`.integrated-ecg-path`**: [integrated-ecg-path.md](./integrated-ecg-path.md). Optional **`children`**, preview tagline. Instrument chrome is **`aria-hidden`**. **`.layout-header-px`** aligns with the sticky header rail.
+Used from [Hero.tsx](../src/components/Hero.tsx) as a full-bleed slab:
 
-- **`variant="panel"`** — Standalone card with the same strip vocabulary; **`children` are ignored**. Includes an **`sr-only`** heading for screen readers.
+1. **Session pulse bar** — Live pill, “Session pulse” label, rotating status (shortened below `sm`, hidden below 400px), ECG wave. Instrument chrome is **`aria-hidden`**.
+2. **Children** — hero copy + demo, transparent background, `layout-header` padding.
+3. **Hero ticker** — seamless marquee of product phrases (see below).
+
+`.layout-header-px` aligns pulse/ticker content with the sticky header rail.
+
+## Bottom ticker
+
+- Phrases: Built for independent loan officers · 1003 auto-filled from documents · Conditions tracked in one place · TRID · Title · HOI · Appraisal deadlines · Central Loan Memory on every file · No more Excel pipelines
+- Colors: `bg-erp`, `border-erp-600`, phrase text `text-white/90`, separator dots `bg-white/55`
+- Animation: **`.hero-ticker-track`** / `@keyframes hero-ticker-marquee` in [index.css](../src/index.css) — **160s** linear crawl, duplicated track for seamlessness; **pause on hover**
+- Type: mono `text-[11px]`, tracking `0.14em`; strip padding **`py-2.5`**
+- Compositor hints: `backface-visibility: hidden`, `transform: translateZ(0)` to reduce blur/jitter
+- `prefers-reduced-motion`: static first phrase only (no scroll)
 
 ## Behavior
 
-- **Header:** “Session pulse” + **Live** pill (ice text, blue border / glow).
-- **Heartbeat:** Center **AI** orb uses **`.hero-ai-pulse-swell`** in **`src/index.css`**: `@keyframes hero-ai-pulse-swell` samples a **sin half-wave** (24 steps + ends, **linear** tween between stops) so the pulse reads as one continuous breath, not stepped Framer keyframes. **`--ai-pulse-beat`** on the orb matches **`beatMs`** (`60000 / 40` ≈ **1.5 s**), same as **ECG** **`--ecg-beat`**, so one swell aligns with one **100px** drift cycle. Disabled when `prefers-reduced-motion` is on.
-- **ECG strip:** Tiled **P–PR–QRS–T** rhythm (**100px** per beat, baseline **y = 28**, vertical center of the **56**-tall viewBox) as a **sharp polyline** only (`M` / `H` / `L`): no Bézier or quadratic curves; **`stroke-linecap="butt"`** and **`stroke-linejoin="miter"`** so corners read like a classic **B&W monitor trace**, not a smoothed illustration. **Horizontal scroll** uses **`.hero-ecg-drift`** in **`src/index.css`** (`translate3d` by **`calc(-1 * var(--ecg-beat-width))`** over **`--ecg-beat`**; set **`--ecg-beat-width: 100px`** on the drifting `<g>`). Because the viewport is finite, steep segments were clipping at the left/right edges and could read as a diagonal “coming from the corner”; the strip `<g>` uses an **SVG mask** (wide horizontal gradient, ~0%–30% and ~70%–100% ramp with intermediate stops) so the trace **soft-fades at the sides**, plus a matching **`#030712` CSS vignette** over the chart cell for a stronger edge falloff. **`vector-effect: non-scaling-stroke`** (panel: on the `<path>`; integrated: via **`.integrated-ecg-path`** in **`src/index.css`**), **`shapeRendering="geometricPrecision"`**, and **`backface-visibility: hidden`** on the drift group stay as before. Reduced motion disables drift via the same class’s media query.
-- **Status lines:** Mortgage-operations teaser copy rotates on the **same timer** as the pulse BPM. Below `sm`, the strip uses shortened copy plus a compact `7rem` wave so the **Live** pill, **Session pulse** label, status, and wave stay on one line. From `sm` up, the full status copy and full wave return.
-- **Footer:** Closing tagline strip pinned to the **bottom of the hero viewport** on `lg+` (hero `h-[calc(100svh-4.25rem)] lg:overflow-hidden`, children block `flex-1 justify-center`, tagline `shrink-0`). Styled **`bg-erp`** (`#0075FF`) with **`text-white/90`** and **`border-erp-600`** — benefit-forward copy, e.g. **“Mooric ERP — built for Loan Officers who are tired of running their pipeline out of Excel.”** The pulse above remains **decorative** (`aria-hidden`); this line nudges interest without claiming live tenant data.
+- **Heartbeat / ECG:** Same as before — status lines rotate on the BPM timer; compact wave below `sm`. See historical notes in git for ECG path details.
+- **Status lines:** Mortgage-operations teaser copy. Below `sm`, shortened copy + compact `7rem` wave so Live / Session pulse / status / wave stay one line. Below 400px, status is hidden.
 
 ## Ethics / UX
 
-The **pulse chrome** (session bar, AI row, ECG) is decorative and **`aria-hidden`**. The hero **`children`** carry the real message; an **`sr-only`** line in `Hero.tsx` notes that the strip above is illustrative.
+The **pulse chrome** and ticker are decorative and **`aria-hidden`**. The hero **`children`** carry the real message; an **`sr-only`** line in `Hero.tsx` notes that the strip above is illustrative.

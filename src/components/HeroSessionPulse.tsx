@@ -184,6 +184,51 @@ function SessionPulseBar({
   );
 }
 
+const tickerPhrases = [
+  "Built for independent loan officers",
+  "1003 auto-filled from documents",
+  "Conditions tracked in one place",
+  "TRID · Title · HOI · Appraisal deadlines",
+  "Central Loan Memory on every file",
+  "No more Excel pipelines",
+] as const;
+
+function HeroTicker({ reduceMotion }: { reduceMotion: boolean | null }) {
+  function TickerTrack({ suffix }: { suffix: string }) {
+    return (
+      <span className="flex items-center gap-10">
+        {tickerPhrases.map((phrase) => (
+          <span key={`${suffix}-${phrase}`} className="flex items-center gap-10">
+            <span className="whitespace-nowrap font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-white/90">
+              {phrase}
+            </span>
+            <span className="h-1 w-1 shrink-0 rounded-full bg-white/55" aria-hidden />
+          </span>
+        ))}
+      </span>
+    );
+  }
+
+  if (reduceMotion) {
+    return (
+      <div aria-hidden className="shrink-0 overflow-hidden border-t border-erp-600 bg-erp py-2.5">
+        <p className="layout-header-px text-center font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-white/90">
+          {tickerPhrases[0]}
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div aria-hidden className="group shrink-0 overflow-hidden border-t border-erp-600 bg-erp py-2.5">
+      <div className="hero-ticker-track flex w-max gap-10">
+        <TickerTrack suffix="a" />
+        <TickerTrack suffix="b" />
+      </div>
+    </div>
+  );
+}
+
 export function HeroSessionPulse({ children }: { children?: ReactNode }) {
   const reduceMotion = useReducedMotion();
   const [tick, setTick] = useState(0);
@@ -195,22 +240,16 @@ export function HeroSessionPulse({ children }: { children?: ReactNode }) {
   }, [reduceMotion]);
 
   return (
-    <div className="flex w-full min-h-0 flex-1 flex-col bg-white text-white">
+    <div className="flex w-full min-h-0 flex-1 flex-col bg-transparent text-white">
       <SessionPulseBar tick={tick} reduceMotion={reduceMotion} />
 
       {children != null ? (
-        <div className="relative z-10 flex min-h-0 flex-1 flex-col justify-center border-t border-organ-200 bg-white text-ink-950">
-          <div
-            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(0,117,255,0.06),transparent_55%)]"
-            aria-hidden
-          />
+        <div className="relative z-10 flex min-h-0 flex-1 flex-col justify-center border-t border-white/[0.07] bg-transparent text-ink-950">
           <div className="relative layout-header py-8 sm:py-10 lg:py-6 xl:py-8">{children}</div>
         </div>
       ) : null}
 
-      <p className="layout-header-px shrink-0 border-t border-erp-600 bg-erp py-2.5 text-center font-mono text-[9px] font-medium uppercase tracking-[0.14em] text-white/90">
-        Mooric ERP — built for Loan Officers who are tired of running their pipeline out of Excel
-      </p>
+      <HeroTicker reduceMotion={reduceMotion} />
     </div>
   );
 }

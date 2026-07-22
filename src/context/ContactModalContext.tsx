@@ -3,8 +3,8 @@ import { createContext, useCallback, useContext, useMemo, useState, type ReactNo
 export type ContactModalIntent = "briefing" | "walkthrough";
 
 const modalTitles: Record<ContactModalIntent, string> = {
-  briefing: "Request a briefing",
-  walkthrough: "Book a walkthrough",
+  briefing: "Get early access",
+  walkthrough: "Get early access",
 };
 
 type ContactModalContextValue = {

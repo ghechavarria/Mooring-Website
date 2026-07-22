@@ -6,40 +6,43 @@ Popup Netlify contact form opened from site CTAs. Implemented as [ContactFormMod
 
 | Location | Button label | Modal title |
 |----------|----------------|-------------|
-| [Header.tsx](../src/components/Header.tsx) — desktop + mobile | Request a briefing | Request a briefing |
-| [Hero.tsx](../src/components/Hero.tsx) | Request a briefing | Request a briefing |
-| [ContactCTA.tsx](../src/components/ContactCTA.tsx) | Book a walkthrough | Book a walkthrough |
+| [Header.tsx](../src/components/Header.tsx) — desktop | Get early access | Get early access |
+| [Header.tsx](../src/components/Header.tsx) — mobile | Get early access — first month free | Get early access |
+| [HeroCopy.tsx](../src/components/HeroCopy.tsx) | Get early access — first month free | Get early access |
+| [ContactCTA.tsx](../src/components/ContactCTA.tsx) | Get early access | Get early access |
 
-The modal heading and submit button label match the CTA that opened it (`openContactModal("walkthrough")` vs default `"briefing"`).
+Both intents (`briefing` / `walkthrough`) resolve to the same modal title: **Get early access**.
 
-## Temporary hide
+## Feature flag
 
-Contact CTAs and “Response within one business day” are gated by **`SHOW_CONTACT_ACTIONS`** in [`src/config/contactActions.ts`](../src/config/contactActions.ts). Set to **`true`** when the contact email / Netlify form is ready for production.
-
-The `#contact` section remains on the page for anchor/SEO; buttons open the modal instead of scrolling or `mailto:`.
+Contact CTAs are gated by **`SHOW_CONTACT_ACTIONS`** in [`src/config/contactActions.ts`](../src/config/contactActions.ts) (currently **`true`**).
 
 ## Netlify Forms (SPA)
 
-1. **Hidden static form** in [index.html](../index.html) — `name="contact"`, `data-netlify="true"`, `netlify-honeypot="bot-field"` — so Netlify detects fields at deploy time.
-2. **Visible modal form** uses the same form name and field names: `name`, `email`, `message`, plus honeypot `bot-field`.
-3. **Submit** — `fetch("/", { method: "POST", ... })` with `application/x-www-form-urlencoded` body including `form-name=contact` (required for Vite/React SPAs).
+1. **Hidden static form** in [index.html](../index.html) — `name="contact"`, fields listed below, honeypot `bot-field`.
+2. **Visible modal form** posts the same field names via `fetch("/", …)` with `form-name=contact`.
 
 ## Fields
 
 | Field | Type | Required |
 |-------|------|----------|
 | Name | text | yes |
-| Email | email | yes |
-| Message | textarea | yes |
-| bot-field | hidden honeypot | no |
+| Work email (`email`) | email | yes |
+| Role (`role`) | chip → hidden input | yes (Loan Officer / Processor / Broker Owner / Other) |
+| State (`state`) | select (US + DC) | yes |
+| Loans per month (`loans_per_month`) | chip → hidden input | yes (`1–3` / `4–10` / `10+`) |
+| Message | textarea | optional |
+| bot-field | honeypot | no |
 
 ## UX
 
-- Portal overlay (`z-[300]`), backdrop click and Escape to close
+- Portal overlay (`z-[300]`), scrollable body, backdrop click and Escape to close
+- **Below `lg` (&lt; 1024px):** full-viewport sheet (edge-to-edge, no padding/rounded corners)
+- **`lg` and up:** centered card (`max-w-lg`, rounded, padded overlay)
 - Focus moves to name field when opened
-- Success state with thank-you message; error state with retry
-- Submit disabled while posting
+- Success / error states; submit disabled while posting
+- Footer note: personal response within one business day
 
 ## Deploy
 
-Submissions appear in Netlify **Site configuration → Forms** after deploy. Local `npm run dev` does not deliver to Netlify — test submit on the hosted site.
+Submissions appear in Netlify **Site configuration → Forms** after deploy. Local `npm run dev` does not deliver to Netlify.

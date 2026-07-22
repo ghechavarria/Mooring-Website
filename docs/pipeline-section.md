@@ -18,8 +18,10 @@ Speaks to independent Loan Officers who manage pipelines across spreadsheets and
 ## Layout
 
 - **Surface:** **`bg-organ-50`** with **`border-t border-organ-200`** and **`py-28 sm:py-40`** — faint tint alternates with adjacent white sections (Features, Assistant) without stacking marble texture against **Central Loan Memory** above
-- **Header:** Eyebrow `Pipeline` + serif headline + intro (shared section-header pattern)
-- Two-column grid: intro + Unsplash operations image on the left, numbered timeline on the right
+- **Header:** Eyebrow `04 · Pipeline` (mono, normal weight) + serif headline + intro (shared section-header pattern)
+- Two-column grid: intro copy on the left, numbered timeline on the right
+- Mooric pipeline example panel underneath (scale-to-fit mock; see [mooric-pipeline-example-panel.md](./mooric-pipeline-example-panel.md))
+- Production glance card below the panel
 - Full-width **white** card below for closed-loan performance (`bg-white`, `border-organ-200`, blue metric values) — pops on the tinted band
 
 ## Navigation

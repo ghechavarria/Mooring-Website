@@ -73,71 +73,55 @@ const trackerRows: { borrower: string; cells: TrackerCell[]; rowClass?: string }
   },
 ];
 
-const pipeline = [
+const summaryNav = [
+  { label: "Summary", count: "6", active: true },
+  { label: "Pre-Approval", count: "2", active: false },
+  { label: "Loan Pipeline", count: "5", active: false },
+  { label: "Archive", count: null, active: false },
+  { label: "Calendar", count: "3", active: false },
+  { label: "Guideline Search", count: null, active: false },
+  { label: "System Flow", count: null, active: false },
+] as const;
+
+const summaryNotifications = [
   {
-    name: "Johnson, Michael",
-    detail: "Purchase · $485k · Conv",
-    selected: true,
-    pills: [
-      { label: "HOA overdue", tone: "bg-red-100 text-red-800" },
-      { label: "CTC Jun 28", tone: "bg-erp/15 text-erp" },
-    ],
+    tone: "Action",
+    toneClass: "bg-[#fde3e3] text-[#dc2626]",
+    body: "Rate lock expires Jul 18 — before target closing Aug 3. Extend the lock or move up closing.",
+    meta: "Processing · David Okafor · LN-2026-0038",
   },
   {
-    name: "Martinez, Sofia",
-    detail: "Refi · $320k · FHA",
-    selected: false,
-    pills: [
-      { label: "Submitted", tone: "bg-erp/15 text-erp" },
-      { label: "CTC Jul 8", tone: "bg-organ-100 text-organ-700" },
-    ],
+    tone: "Reminder",
+    toneClass: "bg-[#fdeed3] text-[#b45309]",
+    body: "Initial CD not started — must be sent by Jul 27 (21 days left) to close on time.",
+    meta: "Processing · David Okafor · LN-2026-0038",
   },
   {
-    name: "Kim, David",
-    detail: "Purchase · $480k · Conv",
-    selected: false,
-    pills: [{ label: "LE not sent", tone: "bg-amber-100 text-amber-900" }],
+    tone: "Overdue",
+    toneClass: "bg-[#fee2e2] text-[#dc2626]",
+    body: "Initial CD not started — must be sent by Jul 3 (-3 days left) to close on time.",
+    meta: "Processing · James Whitfield · LN-2026-0031",
   },
   {
-    name: "Williams, Sarah",
-    detail: "Purchase · $290k · FHA",
-    selected: false,
-    pills: [{ label: "On track", tone: "bg-green-100 text-green-800" }],
+    tone: "Expiring",
+    toneClass: "bg-[#fdeed3] text-[#b45309]",
+    body: "Grace Kim — pre-approval letter expires Jul 20. Follow up or re-issue.",
+    meta: "Pre-Approval",
   },
 ] as const;
 
-const keyDates = [
-  { label: "Application date", value: "May 2, 2024", pill: "Done", tone: "bg-green-100 text-green-800" },
-  { label: "LE sent", value: "May 6, 2024", pill: "Done", tone: "bg-green-100 text-green-800" },
-  { label: "HOA questionnaire", value: "Due Jun 4", pill: "Overdue 5d", tone: "bg-red-100 text-red-800" },
-  { label: "CD deadline", value: "Jun 25, 2024", pill: "3 days", tone: "bg-amber-100 text-amber-900" },
-  { label: "Clear to close", value: "Jun 28, 2024", pill: "19 days", tone: "bg-organ-100 text-organ-700" },
-] as const;
-
-const documents = [
+const assignedTasks = [
   {
-    title: "W2 2023 — Acme Corp",
-    detail: "Wages $100,800 · Extracted",
-    pill: "Verified",
-    tone: "bg-green-100 text-green-800",
+    title: "Review updated appraisal PDF and clear condition 2",
+    meta: "from Alice Torres · David Okafor · due Jul 7",
   },
   {
-    title: "Bank statement — Apr 2024",
-    detail: "Chase ****1234 · Balance $42,300",
-    pill: "Verified",
-    tone: "bg-green-100 text-green-800",
+    title: "Call listing agent re: closing time change",
+    meta: "from Ben Liu · James Whitfield · due Jul 8",
   },
   {
-    title: "Driver's license",
-    detail: "FL · Expires 2028",
-    pill: "Verified",
-    tone: "bg-green-100 text-green-800",
-  },
-  {
-    title: "Paystub — May 2024",
-    detail: "YTD $42,000 · Income gap flagged",
-    pill: "Review",
-    tone: "bg-amber-100 text-amber-900",
+    title: "Re-send VOE request to Gulf Freight HR",
+    meta: "from Alice Torres · Priya Nair · due Jul 10",
   },
 ] as const;
 
@@ -163,19 +147,6 @@ function PageIcon() {
   );
 }
 
-function SearchIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" className="shrink-0 text-organ-500" aria-hidden>
-      <path
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        d="M21 21l-5.2-5.2M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14z"
-      />
-    </svg>
-  );
-}
-
 function TableIcon() {
   return (
     <svg width="14" height="14" viewBox="0 0 24 24" className="shrink-0" aria-hidden>
@@ -184,14 +155,6 @@ function TableIcon() {
         d="M3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5zm2 0v3h14V5H5zm0 5v3h5v-3H5zm7 0v3h7v-3h-7zm-7 5v3h5v-3H5zm7 0v3h7v-3h-7z"
       />
     </svg>
-  );
-}
-
-function StatusPill({ label, tone }: { label: string; tone: string }) {
-  return (
-    <span className={`inline-block rounded-full px-2 py-0.5 text-[10px] font-semibold sm:text-[11px] ${tone}`}>
-      {label}
-    </span>
   );
 }
 
@@ -274,80 +237,140 @@ function BeforePanel() {
 
 export function AfterPanel() {
   return (
-    <div className="flex h-full flex-col gap-3 p-3 sm:p-4">
-      <div className="flex items-center gap-2 rounded-lg border border-organ-200 bg-white px-3 py-2 shadow-sm">
-        <SearchIcon />
-        <span className="text-xs text-organ-500">Search any loan, document, or date…</span>
-      </div>
-
-      <div className="grid flex-1 gap-3 md:grid-cols-[0.85fr_1.15fr]">
-        <div className="flex flex-col rounded-lg border border-organ-200 bg-white p-3 shadow-sm">
-          <div className="flex items-center justify-between gap-2">
-            <p className="text-[13px] font-semibold text-ink-950">Pipeline</p>
-            <span className="rounded-full bg-organ-100 px-2 py-0.5 text-[10px] font-semibold text-organ-700">
-              4 active
-            </span>
+    <div className="flex h-full min-h-[28rem] items-stretch">
+      <div className="flex w-[7.5rem] shrink-0 flex-col gap-0.5 bg-[#141c30] px-2.5 py-3.5 sm:w-32">
+        <div className="mb-3 flex items-center gap-1.5 px-1">
+          <span className="flex h-[26px] w-[26px] shrink-0 items-center justify-center rounded-[7px] border border-[#2a3450] bg-[#0b1220] text-[10px] font-bold text-white">
+            M
+          </span>
+          <div className="min-w-0">
+            <p className="m-0 text-[6px] font-semibold uppercase tracking-[0.16em] text-[#8b95ab]">
+              Origination
+            </p>
+            <p className="m-0 mt-px text-[9.5px] font-bold text-white">Mooric ERP</p>
           </div>
-          <ul className="mt-3 flex-1 space-y-2">
-            {pipeline.map((loan) => (
-              <li
-                key={loan.name}
-                className={`rounded-lg border px-3 py-2 ${
-                  loan.selected ? "border-erp bg-erp/5" : "border-organ-100 bg-organ-50/50"
+        </div>
+        <p className="mb-0.5 px-1.5 text-[7px] font-semibold text-[#8b95ab]">Loan Officer</p>
+        {summaryNav.map((item) => (
+          <div
+            key={item.label}
+            className={`flex items-center justify-between rounded-[7px] px-2 py-1.5 text-[9.5px] ${
+              item.active ? "bg-[#26314e] font-semibold text-white" : "text-[#9aa4b8]"
+            }`}
+          >
+            <span className="truncate">{item.label}</span>
+            {item.count != null ? (
+              <span
+                className={`rounded-full px-1.5 text-[7.5px] font-semibold ${
+                  item.active ? "bg-[#3a4666] text-[#dde3ef]" : "bg-[#2a3450] text-[#c3cbdc]"
                 }`}
               >
-                <p className="text-[13px] font-semibold text-ink-950">{loan.name}</p>
-                <p className="mt-0.5 text-xs text-organ-700">{loan.detail}</p>
-                <div className="mt-1.5 flex flex-wrap gap-1.5">
-                  {loan.pills.map((pill) => (
-                    <StatusPill key={pill.label} label={pill.label} tone={pill.tone} />
-                  ))}
-                </div>
-              </li>
-            ))}
-          </ul>
+                {item.count}
+              </span>
+            ) : null}
+          </div>
+        ))}
+      </div>
+
+      <div className="flex min-w-0 flex-1 flex-col gap-2.5 bg-[#eef1f8] p-3.5">
+        <div>
+          <p className="m-0 text-[7px] font-bold uppercase tracking-[0.16em] text-[#2563eb]">Summary</p>
+          <p className="m-0 mt-0.5 text-sm font-bold text-[#0f172a]">Good day, Joe</p>
+          <p className="m-0 mt-0.5 text-[8.5px] text-[#64748b]">
+            6 items need attention across pre-approval, setup, and processing.
+          </p>
         </div>
 
-        <div className="grid gap-3 md:grid-rows-[0.9fr_1.1fr]">
-          <div className="flex flex-col rounded-lg border border-organ-200 bg-white p-3 shadow-sm">
-            <p className="text-[13px] font-semibold text-ink-950">Key dates — Johnson, Michael</p>
-            <ul className="mt-3 flex-1 space-y-2">
-              {keyDates.map((item) => (
-                <li
-                  key={item.label}
-                  className="flex flex-wrap items-center justify-between gap-2 border-b border-organ-100 pb-1.5 last:border-0 last:pb-0"
-                >
-                  <div className="min-w-0">
-                    <p className="text-xs font-medium text-ink-950">{item.label}</p>
-                    <p className="text-[11px] text-organ-600">{item.value}</p>
-                  </div>
-                  <StatusPill label={item.pill} tone={item.tone} />
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="flex flex-wrap items-center gap-1.5">
+          <span className="rounded-[7px] border border-[#dbe2ec] bg-white px-2.5 py-1 text-[8px] font-medium text-[#334155]">
+            Closing within 7 days ▾
+          </span>
+          <span className="rounded-[7px] bg-[#2563eb] px-2.5 py-1 text-[8px] font-semibold text-white shadow-[0_2px_8px_rgba(37,99,235,0.35)]">
+            ✦ Generate daily to-do
+          </span>
+        </div>
 
-          <div className="flex flex-col rounded-lg border border-organ-200 bg-white p-3 shadow-sm">
-            <div className="flex flex-wrap items-center justify-between gap-2">
-              <p className="text-[13px] font-semibold text-ink-950">Documents</p>
-              <span className="rounded-full bg-erp/10 px-2 py-0.5 text-[10px] font-semibold text-erp">
-                4 files · AI classified
+        <div className="rounded-[9px] border border-[#e8edf5] bg-white px-2.5 py-2 shadow-[0_1px_2px_rgba(15,23,42,0.05)]">
+          <p className="mb-1 text-[6.5px] font-bold uppercase tracking-[0.14em] text-[#64748b]">
+            Find any loan
+          </p>
+          <div className="rounded-[7px] border border-[#e2e8f0] bg-white px-2 py-1.5 text-[8px] text-[#94a3b8]">
+            Search borrowers across pre-approval, pipeline, and archive…
+          </div>
+        </div>
+
+        <div className="w-fit min-w-[9.5rem] rounded-[9px] border border-[#e8edf5] bg-white px-2.5 py-2 shadow-[0_1px_2px_rgba(15,23,42,0.05)]">
+          <p className="m-0 text-base font-bold text-[#0f172a]">6</p>
+          <p className="m-0 mt-0.5 text-[8px] text-[#64748b]">Active loans · open pipeline →</p>
+        </div>
+
+        <div className="grid min-h-0 flex-1 gap-2.5 @md:grid-cols-[1.2fr_0.8fr]">
+          <div className="rounded-[9px] border border-[#e8edf5] bg-white p-2.5 shadow-[0_1px_2px_rgba(15,23,42,0.05)]">
+            <div className="mb-1.5 flex items-center gap-1.5">
+              <p className="m-0 text-[9.5px] font-bold text-[#0f172a]">Notifications</p>
+              <span className="rounded-full bg-[#fde3e3] px-1.5 py-px text-[7px] font-bold text-[#dc2626]">
+                12 open
               </span>
             </div>
-            <ul className="mt-3 flex-1 space-y-2">
-              {documents.map((doc) => (
-                <li
-                  key={doc.title}
-                  className="flex flex-wrap items-start justify-between gap-2 rounded-md border border-organ-100 px-2.5 py-1.5"
+            <div className="mb-1.5 flex flex-wrap gap-1">
+              <span className="rounded-full bg-[#2563eb] px-2 py-0.5 text-[7px] font-bold text-white">
+                All
+              </span>
+              {["Processing", "Pre-Approval", "Setup"].map((tab) => (
+                <span
+                  key={tab}
+                  className="rounded-full bg-[#eef1f8] px-2 py-0.5 text-[7px] font-semibold text-[#64748b]"
+                >
+                  {tab}
+                </span>
+              ))}
+            </div>
+            <div className="flex flex-col gap-1.5">
+              {summaryNotifications.map((item) => (
+                <div
+                  key={item.body}
+                  className="flex items-start gap-1.5 rounded-lg border border-[#eef2f7] bg-[#f8fafc] px-2 py-1.5"
+                >
+                  <span
+                    className={`shrink-0 rounded-full px-2 py-0.5 text-[7px] font-bold ${item.toneClass}`}
+                  >
+                    {item.tone}
+                  </span>
+                  <div className="min-w-0">
+                    <p className="m-0 text-[8px] leading-snug text-[#0f172a]">{item.body}</p>
+                    <p className="m-0 mt-0.5 text-[6.5px] text-[#94a3b8]">{item.meta}</p>
+                    <p className="m-0 mt-0.5 text-[7px] font-semibold text-[#2563eb]">Open →</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="self-start rounded-[9px] border border-[#e8edf5] bg-white p-2.5 shadow-[0_1px_2px_rgba(15,23,42,0.05)]">
+            <div className="mb-1.5 flex items-center justify-between gap-1.5">
+              <p className="m-0 text-[9.5px] font-bold text-[#0f172a]">Assigned to me</p>
+              <span className="rounded-full bg-[#dbeafe] px-1.5 py-px text-[7px] font-bold text-[#2563eb]">
+                3 open
+              </span>
+            </div>
+            <div className="flex flex-col gap-1.5">
+              {assignedTasks.map((task) => (
+                <div
+                  key={task.title}
+                  className="flex items-start gap-1.5 rounded-lg border border-[#eef2f7] bg-[#f8fafc] px-2 py-1.5"
                 >
                   <div className="min-w-0 flex-1">
-                    <p className="text-xs font-medium text-ink-950">{doc.title}</p>
-                    <p className="text-[11px] text-organ-600">{doc.detail}</p>
+                    <p className="m-0 text-[8px] font-semibold leading-snug text-[#0f172a]">
+                      {task.title}
+                    </p>
+                    <p className="m-0 mt-0.5 text-[6.5px] text-[#94a3b8]">{task.meta}</p>
                   </div>
-                  <StatusPill label={doc.pill} tone={doc.tone} />
-                </li>
+                  <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-[#bbf7d0] bg-white text-[8px] text-[#16a34a]">
+                    ✓
+                  </span>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -422,8 +445,13 @@ export function DemoAppWindow({
 }) {
   return (
     <div className={`relative ${className}`}>
-      <div className="pointer-events-none absolute -inset-4 rounded-2xl bg-erp/10 blur-3xl" aria-hidden />
-      <div className="relative overflow-hidden rounded-xl border border-organ-200 bg-white shadow-card-md">
+      <div
+        className="pointer-events-none absolute -inset-6 rounded-2xl bg-[rgba(37,99,235,0.28)] blur-3xl"
+        aria-hidden
+      />
+      <div
+        className="relative overflow-hidden rounded-xl border border-white/12 bg-white shadow-[0_0_0_1px_rgba(37,99,235,0.25),0_0_60px_-12px_rgba(37,99,235,0.45),0_40px_90px_-30px_rgba(0,0,0,0.7)]"
+      >
         <div className="flex items-center justify-between gap-3 border-b border-organ-200 bg-organ-50 px-3 py-2 sm:px-4">
           <div className="flex items-center gap-2">
             <span className="flex gap-1" aria-hidden>
@@ -461,15 +489,20 @@ export function InteractiveDemoCard({
   const panelId = `${idPrefix}-panel`;
 
   return (
-    <div
-      className={`@container min-w-0 overflow-hidden rounded-xl border border-organ-200/90 bg-white shadow-card-md ${className}`}
-    >
+    <div className="relative p-1 min-[1100px]:p-2">
+      <div
+        className="pointer-events-none absolute inset-0 rounded-2xl bg-[rgba(37,99,235,0.22)] blur-3xl"
+        aria-hidden
+      />
+      <div
+        className={`@container relative min-w-0 overflow-hidden rounded-xl border border-white/12 bg-white shadow-[0_0_0_1px_rgba(37,99,235,0.25),0_0_48px_-12px_rgba(37,99,235,0.4),0_28px_60px_-28px_rgba(0,0,0,0.65)] ${className}`}
+      >
       <DemoChrome view={view} onViewChange={setView} idPrefix={idPrefix} />
       <div
         id={panelId}
         role="tabpanel"
         aria-labelledby={view === "before" ? beforeTabId : afterTabId}
-        className="min-[1100px]:h-[30rem] min-[1100px]:overflow-y-auto min-[1200px]:h-[36rem] xl:h-[42rem]"
+        className="min-[1100px]:h-[26rem] min-[1100px]:overflow-y-auto min-[1200px]:h-[30rem] xl:h-[34rem]"
       >
         <div className="grid h-full grid-cols-[minmax(0,1fr)]">
           <div
@@ -485,6 +518,7 @@ export function InteractiveDemoCard({
             <AfterPanel />
           </div>
         </div>
+      </div>
       </div>
     </div>
   );

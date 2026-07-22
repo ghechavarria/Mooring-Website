@@ -2,11 +2,11 @@
 
 ## Asset and HTML
 
-The tab favicon is **[public/images/square-logo-color-bkgrnd.png](../public/images/square-logo-color-bkgrnd.png)** only (no SVG `rel="icon"` entry).
+The tab favicon is **[public/images/square-logo-blue.png](../public/images/square-logo-blue.png)** only (no SVG `rel="icon"` entry).
 
 [`index.html`](../index.html) loads it with:
 
-`<link rel="icon" type="image/png" href="/images/square-logo-color-bkgrnd.png" />`
+`<link rel="icon" type="image/png" href="/images/square-logo-blue.png" />`
 
 Vite serves files under `public/` at the site root, so `/images/…` resolves to `public/images/…`.
 

@@ -1,7 +1,5 @@
+import { MooricLoanExamplePanel } from "./MooricLoanExamplePanel";
 import { motion } from "framer-motion";
-
-const leadershipCollaboration =
-  "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1600&q=80";
 
 const features = [
   {
@@ -71,48 +69,39 @@ export function Features() {
       aria-labelledby="features-heading"
     >
       <div className="layout-shell">
-        <div className="grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-14">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.55 }}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.55 }}
+          className="max-w-3xl"
+        >
+          <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-erp">
+            03 · The daily workflow
+          </p>
+          <h2
+            id="features-heading"
+            className="mt-4 font-serif text-3xl font-semibold tracking-tight text-ink-950 text-balance sm:text-4xl"
           >
-            <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-erp">
-              The daily workflow
-            </p>
-            <h2
-              id="features-heading"
-              className="mt-4 font-serif text-3xl font-semibold tracking-tight text-ink-950 sm:text-4xl"
-            >
-              The work you do every day — without the manual overhead.
-            </h2>
-            <p className="mt-4 text-lg leading-relaxed text-organ-800">
-              Independent Loan Officers and processors juggle multiple files at once. Mooric ERP is built
-              around the tasks that eat your day: completing applications, matching programs,
-              clearing conditions, and hitting closing deadlines.
-            </p>
-          </motion.div>
-          <motion.figure
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.5 }}
-            className="overflow-hidden rounded-xl border border-organ-200 bg-white shadow-sm"
-          >
-            <img
-              src={leadershipCollaboration}
-              alt="Loan officer reviewing borrower files at a desk"
-              width={1600}
-              height={1067}
-              className="aspect-[4/3] w-full object-cover object-center"
-              loading="lazy"
-              decoding="async"
-            />
-          </motion.figure>
-        </div>
+            The work you do every day — without the manual overhead.
+          </h2>
+          <p className="mt-4 max-w-[720px] text-lg leading-relaxed text-organ-800">
+            Independent Loan Officers and processors juggle multiple files at once. Mooric ERP is built
+            around the tasks that eat your day: completing applications, matching programs,
+            clearing conditions, and hitting closing deadlines.
+          </p>
+        </motion.div>
 
-        <div className="mt-24 grid gap-5 sm:grid-cols-2">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.5 }}
+        >
+          <MooricLoanExamplePanel />
+        </motion.div>
+
+        <div className="mt-16 grid gap-5 sm:grid-cols-2">
           {features.map((f, i) => (
             <PlatformFeatureCard key={f.title} step={i + 1} delay={i * 0.06} item={f} />
           ))}

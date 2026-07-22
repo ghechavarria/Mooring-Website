@@ -25,17 +25,17 @@ export function ContactCTA() {
 
           <div className="relative z-10 mx-auto max-w-2xl">
             <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-erp">
-              Ready when you are
+              Let's talk
             </p>
             <h2
               id="cta-heading"
               className="mt-4 font-serif text-3xl font-semibold tracking-tight text-ink-950 sm:text-4xl"
             >
-              See how Mooric ERP fits your day-to-day workflow.
+              Get early access — first month free.
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-organ-800">
-              On a short call we walk through the 1003, condition tracking, pipeline view, and
-              Central Loan Memory — using the kind of file you work every week.
+              Interested in Mooric or want a closer look? Leave your info and we&apos;ll reach out
+              personally.
             </p>
             <div
               className={`mx-auto mt-10 flex w-full max-w-md flex-col items-stretch justify-center gap-4 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center${SHOW_CONTACT_ACTIONS ? "" : " hidden"}`}
@@ -45,7 +45,7 @@ export function ContactCTA() {
                 className="btn-primary-silver w-full px-8 py-3.5 text-center text-sm sm:w-auto"
                 onClick={() => openContactModal("walkthrough")}
               >
-                Book a walkthrough
+                Get early access
               </button>
               <span className="text-center text-sm text-organ-600 sm:text-left">
                 Response within one business day

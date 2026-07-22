@@ -3,20 +3,105 @@ import { createPortal } from "react-dom";
 import { useContactModal } from "../context/ContactModalContext";
 import { SHOW_CONTACT_ACTIONS } from "../config/contactActions";
 
+const US_STATES = [
+  "Alabama",
+  "Alaska",
+  "Arizona",
+  "Arkansas",
+  "California",
+  "Colorado",
+  "Connecticut",
+  "Delaware",
+  "District of Columbia",
+  "Florida",
+  "Georgia",
+  "Hawaii",
+  "Idaho",
+  "Illinois",
+  "Indiana",
+  "Iowa",
+  "Kansas",
+  "Kentucky",
+  "Louisiana",
+  "Maine",
+  "Maryland",
+  "Massachusetts",
+  "Michigan",
+  "Minnesota",
+  "Mississippi",
+  "Missouri",
+  "Montana",
+  "Nebraska",
+  "Nevada",
+  "New Hampshire",
+  "New Jersey",
+  "New Mexico",
+  "New York",
+  "North Carolina",
+  "North Dakota",
+  "Ohio",
+  "Oklahoma",
+  "Oregon",
+  "Pennsylvania",
+  "Rhode Island",
+  "South Carolina",
+  "South Dakota",
+  "Tennessee",
+  "Texas",
+  "Utah",
+  "Vermont",
+  "Virginia",
+  "Washington",
+  "West Virginia",
+  "Wisconsin",
+  "Wyoming",
+] as const;
+
+const ROLES = ["Loan Officer", "Processor", "Broker Owner", "Other"] as const;
+const LOAN_VOLUMES = ["1–3", "4–10", "10+"] as const;
+
 function encodeFormBody(data: Record<string, string>) {
   return new URLSearchParams(data).toString();
+}
+
+function ChipButton({
+  selected,
+  children,
+  onClick,
+}: {
+  selected: boolean;
+  children: string;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`rounded-md border px-3 py-2 text-sm font-semibold transition ${
+        selected
+          ? "border-erp bg-erp text-white shadow-sm"
+          : "border-organ-200 bg-white text-organ-800 hover:border-erp/40"
+      }`}
+    >
+      {children}
+    </button>
+  );
 }
 
 export function ContactFormModal() {
   const { isOpen, modalTitle, closeContactModal } = useContactModal();
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [role, setRole] = useState<(typeof ROLES)[number] | "">("");
+  const [loansPerMonth, setLoansPerMonth] = useState<(typeof LOAN_VOLUMES)[number] | "">("");
   const nameRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (!isOpen) {
       setStatus("idle");
       setErrorMessage("");
+      setRole("");
+      setLoansPerMonth("");
       return undefined;
     }
     document.body.style.overflow = "hidden";
@@ -36,6 +121,12 @@ export function ContactFormModal() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!role || !loansPerMonth) {
+      setStatus("error");
+      setErrorMessage("Please select your role and monthly loan volume.");
+      return;
+    }
+
     setStatus("submitting");
     setErrorMessage("");
 
@@ -50,6 +141,9 @@ export function ContactFormModal() {
           "form-name": "contact",
           name: String(formData.get("name") ?? ""),
           email: String(formData.get("email") ?? ""),
+          role,
+          state: String(formData.get("state") ?? ""),
+          loans_per_month: loansPerMonth,
           message: String(formData.get("message") ?? ""),
           "bot-field": String(formData.get("bot-field") ?? ""),
         }),
@@ -58,6 +152,8 @@ export function ContactFormModal() {
       if (!response.ok) throw new Error("Submit failed");
       setStatus("success");
       form.reset();
+      setRole("");
+      setLoansPerMonth("");
     } catch {
       setStatus("error");
       setErrorMessage("Something went wrong. Please try again or email us directly.");
@@ -66,7 +162,7 @@ export function ContactFormModal() {
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[300] flex items-center justify-center p-4 sm:p-6"
+      className="fixed inset-0 z-[300] flex items-stretch p-0 lg:items-center lg:justify-center lg:p-6"
       role="dialog"
       aria-modal="true"
       aria-labelledby="contact-modal-heading"
@@ -77,11 +173,11 @@ export function ContactFormModal() {
         aria-label="Close contact form"
         onClick={closeContactModal}
       />
-      <div className="relative z-10 w-full max-w-lg overflow-hidden rounded-xl border border-organ-200/95 bg-organ-50 shadow-card-md">
-        <div className="flex items-start justify-between gap-4 border-b border-organ-200/90 px-5 py-4 sm:px-6">
+      <div className="relative z-10 h-dvh max-h-dvh w-full max-w-none overflow-y-auto overflow-x-hidden rounded-none border-0 bg-organ-50 shadow-none lg:h-auto lg:max-h-[min(90vh,44rem)] lg:max-w-lg lg:rounded-xl lg:border lg:border-organ-200/95 lg:shadow-card-md">
+        <div className="sticky top-0 z-10 flex items-start justify-between gap-4 border-b border-organ-200/90 bg-organ-50 px-5 py-4 sm:px-6">
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-organ-800">
-              Get in touch
+              Early access
             </p>
             <h2
               id="contact-modal-heading"
@@ -113,7 +209,7 @@ export function ContactFormModal() {
             <div className="text-center">
               <p className="font-serif text-lg font-semibold text-ink-950">Thank you.</p>
               <p className="mt-2 text-organ-800">
-                We received your message and will respond within one business day.
+                We received your request and will reach out personally within one business day.
               </p>
               <button
                 type="button"
@@ -132,6 +228,8 @@ export function ContactFormModal() {
               className="space-y-4"
             >
               <input type="hidden" name="form-name" value="contact" />
+              <input type="hidden" name="role" value={role} />
+              <input type="hidden" name="loans_per_month" value={loansPerMonth} />
               <p className="hidden" aria-hidden>
                 <label>
                   Don&apos;t fill this out: <input name="bot-field" tabIndex={-1} autoComplete="off" />
@@ -155,7 +253,7 @@ export function ContactFormModal() {
 
               <div>
                 <label htmlFor="contact-email" className="block text-sm font-medium text-organ-800">
-                  Email
+                  Work email
                 </label>
                 <input
                   id="contact-email"
@@ -163,19 +261,75 @@ export function ContactFormModal() {
                   name="email"
                   required
                   autoComplete="email"
+                  placeholder="you@yourbrokerage.com"
                   className="mt-1.5 w-full rounded-md border border-organ-200 bg-white px-3 py-2.5 text-ink-950 shadow-sm outline-none transition focus:border-erp focus:ring-2 focus:ring-erp/25"
                 />
               </div>
 
               <div>
+                <span className="block text-sm font-medium text-organ-800">I am a…</span>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {ROLES.map((option) => (
+                    <ChipButton
+                      key={option}
+                      selected={role === option}
+                      onClick={() => setRole(option)}
+                    >
+                      {option}
+                    </ChipButton>
+                  ))}
+                </div>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label htmlFor="contact-state" className="block text-sm font-medium text-organ-800">
+                    State
+                  </label>
+                  <select
+                    id="contact-state"
+                    name="state"
+                    required
+                    defaultValue=""
+                    className="mt-1.5 w-full rounded-md border border-organ-200 bg-white px-3 py-2.5 text-ink-950 shadow-sm outline-none transition focus:border-erp focus:ring-2 focus:ring-erp/25"
+                  >
+                    <option value="" disabled>
+                      Select a state…
+                    </option>
+                    {US_STATES.map((state) => (
+                      <option key={state} value={state}>
+                        {state}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <span className="block text-sm font-medium text-organ-800">
+                    Loans you close per month
+                  </span>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {LOAN_VOLUMES.map((option) => (
+                      <ChipButton
+                        key={option}
+                        selected={loansPerMonth === option}
+                        onClick={() => setLoansPerMonth(option)}
+                      >
+                        {option}
+                      </ChipButton>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div>
                 <label htmlFor="contact-message" className="block text-sm font-medium text-organ-800">
-                  Message
+                  Message <span className="font-normal text-organ-600">(optional)</span>
                 </label>
                 <textarea
                   id="contact-message"
                   name="message"
-                  required
-                  rows={4}
+                  rows={3}
                   className="mt-1.5 w-full resize-y rounded-md border border-organ-200 bg-white px-3 py-2.5 text-ink-950 shadow-sm outline-none transition focus:border-erp focus:ring-2 focus:ring-erp/25"
                 />
               </div>
@@ -192,12 +346,12 @@ export function ContactFormModal() {
                   disabled={status === "submitting"}
                   className="btn-primary-silver w-full px-6 py-3 text-sm disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
                 >
-                  {status === "submitting" ? "Sending…" : modalTitle}
+                  {status === "submitting" ? "Sending…" : "Get early access"}
                 </button>
                 <p
                   className={`text-center text-xs text-organ-600 sm:text-right${SHOW_CONTACT_ACTIONS ? "" : " hidden"}`}
                 >
-                  Response within one business day
+                  You&apos;ll hear from us personally — response within one business day
                 </p>
               </div>
             </form>

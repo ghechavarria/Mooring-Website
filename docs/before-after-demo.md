@@ -1,65 +1,46 @@
 # Before/After demo (`BeforeAfterDemo.tsx`)
 
-Interactive toggle demo per [Web 2.docx](./Web%202.docx). **Embedded in the hero** at `#demo` — not a standalone section.
+Interactive toggle demo. **Embedded in the hero** at `#demo` — not a standalone section.
 
 ## Purpose
 
-Shows the transformation from how Loan Officers and processors work today versus with Mooric ERP. The visual is the message — same four borrowers (Johnson, Martinez, Kim, Williams) appear in both views.
+Shows the transformation from how Loan Officers and processors work today versus with Mooric ERP. Before uses messy folders + Excel; After mirrors the product **Summary** home (sidebar + notifications).
 
 ## Exports
 
 | Export | Use |
 | --- | --- |
 | `InteractiveDemoCard` | Full interactive card (tabs + panels); used in [Hero.tsx](../src/components/Hero.tsx) |
-| `DemoAppWindow` | Optional browser chrome wrapper around the card |
+| `DemoAppWindow` | Optional browser chrome wrapper around the card (stronger blue glow) |
 | `AfterPanel` / `BeforePanel` | Panel content |
 | `BeforeAfterDemo` | Legacy section wrapper (unused in [App.tsx](../src/App.tsx); kept for reference) |
 
 ## Layout
 
-- **Window chrome bar:** segmented toggle (Before / After) only — no “Click to compare” hint
-- **Card:** `rounded-xl border border-organ-200/90 bg-white shadow-card-md`
-- Default view in hero: **After Mooric** (`defaultView="after"` on `InteractiveDemoCard`)
-- **Equal-height panels:** both Before and After are rendered in a CSS grid overlap (`[grid-area:1/1]`); the inactive panel uses `invisible` so the container height always matches the taller panel. Toggling tabs does not change outer card height.
-- **Capped height on `min-[1100px]+`:** tab panel uses `min-[1100px]:h-[30rem] min-[1200px]:h-[36rem] xl:h-[42rem]` with `min-[1100px]:overflow-y-auto` so the demo scrolls internally and the pinned hero keeps the blue tagline strip at the viewport bottom. Below 1100px, height follows the taller panel with normal page scroll.
-
-## Responsiveness (container queries)
-
-The card root (`InteractiveDemoCard`) is a **`@container`**, so the panels adapt to the **card's own width**, not the viewport. This matters because the demo sits in the hero's two-column grid on `lg+`, where it is only ~half the viewport wide. Uses the `@tailwindcss/container-queries` plugin (registered in [tailwind.config.js](../tailwind.config.js)).
-
-- **Chrome:** tab labels shrink padding below `@sm`.
-- **Before folders:** `grid` → `@md:grid-cols-2` → `@xl:grid-cols-3` (stack when the card is narrow).
-- **Before tracker table:** `min-w-[36rem]` with `overflow-x-auto` — scrolls horizontally on narrow cards.
-- **After panel:** uses viewport breakpoints — single column, becomes `md:grid-cols-[0.85fr_1.15fr]` at the `md` viewport. The animated panel wrapper and After panel both use `h-full`, so the dashboard stretches into the fixed demo height instead of clustering at the top:
-  - Outer wrapper: `flex h-full flex-col gap-3 p-3 sm:p-4`
-  - Search bar: `py-2`, placeholder `text-xs`
-  - Column grid: `flex-1 gap-3`; right column uses `grid gap-3 md:grid-rows-[0.9fr_1.1fr]`
-  - Sub-cards (Pipeline, Key dates, Documents): `flex flex-col`, uniform `p-3`, section titles `text-[13px]`, inner lists `mt-3 flex-1 space-y-2`
-  - Pipeline loan items: `py-2`, loan names `text-[13px]`
-
-## Interaction
-
-- Toggle: **Before Mooric** | **After Mooric** (folder / sparkle icons in chrome bar)
-- Panel swap uses opacity transition (`transition-opacity duration-200`); respects `prefers-reduced-motion`
-- Accessible: `role="tablist"` / `role="tabpanel"`, `aria-selected` on tabs, `aria-hidden` on inactive panel; `idPrefix` prop keeps tab IDs unique per instance
+- **Window chrome bar:** segmented toggle (Before / After) only
+- **Card glow:** blue ring + soft bloom + deep drop shadow (`0 0 0 1px rgba(37,99,235,0.25)`, `0 0 60px -12px rgba(37,99,235,0.45)`, `0 40px 90px -30px rgba(0,0,0,0.7)`) plus blurred halo behind the card
+- Default view in hero: **After Mooric** (`defaultView="after"`)
+- **Equal-height panels:** CSS grid overlap (`[grid-area:1/1]`); inactive panel `invisible`
+- **Capped height on `min-[1100px]+`:** `min-[1100px]:h-[26rem] min-[1200px]:h-[30rem] xl:h-[34rem]` with internal scroll; outer wrapper `p-1` / `min-[1100px]:p-2` so the glow and card keep breathing room from the session pulse and ticker
 
 ## Before panel
 
-- **Before panel:** uses container-query variants so it fits the card width at any viewport. Root is `flex h-full flex-col`; the Excel tracker card uses `flex-1 min-h-0` to fill remaining height when the panel is taller than its content.
-- **Three folder cards** (amber folder icon, file count badge): Johnson docs, Martinez - refi, Kim Purchase NEW — each lists messy filenames from the brief.
-- **Excel tracker:** green title bar `Pipeline tracker v3 FINAL (2).xlsx`, table with Borrower / App date / LE sent / CTC target / HOA due / Status and color-coded cells (`TBD`, `OVERDUE`, `??`, etc.). Horizontal scroll on narrow viewports.
+- Three folder cards with messy filenames + Excel tracker table (`Pipeline tracker v3 FINAL (2).xlsx`)
+- Root fills height; filenames wrap (`break-words`)
 
-## After panel
+## After panel (Summary mock)
 
-- **Search bar:** “Search any loan, document, or date…” (`text-xs`, compact `py-2` padding)
-- **Two columns** (stack on mobile; denser spacing than Before panel):
-  - **Pipeline** (4 active): loan cards with status pills; Johnson selected (`border-erp bg-erp/5`).
-  - **Loan detail:** Key dates for Johnson, Michael (Done / Overdue / days remaining pills) + Documents (4 files · AI classified, Verified / Review).
+Faithful scaled recreation of the product Summary UI, scoped **only** inside the After tab:
+
+- **Dark sidebar** (`#141c30`): Mooric mark, Loan Officer nav (Summary selected, Pre-Approval, Loan Pipeline, Archive, Calendar, Guideline Search, System Flow) + count badges
+- **Light main** (`#eef1f8`): “Good day, Joe”, closing filter + Generate daily to-do, Find any loan search, active-loans count, Notifications (Action / Reminder / Overdue / Expiring) + Assigned to me
+
+## Interaction
+
+- Toggle: **Before Mooric** | **After Mooric**
+- Opacity transition; respects `prefers-reduced-motion`
+- Accessible tablist / tabpanel; `idPrefix` keeps IDs unique
 
 ## Entry point
 
-[Hero.tsx](../src/components/Hero.tsx) hosts `#demo` inside the hero. The demo is shown inline, so there is no nav link to it; the hero's **See why it's different** CTA points to `#memory`.
-
-## Content source
-
-[Web 2.docx](./Web%202.docx) — Interactive Before/After Demo brief.
+[Hero.tsx](../src/components/Hero.tsx) hosts `#demo`. Hero secondary CTA points to `#memory`.

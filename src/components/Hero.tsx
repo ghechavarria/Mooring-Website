@@ -7,12 +7,12 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative scroll-mt-24 border-b border-organ-200 bg-white"
+      className="relative scroll-mt-24 overflow-hidden border-b border-white/[0.06] bg-[linear-gradient(to_bottom_right,#050910,#081120,#0a1626)]"
       aria-labelledby="hero-heading"
     >
       <div className="relative flex min-h-[calc(100svh-4.25rem)] flex-col min-[1100px]:h-[calc(100svh-4.25rem)] min-[1100px]:overflow-hidden">
         <div
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_100%_55%_at_50%_12%,rgba(0,117,255,0.06),transparent_52%),radial-gradient(ellipse_80%_45%_at_80%_35%,rgba(0,117,255,0.04),transparent_50%)]"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_72%_20%,rgba(37,99,235,0.22),transparent_55%),radial-gradient(ellipse_70%_55%_at_12%_85%,rgba(30,64,175,0.18),transparent_55%),radial-gradient(ellipse_55%_40%_at_50%_-10%,rgba(96,165,250,0.14),transparent_60%)]"
           aria-hidden
         />
 
@@ -30,9 +30,9 @@ export function Hero() {
               <HeroCopy />
               <div
                 id="demo"
-                className="w-full min-w-0 scroll-mt-24 max-[1099px]:border-t max-[1099px]:border-organ-200 max-[1099px]:pt-8"
+                className="w-full min-w-0 scroll-mt-24 max-[1099px]:border-t max-[1099px]:border-white/10 max-[1099px]:pt-8 min-[1100px]:py-2"
               >
-                <p className="mb-4 hidden font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-organ-700 max-[1099px]:block">
+                <p className="mb-4 hidden font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[#8ea3c4] max-[1099px]:block">
                   Live preview
                 </p>
                 <p className="sr-only">Before and after Mooric ERP interactive comparison</p>
