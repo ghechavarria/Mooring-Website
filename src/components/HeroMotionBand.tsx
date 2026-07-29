@@ -5,39 +5,10 @@ export function HeroMotionBand() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <div className="relative overflow-hidden border-y border-accent/40 bg-gradient-to-br from-[#020617] via-[#05101c] to-[#0a1624]">
+    <div className="relative overflow-hidden border-y border-accent/50 bg-[#050A14]">
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_120%_90%_at_50%_45%,rgba(191,211,230,0.14),transparent_62%),radial-gradient(ellipse_85%_65%_at_50%_-10%,rgba(56,189,248,0.14),transparent_55%),radial-gradient(ellipse_75%_60%_at_100%_40%,rgba(30,112,214,0.12),transparent_52%),radial-gradient(ellipse_60%_50%_at_0%_100%,rgba(15,23,42,0.55),transparent_48%),linear-gradient(155deg,rgba(191,211,230,0.06)_0%,transparent_42%,rgba(30,112,214,0.05)_100%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_110%_85%_at_100%_-5%,rgba(45,165,200,0.7),rgba(30,110,145,0.4)_40%,transparent_68%),radial-gradient(ellipse_100%_90%_at_-5%_105%,rgba(50,95,185,0.65),rgba(28,60,130,0.38)_44%,transparent_70%),radial-gradient(ellipse_70%_50%_at_50%_50%,rgba(8,20,45,0.3),transparent_70%)]"
         aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.35] mix-blend-overlay"
-        style={{
-          backgroundImage:
-            "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E\")",
-        }}
-        aria-hidden
-      />
-
-      <motion.div
-        className="pointer-events-none absolute -left-1/4 top-1/2 h-[120%] w-[70%] rounded-full bg-accent/28 blur-[100px]"
-        aria-hidden
-        animate={
-          reduceMotion
-            ? undefined
-            : { x: [0, 40, 0], y: [0, -24, 0], scale: [1, 1.05, 1] }
-        }
-        transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="pointer-events-none absolute -right-1/4 top-0 h-full w-[55%] rounded-full bg-gradient-to-bl from-accent/25 to-blue-950/45 blur-[90px]"
-        aria-hidden
-        animate={
-          reduceMotion
-            ? undefined
-            : { x: [0, -32, 0], y: [0, 20, 0], opacity: [0.35, 0.55, 0.35] }
-        }
-        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
       />
 
       <HeroLattice />
@@ -70,9 +41,9 @@ export function HeroMotionBand() {
         <div className="relative mt-6">
           {!reduceMotion ? (
             <motion.span
-              className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-28 w-[min(92vw,540px)] rounded-full bg-accent/30 blur-3xl"
+              className="pointer-events-none absolute left-1/2 top-1/2 h-28 w-[min(92vw,540px)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/20 blur-3xl"
               aria-hidden
-              animate={{ opacity: [0.35, 0.75, 0.35], scale: [0.96, 1.06, 0.96] }}
+              animate={{ opacity: [0.25, 0.5, 0.25], scale: [0.96, 1.06, 0.96] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             />
           ) : null}
