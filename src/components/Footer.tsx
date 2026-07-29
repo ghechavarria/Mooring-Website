@@ -44,7 +44,7 @@ export function Footer() {
             <LinkedInIcon />
           </a>
           <a
-            href="https://www.youtube.com/@MooricCorporation"
+            href="https://www.youtube.com/@MooricERP"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Mooric Corporation on YouTube"
