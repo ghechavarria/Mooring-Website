@@ -12,5 +12,7 @@ The footer is a minimal dark band: top tagline strip, **Mooric ERP** logo, **soc
 
 - **Tagline strip:** `py-4`, `text-slate-400`
 - **Main row:** `py-14`, logo left, social icons center, copyright right on `sm+` (`justify-between`)
-- **Social icons:** LinkedIn and YouTube as `aria-label`ed icon buttons (round, `border-white/10`, hover `text-sky-300`). No links wired yet (no `href`/`onClick`).
+- **Social icons:** LinkedIn and YouTube as external links (`target="_blank"` `rel="noopener noreferrer"`), round, `border-white/10`, hover `text-sky-300`:
+  - LinkedIn: https://www.linkedin.com/company/mooricerp
+  - YouTube: https://www.youtube.com/@MooricCorporation
 - **Copyright:** `text-slate-400` on **`bg-navy`**

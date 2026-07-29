@@ -34,20 +34,24 @@ export function Footer() {
           </span>
         </div>
         <div className="flex items-center gap-3">
-          <button
-            type="button"
-            aria-label="LinkedIn"
+          <a
+            href="https://www.linkedin.com/company/mooricerp"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Mooric ERP on LinkedIn"
             className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-300 transition hover:border-sky-300/40 hover:bg-white/10 hover:text-sky-300"
           >
             <LinkedInIcon />
-          </button>
-          <button
-            type="button"
-            aria-label="YouTube"
+          </a>
+          <a
+            href="https://www.youtube.com/@MooricCorporation"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Mooric Corporation on YouTube"
             className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-300 transition hover:border-sky-300/40 hover:bg-white/10 hover:text-sky-300"
           >
             <YouTubeIcon />
-          </button>
+          </a>
         </div>
         <p className="font-mono text-xs text-slate-400">
           © {new Date().getFullYear()} Mooric ERP
