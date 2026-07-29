@@ -56,12 +56,12 @@ Do **not** dual-submit from the browser to Google Sheets or other write endpoint
 3. Optional check: View Page Source on the live site for `<form name="contact"`, or look for form detection lines in the deploy log.
 4. Submit a test from the live site (local `npm run dev` does not deliver to Netlify).
 
-## Secure Google Sheets tracking (ops)
+## Secure Google Sheets + email (ops)
 
 After `contact` appears under Forms:
 
-1. Create a spreadsheet and a Google Apps Script `doPost` that appends a row from the webhook JSON.
-2. Deploy the script as a web app (execute as you; access Anyone — URL is a secret).
-3. In Netlify: **Forms → Form notifications → Outgoing webhook** for form `contact`, URL = Apps Script web app URL.
+1. Deploy Apps Script from [`scripts/netlify-contact-Code.gs`](../scripts/netlify-contact-Code.gs) ([docs](./netlify-contact-apps-script.md)).
+2. Set Netlify env `APPS_SCRIPT_WEBHOOK_URL` to the Apps Script `/exec` URL.
+3. Point the form notification at `https://mooricerp.com/forward-to-sheet` ([forwarder docs](./netlify-forward-to-sheet.md)) — not Apps Script directly.
 
-Keep the webhook URL **only in the Netlify UI** — never commit it, and never call Sheets from the React form.
+On each **new** submission the script appends a sheet row (with Submission ID / dedupe) and sends a clean HTML email. Retries do not re-email. Keep secrets in the Netlify UI only — never commit them, and never call Sheets from the React form.
