@@ -1,5 +1,5 @@
 import { useReducedMotion } from "framer-motion";
-import { useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 
 type View = "before" | "after";
 
@@ -237,8 +237,8 @@ function BeforePanel() {
 
 export function AfterPanel() {
   return (
-    <div className="flex h-full min-h-[28rem] items-stretch">
-      <div className="flex w-[7.5rem] shrink-0 flex-col gap-0.5 bg-[#141c30] px-2.5 py-3.5 sm:w-32">
+    <div className="flex h-full min-h-[28rem] flex-row items-stretch">
+      <div className="flex w-32 shrink-0 flex-col gap-0.5 bg-[#141c30] px-2.5 py-3.5">
         <div className="mb-3 flex items-center gap-1.5 px-1">
           <span className="flex h-[26px] w-[26px] shrink-0 items-center justify-center rounded-[7px] border border-[#2a3450] bg-[#0b1220] text-[10px] font-bold text-white">
             M
@@ -281,7 +281,7 @@ export function AfterPanel() {
           </p>
         </div>
 
-        <div className="flex flex-wrap items-center gap-1.5">
+        <div className="flex flex-nowrap items-center gap-1.5">
           <span className="rounded-[7px] border border-[#dbe2ec] bg-white px-2.5 py-1 text-[8px] font-medium text-[#334155]">
             Closing within 7 days ▾
           </span>
@@ -304,7 +304,7 @@ export function AfterPanel() {
           <p className="m-0 mt-0.5 text-[8px] text-[#64748b]">Active loans · open pipeline →</p>
         </div>
 
-        <div className="grid min-h-0 flex-1 gap-2.5 @md:grid-cols-[1.2fr_0.8fr]">
+        <div className="grid min-h-0 flex-1 grid-cols-[1.2fr_0.8fr] gap-2.5">
           <div className="rounded-[9px] border border-[#e8edf5] bg-white p-2.5 shadow-[0_1px_2px_rgba(15,23,42,0.05)]">
             <div className="mb-1.5 flex items-center gap-1.5">
               <p className="m-0 text-[9.5px] font-bold text-[#0f172a]">Notifications</p>
@@ -392,7 +392,7 @@ function DemoChrome({
   const panelId = `${idPrefix}-panel`;
 
   return (
-    <div className="flex flex-wrap items-center gap-3 border-b border-organ-200 bg-organ-50 px-3 py-2 @sm:px-4">
+    <div className="flex flex-nowrap items-center gap-3 border-b border-organ-200 bg-organ-50 px-3 py-2 @sm:px-4">
       <div
         className="flex rounded-lg border border-organ-200 bg-white p-0.5"
         role="tablist"
@@ -445,13 +445,7 @@ export function DemoAppWindow({
 }) {
   return (
     <div className={`relative ${className}`}>
-      <div
-        className="pointer-events-none absolute -inset-6 rounded-2xl bg-[rgba(37,99,235,0.28)] blur-3xl"
-        aria-hidden
-      />
-      <div
-        className="relative overflow-hidden rounded-xl border border-white/12 bg-white shadow-[0_0_0_1px_rgba(37,99,235,0.25),0_0_60px_-12px_rgba(37,99,235,0.45),0_40px_90px_-30px_rgba(0,0,0,0.7)]"
-      >
+      <div className="relative overflow-hidden rounded-xl border border-white/12 bg-white shadow-[0_28px_60px_-28px_rgba(0,0,0,0.55)]">
         <div className="flex items-center justify-between gap-3 border-b border-organ-200 bg-organ-50 px-3 py-2 sm:px-4">
           <div className="flex items-center gap-2">
             <span className="flex gap-1" aria-hidden>
@@ -473,36 +467,89 @@ export function DemoAppWindow({
   );
 }
 
+const DEMO_DESIGN_WIDTH = 880;
+
 export function InteractiveDemoCard({
   idPrefix = "demo",
   className = "",
   defaultView = "before" as View,
+  /** Keep sidebar + dual panels horizontal (pipeline-style scale) instead of stacking */
+  preserveHorizontal = false,
 }: {
   idPrefix?: string;
   className?: string;
   defaultView?: View;
+  preserveHorizontal?: boolean;
 }) {
   const [view, setView] = useState<View>(defaultView);
   const reduceMotion = useReducedMotion();
   const beforeTabId = `${idPrefix}-tab-before`;
   const afterTabId = `${idPrefix}-tab-after`;
   const panelId = `${idPrefix}-panel`;
+  const frameRef = useRef<HTMLDivElement>(null);
+  const stageRef = useRef<HTMLDivElement>(null);
+  const [scaleLayout, setScaleLayout] = useState({ scale: 1, height: 0, center: false });
 
-  return (
-    <div className="relative p-1 min-[1100px]:p-2">
-      <div
-        className="pointer-events-none absolute inset-0 rounded-2xl bg-[rgba(37,99,235,0.22)] blur-3xl"
-        aria-hidden
-      />
-      <div
-        className={`@container relative min-w-0 overflow-hidden rounded-xl border border-white/12 bg-white shadow-[0_0_0_1px_rgba(37,99,235,0.25),0_0_48px_-12px_rgba(37,99,235,0.4),0_28px_60px_-28px_rgba(0,0,0,0.65)] ${className}`}
-      >
+  useEffect(() => {
+    if (!preserveHorizontal) return undefined;
+    const frame = frameRef.current;
+    const stage = stageRef.current;
+    if (!frame || !stage) return undefined;
+    const singleColumn = window.matchMedia("(max-width: 1099px)");
+
+    function sync() {
+      if (!frame || !stage) return;
+      setScaleLayout({
+        scale: Math.min(1, frame.clientWidth / DEMO_DESIGN_WIDTH),
+        height: stage.offsetHeight * Math.min(1, frame.clientWidth / DEMO_DESIGN_WIDTH),
+        center: singleColumn.matches,
+      });
+    }
+
+    sync();
+    const observer = new ResizeObserver(sync);
+    observer.observe(frame);
+    singleColumn.addEventListener("change", sync);
+    return () => {
+      observer.disconnect();
+      singleColumn.removeEventListener("change", sync);
+    };
+  }, [preserveHorizontal, view]);
+
+  const card = (
+    <div
+      ref={preserveHorizontal ? stageRef : undefined}
+      className={`@container relative min-w-0 overflow-hidden rounded-xl border border-white/12 bg-white shadow-[0_28px_60px_-28px_rgba(0,0,0,0.55)] ${className}`}
+      style={
+        preserveHorizontal
+          ? {
+              width: DEMO_DESIGN_WIDTH,
+              ...(scaleLayout.center
+                ? {
+                    position: "absolute",
+                    left: "50%",
+                    top: 0,
+                    transform: `translateX(-50%) scale(${scaleLayout.scale})`,
+                    transformOrigin: "top center",
+                  }
+                : {
+                    transform: `scale(${scaleLayout.scale})`,
+                    transformOrigin: "top left",
+                  }),
+            }
+          : undefined
+      }
+    >
       <DemoChrome view={view} onViewChange={setView} idPrefix={idPrefix} />
       <div
         id={panelId}
         role="tabpanel"
         aria-labelledby={view === "before" ? beforeTabId : afterTabId}
-        className="min-[1100px]:h-[26rem] min-[1100px]:overflow-y-auto min-[1200px]:h-[30rem] xl:h-[34rem]"
+        className={
+          preserveHorizontal
+            ? "h-[30rem] overflow-hidden"
+            : "min-[1100px]:h-[26rem] min-[1100px]:overflow-y-auto min-[1200px]:h-[30rem] xl:h-[34rem]"
+        }
       >
         <div className="grid h-full grid-cols-[minmax(0,1fr)]">
           <div
@@ -519,6 +566,17 @@ export function InteractiveDemoCard({
           </div>
         </div>
       </div>
+    </div>
+  );
+
+  if (!preserveHorizontal) {
+    return <div className="relative p-1 min-[1100px]:p-2">{card}</div>;
+  }
+
+  return (
+    <div ref={frameRef} className="relative w-full overflow-hidden p-1 min-[1100px]:p-2">
+      <div className="relative w-full overflow-hidden" style={{ height: scaleLayout.height || undefined }}>
+        {card}
       </div>
     </div>
   );

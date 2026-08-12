@@ -1,19 +1,18 @@
-# Hero section background (`Hero.tsx`)
+# Hero section
 
-The marketing hero uses a **dark** navy surface inspired by the team standalone mock: silver session pulse strip at top (unchanged), copy on the left and interactive demo on the right from **1100px** up. A smooth dark ticker strip is the bottom edge of the viewport on load.
+Site-matched dark hero: session pulse → copy + live workspace → blue ticker.
 
-## Surface
+## Layout
 
-- **Section:** `bg-[linear-gradient(to_bottom_right,#050910,#081120,#0a1626)]` with `border-white/[0.06]`. The pinned hero block is **`min-h-[calc(100svh-4.25rem)]`** on all viewports and **`min-[1100px]:h-[calc(100svh-4.25rem)] min-[1100px]:overflow-hidden`** from 1100px up. **`flex flex-col`** with the middle region (`flex-1 justify-center`) vertically centering copy and demo. **`scroll-mt-24`** for in-page anchors. Below **1100px**, content stacks single-column with **Option B** layout: left-aligned copy, seam divider + **Live preview** eyebrow, full-width demo; equal-height Before/After panels with natural page scroll.
-- **Radial wash:** Three blue ellipses — `rgba(37,99,235,0.22)` at 72%/20%, `rgba(30,64,175,0.18)` at 12%/85%, `rgba(96,165,250,0.14)` at 50%/-10%.
-- **Copy block (inside `HeroSessionPulse` children):** Transparent over the dark section so the gradient shows through. Left column uses [HeroCopy.tsx](../src/components/HeroCopy.tsx) (light-on-dark copy, early-access CTA, micro-stats). Right column hosts the **`#demo`** interactive Before/After card from [BeforeAfterDemo.tsx](../src/components/BeforeAfterDemo.tsx) with a blue glow halo.
-- **Trust badge:** Pill — “AI-powered · built for independent loan officers”.
+- Section uses **`min-height`** (viewport minus header), not a locked height — the middle band grows with content so nothing clips or scrolls between pulse and ticker
+- Grid from 1100px: original `0.75fr / 1.25fr` with `minmax(0, …)`
+- Copy: [hero-copy.md](./hero-copy.md)
+- Demo: `InteractiveDemoCard`
+- Chrome: [hero-session-pulse.md](./hero-session-pulse.md)
 
-## Spacing
+## Stacked (&lt;1100px)
 
-- Inner padding: `py-8 sm:py-10 lg:py-6 xl:py-8` (via `HeroSessionPulse`) — tightened on `lg+` so the pinned hero gives the demo more height
-- Grid gaps: `gap-12` / `max-[1099px]:gap-[4.8rem]` stacked; `min-[1100px]:gap-x-8 xl:gap-x-24` two-column (copy + demo, vertically centered)
-
-The **1003 / Conditions / Closing** track panel is in [Central Loan Memory](../src/components/CentralLoanMemorySection.tsx) (`#memory`) — see [central-loan-memory-section.md](./central-loan-memory-section.md).
-
-Related: [hero-session-pulse.md](./hero-session-pulse.md) for the pulse strip + ticker; [hero-product-preview.md](./hero-product-preview.md) for the embedded interactive demo.
+- No horizontal rule between copy and live workspace
+- Tighter copy bottom padding + demo `pt-6` so the workspace sits closer under the CTAs
+- **Live workspace** eyebrow left-aligned to the demo card’s left edge (same centered `max-w-4xl` frame as Before/After); stats `text-center` below 1100px
+- `.hero-stack-band__wash`: same radial layout as the desktop hero overlay, stepped brighter + soft ERP fill — smoother shift at the one-column breakpoint

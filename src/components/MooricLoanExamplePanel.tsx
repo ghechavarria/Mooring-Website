@@ -96,7 +96,7 @@ export function MooricLoanExamplePanel() {
   }, []);
 
   return (
-    <div ref={frameRef} className="mt-14 w-full">
+    <div ref={frameRef} className="w-full">
       <div className="relative w-full" style={{ height: layout.height || undefined }}>
         <figure
           ref={stageRef}

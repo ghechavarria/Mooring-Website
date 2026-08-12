@@ -4,10 +4,10 @@ import { useContactModal } from "../context/ContactModalContext";
 import { SHOW_CONTACT_ACTIONS } from "../config/contactActions";
 
 const links = [
-  { label: "Why Mooric", href: "#memory" },
-  { label: "Features", href: "#features" },
-  { label: "Pipeline", href: "#pipeline" },
-  { label: "Team", href: "#team" },
+  { label: "Why switch", href: "#problem" },
+  { label: "Process", href: "#features" },
+  { label: "Loan Memory", href: "#memory" },
+  { label: "The Team", href: "#team" },
 ];
 
 function MenuIcon({ open }: { open: boolean }) {

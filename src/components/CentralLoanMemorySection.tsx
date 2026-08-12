@@ -96,7 +96,7 @@ function StatCalendarIcon() {
 function MemoryEyebrow({ className = "" }: { className?: string }) {
   return (
     <p className={`font-mono text-[11px] uppercase tracking-[0.2em] text-[#2563eb] ${className}`}>
-      02 · Core differentiator
+      04 · Core differentiator
     </p>
   );
 }
@@ -115,12 +115,12 @@ function MemoryStatBlock({
       <p
         className={`shrink-0 font-mono font-semibold tabular-nums ${
           dark ? "text-erp" : "text-[#020618]"
-        } ${compact ? "text-[2.75rem] leading-none" : "text-4xl sm:text-5xl"}`}
+        } ${compact ? "text-[2.75rem] leading-none tracking-tight" : "text-4xl sm:text-5xl"}`}
       >
         {memoryStat.value}
       </p>
       <p
-        className={`leading-relaxed ${dark ? "text-slate-300" : "text-[#334155]"} ${
+        className={`leading-relaxed ${dark ? "text-slate-300" : "text-[#1e293b]"} ${
           compact ? "text-[14.5px]" : "text-sm sm:text-base"
         }`}
       >
@@ -268,12 +268,12 @@ function ConceptSplitLivingRecord() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="max-w-3xl"
+        className="memory-intro max-w-3xl"
       >
         <MemoryEyebrow />
         <h2
           id="memory-heading"
-          className="mt-4 font-serif text-3xl font-semibold tracking-tight text-[#0f172a] text-balance sm:text-4xl"
+          className="section-heading text-[#0f172a]"
         >
           Central Loan Memory
         </h2>
@@ -310,14 +310,14 @@ function ConceptSplitLivingRecord() {
           </div>
 
           <div className="relative bg-[radial-gradient(ellipse_80%_60%_at_80%_20%,rgba(0,117,255,0.08),transparent_55%)] p-7 sm:p-8">
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#2563eb]">
+            <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-[#2563eb]">
               With Mooric
             </p>
-            <h3 className="mt-3 text-lg font-semibold text-[#0f172a]">{contrasts[1].title}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-[#334155]">{contrasts[1].body}</p>
-            <div className="mt-3.5 rounded-xl border border-[#2563eb]/20 bg-[#2563eb]/[0.04] p-3.5">
-              <h4 className="text-sm font-semibold text-[#0f172a]">{contrasts[2].title}</h4>
-              <p className="mt-2 text-xs leading-relaxed text-slate-600">{contrasts[2].body}</p>
+            <h3 className="mt-3 text-lg font-semibold text-[#020618]">{contrasts[1].title}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-[#1e293b]">{contrasts[1].body}</p>
+            <div className="mt-3.5 rounded-xl border border-[#2563eb]/25 bg-[#2563eb]/[0.06] p-3.5">
+              <h4 className="text-sm font-semibold text-[#020618]">{contrasts[2].title}</h4>
+              <p className="mt-2 text-xs leading-relaxed text-[#334155]">{contrasts[2].body}</p>
             </div>
             <div className="mt-5">
               <LivingRecordDiagram variant="connected" showLabel={false} compact />
@@ -331,14 +331,14 @@ function ConceptSplitLivingRecord() {
           </span>
         </div>
 
-        <div className="grid gap-7 border-t border-[#e7ebf1] bg-white/40 px-7 py-5 sm:grid-cols-[1fr_auto_1.2fr] sm:items-center sm:gap-7 sm:px-8">
+        <div className="grid gap-7 border-t border-[#e7ebf1] bg-white px-7 py-5 sm:grid-cols-[1fr_auto_1.2fr] sm:items-center sm:gap-7 sm:px-8">
           <MemoryStatBlock compact />
           <div className="hidden h-full min-h-[44px] w-px bg-[#d6dce6] sm:block" aria-hidden />
           <div>
-            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#2563eb]">
+            <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[#2563eb]">
               {complianceNote.eyebrow}
             </p>
-            <p className="mt-1.5 text-[14.5px] leading-relaxed text-[#334155]">{complianceNote.body}</p>
+            <p className="mt-1.5 text-[14.5px] leading-relaxed text-[#1e293b]">{complianceNote.body}</p>
           </div>
         </div>
       </motion.div>
@@ -350,22 +350,9 @@ export function CentralLoanMemorySection() {
   return (
     <section
       id="memory"
-      className="relative scroll-mt-8 border-y border-[#e7ebf1] py-28 sm:py-40"
-      style={{
-        backgroundColor: "#f4f6f9",
-        backgroundImage:
-          "linear-gradient(122deg, rgba(51,65,85,0.07) 0%, transparent 48%), linear-gradient(300deg, rgba(191,211,230,0.1) 0%, transparent 40%), radial-gradient(ellipse 80% 60% at 100% 0%, rgba(255,255,255,0.35), transparent 50%)",
-      }}
+      className="section-marketing relative border-0 bg-[#0a1626]"
       aria-labelledby="memory-heading"
     >
-      <div
-        className="pointer-events-none absolute inset-0 z-0 opacity-[0.28] mix-blend-multiply"
-        style={{
-          backgroundImage:
-            "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.45'/%3E%3C/svg%3E\")",
-        }}
-        aria-hidden
-      />
       <div className="layout-shell relative z-10">
         <ConceptSplitLivingRecord />
       </div>

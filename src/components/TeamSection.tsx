@@ -37,7 +37,7 @@ function TeamMemberCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.45, delay: index * 0.06 }}
-      className="w-[calc(50%-0.75rem)] text-center sm:w-56 md:w-60"
+      className="w-[calc(50%-0.75rem)] text-center sm:w-52 md:w-56"
     >
       <div className="relative mx-auto aspect-[4/5] max-w-[220px] overflow-hidden rounded-2xl border border-organ-200/90 bg-organ-100 shadow-card">
         {!photoFailed ? (
@@ -60,10 +60,12 @@ function TeamMemberCard({
           </div>
         )}
       </div>
-      <h3 className="mt-4 text-lg font-semibold tracking-tight text-ink-950">{name}</h3>
-      <p className="mx-auto mt-3.5 max-w-[min(100%,15rem)] border-t border-organ-200/90 pt-3 text-center text-[0.8125rem] font-medium leading-snug text-organ-700 text-balance sm:max-w-[17rem] sm:text-sm sm:leading-relaxed">
-        {title}
-      </p>
+      <div className="mt-4 flex min-h-[5.75rem] flex-col sm:min-h-[6.25rem]">
+        <h3 className="text-[15px] font-semibold tracking-tight text-ink-950 sm:text-base">{name}</h3>
+        <p className="mx-auto mt-2.5 max-w-[15rem] border-t border-organ-200/90 pt-2.5 text-[0.75rem] font-medium leading-snug text-organ-700 text-balance sm:text-[0.8125rem] sm:leading-relaxed">
+          {title}
+        </p>
+      </div>
     </motion.article>
   );
 }
@@ -72,36 +74,35 @@ export function TeamSection() {
   return (
     <section
       id="team"
-      className="relative scroll-mt-8 border-t border-organ-200/90 bg-organ-50 pb-16 pt-28 sm:pb-24 sm:pt-40"
+      className="section-marketing border-t border-organ-200/90 bg-organ-50 pb-16 sm:pb-24"
       aria-labelledby="team-heading"
     >
       <div className="layout-shell">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5 }}
-          className="mx-auto max-w-3xl text-center"
-        >
-          <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-erp">
-            The people
-          </p>
-          <h2
-            id="team-heading"
-            className="mt-4 font-serif text-3xl font-semibold tracking-tight text-ink-950 sm:text-4xl"
+        <div className="mx-auto w-full max-w-5xl">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.5 }}
+            className="mx-auto max-w-3xl text-center"
           >
-            Our team
-          </h2>
-          <p className="mt-4 text-lg leading-relaxed text-organ-800">
-            Mortgage technology veterans building the platform independent loan officers actually
-            need.
-          </p>
-        </motion.div>
+            <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-erp">
+              The people
+            </p>
+            <h2 id="team-heading" className="section-heading">
+              Our team
+            </h2>
+            <p className="mt-4 text-lg leading-relaxed text-organ-800">
+              Mortgage technology veterans building the platform independent loan officers actually
+              need.
+            </p>
+          </motion.div>
 
-        <div className="mt-16 flex flex-wrap justify-center gap-x-6 gap-y-10 sm:gap-x-8 lg:gap-x-10">
-          {members.map((m, i) => (
-            <TeamMemberCard key={m.slug} name={m.name} slug={m.slug} title={m.title} index={i} />
-          ))}
+          <div className="mt-14 flex flex-wrap justify-center gap-x-5 gap-y-10 sm:mt-16 sm:gap-x-6 lg:gap-x-7">
+            {members.map((m, i) => (
+              <TeamMemberCard key={m.slug} name={m.name} slug={m.slug} title={m.title} index={i} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -36,7 +36,7 @@ The full-width bottom strip is a two-column payoff: `~1 hr` time-saved via `Memo
 
 ## Navigation
 
-Header link: **Why Mooric** → `#memory`  
+No dedicated “Process / Pipeline” header links — Memory is reached via **Loan Memory** in the nav (`#memory`). Hero CTA **See why it's different** goes to `#features` (02).
 Problem section CTA: **See how ↓** → `#memory`
 
 ## Content source

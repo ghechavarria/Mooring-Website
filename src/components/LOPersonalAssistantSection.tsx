@@ -23,7 +23,7 @@ export function LOPersonalAssistantSection() {
   return (
     <section
       id="assistant"
-      className="relative scroll-mt-8 border-t border-organ-200/90 bg-white py-28 sm:py-40"
+      className="section-marketing border-t border-organ-200/90 bg-white"
       aria-labelledby="assistant-heading"
     >
       <div className="layout-shell">
@@ -37,10 +37,7 @@ export function LOPersonalAssistantSection() {
           <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-erp">
             Loan Officer Personal Assistant
           </p>
-          <h2
-            id="assistant-heading"
-            className="mt-4 font-serif text-3xl font-semibold tracking-tight text-ink-950 sm:text-4xl"
-          >
+          <h2 id="assistant-heading" className="section-heading">
             The assistant that already knows your file.
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-organ-800">

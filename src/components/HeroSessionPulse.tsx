@@ -122,12 +122,10 @@ function DriftingEcg({
 
 function SessionPulseBadge() {
   return (
-    <div className="flex shrink-0 items-center gap-2">
-      <span className="rounded border border-organ-200 bg-white px-2 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-wider text-organ-700">
-        Live
-      </span>
+    <div className="flex shrink-0 items-center gap-2.5">
+      <span className="h-2 w-2 shrink-0 rounded-full bg-erp" aria-hidden />
       <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-organ-700">
-        Session pulse
+        Live session pulse
       </span>
     </div>
   );
@@ -148,11 +146,11 @@ function SessionPulseWave({
     >
       <DriftingEcg
         pathD={ecgWaveScrollPath}
-        stroke="rgba(107,100,92,0.55)"
+        stroke="rgba(107,100,92,0.45)"
         strokeWidth={compact ? 1.5 : 1.75}
-        heightClass={compact ? "h-7" : "h-8 sm:h-9"}
+        heightClass={compact ? "h-6" : "h-7 sm:h-8"}
         viewHeight={40}
-        vignette="linear-gradient(90deg, rgb(244 246 249) 0%, rgb(244 246 249 / 0.7) 10%, transparent 30%, transparent 70%, rgb(244 246 249 / 0.7) 90%, rgb(244 246 249) 100%)"
+        vignette="linear-gradient(90deg, #fff 0%, rgb(255 255 255 / 0.85) 12%, transparent 28%, transparent 72%, rgb(255 255 255 / 0.85) 88%, #fff 100%)"
         reduceMotion={reduceMotion}
         compact={compact}
       />
@@ -168,8 +166,8 @@ function SessionPulseBar({
   reduceMotion: boolean | null;
 }) {
   return (
-    <div aria-hidden className="shrink-0 border-b border-organ-200 bg-organ-100">
-      <div className="layout-header-px flex min-h-0 flex-row items-center gap-3 py-3 sm:gap-6 sm:py-3.5">
+    <div aria-hidden className="relative z-20 shrink-0 bg-white">
+      <div className="layout-header-px flex h-11 flex-row items-center gap-4 border-b border-organ-200/70 sm:h-12 sm:gap-5">
         <SessionPulseBadge />
         <p className="min-w-0 flex-1 truncate font-mono text-[10px] text-organ-700 max-[400px]:hidden sm:hidden">
           {statusLinesShort[tick % statusLinesShort.length]}
@@ -178,7 +176,10 @@ function SessionPulseBar({
           {statusLines[tick % statusLines.length]}
         </p>
         <SessionPulseWave reduceMotion={reduceMotion} compact className="max-[400px]:ml-auto sm:hidden" />
-        <SessionPulseWave reduceMotion={reduceMotion} className="hidden min-w-0 flex-1 sm:block sm:max-w-md" />
+        <SessionPulseWave
+          reduceMotion={reduceMotion}
+          className="hidden min-w-0 max-w-xs flex-1 sm:block lg:max-w-md"
+        />
       </div>
     </div>
   );
@@ -244,12 +245,17 @@ export function HeroSessionPulse({ children }: { children?: ReactNode }) {
       <SessionPulseBar tick={tick} reduceMotion={reduceMotion} />
 
       {children != null ? (
-        <div className="relative z-10 flex min-h-0 flex-1 flex-col justify-center border-t border-white/[0.07] bg-transparent text-ink-950">
-          <div className="relative layout-header py-8 sm:py-10 lg:py-6 xl:py-8">{children}</div>
+        <div className="hero-stack-band relative z-0 flex min-h-0 flex-1 flex-col justify-center bg-transparent text-ink-950">
+          <div className="hero-stack-band__wash" aria-hidden />
+          <div className="relative z-[1] w-full min-w-0 layout-header py-6 sm:py-8 lg:py-7 xl:py-8">
+            {children}
+          </div>
         </div>
       ) : null}
 
-      <HeroTicker reduceMotion={reduceMotion} />
+      <div className="relative z-20 shrink-0">
+        <HeroTicker reduceMotion={reduceMotion} />
+      </div>
     </div>
   );
 }

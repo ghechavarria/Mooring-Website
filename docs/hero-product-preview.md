@@ -7,7 +7,7 @@ The hero (`#top`) embeds the full **interactive Before/After demo** at **`#demo`
 Implemented in [Hero.tsx](../src/components/Hero.tsx):
 
 1. Session pulse strip + bottom tagline ([HeroSessionPulse.tsx](../src/components/HeroSessionPulse.tsx))
-2. Two-column grid from **`min-[1100px]`** (1100px): hero copy + CTAs left ([HeroCopy.tsx](../src/components/HeroCopy.tsx), compact sizing from 1100px), interactive demo right ([InteractiveDemoCard](../src/components/BeforeAfterDemo.tsx), **After** default, equal-height panels, capped height + internal scroll from 1100px+). Below 1100px: single column, **Option B** stacked layout — left copy, seam divider + **Live preview** eyebrow, full-width demo; panel height matches the taller view (natural page scroll)
+2. Two-column grid from **`min-[1100px]`** (1100px): hero copy + CTAs left ([HeroCopy.tsx](../src/components/HeroCopy.tsx), compact sizing from 1100px), interactive demo right ([InteractiveDemoCard](../src/components/BeforeAfterDemo.tsx), **After** default, equal-height panels, capped height + internal scroll from 1100px+). Below 1100px: single column, stacked layout — left-aligned copy, then centered **Live workspace** (structure preserved via scale; no blue blur halo / stack wash).
 3. Silver/light-gray session pulse strip at top; brand-blue tagline strip = bottom edge of the viewport
 
 The **1003 / Conditions / Closing** track panel lives in [Central Loan Memory](../src/components/CentralLoanMemorySection.tsx) (`#memory`) — see [central-loan-memory-section.md](./central-loan-memory-section.md).
@@ -23,7 +23,7 @@ The **1003 / Conditions / Closing** track panel lives in [Central Loan Memory](.
 ## Navigation
 
 - **How it works** is no longer a nav link (the demo is inline in the hero).
-- **See why it's different** CTA in hero copy links to `#memory`.
+- **See why it's different** CTA in hero copy links to `#features` (02 · Broker-side process).
 
 ## Spacing
 

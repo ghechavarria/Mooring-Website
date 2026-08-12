@@ -1,17 +1,26 @@
-# Features & Workflow section photos
+# Features & Workflow section
 
-Marketing stills historically lived in **`Features.tsx`**. The daily workflow Unsplash image was removed to match the standalone landing; the header is now single-column with the **Mooric loan example panel** underneath (see [mooric-loan-example-panel.md](./mooric-loan-example-panel.md)).
+Marketing section in [`Features.tsx`](../src/components/Features.tsx): intro → Mooric loan example panel → four-quadrant process grid.
 
 ## Section header
 
-- **Eyebrow:** `03 · The daily workflow` (mono, normal weight)
+- **Eyebrow:** `02 · Broker-side process` (mono, `text-erp`)
 - **Headline:** “The work you do every day — without the manual overhead.”
-- Uses the shared section-header pattern (see [theme-mooric-dashboard.md](./theme-mooric-dashboard.md)).
+- Supporting copy covers application → program fit → conditions → closing deadlines
 
-## Presentation
+## Feature grid
 
-- **Surface:** `bg-white` with **`py-28 sm:py-40`** — no trailing gradient divider band; separation comes from the next section’s **`border-t`**.
-- **Example panel:** Constrained mock UI under the intro; inner scroll (not full-page overflow).
-- **Feature cards:** Unified white card style — `border-organ-200`, `shadow-card`, hover lift (`hover:-translate-y-0.5 hover:shadow-card-md`). Numbered step eyebrow and corner glow retained.
+2×2 cells (`sm:grid-cols-2`) with `border-organ-200` dividers. Each cell has a unique stage eyebrow (not shared duplicates):
 
-See [corporate-layout-and-images.md](./corporate-layout-and-images.md) for remaining imagery elsewhere on the site.
+| Stage | Headline |
+| --- | --- |
+| Loan application | Complete loan application, faster |
+| Program matching | Fit the borrower to the right program |
+| Conditions | Condition tracking |
+| Closing deadlines | TRID, Title, HOI, and Appraisal tracking |
+
+Spacing: stage → title `mt-5`, title → body `mt-4`. Section uses `pb-0` so the 2×2 grid borders meet `#pipeline` with no empty white band below the cells.
+
+## Example panel
+
+Constrained mock UI under the intro; see [mooric-loan-example-panel.md](./mooric-loan-example-panel.md).

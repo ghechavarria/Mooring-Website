@@ -70,7 +70,7 @@ function Pill({
   className?: string;
 }) {
   return (
-    <span className={`inline-flex whitespace-nowrap rounded-full px-2.5 py-1 text-[9px] font-semibold ${className}`}>
+    <span className={`inline-flex whitespace-nowrap rounded-full px-2.5 py-1 text-[8.5px] font-semibold ${className}`}>
       {children}
     </span>
   );
@@ -101,13 +101,14 @@ export function MooricPipelineExamplePanel() {
   }, []);
 
   return (
-    <div ref={frameRef} className="mt-14 w-full">
+    <div ref={frameRef} className="w-full">
       <div className="relative w-full" style={{ height: layout.height || undefined }}>
         <figure
           ref={stageRef}
           className="origin-top-left overflow-hidden rounded-xl border border-[#e2e8f0] bg-[#eef1f8] shadow-[0_24px_60px_-28px_rgba(15,23,42,0.35)]"
           style={{
             width: DESIGN_WIDTH,
+            minHeight: 560,
             transform: `scale(${layout.scale})`,
           }}
           aria-label="Mooric ERP loan pipeline example"
@@ -123,8 +124,8 @@ export function MooricPipelineExamplePanel() {
             </span>
           </div>
 
-          <div className="flex items-stretch">
-            <div className="flex w-[7rem] shrink-0 flex-col gap-0.5 bg-[#141c30] px-2 py-3">
+          <div className="flex min-h-[518px] items-stretch">
+            <div className="flex w-[7.5rem] shrink-0 flex-col gap-0.5 bg-[#141c30] px-2 py-3">
               <div className="px-1.5 pb-2.5 pt-0.5">
                 <p className="m-0 text-[7.5px] font-semibold uppercase tracking-[0.16em] text-[#8b95ab]">
                   Origination
@@ -163,8 +164,8 @@ export function MooricPipelineExamplePanel() {
                 </p>
               </div>
 
-              <div className="rounded-[10px] border border-[#e8edf5] bg-white p-3.5 shadow-sm">
-                <div className="mb-2 flex items-center gap-1.5">
+              <div className="flex flex-1 flex-col rounded-[10px] border border-[#e8edf5] bg-white p-3.5 shadow-sm">
+                <div className="mb-2 flex flex-wrap items-center gap-1.5">
                   <p className="m-0 text-[10px] font-bold text-[#0f172a]">Loan pipeline</p>
                   <div className="flex rounded-full bg-[#eef1f8] p-0.5">
                     <span className="rounded-full bg-[#2563eb] px-2.5 py-0.5 text-[7px] font-bold text-white">
@@ -180,7 +181,7 @@ export function MooricPipelineExamplePanel() {
                   </span>
                 </div>
 
-                <div className="flex flex-col gap-1.5">
+                <div className="flex flex-1 flex-col gap-1.5">
                   {pipelineLoans.map((loan) => (
                     <div
                       key={loan.name}

@@ -33,7 +33,7 @@ npm run preview
 |------|---------|
 | `index.html` | HTML shell, fonts, page title, meta description, **hidden Netlify form**, **PNG favicon** (`/images/square-logo-blue.png` — see [favicon.md](./favicon.md)) |
 | `src/main.tsx` | React bootstrapping |
-| `src/App.tsx` | Section order; wrapped in **`ContactModalProvider`**; **`ContactFormModal`** at root |
+| `src/App.tsx` | Section order; **`ContactModalProvider`**; **`ContactFormModal`** at root |
 | `src/context/ContactModalContext.tsx` | Shared `openContactModal` / `closeContactModal` state |
 | `src/index.css` | Tailwind layers; **`#root`** flex column + **`html`/`body`** `w-full`; **`.btn-primary-silver`**, **`.layout-shell`**, **`.layout-header`** / **`.layout-header-px`**, ECG / AI utilities |
 | `src/components/Header.tsx` | Sticky top navigation; brand tile **`/images/square-logo-blue.svg`** beside wordmark |
@@ -67,14 +67,14 @@ npm run preview
 
 ## Header navigation
 
-| Label | Anchor |
-|-------|--------|
-| Why Mooric | `#memory` |
-| Features | `#features` |
-| Pipeline | `#pipeline` |
-| Team | `#team` |
+| Label | Anchor | Section |
+|-------|--------|---------|
+| Why switch | `#problem` | 01 · The problem |
+| Process | `#features` | 02 · Broker-side process |
+| Loan Memory | `#memory` | Central Loan Memory |
+| The Team | `#team` | Our team |
 
-The nav maps to real content sections below the hero in scroll order: differentiator (memory) → features → pipeline → company (team). Logo links to `#top`. The interactive Before/After demo lives inside the hero (`#demo`), so it has no nav item; the hero's secondary CTA is **See why it's different** → `#memory`. LO Assistant (`#assistant`) and Contact (`#contact`) have no dedicated nav item.
+Sales path: pain → broker process → differentiator → trust. Logo links to `#top`. Hero secondary CTA **See why it's different** → `#features` (02). Pipeline, LO Assistant, and Contact have no dedicated nav item.
 
 Footer is logo + social icons + copyright only (no link row). Header holds section navigation.
 
