@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import { ZoomableProductView, useProductZoomOpen } from "./ZoomableProductView";
 
 const DESIGN_WIDTH = 1160;
 
@@ -77,17 +78,28 @@ function Pill({
 }
 
 export function MooricPipelineExamplePanel() {
-  const frameRef = useRef<HTMLDivElement>(null);
+  return (
+    <ZoomableProductView label="Loan pipeline example">
+      <PipelineExampleScaled />
+    </ZoomableProductView>
+  );
+}
+
+function PipelineExampleScaled() {
   const stageRef = useRef<HTMLElement>(null);
+  const [frameEl, setFrameEl] = useState<HTMLDivElement | null>(null);
   const [layout, setLayout] = useState({ scale: 1, height: 0 });
+  const zoomed = useProductZoomOpen();
+  const scale = zoomed ? 1 : layout.scale;
 
   useEffect(() => {
-    const frame = frameRef.current;
+    const frame = frameEl;
     const stage = stageRef.current;
     if (!frame || !stage) return undefined;
 
     function sync() {
       if (!frame || !stage) return;
+      if (!frame.clientWidth) return;
       setLayout({
         scale: frame.clientWidth / DESIGN_WIDTH,
         height: stage.offsetHeight * (frame.clientWidth / DESIGN_WIDTH),
@@ -98,18 +110,18 @@ export function MooricPipelineExamplePanel() {
     const observer = new ResizeObserver(sync);
     observer.observe(frame);
     return () => observer.disconnect();
-  }, []);
+  }, [frameEl]);
 
   return (
-    <div ref={frameRef} className="w-full">
-      <div className="relative w-full" style={{ height: layout.height || undefined }}>
+    <div ref={setFrameEl} className="w-full">
+      <div className="relative w-full" style={{ height: zoomed ? undefined : layout.height || undefined }}>
         <figure
           ref={stageRef}
           className="origin-top-left overflow-hidden rounded-xl border border-[#e2e8f0] bg-[#eef1f8] shadow-[0_24px_60px_-28px_rgba(15,23,42,0.35)]"
           style={{
             width: DESIGN_WIDTH,
             minHeight: 560,
-            transform: `scale(${layout.scale})`,
+            transform: `scale(${scale})`,
           }}
           aria-label="Mooric ERP loan pipeline example"
         >

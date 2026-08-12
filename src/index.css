@@ -43,12 +43,6 @@
   .section-heading {
     @apply mt-4 font-display text-4xl font-extrabold uppercase tracking-[0.04em] text-ink-950 text-balance sm:text-5xl md:text-6xl;
   }
-  .marketing-card {
-    @apply rounded-none border-2 border-ink-950 bg-white shadow-none;
-  }
-  .cta-panel {
-    @apply relative z-10 overflow-hidden rounded-none border-0 bg-navy px-6 py-16 text-left shadow-none sm:px-16 sm:py-24;
-  }
 
   /**
    * Stacked hero only — theme ERP blue glow (#0075FF / indigo corners), soft contrast on dark.
@@ -442,16 +436,6 @@
   }
 }
 
-@keyframes grid-breathe {
-  0%,
-  100% {
-    opacity: 0.32;
-  }
-  50% {
-    opacity: 0.58;
-  }
-}
-
 @keyframes hero-ticker-marquee {
   from {
     transform: translate3d(0, 0, 0);
@@ -515,142 +499,5 @@
     .integrated-ecg-path {
       stroke-width: 2.25px;
     }
-  }
-
-  /** AI orb: one smooth breath per `--ai-pulse-beat` (sin half-wave, many stops ≈ smooth curve). */
-  @keyframes hero-ai-pulse-swell {
-    0% {
-      transform: scale3d(1, 1, 1);
-    }
-    4.167% {
-      transform: scale3d(1.00365, 1.00365, 1);
-    }
-    8.333% {
-      transform: scale3d(1.00725, 1.00725, 1);
-    }
-    12.5% {
-      transform: scale3d(1.01072, 1.01072, 1);
-    }
-    16.667% {
-      transform: scale3d(1.014, 1.014, 1);
-    }
-    20.833% {
-      transform: scale3d(1.01705, 1.01705, 1);
-    }
-    25% {
-      transform: scale3d(1.0198, 1.0198, 1);
-    }
-    29.167% {
-      transform: scale3d(1.02221, 1.02221, 1);
-    }
-    33.333% {
-      transform: scale3d(1.02425, 1.02425, 1);
-    }
-    37.5% {
-      transform: scale3d(1.02587, 1.02587, 1);
-    }
-    41.667% {
-      transform: scale3d(1.02705, 1.02705, 1);
-    }
-    45.833% {
-      transform: scale3d(1.02776, 1.02776, 1);
-    }
-    50% {
-      transform: scale3d(1.028, 1.028, 1);
-    }
-    54.167% {
-      transform: scale3d(1.02776, 1.02776, 1);
-    }
-    58.333% {
-      transform: scale3d(1.02705, 1.02705, 1);
-    }
-    62.5% {
-      transform: scale3d(1.02587, 1.02587, 1);
-    }
-    66.667% {
-      transform: scale3d(1.02425, 1.02425, 1);
-    }
-    70.833% {
-      transform: scale3d(1.02221, 1.02221, 1);
-    }
-    75% {
-      transform: scale3d(1.0198, 1.0198, 1);
-    }
-    79.167% {
-      transform: scale3d(1.01705, 1.01705, 1);
-    }
-    83.333% {
-      transform: scale3d(1.014, 1.014, 1);
-    }
-    87.5% {
-      transform: scale3d(1.01072, 1.01072, 1);
-    }
-    91.667% {
-      transform: scale3d(1.00725, 1.00725, 1);
-    }
-    95.833% {
-      transform: scale3d(1.00365, 1.00365, 1);
-    }
-    100% {
-      transform: scale3d(1, 1, 1);
-    }
-  }
-
-  .hero-ai-pulse-swell {
-    animation: hero-ai-pulse-swell var(--ai-pulse-beat, 1500ms) linear infinite;
-    will-change: transform;
-    backface-visibility: hidden;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .hero-ai-pulse-swell {
-      animation: none;
-    }
-  }
-
-  /* Dark slate + marble veining — same navy family as hero / logo tile (#020617), not flat charcoal */
-  .marble-slate {
-    position: relative;
-    isolation: isolate;
-    background-color: #020617;
-    background-image:
-      linear-gradient(180deg, rgba(5, 16, 28, 0.55) 0%, transparent 42%, rgba(10, 22, 36, 0.5) 100%),
-      linear-gradient(118deg, rgba(255, 255, 255, 0.055) 0%, transparent 46%),
-      linear-gradient(218deg, rgba(191, 211, 230, 0.11) 0%, transparent 44%),
-      linear-gradient(352deg, rgba(15, 23, 42, 0.38) 0%, transparent 52%),
-      radial-gradient(ellipse 95% 75% at 50% -5%, rgba(30, 112, 214, 0.14), transparent 58%),
-      radial-gradient(ellipse 85% 55% at 100% 12%, rgba(56, 189, 248, 0.09), transparent 50%),
-      radial-gradient(ellipse 75% 45% at 0% 100%, rgba(15, 23, 42, 0.55), transparent 55%);
-  }
-  .marble-slate::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    opacity: 0.42;
-    mix-blend-mode: overlay;
-    pointer-events: none;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)' opacity='0.55'/%3E%3C/svg%3E");
-  }
-
-  /* Light warm slate marble wash */
-  .marble-organ-light {
-    position: relative;
-    isolation: isolate;
-    background-color: theme("colors.organ.100");
-    background-image:
-      linear-gradient(122deg, rgba(63, 56, 51, 0.07) 0%, transparent 48%),
-      linear-gradient(300deg, rgba(191, 211, 230, 0.1) 0%, transparent 40%),
-      radial-gradient(ellipse 80% 60% at 100% 0%, rgba(255, 255, 255, 0.35), transparent 50%);
-  }
-  .marble-organ-light::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    opacity: 0.28;
-    mix-blend-mode: multiply;
-    pointer-events: none;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.45'/%3E%3C/svg%3E");
   }
 }

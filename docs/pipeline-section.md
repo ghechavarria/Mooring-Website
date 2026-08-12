@@ -17,7 +17,7 @@ Speaks to independent LOs and broker shops who manage pipelines across spreadshe
 
 ## Layout
 
-- **Surface:** **`bg-organ-50`** with **`border-t border-organ-200`** and **`py-28 sm:py-40`** — faint tint alternates with adjacent white sections (Features, Assistant) without stacking marble texture against **Central Loan Memory** above
+- **Surface:** **`bg-organ-50`** with **`border-t border-organ-200`** and **`py-28 sm:py-40`** — faint tint alternates with adjacent white sections
 - **Header:** Eyebrow `04 · Closed` (mono, normal weight) + serif headline `CLOSED — Pipeline & production` + intro (Excel/spreadsheet tracking; end-to-end single view — not “replaces your LOS”)
 - Two-column grid: intro copy on the left, numbered timeline on the right
 - Mooric pipeline example panel underneath (scale-to-fit mock; see [mooric-pipeline-example-panel.md](./mooric-pipeline-example-panel.md))

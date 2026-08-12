@@ -35,35 +35,44 @@ npm run preview
 | `src/main.tsx` | React bootstrapping |
 | `src/App.tsx` | Section order; **`ContactModalProvider`**; **`ContactFormModal`** at root |
 | `src/context/ContactModalContext.tsx` | Shared `openContactModal` / `closeContactModal` state |
-| `src/index.css` | Tailwind layers; **`#root`** flex column + **`html`/`body`** `w-full`; **`.btn-primary-silver`**, **`.layout-shell`**, **`.layout-header`** / **`.layout-header-px`**, ECG / AI utilities |
+| `src/index.css` | Tailwind layers; **`#root`** flex column; **`.btn-primary-silver`**, **`.layout-shell`**, **`.layout-header`** / **`.layout-header-px`**, ECG / ticker utilities |
 | `src/components/Header.tsx` | Sticky top navigation; brand tile **`/images/square-logo-blue.svg`** beside wordmark |
 | `src/components/Hero.tsx` | Two-column hero (`#top`) with embedded interactive demo (`#demo`) — [hero-section-background.md](./hero-section-background.md) |
-| `src/components/HeroCopy.tsx` | Shared hero copy + stats — [hero-copy.md](./hero-copy.md) |
-| `src/components/HeroSessionPulse.tsx` | Session pulse strip (integrated hero + optional panel variant) |
-| `src/components/BeforeAfterDemo.tsx` | `InteractiveDemoCard`, `DemoAppWindow`, panel exports — [before-after-demo.md](./before-after-demo.md) |
-| `src/components/Features.tsx` | Core value props (`#features`) — [features-workflow-imagery.md](./features-workflow-imagery.md) |
-| `src/components/CentralLoanMemorySection.tsx` | Central Loan Memory differentiator (`#memory`) — [central-loan-memory-section.md](./central-loan-memory-section.md) |
+| `src/components/HeroCopy.tsx` | Shared hero copy + CTAs — [hero-copy.md](./hero-copy.md) |
+| `src/components/HeroSessionPulse.tsx` | Session pulse strip + ticker — [hero-session-pulse.md](./hero-session-pulse.md) |
+| `src/components/BeforeAfterDemo.tsx` | `InteractiveDemoCard` — [before-after-demo.md](./before-after-demo.md) |
+| `src/components/ZoomableProductView.tsx` | Click-to-zoom product frames — [zoomable-product-view.md](./zoomable-product-view.md) |
+| `src/components/ProductionGlanceSection.tsx` | Production glance band — [ProductionGlanceSection.md](./ProductionGlanceSection.md) |
+| `src/components/ProblemSection.tsx` | Pain section (`#problem`) — [problem-section.md](./problem-section.md) |
+| `src/components/Features.tsx` | Broker-side process (`#features`) — [features-workflow-imagery.md](./features-workflow-imagery.md) |
 | `src/components/PipelineSection.tsx` | Pipeline management (`#pipeline`) — [pipeline-section.md](./pipeline-section.md) |
+| `src/components/CentralLoanMemorySection.tsx` | Central Loan Memory (`#memory`) — [central-loan-memory-section.md](./central-loan-memory-section.md) |
 | `src/components/LOPersonalAssistantSection.tsx` | LO Personal Assistant (`#assistant`) — [lo-personal-assistant-section.md](./lo-personal-assistant-section.md) |
-| `src/components/HeroMotionBand.tsx` | Full-bleed motion band between product sections and Team |
-| `src/components/HeroLattice.tsx` | Decorative silver lattice SVG inside the motion band |
-| `src/components/TeamSection.tsx` | Team roster (`#team`); portraits + role titles — [team-section.md](./team-section.md) |
+| `src/components/BrokerProcessFlowSection.tsx` | End-to-end process (`#process`) — [broker-process-flow-section.md](./broker-process-flow-section.md) |
+| `src/components/LosCompatibilityStrip.tsx` | LOS compatibility (`#los`) — [los-compatibility-strip.md](./los-compatibility-strip.md) |
+| `src/components/HeroMotionBand.tsx` | Full-bleed lattice / Mooric ERP band — [hero-motion-band.md](./hero-motion-band.md) |
+| `src/components/HeroLattice.tsx` | Decorative lattice SVG — [hero-lattice.md](./hero-lattice.md) |
+| `src/components/TeamSection.tsx` | Team roster (`#team`) — [team-section.md](./team-section.md) |
 | `src/components/ContactCTA.tsx` | Contact band (`#contact`); opens contact modal |
 | `src/components/ContactFormModal.tsx` | Netlify contact form popup — [contact-form-modal.md](./contact-form-modal.md) |
-| `src/components/Footer.tsx` | Footer links and branding |
+| `src/components/Footer.tsx` | Footer branding + social |
 
 ## Section order (`App.tsx`)
 
 1. Header
 2. Hero (`#top`) — includes interactive Before/After demo (`#demo`)
-3. Central Loan Memory (`#memory`)
-4. Features (`#features`)
-5. Pipeline (`#pipeline`)
-6. LO Personal Assistant (`#assistant`)
-7. HeroMotionBand (decorative)
-8. Team (`#team`)
-9. Contact (`#contact`)
-10. Footer
+3. Production Glance (`#production-glance`)
+4. Problem (`#problem`)
+5. Features (`#features`)
+6. Pipeline (`#pipeline`)
+7. Central Loan Memory (`#memory`)
+8. LO Personal Assistant (`#assistant`)
+9. Broker process / end to end (`#process`)
+10. LOS strip (`#los`)
+11. HeroMotionBand (decorative)
+12. Team (`#team`)
+13. Contact (`#contact`)
+14. Footer
 
 ## Header navigation
 
@@ -84,7 +93,7 @@ CTA: **Request a briefing** → opens contact modal (see [contact-form-modal.md]
 
 - **Brand:** Mooric ERP — predominantly **light** marketing surface (white / cool `organ` neutrals), **brand blue** `#0075FF` on light sections, **dark** signature bands for the hero pulse strip and **HeroMotionBand** lattice.
 - **Audience:** Independent LOs and brokers; practitioner tone per [Web 1.docx](./Web%201.docx); interactive demo per [Web 2.docx](./Web%202.docx).
-- **Motion:** Sections use `whileInView` for scroll-triggered motion; hero strip uses CSS-driven ECG drift and AI orb pulse (see [hero-session-pulse.md](./hero-session-pulse.md)).
+- **Motion:** Sections use `whileInView` for scroll-triggered motion; hero strip uses CSS-driven ECG drift and ticker marquee (see [hero-session-pulse.md](./hero-session-pulse.md)).
 - **Accessibility:** Landmark sections include headings and `aria-labelledby` where appropriate; decorative layers use `aria-hidden`.
 
 ## Lint

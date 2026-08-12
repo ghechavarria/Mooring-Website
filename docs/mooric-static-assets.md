@@ -16,6 +16,6 @@ Sources are **1024×1024** viewBoxes where noted in the SVGs; header and footer 
 
 ## Theme reference
 
-**Path:** [theme-mooric-dashboard.md](./theme-mooric-dashboard.md)
-
-Describes Tailwind tokens, typography, and marble utilities for the Mooric ERP marketing surface.
+- [silver-accent-palette.md](./silver-accent-palette.md) — `accent` / `accent-light` silver tokens
+- [button-primary-silver.md](./button-primary-silver.md) — primary CTA class (`erp` blue)
+- [favicon.md](./favicon.md) — tab icon

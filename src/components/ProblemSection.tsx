@@ -69,13 +69,13 @@ export function ProblemSection() {
             </motion.article>
           ))}
         </div>
-        <div className="mt-12 flex flex-col gap-6 border-t border-white/15 pt-10 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="max-w-2xl text-lg text-slate-300">
             <span className="font-semibold text-white">None of this is loan officer work.</span> It’s
             overhead — and it’s exactly what Mooric ERP is built to take off your plate.
           </p>
           <a
-            href="#memory"
+            href="#features"
             className="inline-flex items-center gap-2 font-display text-sm font-bold uppercase tracking-[0.16em] text-erp"
           >
             See how ↓

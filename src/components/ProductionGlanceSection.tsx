@@ -6,38 +6,7 @@ const productionStats = [
   ["Avg. days to close", "32"],
 ] as const;
 
-export function ProductionGlance({ dark = false }: { dark?: boolean }) {
-  return (
-    <div className={dark ? "text-white" : ""}>
-      <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-erp">
-        Your production at a glance
-      </p>
-      <p
-        className={`mt-5 font-serif text-2xl font-semibold sm:text-3xl ${dark ? "text-white" : "text-ink-950"}`}
-      >
-        Closed loan performance, without building a spreadsheet
-      </p>
-      <p
-        className={`mt-3 max-w-md text-sm leading-relaxed sm:text-base ${dark ? "text-slate-300" : "text-organ-800"}`}
-      >
-        Volume, average loan size, and time to close — broken down by month, quarter, or year. The
-        numbers you need to understand your own book, already in the platform.
-      </p>
-      <div className="mt-8 flex flex-wrap gap-8">
-        {productionStats.map(([label, value]) => (
-          <div key={label}>
-            <p className={`text-xs font-medium ${dark ? "text-slate-400" : "text-organ-800"}`}>
-              {label}
-            </p>
-            <p className="mt-1 font-mono text-sm tabular-nums text-erp">{value}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-/** Sits directly under the hero’s blue moving ticker strip (Final look) */
+/** Sits directly under the hero’s blue moving ticker strip */
 export function ProductionGlanceSection() {
   return (
     <section

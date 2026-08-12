@@ -22,7 +22,7 @@ Wired in [`src/App.tsx`](../src/App.tsx):
   - **17** — Emails to clear one condition
   - **5+** — Tools that don't talk
   - **9 PM** — When you find out something slipped
-- **CTA bar:** “None of this is loan officer work…” + **See how ↓** → `#memory`
+- **CTA bar:** “None of this is loan officer work…” + **See how ↓** → `#features` (02 · Broker-side process)
 
 ## Surface
 

@@ -1,5 +1,6 @@
 import { useReducedMotion } from "framer-motion";
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState } from "react";
+import { ZoomableProductView, useProductZoomOpen } from "./ZoomableProductView";
 
 type View = "before" | "after";
 
@@ -235,7 +236,7 @@ function BeforePanel() {
   );
 }
 
-export function AfterPanel() {
+function AfterPanel() {
   return (
     <div className="flex h-full min-h-[28rem] flex-row items-stretch">
       <div className="flex w-32 shrink-0 flex-col gap-0.5 bg-[#141c30] px-2.5 py-3.5">
@@ -392,7 +393,10 @@ function DemoChrome({
   const panelId = `${idPrefix}-panel`;
 
   return (
-    <div className="flex flex-nowrap items-center gap-3 border-b border-organ-200 bg-organ-50 px-3 py-2 @sm:px-4">
+    <div
+      data-product-zoom-ignore
+      className="relative z-20 flex flex-nowrap items-center gap-3 border-b border-organ-200 bg-organ-50 px-3 py-2 @sm:px-4"
+    >
       <div
         className="flex rounded-lg border border-organ-200 bg-white p-0.5"
         role="tablist"
@@ -436,73 +440,43 @@ function DemoChrome({
   );
 }
 
-export function DemoAppWindow({
-  children,
-  className = "",
-}: {
-  children: ReactNode;
-  className?: string;
-}) {
-  return (
-    <div className={`relative ${className}`}>
-      <div className="relative overflow-hidden rounded-xl border border-white/12 bg-white shadow-[0_28px_60px_-28px_rgba(0,0,0,0.55)]">
-        <div className="flex items-center justify-between gap-3 border-b border-organ-200 bg-organ-50 px-3 py-2 sm:px-4">
-          <div className="flex items-center gap-2">
-            <span className="flex gap-1" aria-hidden>
-              <span className="h-2 w-2 rounded-full bg-organ-300" />
-              <span className="h-2 w-2 rounded-full bg-organ-300" />
-              <span className="h-2 w-2 rounded-full bg-organ-300" />
-            </span>
-            <span className="font-mono text-[10px] font-medium text-organ-700 sm:text-[11px]">
-              Mooric ERP — Pipeline
-            </span>
-          </div>
-          <span className="rounded border border-erp/30 bg-erp/10 px-2 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-wider text-erp">
-            Live
-          </span>
-        </div>
-        {children}
-      </div>
-    </div>
-  );
-}
-
 const DEMO_DESIGN_WIDTH = 880;
 
-export function InteractiveDemoCard({
-  idPrefix = "demo",
-  className = "",
-  defaultView = "before" as View,
-  /** Keep sidebar + dual panels horizontal (pipeline-style scale) instead of stacking */
-  preserveHorizontal = false,
+function InteractiveDemoScaled({
+  idPrefix,
+  className,
+  defaultView,
+  preserveHorizontal,
 }: {
-  idPrefix?: string;
-  className?: string;
-  defaultView?: View;
-  preserveHorizontal?: boolean;
+  idPrefix: string;
+  className: string;
+  defaultView: View;
+  preserveHorizontal: boolean;
 }) {
   const [view, setView] = useState<View>(defaultView);
   const reduceMotion = useReducedMotion();
   const beforeTabId = `${idPrefix}-tab-before`;
   const afterTabId = `${idPrefix}-tab-after`;
   const panelId = `${idPrefix}-panel`;
-  const frameRef = useRef<HTMLDivElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
+  const [frameEl, setFrameEl] = useState<HTMLDivElement | null>(null);
   const [scaleLayout, setScaleLayout] = useState({ scale: 1, height: 0, center: false });
+  const zoomed = useProductZoomOpen();
 
   useEffect(() => {
     if (!preserveHorizontal) return undefined;
-    const frame = frameRef.current;
+    const frame = frameEl;
     const stage = stageRef.current;
     if (!frame || !stage) return undefined;
     const singleColumn = window.matchMedia("(max-width: 1099px)");
 
     function sync() {
       if (!frame || !stage) return;
+      if (!frame.clientWidth) return;
       setScaleLayout({
         scale: Math.min(1, frame.clientWidth / DEMO_DESIGN_WIDTH),
         height: stage.offsetHeight * Math.min(1, frame.clientWidth / DEMO_DESIGN_WIDTH),
-        center: singleColumn.matches,
+        center: singleColumn.matches && !zoomed,
       });
     }
 
@@ -514,7 +488,7 @@ export function InteractiveDemoCard({
       observer.disconnect();
       singleColumn.removeEventListener("change", sync);
     };
-  }, [preserveHorizontal, view]);
+  }, [preserveHorizontal, view, frameEl, zoomed]);
 
   const card = (
     <div
@@ -524,7 +498,7 @@ export function InteractiveDemoCard({
         preserveHorizontal
           ? {
               width: DEMO_DESIGN_WIDTH,
-              ...(scaleLayout.center
+              ...(scaleLayout.center && !zoomed
                 ? {
                     position: "absolute",
                     left: "50%",
@@ -533,7 +507,7 @@ export function InteractiveDemoCard({
                     transformOrigin: "top center",
                   }
                 : {
-                    transform: `scale(${scaleLayout.scale})`,
+                    transform: `scale(${zoomed ? 1 : scaleLayout.scale})`,
                     transformOrigin: "top left",
                   }),
             }
@@ -574,33 +548,37 @@ export function InteractiveDemoCard({
   }
 
   return (
-    <div ref={frameRef} className="relative w-full overflow-hidden p-1 min-[1100px]:p-2">
-      <div className="relative w-full overflow-hidden" style={{ height: scaleLayout.height || undefined }}>
+    <div ref={setFrameEl} className="relative w-full p-1 min-[1100px]:p-2">
+      <div
+        className="relative w-full"
+        style={{ height: zoomed ? undefined : scaleLayout.height || undefined }}
+      >
         {card}
       </div>
     </div>
   );
 }
 
-export function BeforeAfterDemo() {
+export function InteractiveDemoCard({
+  idPrefix = "demo",
+  className = "",
+  defaultView = "before" as View,
+  /** Keep sidebar + dual panels horizontal (pipeline-style scale) instead of stacking */
+  preserveHorizontal = false,
+}: {
+  idPrefix?: string;
+  className?: string;
+  defaultView?: View;
+  preserveHorizontal?: boolean;
+}) {
   return (
-    <section
-      id="demo"
-      className="relative scroll-mt-8 border-t border-organ-200/90 bg-white py-12 sm:py-16"
-      aria-labelledby="demo-heading"
-    >
-      <div className="layout-shell">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-organ-800">
-            See the difference
-          </p>
-          <h2 id="demo-heading" className="sr-only">
-            Before and after Mooric ERP
-          </h2>
-        </div>
-
-        <InteractiveDemoCard className="mx-auto mt-8 max-w-4xl" />
-      </div>
-    </section>
+    <ZoomableProductView label="Live workspace">
+      <InteractiveDemoScaled
+        idPrefix={idPrefix}
+        className={className}
+        defaultView={defaultView}
+        preserveHorizontal={preserveHorizontal}
+      />
+    </ZoomableProductView>
   );
 }

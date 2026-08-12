@@ -11,9 +11,8 @@ Shows the transformation from how Loan Officers and processors work today versus
 | Export | Use |
 | --- | --- |
 | `InteractiveDemoCard` | Full interactive card (tabs + panels); used in [Hero.tsx](../src/components/Hero.tsx) |
-| `DemoAppWindow` | Optional browser chrome wrapper around the card |
-| `AfterPanel` / `BeforePanel` | Panel content |
-| `BeforeAfterDemo` | Legacy section wrapper (unused in [App.tsx](../src/App.tsx); kept for reference) |
+
+Panels are wrapped in [ZoomableProductView](./zoomable-product-view.md) for click-to-zoom.
 
 ## Layout
 
@@ -38,10 +37,4 @@ Faithful scaled recreation of the product Summary UI, scoped **only** inside the
 
 ## Interaction
 
-- Toggle: **Before Mooric** | **After Mooric**
-- Opacity transition; respects `prefers-reduced-motion`
-- Accessible tablist / tabpanel; `idPrefix` keeps IDs unique
-
-## Entry point
-
-[Hero.tsx](../src/components/Hero.tsx) hosts `#demo`. Hero secondary CTA points to `#memory`.
+Tab buttons toggle Before/After. Keyboard: arrow keys when focused on the tab list.
