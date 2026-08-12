@@ -30,7 +30,7 @@ function ecgWavePath(width: number, amplitude: number, baseline: number, step: n
   return d;
 }
 
-const ecgWaveScrollPath = ecgWavePath(2800, 10, 28, 4);
+const ecgWaveScrollPath = ecgWavePath(2800, 10, 20, 4);
 
 function DriftingEcg({
   pathD,
