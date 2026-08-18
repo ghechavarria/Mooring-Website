@@ -12,7 +12,4 @@ Site-matched dark hero: session pulse → copy + live workspace → blue ticker.
 
 ## Stacked (&lt;1100px)
 
-- No horizontal rule between copy and live workspace
-- Tighter copy bottom padding + demo `pt-6` so the workspace sits closer under the CTAs
-- **Live workspace** eyebrow left-aligned to the demo card’s left edge (same centered `max-w-4xl` frame as Before/After); stats `text-center` below 1100px
-- `.hero-stack-band__wash`: same radial layout as the desktop hero overlay, stepped brighter + soft ERP fill — smoother shift at the one-column breakpoint
+One column, same 880px rail as the live workspace: billboard, supporting copy, then the demo. Copy and the window share a left edge (no leftover full-bleed text vs centered mock). Extra space between the product headline and the proof block; the AI badge is no longer pulled into the paragraph. Background matches desktop.
