@@ -97,7 +97,7 @@ export function Header() {
           </span>
         </a>
 
-        <div className="hidden shrink-0 items-center gap-2 min-[1440px]:ml-6 min-[1440px]:flex min-[1800px]:ml-14 min-[1800px]:gap-5">
+        <div className="hidden shrink-0 items-center gap-1.5 min-[1440px]:ml-6 min-[1440px]:flex min-[1800px]:ml-14 min-[1800px]:gap-3">
           <nav className="flex items-center gap-0.5 min-[1440px]:gap-1 min-[1800px]:gap-1.5" aria-label="Primary">
             {links.map((item) => (
               <a
@@ -111,7 +111,7 @@ export function Header() {
           </nav>
           <button
             type="button"
-            className={`btn-primary-silver ml-6 shrink-0 px-3 py-2 text-[13px] min-[1800px]:ml-8 min-[1800px]:px-4 min-[1800px]:py-2.5 min-[1800px]:text-sm${SHOW_CONTACT_ACTIONS ? "" : " hidden"}`}
+            className={`btn-primary-silver ml-3 shrink-0 px-3 py-2 text-[13px] min-[1800px]:ml-4 min-[1800px]:px-4 min-[1800px]:py-2.5 min-[1800px]:text-sm${SHOW_CONTACT_ACTIONS ? "" : " hidden"}`}
             onClick={() => openContactModal("briefing")}
           >
             Get early access
