@@ -1,43 +1,41 @@
 # Central Loan Memory section
 
-Dedicated marketing section (`#memory`) in [CentralLoanMemorySection.tsx](../src/components/CentralLoanMemorySection.tsx). Rendered in [App.tsx](../src/App.tsx) after **ProblemSection** and before **Features**.
+Dedicated marketing section (`#memory`) in [CentralLoanMemorySection.tsx](../src/components/CentralLoanMemorySection.tsx). Rendered in [App.tsx](../src/App.tsx) after **PipelineSection** and before **LOPersonalAssistantSection**.
 
 ## Purpose
 
 Presents **Central Loan Memory** as Mooric ERP’s core differentiator — not buried in the feature grid. Copy explains how the system retains full borrower context as documents arrive, contrasts with step-by-step task tools, and highlights the practical outcome (~1 hr saved per file) plus compliance logging.
 
-## Final layout
+## Layout
 
-Uses the **A+B hybrid** concept: a section header above a split comparison card. The left panel shows the “Without memory” story with intro copy, a “Last document wins” callout, and a single fragmented diagram labeled **Disconnected steps** — each track node includes a concrete reset example (pay stub upload, conditions sheet, closing checklist), slight horizontal stagger, and a **Borrower context — lost** capstone. The right panel shows the “With Mooric” story with a connected living-record spine diagram and the Central Loan Memory core.
+Locked to the **Lanes** comparison: one row per track (without vs with), then an outcome row. A second card holds the recommendations band and `MemoryPayoffFooter`.
 
-The full-width bottom strip is a two-column payoff: `~1 hr` time-saved via `MemoryStatBlock compact`, plus **Compliance-ready by design**.
+Above the intro, decorative stage pills (`MemoryStagePills`) sit where the old layout switcher was. They are not interactive. Inactive pills: **1003**, **Conditions**, **Closing**. Active (blue) pill: **Full file**.
 
-## Look (standalone-aligned)
+Shared pieces:
 
-- Section surface: `#f4f6f9` with cool slate/silver washes + noise grain (matches standalone `#memory`)
-- Cool slate type tokens (`#0f172a`, `#334155`, `#64748b` / slate) and blue accent `#2563eb`
-- Tighter diagram spacing, 16px icons, 30–32px node rings
-- Recommendation callout: blue-tinted border/fill (`#2563eb` at low opacity)
+- `MemoryIntro` — eyebrow, headline, lead paragraph
+- `MemoryPayoffFooter` — `~1 hr` stat + compliance note
+- Same copy constants (`contrasts`, `tracks`, `memoryStat`, `complianceNote`)
 
-## Implementation notes
+## Look
 
-- `ConceptSplitLivingRecord` is the only rendered layout (structure unchanged).
-- `LivingRecordDiagram` supports `connected` and `fragmented` variants for the right and left panels.
-- `id="memory-heading"` lives on the final section heading and is referenced by the `#memory` section’s `aria-labelledby`.
+- Section surface: dark `#0a1626`; intro type in white / slate-300
+- Comparison card: white with `#e7ebf1` borders, cool slate type, blue accent `#2563eb`
+- Fragmented side: dashed borders, muted slate, “reset” / “lost” language
+- **Lanes:** comparison card ends at the outcome row. Recommendations fill the **full top band** of a second card; `MemoryPayoffFooter` sits below.
 
 ## Shared content
 
-- **Eyebrow:** `02 · Core differentiator`
+- **Eyebrow:** `04 · Core differentiator`
 - **Headline:** Central Loan Memory
-- **Contrasts:** 3 steps (separate tasks → Central Loan Memory → full-file recommendations)
+- **Contrasts:** separate tasks → Central Loan Memory → full-file recommendations
 - **Tracks:** 1003, Conditions, Closing
 - **Stat:** `~1 hr` saved per file on loan structuring
-- **Compliance:** Every document / field / update logged against the file for auditor / investor / underwriter questions
 
 ## Navigation
 
-No dedicated “Process / Pipeline” header links — Memory is reached via **Loan Memory** in the nav (`#memory`). Hero CTA **See why it's different** goes to `#features` (02).
-Problem section CTA: **See how ↓** → `#memory`
+Reached via **Loan Memory** in the nav (`#memory`). Problem section **See how ↓** → `#memory`.
 
 ## Content source
 

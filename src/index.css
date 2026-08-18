@@ -739,6 +739,210 @@
 #memory .memory-intro .font-mono {
   @apply text-erp;
 }
+
+.memory-outcome-lost {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse 90% 80% at 0% 100%, rgb(239 68 68 / 0.1), transparent 58%),
+    rgb(254 242 242 / 0.45);
+}
+
+.memory-outcome-lost__card {
+  margin-inline: auto;
+  display: flex;
+  max-width: 17rem;
+  align-items: flex-start;
+  gap: 0.75rem;
+  border-radius: 0.75rem;
+  border: 1px dashed rgb(248 113 113 / 0.45);
+  background: rgb(255 255 255 / 0.55);
+  padding: 0.875rem 1rem;
+  opacity: 0.92;
+}
+
+.memory-outcome-lost__icon {
+  display: flex;
+  height: 2rem;
+  width: 2rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: rgb(254 226 226 / 0.9);
+  color: rgb(248 113 113 / 0.85);
+}
+
+.memory-outcome-lost__label {
+  font-family: theme("fontFamily.mono");
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgb(248 113 113 / 0.9);
+}
+
+.memory-outcome-lost__headline {
+  margin-top: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: rgb(185 28 28 / 0.75);
+}
+
+.memory-outcome-mooric {
+  position: relative;
+  display: flex;
+  min-height: 10.5rem;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.memory-outcome-mooric__mesh {
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: rgb(226 236 250 / 0.92);
+}
+
+.memory-outcome-mooric__art {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.memory-outcome-mooric__pipe {
+  fill: none;
+  stroke: rgb(0 117 255 / 0.38);
+  stroke-width: 6;
+  stroke-linecap: round;
+}
+
+.memory-outcome-mooric__pipe-light {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 28 400;
+  animation: memory-pipeline-light 2.6s linear infinite;
+}
+
+@keyframes memory-pipeline-light {
+  to {
+    stroke-dashoffset: -428;
+  }
+}
+
+.memory-outcome-mooric__card {
+  position: relative;
+  z-index: 2;
+  margin-inline: auto;
+  max-width: 19rem;
+  overflow: hidden;
+  border-radius: 0.875rem;
+  border: 1px solid rgb(255 255 255 / 0.62);
+  background: rgb(255 255 255 / 0.52);
+  padding: 0.875rem 1rem;
+  backdrop-filter: blur(18px) saturate(1.45);
+  -webkit-backdrop-filter: blur(18px) saturate(1.45);
+  box-shadow:
+    0 10px 34px rgb(0 117 255 / 0.14),
+    0 1px 2px rgb(15 23 42 / 0.04),
+    inset 0 1px 0 rgb(255 255 255 / 0.82),
+    inset 0 -1px 0 rgb(0 117 255 / 0.08);
+}
+
+.memory-outcome-mooric__card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(145deg, rgb(255 255 255 / 0.58) 0%, transparent 46%);
+}
+
+.memory-outcome-mooric__card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgb(0 117 255 / 0.1);
+}
+
+.memory-outcome-mooric__label {
+  position: relative;
+  z-index: 1;
+  font-family: theme("fontFamily.mono");
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #0075ff;
+}
+
+.memory-outcome-mooric__badge {
+  display: inline-flex;
+  vertical-align: middle;
+  align-items: center;
+  gap: 0.4rem;
+  margin-left: 0.2rem;
+  border-radius: 9999px;
+  border: 1px solid rgb(255 255 255 / 0.55);
+  background: rgb(255 255 255 / 0.42);
+  padding: 0.28rem 0.7rem;
+  font-family: theme("fontFamily.mono");
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #0075ff;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.65);
+}
+
+.memory-outcome-mooric__badge-dot {
+  height: 0.45rem;
+  width: 0.45rem;
+  border-radius: 9999px;
+  background: #0075ff;
+  box-shadow: 0 0 8px rgb(0 117 255 / 0.7);
+  animation: memory-outcome-dot 3.5s ease-in-out infinite;
+}
+
+.memory-outcome-mooric__headline {
+  position: relative;
+  z-index: 1;
+  margin-top: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: #020618;
+}
+
+@keyframes memory-outcome-dot {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 6px rgb(0 117 255 / 0.65);
+  }
+  50% {
+    opacity: 0.55;
+    box-shadow: 0 0 10px rgb(0 117 255 / 0.95);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .memory-outcome-mooric__pipe-light,
+  .memory-outcome-mooric__badge-dot {
+    animation: none;
+  }
+}
+
 #production-glance {
   @apply py-20 sm:py-28 lg:py-32;
 }
