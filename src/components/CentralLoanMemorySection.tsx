@@ -290,99 +290,102 @@ function ConceptStepLanes() {
       className="mt-12"
     >
       <article className="overflow-hidden rounded-3xl border border-[#e7ebf1] bg-white shadow-card-md">
-      <header className="grid border-b border-[#e7ebf1] bg-[#eef1f5] sm:grid-cols-2">
-        <div className="border-b border-[#e7ebf1] px-7 py-6 sm:border-b-0 sm:border-r sm:px-8">
-          <WithoutMemoryCopy />
-        </div>
-        <div className="bg-white/60 px-7 py-6 sm:px-8">
-          <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-[#2563eb]">
-            With Mooric
-          </p>
-          <h3 className="mt-3 text-xl font-semibold text-[#020618]">{contrasts[1].title}</h3>
-          <p className="mt-3 text-sm leading-relaxed text-[#1e293b]">{contrasts[1].body}</p>
-        </div>
-      </header>
+        <div className="sm:grid sm:grid-cols-2 sm:grid-flow-col sm:grid-rows-[auto_auto_repeat(3,auto)_auto]">
+          <div className="contents">
+            <div className="border-b border-[#e7ebf1] bg-[#eef1f5] px-7 py-6 sm:border-r sm:px-8">
+              <WithoutMemoryCopy />
+            </div>
+            <div
+              className="hidden border-b border-[#e7ebf1] bg-[#f8fafc] px-7 py-5 text-slate-400 sm:flex sm:items-center sm:justify-center sm:border-r sm:px-8"
+              aria-label="Without memory"
+            >
+              <IconWithoutMemory size={32} />
+            </div>
+            {tracks.map((track, i) => (
+              <div
+                key={`without-${track.label}`}
+                className={`border-b border-[#e7ebf1] p-5 sm:border-r sm:p-6 ${
+                  i % 2 === 0 ? "bg-white" : "bg-[#fafbfc]"
+                }`}
+              >
+                <div className="flex items-start gap-3 rounded-xl border border-dashed border-slate-300 bg-[#eef1f5]/60 px-4 py-3.5">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#e7ebf1] text-slate-400">
+                    <track.icon />
+                  </span>
+                  <div>
+                    <p className="text-sm font-semibold text-slate-500">{track.label}</p>
+                    <p className="mt-1 text-xs leading-relaxed text-slate-400">
+                      {fragmentedExamples[track.label]}
+                    </p>
+                    <p className="mt-2 font-mono text-[9px] uppercase tracking-wider text-slate-400">
+                      context resets here
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+            <div className="memory-outcome-lost border-b border-[#e7ebf1] p-5 sm:border-b-0 sm:border-r sm:p-6">
+              <div className="memory-outcome-lost__card">
+                <span className="memory-outcome-lost__icon">
+                  <IconBrokenLink size={18} />
+                </span>
+                <div className="min-w-0 text-left">
+                  <p className="memory-outcome-lost__label">Outcome without memory</p>
+                  <p className="memory-outcome-lost__headline">Borrower context — lost</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
-      <div className="hidden border-b border-[#e7ebf1] bg-[#f8fafc] sm:grid sm:grid-cols-2">
-        <div
-          className="flex items-center justify-center border-r border-[#e7ebf1] px-7 py-5 text-slate-400 sm:px-8"
-          aria-label="Without memory"
-        >
-          <IconWithoutMemory size={32} />
-        </div>
-        <div
-          className="flex items-center justify-center px-7 py-5 text-erp sm:px-8"
-          aria-label="With Mooric"
-        >
-          <IconBrain size={32} />
-        </div>
-      </div>
-
-      {tracks.map((track, i) => (
-        <div
-          key={track.label}
-          className={`grid border-b border-[#e7ebf1] sm:grid-cols-2 ${
-            i % 2 === 0 ? "bg-white" : "bg-[#fafbfc]"
-          }`}
-        >
-          <div className="border-[#e7ebf1] p-5 sm:border-r sm:p-6">
-            <div className="flex items-start gap-3 rounded-xl border border-dashed border-slate-300 bg-[#eef1f5]/60 px-4 py-3.5">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#e7ebf1] text-slate-400">
-                <track.icon />
-              </span>
-              <div>
-                <p className="text-sm font-semibold text-slate-500">{track.label}</p>
-                <p className="mt-1 text-xs leading-relaxed text-slate-400">
-                  {fragmentedExamples[track.label]}
-                </p>
-                <p className="mt-2 font-mono text-[9px] uppercase tracking-wider text-slate-400">
-                  context resets here
+          <div className="contents">
+            <div className="border-b border-[#e7ebf1] bg-white/60 px-7 py-6 sm:px-8">
+              <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-[#2563eb]">
+                With Mooric
+              </p>
+              <h3 className="mt-3 text-xl font-semibold text-[#020618]">{contrasts[1].title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-[#1e293b]">{contrasts[1].body}</p>
+            </div>
+            <div
+              className="hidden border-b border-[#e7ebf1] bg-[#f8fafc] px-7 py-5 text-erp sm:flex sm:items-center sm:justify-center sm:px-8"
+              aria-label="With Mooric"
+            >
+              <IconBrain size={32} />
+            </div>
+            {tracks.map((track, i) => (
+              <div
+                key={`with-${track.label}`}
+                className={`border-b border-[#e7ebf1] p-5 sm:p-6 ${
+                  i % 2 === 0 ? "bg-white" : "bg-[#fafbfc]"
+                }`}
+              >
+                <div className="flex items-start gap-3 rounded-xl border border-[#e7ebf1] bg-white px-4 py-3.5 shadow-sm">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#2563eb] text-white shadow-[0_0_14px_rgba(0,117,255,0.28)]">
+                    <track.icon />
+                  </span>
+                  <div>
+                    <p className="text-sm font-semibold text-[#0f172a]">{track.label}</p>
+                    <p className="mt-1 text-xs leading-relaxed text-slate-600">{track.body}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+            <div className="memory-outcome-mooric p-5 sm:p-6">
+              <div className="memory-outcome-mooric__mesh" aria-hidden>
+                <MemoryPipelineBackdrop />
+              </div>
+              <div className="memory-outcome-mooric__card">
+                <p className="memory-outcome-mooric__label">Outcome with Mooric</p>
+                <p className="memory-outcome-mooric__headline">
+                  Full borrower context —{" "}
+                  <span className="memory-outcome-mooric__badge">
+                    <span className="memory-outcome-mooric__badge-dot" aria-hidden />
+                    Retained
+                  </span>
                 </p>
               </div>
             </div>
           </div>
-          <div className="border-t border-[#e7ebf1] p-5 sm:border-t-0 sm:p-6">
-            <div className="flex items-start gap-3 rounded-xl border border-[#e7ebf1] bg-white px-4 py-3.5 shadow-sm">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#2563eb] text-white shadow-[0_0_14px_rgba(0,117,255,0.28)]">
-                <track.icon />
-              </span>
-              <div>
-                <p className="text-sm font-semibold text-[#0f172a]">{track.label}</p>
-                <p className="mt-1 text-xs leading-relaxed text-slate-600">{track.body}</p>
-              </div>
-            </div>
-          </div>
         </div>
-      ))}
-
-      <div className="grid sm:grid-cols-2">
-        <div className="memory-outcome-lost border-b border-[#e7ebf1] p-5 sm:border-b-0 sm:border-r sm:p-6">
-          <div className="memory-outcome-lost__card">
-            <span className="memory-outcome-lost__icon">
-              <IconBrokenLink size={18} />
-            </span>
-            <div className="min-w-0 text-left">
-              <p className="memory-outcome-lost__label">Outcome without memory</p>
-              <p className="memory-outcome-lost__headline">Borrower context — lost</p>
-            </div>
-          </div>
-        </div>
-        <div className="memory-outcome-mooric border-b border-[#e7ebf1] p-5 sm:border-b-0 sm:p-6">
-          <div className="memory-outcome-mooric__mesh" aria-hidden>
-            <MemoryPipelineBackdrop />
-          </div>
-          <div className="memory-outcome-mooric__card">
-            <p className="memory-outcome-mooric__label">Outcome with Mooric</p>
-            <p className="memory-outcome-mooric__headline">
-              Full borrower context —{" "}
-              <span className="memory-outcome-mooric__badge">
-                <span className="memory-outcome-mooric__badge-dot" aria-hidden />
-                Retained
-              </span>
-            </p>
-          </div>
-        </div>
-      </div>
       </article>
 
       <article className="mt-4 overflow-hidden rounded-3xl border border-[#e7ebf1] bg-white shadow-card-md">
