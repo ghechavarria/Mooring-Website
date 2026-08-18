@@ -12,9 +12,9 @@ Each of the two display lines is `white-space: nowrap`. Size uses `--hc-h1: min(
 
 ## Platform line
 
-One nowrap silver line. Size is pure CSS via the slot container:
+Tablet and desktop: one nowrap silver line. Size is `font-size: min(0.8125rem, calc(100cqi / 44))`.
 
-`font-size: min(0.8125rem, calc(100cqi / 44))`
+Phone (`<768px`): two lines at the comma (`Intelligent Mortgage Platform,` / `Empowering Better Closings`). The leading rule stays vertically centered on the pair (`align-items: center`). Type uses `min(0.8125rem, calc(100cqi / 26))`.
 
 ## CTAs
 

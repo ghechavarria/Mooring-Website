@@ -2,7 +2,7 @@
 
 **Your production at a glance** band — sits under the hero’s blue ticker.
 
-White background with dark type. Stats sit in three soft `organ-100` tiles.
+Stats sit in clay `.neu-pad` tiles with unique marks: bars (volume), house (loan size), hourglass (days).
 
 ## File
 

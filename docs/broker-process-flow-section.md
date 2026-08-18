@@ -1,6 +1,6 @@
 # Broker process-flow section
 
-Four-stage loan journey (`#process`) in [`BrokerProcessFlowSection.tsx`](../src/components/BrokerProcessFlowSection.tsx). Rendered after the hero; the [LOS compatibility strip](./los-compatibility-strip.md) follows immediately underneath.
+Four-stage loan journey (`#process`) in [`BrokerProcessFlowSection.tsx`](../src/components/BrokerProcessFlowSection.tsx). The [LOS compatibility strip](./los-compatibility-strip.md) sits directly under the stage cards in the same section.
 
 ## Purpose
 
@@ -8,18 +8,23 @@ Positions Mooric as **one workspace for the entire broker-side process** — sta
 
 ## Stages
 
-| Stage | Line |
-|-------|------|
-| Prospect | Every lead and conversation logged, ready to become a file. |
-| Application & Setup | Upload borrower docs — AI completes the 1003, you review side by side. |
-| Processing | Conditions, TRID deadlines, title, HOI, appraisal — tracked on one screen, updated as things come in. |
-| Closed | Clean handoff, full file history, audit-ready records. |
+| Stage | Mark | Line |
+|-------|------|------|
+| Prospect | Person + | Every lead and conversation logged, ready to become a file. |
+| Application & Setup | Inbox download | Upload borrower docs — AI completes the 1003, you review side by side. |
+| Processing | Cog | Conditions, TRID deadlines, title, HOI, appraisal — tracked on one screen, updated as things come in. |
+| Closed | Key | Clean handoff, full file history, audit-ready records. |
+
+Stage marks are unique across the site (not reused from Features, Assistant, Production Glance, or other process columns).
 
 ## Layout
 
 - Eyebrow `End to end` + serif headline + short intro
-- Horizontal connected steps on `lg+` (numbered nodes + gradient connectors); stacked on smaller viewports
-- Surface: `bg-organ-50` with section borders matching adjacent bands
+- Horizontal numbered stage tiles on `lg+` (4 columns); stacked on smaller viewports
+- Each column pairs the stage mark with the numeral at the same size (icon `1em` of `.swiss-num`). Closed uses a check-in-circle (pipeline complete), not a house key.
+: person+, inbox, cog, key
+- Surface: Swiss white with hairline `.swiss-rail` (see [section-glass.md](./section-glass.md))
+- LOS copy sits under the rail with a circular MISMO 3.4 `.glass-stamp` (`#los`)
 
 ## Related framing
 

@@ -1,9 +1,43 @@
 import { motion } from "framer-motion";
 
+function IconVolume() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path d="M4 18V10M10 18V6M16 18v-8M20 18H3" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function IconLoanSize() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path
+        d="M4 11.5 12 4l8 7.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-8.5z"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function IconDays() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path
+        d="M6.5 3h11v3.2L12 12l5.5 5.8V21h-11v-3.2L12 12 6.5 6.2V3z"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 const productionStats = [
-  ["Volume", "12 loans"],
-  ["Avg. loan size", "$385K"],
-  ["Avg. days to close", "32"],
+  { label: "Volume", value: "12 loans", Icon: IconVolume },
+  { label: "Avg. loan size", value: "$385K", Icon: IconLoanSize },
+  { label: "Avg. days to close", value: "32", Icon: IconDays },
 ] as const;
 
 /** Sits directly under the hero’s blue moving ticker strip */
@@ -11,7 +45,7 @@ export function ProductionGlanceSection() {
   return (
     <section
       id="production-glance"
-      className="relative overflow-hidden bg-white px-6 py-20 text-ink-950 sm:px-10 sm:py-24 lg:px-16 lg:py-28 xl:px-24"
+      className="section-neu relative px-6 py-20 text-ink-950 sm:px-10 sm:py-24 lg:px-16 lg:py-28 xl:px-24"
       aria-label="Your production at a glance"
     >
       <motion.div
@@ -19,10 +53,10 @@ export function ProductionGlanceSection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.4 }}
-        className="relative z-10 mx-auto flex max-w-6xl flex-col gap-12 lg:gap-14"
+        className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(16rem,0.9fr)] lg:gap-16"
       >
         <div className="max-w-3xl">
-          <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.22em] text-erp">
+          <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-erp">
             Your production at a glance
           </p>
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-ink-950 text-balance sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
@@ -34,22 +68,29 @@ export function ProductionGlanceSection() {
           </p>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-3 sm:gap-5">
-          {productionStats.map(([label, value], i) => (
+        <div className="flex flex-col gap-5">
+          {productionStats.map((stat, i) => (
             <motion.div
-              key={label}
+              key={stat.label}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.08 + i * 0.06 }}
-              className="rounded-2xl bg-organ-100 px-6 py-7 sm:px-7 sm:py-8"
+              className="neu-pad neu-pad--press px-6 py-5 sm:px-7"
             >
-              <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-organ-700">
-                {label}
-              </p>
-              <p className="mt-4 font-display text-3xl font-bold tabular-nums tracking-tight text-ink-950 sm:text-4xl">
-                <span className="text-erp">{value}</span>
-              </p>
+              <div className="flex items-start gap-4">
+                <span className="mt-0.5 text-erp">
+                  <stat.Icon />
+                </span>
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-organ-700">
+                    {stat.label}
+                  </p>
+                  <p className="mt-2 font-display text-3xl font-bold tabular-nums tracking-tight text-ink-950 sm:text-4xl">
+                    <span className="text-erp">{stat.value}</span>
+                  </p>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>

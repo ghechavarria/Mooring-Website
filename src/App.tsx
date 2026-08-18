@@ -8,7 +8,6 @@ import { PipelineSection } from "./components/PipelineSection";
 import { CentralLoanMemorySection } from "./components/CentralLoanMemorySection";
 import { LOPersonalAssistantSection } from "./components/LOPersonalAssistantSection";
 import { BrokerProcessFlowSection } from "./components/BrokerProcessFlowSection";
-import { LosCompatibilityStrip } from "./components/LosCompatibilityStrip";
 import { HeroMotionBand } from "./components/HeroMotionBand";
 import { TeamSection } from "./components/TeamSection";
 import { ContactCTA } from "./components/ContactCTA";
@@ -29,7 +28,6 @@ export default function App() {
           <CentralLoanMemorySection />
           <LOPersonalAssistantSection />
           <BrokerProcessFlowSection />
-          <LosCompatibilityStrip />
           <HeroMotionBand />
           <TeamSection />
           <ContactCTA />

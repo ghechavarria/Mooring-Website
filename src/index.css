@@ -40,6 +40,341 @@
   .section-marketing {
     @apply relative scroll-mt-8 py-28 sm:py-36;
   }
+
+  /**
+   * Mixed light-band languages, one type/color system.
+   * Glass (Features) · Neumorphism (Production) · Neo-brutalism (Assistant)
+   * Swiss (Process/LOS)
+   */
+  .section-glass {
+    position: relative;
+    isolation: isolate;
+    background-color: #dce7f4;
+    background-image:
+      linear-gradient(118deg, rgb(255 255 255 / 0.42) 0%, transparent 36%),
+      radial-gradient(ellipse 70% 50% at 4% 10%, rgb(0 117 255 / 0.22), transparent 58%),
+      radial-gradient(ellipse 55% 42% at 96% 4%, rgb(191 211 230 / 0.9), transparent 50%),
+      radial-gradient(ellipse 48% 38% at 78% 88%, rgb(0 117 255 / 0.14), transparent 62%);
+  }
+
+  .section-glass::before,
+  .section-glass::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .section-glass::before {
+    inset: 0;
+    opacity: 0.4;
+    background-image:
+      linear-gradient(to right, rgb(0 117 255 / 0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(0 117 255 / 0.07) 1px, transparent 1px);
+    background-size: 3.25rem 3.25rem;
+    mask-image: radial-gradient(ellipse 95% 85% at 50% 28%, #000 16%, transparent 78%);
+    -webkit-mask-image: radial-gradient(ellipse 95% 85% at 50% 28%, #000 16%, transparent 78%);
+  }
+
+  .section-glass::after {
+    width: min(42rem, 78vw);
+    height: min(42rem, 78vw);
+    top: 10%;
+    right: -16%;
+    border-radius: 40% 60% 45% 55%;
+    background: rgb(0 117 255 / 0.18);
+    filter: blur(78px);
+  }
+
+  .section-glass > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .glass-folder {
+    position: relative;
+    padding-top: 1.85rem;
+  }
+
+  .glass-folder::before,
+  .glass-folder::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+    border: 1px solid rgb(0 117 255 / 0.12);
+    background: rgb(255 255 255 / 0.7);
+  }
+
+  .glass-folder::before {
+    top: 2.05rem;
+    right: 0.95rem;
+    bottom: -0.4rem;
+    left: 0.35rem;
+    border-radius: 4px 1.4rem 4px 4px;
+  }
+
+  .glass-folder::after {
+    top: 2.2rem;
+    right: 0.35rem;
+    bottom: -0.62rem;
+    left: 0.85rem;
+    border-radius: 4px 1.55rem 4px 4px;
+    background: rgb(232 242 255 / 0.85);
+  }
+
+  .glass-folder__tab {
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    display: inline-flex;
+    max-width: min(18rem, calc(100% - 2.2rem));
+    align-items: center;
+    gap: 0.4rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-radius: 11px 11px 0 0;
+    border: 1px solid rgb(0 117 255 / 0.22);
+    border-bottom: 0;
+    background: #ffffff;
+    padding: 0.42rem 0.95rem 0.55rem 0.7rem;
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 0.6875rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #0075ff;
+    box-shadow: inset 0 2px 0 #0075ff;
+  }
+
+  .glass-folder__tab svg {
+    height: 0.85rem;
+    width: 0.85rem;
+    flex-shrink: 0;
+  }
+
+  .glass-folder:nth-child(1) .glass-folder__tab {
+    left: 1.05rem;
+  }
+
+  .glass-folder:nth-child(2) .glass-folder__tab {
+    left: auto;
+    right: 22%;
+  }
+
+  .glass-folder:nth-child(3) .glass-folder__tab {
+    left: 22%;
+  }
+
+  .glass-folder:nth-child(4) .glass-folder__tab {
+    left: auto;
+    right: 1.05rem;
+  }
+
+  .glass-folder__body {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    min-height: 100%;
+    border-radius: 4px 1.75rem 4px 4px;
+    background: rgb(255 255 255 / 0.92);
+    border: 1px solid rgb(0 117 255 / 0.18);
+    box-shadow:
+      0 18px 50px -22px rgb(0 117 255 / 0.22),
+      inset 0 1px 0 #ffffff;
+    transition:
+      box-shadow 0.25s ease,
+      background-color 0.25s ease,
+      border-color 0.25s ease;
+  }
+
+  .glass-folder:hover .glass-folder__body {
+    background: #ffffff;
+    border-color: rgb(0 117 255 / 0.32);
+    box-shadow:
+      0 26px 56px -20px rgb(0 117 255 / 0.28),
+      inset 0 1px 0 #ffffff;
+  }
+
+  .glass-folder__mark {
+    position: absolute;
+    right: 1.15rem;
+    top: 1.15rem;
+    display: grid;
+    height: 2.75rem;
+    width: 2.75rem;
+    place-items: center;
+    border-radius: 9999px;
+    border: 1px solid rgb(0 117 255 / 0.35);
+    background: rgb(0 117 255 / 0.12);
+    color: #0075ff;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .glass-folder:hover .glass-folder__body {
+      box-shadow:
+        0 18px 50px -22px rgb(0 117 255 / 0.22),
+        inset 0 1px 0 #ffffff;
+    }
+  }
+
+  .glass-stamp {
+    display: grid;
+    height: 6.5rem;
+    width: 6.5rem;
+    flex-shrink: 0;
+    place-items: center;
+    rotate: -12deg;
+    border-radius: 9999px;
+    border: 2px solid rgb(0 117 255 / 0.45);
+    background: rgb(255 255 255 / 0.28);
+    box-shadow: inset 0 0 0 5px rgb(0 117 255 / 0.12);
+    backdrop-filter: blur(14px) saturate(1.5);
+    -webkit-backdrop-filter: blur(14px) saturate(1.5);
+  }
+
+  .glass-stamp__ring {
+    display: grid;
+    height: 5.15rem;
+    width: 5.15rem;
+    place-items: center;
+    border-radius: 9999px;
+    border: 1px dashed rgb(0 117 255 / 0.55);
+    text-align: center;
+    font-family: Montserrat, system-ui, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    line-height: 1.15;
+    text-transform: uppercase;
+    color: #0075ff;
+  }
+
+  .section-neu {
+    background: #e6ebf2;
+  }
+
+  .neu-pad {
+    background: #e6ebf2;
+    border-radius: 1.75rem;
+    box-shadow:
+      11px 11px 24px #c4cbd6,
+      -9px -9px 22px #ffffff;
+  }
+
+  .neu-pad--press:active {
+    box-shadow:
+      inset 7px 7px 16px #c4cbd6,
+      inset -6px -6px 14px #ffffff;
+  }
+
+  .team-portrait::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 5px;
+    background: #0075ff;
+  }
+
+  .team-lockup {
+    margin: 1.1rem auto 0;
+    display: flex;
+    width: 100%;
+    max-width: 220px;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0.9rem;
+    padding: 1.15rem 1.25rem 1.25rem;
+    text-align: center;
+  }
+
+  .team-lockup h3 {
+    margin: 0;
+    font-family: Montserrat, system-ui, sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    color: #0a0e14;
+  }
+
+  .team-lockup p {
+    margin: 0.35rem 0 0;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #0075ff;
+    text-wrap: balance;
+  }
+  .section-swiss {
+    background: #ffffff;
+  }
+
+  .swiss-rail {
+    display: grid;
+    border-top: 1px solid #0a0e14;
+    border-bottom: 1px solid #0a0e14;
+  }
+
+  @media (min-width: 1024px) {
+    .swiss-rail {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  .swiss-col {
+    padding: 1.75rem 0 2rem;
+    border-bottom: 1px solid #0a0e14;
+  }
+
+  @media (min-width: 1024px) {
+    .swiss-col {
+      padding: 2.25rem 1.75rem 2.5rem;
+      border-bottom: 0;
+      border-right: 1px solid #0a0e14;
+    }
+
+    .swiss-col:first-child {
+      padding-left: 0;
+      padding-right: 1.75rem;
+    }
+
+    .swiss-col:last-child {
+      border-right: 0;
+      padding-right: 0;
+      padding-left: 1.75rem;
+    }
+  }
+
+  .swiss-num {
+    display: flex;
+    align-items: center;
+    gap: 0.12em;
+    margin: 0;
+    font-family: Montserrat, system-ui, sans-serif;
+    font-size: clamp(2.75rem, 6vw, 4.25rem);
+    font-weight: 800;
+    letter-spacing: -0.06em;
+    line-height: 0.9;
+    color: #0075ff;
+  }
+
+  .swiss-num svg {
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+  }
+
+  @media (prefers-reduced-transparency: reduce) {
+    .glass-folder__body,
+    .glass-stamp {
+      background: #ffffff;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+  }
   .section-heading {
     @apply mt-4 font-display text-4xl font-extrabold uppercase tracking-[0.04em] text-ink-950 text-balance sm:text-5xl md:text-6xl;
   }
@@ -227,8 +562,9 @@
   }
 
   /*
-   * One line, fluid to the slot: ~55 uppercase chars + tracking ≈ 44em of width.
-   * font-size = slotWidth / 44 keeps the full phrase inside without JS/overflow clip.
+   * Default / tablet+: one nowrap silver line. ~55 uppercase chars + tracking ≈ 44em.
+   * Phone (<768px): two lines at the comma; the rule stays vertically centered
+   * on the pair via align-items: center.
    */
   .hero-copy__platform-text {
     display: block;
@@ -296,6 +632,21 @@
     border-color: #0075ff;
     background: rgb(0 117 255 / 0.1);
     color: #93c5fd;
+  }
+
+  /**
+   * Phone: two-line platform tag with the rule centered on the pair.
+   * Tablet (768px+) stays one line, including stacked-hero iPads.
+   */
+  @media (max-width: 767px) {
+    .hero-copy__platform-text {
+      white-space: normal;
+      font-size: min(0.8125rem, calc(100cqi / 26));
+    }
+
+    .hero-copy__platform-line {
+      display: block;
+    }
   }
 
   /**
@@ -373,10 +724,10 @@
 }
 
 #pipeline.section-marketing {
-  @apply border-b-0 bg-[#0a1626] pb-0 pt-24 text-white sm:pt-28;
+  @apply border-b-0 bg-[#0a1626] pb-0 pt-36 text-white sm:pt-44;
 }
 #memory.section-marketing {
-  @apply border-0 bg-[#0a1626] pb-32 pt-20 sm:pb-40 sm:pt-28;
+  @apply border-0 bg-[#0a1626] pb-44 pt-20 sm:pb-56 sm:pt-28;
 }
 #memory .memory-intro .section-heading,
 #memory .memory-intro h2 {
@@ -392,13 +743,7 @@
   @apply py-20 sm:py-28 lg:py-32;
 }
 #assistant.section-marketing {
-  @apply pb-10 pt-24 sm:pb-12 sm:pt-28;
-}
-#process {
-  @apply bg-white;
-}
-#los .layout-shell {
-  @apply py-10 sm:py-12;
+  @apply pb-32 pt-36 sm:pb-40 sm:pt-44;
 }
 #team.section-marketing {
   @apply py-28 sm:pb-40 sm:pt-32;

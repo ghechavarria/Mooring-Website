@@ -68,15 +68,14 @@ export function Header() {
 
   return (
     <>
-    <header className="sticky inset-x-0 top-0 z-40 w-full max-w-none min-w-0 shrink-0 self-stretch border-b border-organ-200/90 bg-white shadow-[0_1px_0_rgba(15,23,42,0.06),0_8px_24px_-4px_rgba(15,23,42,0.08)]">
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-accent/0 via-accent/35 to-accent/0" aria-hidden />
+    <header className="sticky inset-x-0 top-0 z-40 w-full max-w-none min-w-0 shrink-0 self-stretch border-b border-organ-200 bg-white">
       <div className="layout-header flex h-[4.25rem] items-center justify-between gap-3 min-[1440px]:gap-x-4 min-[1800px]:gap-x-6">
         <a
           href="#top"
-          className="group flex min-w-0 shrink-0 items-center gap-2.5 rounded-xl py-1 pl-1 pr-2 transition-colors hover:bg-organ-50/90 sm:gap-3 sm:pr-3 min-[1440px]:gap-2.5 min-[1800px]:gap-3.5"
+          className="group flex min-w-0 shrink-0 items-center gap-2.5 rounded-xl py-1 pl-1 pr-2 sm:gap-3 sm:pr-3 min-[1440px]:gap-2.5 min-[1800px]:gap-3.5"
         >
           <span
-            className="relative h-9 w-9 shrink-0 overflow-hidden rounded-[10px] ring-1 ring-organ-200/90 shadow-[0_1px_2px_rgba(15,23,42,0.05),0_4px_12px_-4px_rgba(15,23,42,0.12)] transition-[box-shadow,ring-color] group-hover:ring-accent/40 sm:h-10 sm:w-10 min-[1440px]:h-10 min-[1440px]:w-10 min-[1800px]:h-[2.75rem] min-[1800px]:w-[2.75rem]"
+            className="relative h-9 w-9 shrink-0 overflow-hidden rounded-[10px] sm:h-10 sm:w-10 min-[1440px]:h-10 min-[1440px]:w-10 min-[1800px]:h-[2.75rem] min-[1800px]:w-[2.75rem]"
             aria-hidden
           >
             <img
@@ -89,7 +88,7 @@ export function Header() {
             />
           </span>
           <span
-            className="pointer-events-none hidden h-8 w-px shrink-0 bg-gradient-to-b from-organ-100 via-accent/45 to-organ-100 sm:block min-[1440px]:h-8 min-[1800px]:h-9"
+            className="pointer-events-none h-8 w-px shrink-0 bg-organ-200 min-[1440px]:h-8 min-[1800px]:h-9"
             aria-hidden
           />
           <span className="min-w-0 font-display text-[1.0625rem] font-extrabold uppercase leading-none tracking-[0.04em] sm:text-lg sm:tracking-[0.05em] min-[1440px]:text-base min-[1440px]:tracking-[0.04em] min-[1800px]:text-lg min-[1800px]:tracking-[0.06em]">
@@ -104,7 +103,7 @@ export function Header() {
               <a
                 key={item.href}
                 href={item.href}
-                className="rounded-md px-2 py-1.5 text-[13px] font-medium text-organ-800 transition hover:bg-organ-100 hover:text-organ-950 min-[1800px]:px-3 min-[1800px]:py-2 min-[1800px]:text-sm"
+                className="rounded-md px-2 py-1.5 font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-organ-800 transition hover:text-erp min-[1800px]:px-3 min-[1800px]:py-2 min-[1800px]:text-xs"
               >
                 {item.label}
               </a>
@@ -112,7 +111,7 @@ export function Header() {
           </nav>
           <button
             type="button"
-            className={`btn-primary-silver shrink-0 px-3 py-2 text-[13px] min-[1800px]:px-4 min-[1800px]:py-2.5 min-[1800px]:text-sm${SHOW_CONTACT_ACTIONS ? "" : " hidden"}`}
+            className={`btn-primary-silver ml-6 shrink-0 px-3 py-2 text-[13px] min-[1800px]:ml-8 min-[1800px]:px-4 min-[1800px]:py-2.5 min-[1800px]:text-sm${SHOW_CONTACT_ACTIONS ? "" : " hidden"}`}
             onClick={() => openContactModal("briefing")}
           >
             Get early access
@@ -121,7 +120,7 @@ export function Header() {
 
         <button
           type="button"
-          className="flex h-11 w-11 shrink-0 touch-manipulation items-center justify-center rounded-md border border-organ-200 text-organ-900 transition hover:bg-organ-50 min-[1440px]:hidden"
+          className="flex h-11 w-11 shrink-0 touch-manipulation items-center justify-center rounded-md border border-organ-200 text-organ-900 transition hover:text-erp min-[1440px]:hidden"
           aria-expanded={menuOpen}
           aria-controls="mobile-nav-panel"
           aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -171,7 +170,7 @@ export function Header() {
                   <a
                     key={item.href}
                     href={item.href}
-                    className="rounded-lg px-3 py-3.5 text-base font-medium text-organ-900 active:bg-organ-100"
+                    className="rounded-lg px-3 py-3.5 font-mono text-sm font-medium uppercase tracking-[0.14em] text-organ-900 active:text-erp"
                     onClick={() => setMenuOpen(false)}
                   >
                     {item.label}

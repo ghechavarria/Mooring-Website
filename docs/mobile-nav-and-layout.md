@@ -2,6 +2,9 @@
 
 ## Header (`Header.tsx`)
 
+- **Surface:** White bar, `border-b border-organ-200`, no silver gradient or drop shadow — same hairline language as light marketing sections
+- **Brand:** Square logo + **Mooric** / **ERP** wordmark unchanged
+- **Nav:** JetBrains Mono, uppercase, `tracking-[0.16em]`, `text-organ-800`, hover `text-erp`
 - **Breakpoint:** Primary nav and desktop CTAs use **`min-[1440px]`**; the menu control and overlay are **`min-[1440px]:hidden`** below that. Mid-width laptops (1280–1439) use the drawer so the bar does not cram logo + four links + CTA.
 - **Density when desktop nav is visible:**
   - **1440–1799:** compact — nav `px-2 py-1.5 text-[13px]`, tighter gaps, CTA `px-3 py-2 text-[13px]`, slightly smaller wordmark, `ml-6` on the nav cluster

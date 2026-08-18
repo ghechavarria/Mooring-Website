@@ -30,7 +30,8 @@ export function HeroCopy({ headingId = "hero-heading" }: { headingId?: string })
         <span className="hero-copy__platform-rule" aria-hidden />
         <span className="hero-copy__platform-slot">
           <span className="hero-copy__platform-text">
-            Intelligent Mortgage Platform, Empowering Better Closings
+            <span className="hero-copy__platform-line">Intelligent Mortgage Platform,</span>{" "}
+            <span className="hero-copy__platform-line">Empowering Better Closings</span>
           </span>
         </span>
       </p>

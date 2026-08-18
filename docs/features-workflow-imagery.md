@@ -10,7 +10,12 @@ Marketing section in [`Features.tsx`](../src/components/Features.tsx): intro →
 
 ## Feature grid
 
-2×2 cells (`sm:grid-cols-2`) with `border-organ-200` dividers. Each cell has a unique stage eyebrow (not shared duplicates):
+Staggered hanging-file sheets (`sm:grid-cols-2`) with generous gaps. Each file is unique:
+
+- **Offset tabs** (left / inner-right / inner-left / right) like a real hanging-file drawer, Inter labels with a stage icon
+- **Stacked sheets** behind a near-white body (`rgb(255 255 255 / 0.92)`) with an ERP-blue hairline
+- **Stage marks** — document, search, checklist, calendar — on a stronger ERP wash
+- Tabs are solid white with ERP tick and label
 
 | Stage | Headline |
 | --- | --- |
@@ -19,7 +24,7 @@ Marketing section in [`Features.tsx`](../src/components/Features.tsx): intro →
 | Conditions | Condition tracking |
 | Closing deadlines | TRID, Title, HOI, and Appraisal tracking |
 
-Spacing: stage → title `mt-5`, title → body `mt-4`. Section uses `pb-0` so the 2×2 grid borders meet `#pipeline` with no empty white band below the cells.
+Spacing: title → body `mt-5`. Extra room between intro, example panel, and file grid. See [section-glass.md](./section-glass.md).
 
 ## Example panel
 

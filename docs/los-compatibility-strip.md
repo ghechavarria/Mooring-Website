@@ -1,6 +1,6 @@
 # LOS compatibility strip
 
-Compact band rendered **after** the [broker process-flow section](./broker-process-flow-section.md) (under the End to end stages) in [`App.tsx`](../src/App.tsx). Implemented as [`LosCompatibilityStrip.tsx`](../src/components/LosCompatibilityStrip.tsx).
+Compact copy block rendered **inside** the [broker process-flow section](./broker-process-flow-section.md), directly under the End to end stage cards. Implemented as [`LosCompatibilityStrip.tsx`](../src/components/LosCompatibilityStrip.tsx). Anchor: `#los`.
 
 ## Purpose
 
@@ -14,4 +14,4 @@ Wording rule: use **alongside** only — never “integrates with.”
 
 ## Layout
 
-White band, `border-b`, `layout-shell`, compact vertical padding. Sits under the process-flow section, before the problem section.
+Centered lockup (`mt-10 sm:mt-12`): circular tilted MISMO 3.4 `.glass-stamp` beside the paragraph.

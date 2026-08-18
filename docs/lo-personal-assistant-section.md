@@ -17,10 +17,10 @@ Four capability cards:
 
 ## Layout
 
-- Light **white** band with **`py-28 sm:py-40`** (alternates with tinted Pipeline above and Team below)
-- **Header:** Eyebrow `Loan Officer Personal Assistant` + centered serif headline + intro
-- Centered intro + 2×2 card grid
-- **Cards:** Unified white card style — `rounded-xl border border-organ-200 bg-white p-6 shadow-card transition hover:-translate-y-0.5 hover:shadow-card-md sm:p-8` (matches **Features** `PlatformFeatureCard`)
+- Light **neumorphic** band matching Production Glance (see [section-glass.md](./section-glass.md))
+- **Header:** Eyebrow `Loan Officer Personal Assistant` + centered headline + intro
+- Centered intro + 2×2 `.neu-pad` grid
+- **Cards:** Unique marks (ask / notes / bell / workspace) + title + body
 
 ## Navigation
 

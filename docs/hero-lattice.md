@@ -1,6 +1,6 @@
 # Hero lattice (`HeroLattice.tsx`)
 
-Reusable **diagonal lattice** SVG used **inside** `HeroMotionBand.tsx` (silver grid, `animate-grid-breathe`).
+Reusable **diagonal lattice** SVG. Not currently mounted — the motion band uses a **blueprint** ground instead (see [hero-motion-band.md](./hero-motion-band.md)).
 
 ## Behavior
 

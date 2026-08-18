@@ -1,5 +1,59 @@
 import { motion, useReducedMotion } from "framer-motion";
-import { HeroLattice } from "./HeroLattice";
+
+function BlueprintGround() {
+  return (
+    <svg className="pointer-events-none absolute inset-0 h-full w-full text-accent/40" aria-hidden>
+      <circle
+        cx="50%"
+        cy="50%"
+        r="28%"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1"
+        strokeDasharray="4 10"
+      />
+      <circle
+        cx="50%"
+        cy="50%"
+        r="46%"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="0.75"
+        strokeDasharray="2 8"
+      />
+      <line x1="8%" y1="50%" x2="92%" y2="50%" stroke="currentColor" strokeWidth="0.6" opacity="0.5" />
+      <line x1="50%" y1="10%" x2="50%" y2="90%" stroke="currentColor" strokeWidth="0.6" opacity="0.5" />
+      <rect x="6%" y="12%" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="0.8" />
+      <rect
+        x="calc(94% - 12px)"
+        y="12%"
+        width="12"
+        height="12"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="0.8"
+      />
+      <rect
+        x="6%"
+        y="calc(88% - 12px)"
+        width="12"
+        height="12"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="0.8"
+      />
+      <rect
+        x="calc(94% - 12px)"
+        y="calc(88% - 12px)"
+        width="12"
+        height="12"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="0.8"
+      />
+    </svg>
+  );
+}
 
 export function HeroMotionBand() {
   const reduceMotion = useReducedMotion();
@@ -11,7 +65,7 @@ export function HeroMotionBand() {
         aria-hidden
       />
 
-      <HeroLattice />
+      <BlueprintGround />
 
       {!reduceMotion ? (
         <motion.div
@@ -28,17 +82,21 @@ export function HeroMotionBand() {
         />
       )}
 
-      <div className="layout-shell z-10 flex flex-col items-center py-14 text-center sm:py-20">
+      <div className="layout-shell relative z-10 flex flex-col items-center py-28 text-center sm:py-40 lg:py-48">
         <motion.p
-          className="font-mono text-[11px] font-medium uppercase tracking-[0.35em] text-accent-light"
+          className="flex items-center gap-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.35em] text-accent-light"
           initial={reduceMotion ? undefined : { opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden className="shrink-0">
+            <circle cx="12" cy="4.5" r="1.6" stroke="currentColor" strokeWidth="1.75" />
+            <path d="M12 6.2 5.5 20.5M12 6.2 18.5 20.5M8.2 14.5h7.6" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
+          </svg>
           Mortgage pipeline
         </motion.p>
 
-        <div className="relative mt-6">
+        <div className="relative mt-10">
           {!reduceMotion ? (
             <motion.span
               className="pointer-events-none absolute left-1/2 top-1/2 h-28 w-[min(92vw,540px)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/20 blur-3xl"
@@ -58,7 +116,7 @@ export function HeroMotionBand() {
           </motion.p>
         </div>
 
-        <p className="relative z-10 mt-8 max-w-md text-sm leading-relaxed text-slate-200/95 [text-shadow:0_1px_2px_rgba(0,0,0,0.35)]">
+        <p className="relative z-10 mt-12 max-w-md text-sm leading-relaxed text-slate-200/95 [text-shadow:0_1px_2px_rgba(0,0,0,0.35)]">
           The entire broker-side process — pipeline, conditions, and closing deadlines — one
           workspace, built for how independent LOs and broker shops actually work.
         </p>

@@ -37,9 +37,9 @@ function TeamMemberCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.45, delay: index * 0.06 }}
-      className="w-[calc(50%-0.75rem)] text-center sm:w-52 md:w-56"
+      className="w-[calc(50%-0.75rem)] sm:w-52 md:w-56"
     >
-      <div className="relative mx-auto aspect-[4/5] max-w-[220px] overflow-hidden rounded-2xl border border-organ-200/90 bg-organ-100 shadow-card">
+      <div className="team-portrait neu-pad relative mx-auto aspect-[4/5] max-w-[220px] overflow-hidden">
         {!photoFailed ? (
           <img
             src={`/images/team/${slug}.png`}
@@ -60,11 +60,9 @@ function TeamMemberCard({
           </div>
         )}
       </div>
-      <div className="mt-4 flex min-h-[5.75rem] flex-col sm:min-h-[6.25rem]">
-        <h3 className="text-[15px] font-semibold tracking-tight text-ink-950 sm:text-base">{name}</h3>
-        <p className="mx-auto mt-2.5 max-w-[15rem] border-t border-organ-200/90 pt-2.5 text-[0.75rem] font-medium leading-snug text-organ-700 text-balance sm:text-[0.8125rem] sm:leading-relaxed">
-          {title}
-        </p>
+      <div className="neu-pad team-lockup">
+        <h3>{name}</h3>
+        <p>{title}</p>
       </div>
     </motion.article>
   );
@@ -74,7 +72,7 @@ export function TeamSection() {
   return (
     <section
       id="team"
-      className="section-marketing border-t border-organ-200/90 bg-organ-50 pb-16 sm:pb-24"
+      className="section-marketing section-neu pb-16 sm:pb-24"
       aria-labelledby="team-heading"
     >
       <div className="layout-shell">
@@ -86,7 +84,17 @@ export function TeamSection() {
             transition={{ duration: 0.5 }}
             className="mx-auto max-w-3xl text-center"
           >
-            <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-erp">
+            <p className="inline-flex items-center justify-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-erp">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
+                <circle cx="8" cy="8" r="2.6" stroke="currentColor" strokeWidth="1.75" />
+                <circle cx="16" cy="8" r="2.6" stroke="currentColor" strokeWidth="1.75" />
+                <path
+                  d="M3.8 19c.5-2.8 2.2-4.4 4.2-4.4 1.3 0 2.4.7 3.2 1.8.8-1.1 1.9-1.8 3.2-1.8 2 0 3.7 1.6 4.2 4.4"
+                  stroke="currentColor"
+                  strokeWidth="1.75"
+                  strokeLinecap="round"
+                />
+              </svg>
               The people
             </p>
             <h2 id="team-heading" className="section-heading">

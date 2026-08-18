@@ -18,7 +18,7 @@ export function ContactCTA() {
           viewport={{ once: true }}
           className="max-w-3xl"
         >
-          <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.28em] text-white/80">
+          <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-white/80">
             Let&apos;s talk
           </p>
           <h2

@@ -34,7 +34,7 @@ export function Hero() {
                 className="w-full min-w-0 scroll-mt-24 max-[1099px]:pt-6 max-[1099px]:pb-8 min-[1100px]:py-2"
               >
                 <div className="max-[1099px]:mx-auto max-[1099px]:max-w-4xl">
-                  <p className="mb-3 text-left font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[#8ea3c4] max-[1099px]:pl-1">
+                  <p className="mb-3 text-left font-mono text-[10px] uppercase tracking-[0.18em] text-[#8ea3c4] max-[1099px]:pl-1">
                     Live workspace
                   </p>
                   <p className="sr-only">Before and after Mooric ERP interactive comparison</p>

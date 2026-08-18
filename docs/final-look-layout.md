@@ -4,14 +4,15 @@ Single production layout (formerly “Final look”).
 
 ## Section order
 
-Hero → Production Glance → Problem (`01`) → Features (`02`) → Pipeline (`03`) → Memory (`04`) → Assistant → End to end → LOS → Lattice → Team → Contact
+Hero → Production Glance → Problem (`01`) → Features (`02`) → Pipeline (`03`) → Memory (`04`) → Assistant → End to end (includes LOS) → Blueprint band → Team → Contact
 
 ## Notes
 
 - Hero uses the product-dense live-workspace placement
 - Marketing sections use bold brand presentation (navy bands, display type)
 - Production Glance sits under the hero’s blue ticker strip
-- End to end uses soft stage tiles with generous bottom padding before LOS
+- Light marketing bands mix neumorphism, glass, neo-brutalism, and Swiss grid
+- Team uses upright rounded portraits (no polaroid tilt)
 - Team is a 4 + 3 centered grid
 
 ## Key files

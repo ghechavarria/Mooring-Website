@@ -35,7 +35,7 @@ npm run preview
 | `src/main.tsx` | React bootstrapping |
 | `src/App.tsx` | Section order; **`ContactModalProvider`**; **`ContactFormModal`** at root |
 | `src/context/ContactModalContext.tsx` | Shared `openContactModal` / `closeContactModal` state |
-| `src/index.css` | Tailwind layers; **`#root`** flex column; **`.btn-primary-silver`**, **`.layout-shell`**, **`.layout-header`** / **`.layout-header-px`**, ECG / ticker utilities |
+| `src/index.css` | Tailwind layers; **`#root`** flex column; **`.btn-primary-silver`**, **`.layout-shell`**, **`.layout-header`** / **`.layout-header-px`**, mixed light-section languages, ECG / ticker utilities |
 | `src/components/Header.tsx` | Sticky top navigation; brand tile **`/images/square-logo-blue.svg`** beside wordmark |
 | `src/components/Hero.tsx` | Two-column hero (`#top`) with embedded interactive demo (`#demo`) — [hero-section-background.md](./hero-section-background.md) |
 | `src/components/HeroCopy.tsx` | Shared hero copy + CTAs — [hero-copy.md](./hero-copy.md) |
@@ -50,7 +50,7 @@ npm run preview
 | `src/components/LOPersonalAssistantSection.tsx` | LO Personal Assistant (`#assistant`) — [lo-personal-assistant-section.md](./lo-personal-assistant-section.md) |
 | `src/components/BrokerProcessFlowSection.tsx` | End-to-end process (`#process`) — [broker-process-flow-section.md](./broker-process-flow-section.md) |
 | `src/components/LosCompatibilityStrip.tsx` | LOS compatibility (`#los`) — [los-compatibility-strip.md](./los-compatibility-strip.md) |
-| `src/components/HeroMotionBand.tsx` | Full-bleed lattice / Mooric ERP band — [hero-motion-band.md](./hero-motion-band.md) |
+| `src/components/HeroMotionBand.tsx` | Full-bleed blueprint / Mooric ERP band — [hero-motion-band.md](./hero-motion-band.md) |
 | `src/components/HeroLattice.tsx` | Decorative lattice SVG — [hero-lattice.md](./hero-lattice.md) |
 | `src/components/TeamSection.tsx` | Team roster (`#team`) — [team-section.md](./team-section.md) |
 | `src/components/ContactCTA.tsx` | Contact band (`#contact`); opens contact modal |
@@ -67,12 +67,11 @@ npm run preview
 6. Pipeline (`#pipeline`)
 7. Central Loan Memory (`#memory`)
 8. LO Personal Assistant (`#assistant`)
-9. Broker process / end to end (`#process`)
-10. LOS strip (`#los`)
-11. HeroMotionBand (decorative)
-12. Team (`#team`)
-13. Contact (`#contact`)
-14. Footer
+9. Broker process / end to end (`#process`) — includes LOS copy (`#los`)
+10. HeroMotionBand (decorative)
+11. Team (`#team`)
+12. Contact (`#contact`)
+13. Footer
 
 ## Header navigation
 
@@ -91,7 +90,7 @@ CTA: **Request a briefing** → opens contact modal (see [contact-form-modal.md]
 
 ## Design notes
 
-- **Brand:** Mooric ERP — predominantly **light** marketing surface (white / cool `organ` neutrals), **brand blue** `#0075FF` on light sections, **dark** signature bands for the hero pulse strip and **HeroMotionBand** lattice.
+- **Brand:** Mooric ERP — **dark** signature bands (hero, problem, pipeline, memory, blueprint band) alternating with **mixed** light languages (neumorphism, glass, neo-brutalism, Swiss, print — see [section-glass.md](./section-glass.md)), **brand blue** `#0075FF`.
 - **Audience:** Independent LOs and brokers; practitioner tone per [Web 1.docx](./Web%201.docx); interactive demo per [Web 2.docx](./Web%202.docx).
 - **Motion:** Sections use `whileInView` for scroll-triggered motion; hero strip uses CSS-driven ECG drift and ticker marquee (see [hero-session-pulse.md](./hero-session-pulse.md)).
 - **Accessibility:** Landmark sections include headings and `aria-labelledby` where appropriate; decorative layers use `aria-hidden`.
