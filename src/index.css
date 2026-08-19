@@ -226,11 +226,11 @@
     place-items: center;
     rotate: -12deg;
     border-radius: 9999px;
-    border: 2px solid rgb(0 117 255 / 0.45);
-    background: rgb(255 255 255 / 0.28);
-    box-shadow: inset 0 0 0 5px rgb(0 117 255 / 0.12);
-    backdrop-filter: blur(14px) saturate(1.5);
-    -webkit-backdrop-filter: blur(14px) saturate(1.5);
+    border: 2.5px solid #0075ff;
+    background: #fff;
+    box-shadow:
+      0 1px 3px rgb(10 14 20 / 0.12),
+      inset 0 0 0 5px rgb(0 117 255 / 0.14);
   }
 
   .glass-stamp__ring {
@@ -239,15 +239,15 @@
     width: 5.15rem;
     place-items: center;
     border-radius: 9999px;
-    border: 1px dashed rgb(0 117 255 / 0.55);
+    border: 1.5px dashed #0075ff;
     text-align: center;
     font-family: Montserrat, system-ui, sans-serif;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     font-weight: 800;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.14em;
     line-height: 1.15;
     text-transform: uppercase;
-    color: #0075ff;
+    color: #0060d6;
   }
 
   .section-neu {
@@ -368,8 +368,7 @@
   }
 
   @media (prefers-reduced-transparency: reduce) {
-    .glass-folder__body,
-    .glass-stamp {
+    .glass-folder__body {
       background: #ffffff;
       backdrop-filter: none;
       -webkit-backdrop-filter: none;
@@ -377,6 +376,62 @@
   }
   .section-heading {
     @apply mt-4 font-display text-4xl font-extrabold uppercase tracking-[0.04em] text-ink-950 text-balance sm:text-5xl md:text-6xl;
+  }
+
+  .features-scribble-anchor {
+    position: relative;
+    overflow: visible;
+  }
+
+  .features-scribble {
+    pointer-events: none;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: auto;
+    left: 66%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: max-content;
+    color: #0075ff;
+    transform: translate(-38%, calc(-100% + 0.55rem)) rotate(-8deg);
+  }
+
+  .features-scribble__label {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Caveat, cursive;
+    font-size: clamp(1.28rem, 1.05rem + 0.95vw, 2.05rem);
+    font-weight: 700;
+    line-height: 0.88;
+    letter-spacing: 0.01em;
+    text-align: center;
+  }
+
+  .features-scribble__arrow {
+    display: block;
+    overflow: visible;
+    width: 3.1rem;
+    height: auto;
+    margin: 0.1rem 0 0 1.15rem;
+    transform: translateX(0.7rem) rotate(108deg) scale(-1, -1);
+  }
+
+  @media (min-width: 640px) {
+    .features-scribble {
+      left: 76%;
+      transform: translate(-38%, calc(-100% + 0.55rem)) rotate(-8deg);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .features-scribble {
+      left: 76%;
+      transform: translate(-38%, calc(-100% + 0.08rem)) rotate(-8deg);
+    }
   }
 
   /**
@@ -703,6 +758,27 @@
     list-style: none;
   }
 
+  /** Subtle blink on Before Mooric tab until first click */
+  @keyframes demo-before-tab-hint {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.45;
+    }
+  }
+
+  .demo-before-tab-hint {
+    animation: demo-before-tab-hint 1.5s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .demo-before-tab-hint {
+      animation: none;
+    }
+  }
+
   .hero-demo-stats--spread {
     width: 100%;
   }
@@ -977,6 +1053,22 @@
   @apply bg-erp py-32 sm:py-40 lg:py-44;
 }
 
+/** Decorative product mocks — no click or text selection; tabs opt out via data-product-zoom-ignore */
+.product-preview-stage,
+.product-preview-stage * {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.product-preview-stage * {
+  pointer-events: none;
+}
+
+.product-preview-stage [data-product-zoom-ignore],
+.product-preview-stage [data-product-zoom-ignore] * {
+  pointer-events: auto;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -1022,7 +1114,7 @@
 
   /** SVG `<g>`: Framer `x` on motion.g is unreliable; sync `--ecg-beat-width` to one beat in the path `d` */
   .hero-ecg-drift {
-    animation: hero-ecg-drift var(--ecg-beat, 1500ms) linear infinite;
+    animation: hero-ecg-drift var(--ecg-beat, 2400ms) linear infinite;
     will-change: transform;
     backface-visibility: hidden;
   }

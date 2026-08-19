@@ -6,6 +6,8 @@ Renders **`#team`** directly under the [Mooric ERP blueprint band](./hero-motion
 
 - Surface: `.section-neu` clay; portraits in `.neu-pad` frames; padding `py-36 sm:pb-48 sm:pt-40`
 - Desktop content rail capped at **`max-w-5xl`**
+- Intro eyebrow + **`OUR TEAM`** stay in a centered `max-w-3xl` block; subtitle spans the full **`max-w-5xl`** rail on desktop so it doesn’t orphan a single word on the second line
+- Subtitle line break after **“platform”** when the team rail is too narrow for four cards (`@container/team` + `@max-[979px]/team:block` on the `<br>` — matches `4 × 14rem + 3 × 1.75rem` card/gap math); stays split on all smaller viewports
 - Single `flex-wrap` row — no horizontal overflow
 - Mobile: two columns (`calc(50% - 0.75rem)`)
 - `sm+`: fixed card widths (`13rem` / `14rem`)

@@ -8,7 +8,7 @@ Light marketing bands share **type, ERP blue, and copy**. Surfaces mix web-desig
 | Features | **Glassmorphism** | Cool wash, hanging-file drawer: offset tabs, stacked sheets, ghost `01`–`04`; product mock sits on the wash |
 | LO Personal Assistant | **Neumorphism** | Same clay pads as Production Glance |
 | End to end | **Swiss / International** | White, hairline rules, oversized numerals |
-| LOS | **Glass seal** | Tilted circular MISMO 3.4 stamp beside copy |
+| LOS | **Glass seal** | Tilted circular MISMO 3.4 stamp beside copy — solid white fill, opaque `#0075ff` rings, no blur |
 | Team | **Neumorphism** | Clay band, `.neu-pad` portrait frames |
 
 Dark bands (hero, problem, pipeline, memory, blueprint band, contact, footer) and in-product mocks are unchanged.

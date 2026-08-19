@@ -15,6 +15,7 @@ export function useProductZoomOpen() {
  * On tablet/mobile, click/tap opens a shadowed lightbox at near design scale (pan to
  * inspect). Dialog portals to `document.body`. Before/After tabs sit above the
  * click layer via `data-product-zoom-ignore` + z-index so they stay interactive.
+ * Preview content uses `.product-preview-stage` to block clicks and text selection.
  */
 export function ZoomableProductView({
   children,
@@ -54,7 +55,13 @@ export function ZoomableProductView({
 
   const stage = (
     <ProductZoomContext.Provider value={open}>
-      <div className={open ? "min-h-0 min-w-0 flex-1 overflow-auto overscroll-contain p-3 sm:p-4" : undefined}>
+      <div
+        className={
+          open
+            ? "product-preview-stage min-h-0 min-w-0 flex-1 overflow-auto overscroll-contain p-3 sm:p-4"
+            : "product-preview-stage"
+        }
+      >
         <div className={open ? "w-[1160px] max-w-none" : undefined}>{children}</div>
       </div>
     </ProductZoomContext.Provider>

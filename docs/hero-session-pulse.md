@@ -27,7 +27,7 @@ Used from [Hero.tsx](../src/components/Hero.tsx) as a full-bleed slab:
 
 ## Behavior
 
-- **Heartbeat / ECG:** Same as before — status lines rotate on the BPM timer; compact wave below `sm`. See historical notes in git for ECG path details.
+- **Heartbeat / ECG:** ECG drift runs at **25 BPM** (~2.4s per beat) via `--ecg-beat`. Status lines rotate on their own **2.5s** timer (independent of the wave). Compact wave below `sm`.
 - **Status lines:** Mortgage-operations teaser copy. Below `sm`, shortened copy + compact `7rem` wave so Live / Session pulse / status / wave stay one line. Below 400px, status is hidden.
 
 ## Ethics / UX

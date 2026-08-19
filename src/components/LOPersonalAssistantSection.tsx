@@ -91,7 +91,7 @@ export function LOPersonalAssistantSection() {
           transition={{ duration: 0.55 }}
           className="mx-auto max-w-3xl text-center"
         >
-          <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-erp">
+          <p className="font-mono text-[13px] font-normal uppercase tracking-[0.2em] text-erp">
             Loan Officer Personal Assistant
           </p>
           <h2 id="assistant-heading" className="section-heading">

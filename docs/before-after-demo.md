@@ -38,3 +38,5 @@ Faithful scaled recreation of the product Summary UI, scoped **only** inside the
 ## Interaction
 
 Tab buttons toggle Before/After. Keyboard: arrow keys when focused on the tab list.
+
+When the demo opens on **After** (hero default), the **Before Mooric** tab gently blinks (`.demo-before-tab-hint`) until it is clicked once; then the hint stops for the rest of the session. Honors `prefers-reduced-motion` / Framer `useReducedMotion`.

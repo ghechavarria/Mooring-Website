@@ -172,7 +172,7 @@ function MemoryPipelineBackdrop() {
 
 function MemoryEyebrow({ className = "" }: { className?: string }) {
   return (
-    <p className={`font-mono text-[11px] uppercase tracking-[0.2em] text-[#2563eb] ${className}`}>
+    <p className={`font-mono text-[13px] font-normal uppercase tracking-[0.2em] text-[#2563eb] ${className}`}>
       04 · Core differentiator
     </p>
   );
@@ -212,7 +212,7 @@ function MemoryStatBlock({
     <div className={`flex items-center gap-5 ${className}`}>
       <p
         className={`shrink-0 font-mono font-semibold tabular-nums ${
-          dark ? "text-erp" : "text-[#020618]"
+          dark ? "text-erp" : "text-[#16a34a]"
         } ${compact ? "text-[2.75rem] leading-none tracking-tight" : "text-4xl sm:text-5xl"}`}
       >
         {memoryStat.value}
@@ -236,29 +236,11 @@ function MemoryPayoffFooter({ className = "" }: { className?: string }) {
       <MemoryStatBlock compact />
       <div className="hidden h-full min-h-[44px] w-px bg-[#d6dce6] sm:block" aria-hidden />
       <div>
-        <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#2563eb]">
+        <p className="font-mono text-[13px] font-normal uppercase tracking-[0.22em] text-[#2563eb]">
           {complianceNote.eyebrow}
         </p>
         <p className="mt-1.5 text-[14.5px] leading-relaxed text-[#1e293b]">{complianceNote.body}</p>
       </div>
-    </div>
-  );
-}
-
-function MemoryStagePills() {
-  return (
-    <div className="mb-8 flex flex-wrap items-center gap-2" aria-hidden>
-      {tracks.map((track) => (
-        <span
-          key={track.label}
-          className="rounded-full border border-slate-600 bg-slate-800/80 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.14em] text-slate-300"
-        >
-          {track.label}
-        </span>
-      ))}
-      <span className="rounded-full border border-[#2563eb] bg-[#2563eb] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.14em] text-white">
-        Full file
-      </span>
     </div>
   );
 }
@@ -408,7 +390,6 @@ export function CentralLoanMemorySection() {
       aria-labelledby="memory-heading"
     >
       <div className="layout-shell relative z-10">
-        <MemoryStagePills />
         <MemoryIntro />
         <ConceptStepLanes />
       </div>

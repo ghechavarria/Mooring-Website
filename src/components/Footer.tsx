@@ -22,13 +22,13 @@ export function Footer() {
       </p>
       <div className="layout-shell flex flex-col items-center justify-between gap-8 py-[1.8rem] sm:flex-row">
         <div className="flex shrink-0 items-center justify-center sm:justify-start">
-          <span className="relative h-20 w-20 shrink-0 overflow-hidden rounded-[10px] sm:h-28 sm:w-28">
+          <span className="relative flex h-[4.7rem] shrink-0 items-center">
             <img
               src="/images/full-logo-no-background.svg"
               alt="Mooric ERP"
-              width={1024}
-              height={1024}
-              className="h-full w-full object-cover"
+              width={794}
+              height={583}
+              className="h-full w-auto object-contain"
               decoding="async"
             />
           </span>

@@ -10,8 +10,6 @@ Presents **Central Loan Memory** as Mooric ERP’s core differentiator — not b
 
 Locked to the **Lanes** comparison: two real columns (without | with). On `sm+` they sit side by side. Below `sm`, the full **without** column stacks first (copy, dashed cards, **Borrower context — lost**), then the **with** column (copy, solid cards, **Full borrower context — retained**). A second card holds the recommendations band and `MemoryPayoffFooter`.
 
-Above the intro, decorative stage pills (`MemoryStagePills`) sit where the old layout switcher was. They are not interactive. Inactive pills: **1003**, **Conditions**, **Closing**. Active (blue) pill: **Full file**.
-
 Shared pieces:
 
 - `MemoryIntro` — eyebrow, headline, lead paragraph

@@ -97,7 +97,7 @@ export function BrokerProcessFlowSection() {
           transition={{ duration: 0.55 }}
           className="max-w-3xl"
         >
-          <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-erp">End to end</p>
+          <p className="font-mono text-[13px] font-normal uppercase tracking-[0.2em] text-erp">End to end</p>
           <h2
             id="process-heading"
             className="mt-4 font-display text-3xl font-bold tracking-tight text-ink-950 text-balance sm:text-4xl lg:text-5xl"
@@ -124,7 +124,7 @@ export function BrokerProcessFlowSection() {
                 <stage.Icon />
                 {String(i + 1).padStart(2, "0")}
               </p>
-              <h3 className="mt-6 font-mono text-[11px] uppercase tracking-[0.16em] text-erp">
+              <h3 className="mt-6 font-mono text-[13px] font-normal uppercase tracking-[0.16em] text-erp">
                 {stage.name}
               </h3>
               <p className="mt-3 text-[15px] leading-relaxed text-organ-800">{stage.line}</p>

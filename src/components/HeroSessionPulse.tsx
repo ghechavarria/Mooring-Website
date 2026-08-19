@@ -19,8 +19,9 @@ const statusLinesShort = [
 ];
 
 const ECG_BEAT_PX = 100;
-const bpm = 40;
+const bpm = 25;
 const beatMs = Math.round(60000 / bpm);
+const statusLineMs = 3200;
 
 function ecgWavePath(width: number, amplitude: number, baseline: number, step: number): string {
   let d = `M0 ${baseline}`;
@@ -236,7 +237,7 @@ export function HeroSessionPulse({ children }: { children?: ReactNode }) {
 
   useEffect(() => {
     if (reduceMotion) return undefined;
-    const id = window.setInterval(() => setTick((n) => n + 1), beatMs);
+    const id = window.setInterval(() => setTick((n) => n + 1), statusLineMs);
     return () => window.clearInterval(id);
   }, [reduceMotion]);
 

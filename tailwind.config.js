@@ -10,6 +10,7 @@ export default {
         display: ["Montserrat", "system-ui", "sans-serif"],
         serif: ['"Source Serif 4"', "Georgia", "serif"],
         mono: ["JetBrains Mono", "ui-monospace", "monospace"],
+        hand: ["Caveat", "cursive"],
       },
       colors: {
         ink: {

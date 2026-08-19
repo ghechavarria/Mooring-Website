@@ -383,10 +383,12 @@ function DemoChrome({
   view,
   onViewChange,
   idPrefix,
+  hintBefore,
 }: {
   view: View;
   onViewChange: (v: View) => void;
   idPrefix: string;
+  hintBefore: boolean;
 }) {
   const beforeTabId = `${idPrefix}-tab-before`;
   const afterTabId = `${idPrefix}-tab-after`;
@@ -410,7 +412,7 @@ function DemoChrome({
           aria-controls={panelId}
           className={`flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs font-semibold transition @sm:px-3 @sm:text-sm ${
             view === "before" ? "bg-organ-100 text-ink-950" : "text-organ-600 hover:text-organ-900"
-          }`}
+          }${hintBefore ? " demo-before-tab-hint" : ""}`}
           onClick={() => onViewChange("before")}
         >
           <FolderIcon />
@@ -454,6 +456,7 @@ function InteractiveDemoScaled({
   preserveHorizontal: boolean;
 }) {
   const [view, setView] = useState<View>(defaultView);
+  const [beforeHintActive, setBeforeHintActive] = useState(defaultView !== "before");
   const reduceMotion = useReducedMotion();
   const beforeTabId = `${idPrefix}-tab-before`;
   const afterTabId = `${idPrefix}-tab-after`;
@@ -462,6 +465,11 @@ function InteractiveDemoScaled({
   const [frameEl, setFrameEl] = useState<HTMLDivElement | null>(null);
   const [scaleLayout, setScaleLayout] = useState({ scale: 1, height: 0, center: false });
   const zoomed = useProductZoomOpen();
+
+  function onViewChange(next: View) {
+    if (next === "before") setBeforeHintActive(false);
+    setView(next);
+  }
 
   useEffect(() => {
     if (!preserveHorizontal) return undefined;
@@ -514,7 +522,12 @@ function InteractiveDemoScaled({
           : undefined
       }
     >
-      <DemoChrome view={view} onViewChange={setView} idPrefix={idPrefix} />
+      <DemoChrome
+        view={view}
+        onViewChange={onViewChange}
+        idPrefix={idPrefix}
+        hintBefore={beforeHintActive && !reduceMotion}
+      />
       <div
         id={panelId}
         role="tabpanel"

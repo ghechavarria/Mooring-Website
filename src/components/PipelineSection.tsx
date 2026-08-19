@@ -33,7 +33,7 @@ export function PipelineSection() {
           viewport={{ once: true }}
           className="max-w-5xl"
         >
-          <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-erp">03 · Closed</p>
+          <p className="font-mono text-[13px] font-normal uppercase tracking-[0.28em] text-erp">03 · Closed</p>
           <h2
             id="pipeline-heading"
             className="mt-4 font-display text-4xl font-extrabold uppercase tracking-[0.04em] text-white sm:text-6xl"

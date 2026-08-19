@@ -76,33 +76,36 @@ export function TeamSection() {
       aria-labelledby="team-heading"
     >
       <div className="layout-shell">
-        <div className="mx-auto w-full max-w-5xl">
+        <div className="mx-auto w-full max-w-5xl @container/team">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.5 }}
-            className="mx-auto max-w-3xl text-center"
+            className="mx-auto w-full text-center"
           >
-            <p className="inline-flex items-center justify-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-erp">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
-                <circle cx="8" cy="8" r="2.6" stroke="currentColor" strokeWidth="1.75" />
-                <circle cx="16" cy="8" r="2.6" stroke="currentColor" strokeWidth="1.75" />
-                <path
-                  d="M3.8 19c.5-2.8 2.2-4.4 4.2-4.4 1.3 0 2.4.7 3.2 1.8.8-1.1 1.9-1.8 3.2-1.8 2 0 3.7 1.6 4.2 4.4"
-                  stroke="currentColor"
-                  strokeWidth="1.75"
-                  strokeLinecap="round"
-                />
-              </svg>
-              The people
-            </p>
-            <h2 id="team-heading" className="section-heading">
-              Our team
-            </h2>
-            <p className="mt-4 text-lg leading-relaxed text-organ-800">
-              Mortgage technology veterans building the platform independent loan officers actually
-              need.
+            <div className="mx-auto max-w-3xl">
+              <p className="inline-flex items-center justify-center gap-2.5 font-mono text-sm font-normal uppercase tracking-[0.22em] text-erp sm:text-base">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" className="shrink-0 sm:h-6 sm:w-6" aria-hidden>
+                  <circle cx="8" cy="8" r="2.6" stroke="currentColor" strokeWidth="1.75" />
+                  <circle cx="16" cy="8" r="2.6" stroke="currentColor" strokeWidth="1.75" />
+                  <path
+                    d="M3.8 19c.5-2.8 2.2-4.4 4.2-4.4 1.3 0 2.4.7 3.2 1.8.8-1.1 1.9-1.8 3.2-1.8 2 0 3.7 1.6 4.2 4.4"
+                    stroke="currentColor"
+                    strokeWidth="1.75"
+                    strokeLinecap="round"
+                  />
+                </svg>
+                The people
+              </p>
+              <h2 id="team-heading" className="section-heading mt-4">
+                Our team
+              </h2>
+            </div>
+            <p className="mx-auto mt-4 w-full text-lg leading-relaxed text-organ-800">
+              Mortgage technology veterans building the platform{" "}
+              <br className="hidden @max-[979px]/team:block" />
+              independent loan officers actually need.
             </p>
           </motion.div>
 

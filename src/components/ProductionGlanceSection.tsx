@@ -56,7 +56,7 @@ export function ProductionGlanceSection() {
         className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(16rem,0.9fr)] lg:gap-16"
       >
         <div className="max-w-3xl">
-          <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-erp">
+          <p className="font-mono text-[13px] font-normal uppercase tracking-[0.22em] text-erp">
             Your production at a glance
           </p>
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-ink-950 text-balance sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
@@ -83,7 +83,7 @@ export function ProductionGlanceSection() {
                   <stat.Icon />
                 </span>
                 <div>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-organ-700">
+                  <p className="font-mono text-[12px] font-normal uppercase tracking-[0.18em] text-organ-700">
                     {stat.label}
                   </p>
                   <p className="mt-2 font-display text-3xl font-bold tabular-nums tracking-tight text-ink-950 sm:text-4xl">
