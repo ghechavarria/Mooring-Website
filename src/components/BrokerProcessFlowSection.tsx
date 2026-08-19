@@ -86,7 +86,7 @@ export function BrokerProcessFlowSection() {
   return (
     <section
       id="process"
-      className="section-swiss relative scroll-mt-8 pb-28 pt-28 sm:pb-36 sm:pt-36"
+      className="section-swiss relative scroll-mt-8 pb-36 pt-36 sm:pb-44 sm:pt-44"
       aria-labelledby="process-heading"
     >
       <div className="layout-shell">

@@ -38,7 +38,7 @@
 
   /** Marketing section rhythm */
   .section-marketing {
-    @apply relative scroll-mt-8 py-28 sm:py-36;
+    @apply relative scroll-mt-8 py-36 sm:py-44;
   }
 
   /**
@@ -745,10 +745,10 @@
 }
 
 #pipeline.section-marketing {
-  @apply border-b-0 bg-[#0a1626] pb-0 pt-36 text-white sm:pt-44;
+  @apply border-b-0 bg-[#0a1626] pb-0 pt-44 text-white sm:pt-52;
 }
 #memory.section-marketing {
-  @apply border-0 bg-[#0a1626] pb-44 pt-20 sm:pb-56 sm:pt-28;
+  @apply border-0 bg-[#0a1626] pb-52 pt-28 sm:pb-64 sm:pt-36;
 }
 #memory .memory-intro .section-heading,
 #memory .memory-intro h2 {
@@ -965,13 +965,13 @@
 }
 
 #production-glance {
-  @apply py-20 sm:py-28 lg:py-32;
+  @apply py-28 sm:py-36 lg:py-40;
 }
 #assistant.section-marketing {
-  @apply pb-32 pt-36 sm:pb-40 sm:pt-44;
+  @apply pb-40 pt-44 sm:pb-48 sm:pt-52;
 }
 #team.section-marketing {
-  @apply py-28 sm:pb-40 sm:pt-32;
+  @apply py-36 sm:pb-48 sm:pt-40;
 }
 #contact.section-marketing {
   @apply bg-erp py-32 sm:py-40 lg:py-44;

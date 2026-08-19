@@ -26,7 +26,7 @@ Wired in [`src/App.tsx`](../src/App.tsx):
 
 ## Surface
 
-- Section: light cool base `#ebf0f9` with a mixed darker blue-gray gradient (`#d8e0ef` / `#c9d4e8`), `border-organ-200/90`, `py-28 sm:py-40`, `scroll-mt-8`
+- Section: `.section-marketing` (`py-36 sm:py-44`), `scroll-mt-8`
 - Cards: `bg-white/80 border-organ-200/90`; hover `border-erp/50`, blue glow shadow, and a soft `from-erp/15 via-sky-400/10` gradient wash
 - CTA panel: `bg-white/75 border-organ-200/90`
 - Layout: `.layout-shell`; cards/CTA capped at `max-w-[1160px]`

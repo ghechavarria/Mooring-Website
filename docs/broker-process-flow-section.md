@@ -22,8 +22,7 @@ Stage marks are unique across the site (not reused from Features, Assistant, Pro
 - Eyebrow `End to end` + serif headline + short intro
 - Horizontal numbered stage tiles on `lg+` (4 columns); stacked on smaller viewports
 - Each column pairs the stage mark with the numeral at the same size (icon `1em` of `.swiss-num`). Closed uses a check-in-circle (pipeline complete), not a house key.
-: person+, inbox, cog, key
-- Surface: Swiss white with hairline `.swiss-rail` (see [section-glass.md](./section-glass.md))
+- Surface: Swiss white with hairline `.swiss-rail` (see [section-glass.md](./section-glass.md)); padding `pb-36 pt-36 sm:pb-44 sm:pt-44`
 - LOS copy sits under the rail with a circular MISMO 3.4 `.glass-stamp` (`#los`)
 
 ## Related framing

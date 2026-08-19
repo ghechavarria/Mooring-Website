@@ -9,7 +9,7 @@ Full-bleed **dark navy** strip with a **blueprint** ground and the **Mooric ERP*
 - **Ground:** Dashed orbits around the wordmark, crosshair, corner ticks (`text-accent/40`)
 - **Scan:** Thin silver gradient line moves vertically when motion is allowed; static mid-line when reduced motion is preferred
 - **Word:** **Mooric ERP** — shimmering `accent` → white gradient, uppercase
-- **Caption:** **Mortgage pipeline** + supporting line
+- **Inner rail:** `py-36 sm:py-48 lg:py-56`
 
 ## Motion safety
 

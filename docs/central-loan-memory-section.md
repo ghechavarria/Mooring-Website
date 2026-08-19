@@ -20,7 +20,7 @@ Shared pieces:
 
 ## Look
 
-- Section surface: dark `#0a1626`; intro type in white / slate-300
+- Section surface: dark `#0a1626`; extra padding `pb-52 pt-28 sm:pb-64 sm:pt-36`; intro type in white / slate-300
 - Comparison card: white with `#e7ebf1` borders, cool slate type, blue accent `#2563eb`
 - Fragmented side: dashed borders, muted slate, “reset” / “lost” language
 - **Lanes:** comparison card ends at the outcome row. Recommendations fill the **full top band** of a second card; `MemoryPayoffFooter` sits below.

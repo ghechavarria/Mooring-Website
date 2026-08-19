@@ -17,7 +17,7 @@ Four capability cards:
 
 ## Layout
 
-- Light **neumorphic** band matching Production Glance (see [section-glass.md](./section-glass.md))
+- Light **neumorphic** band matching Production Glance (see [section-glass.md](./section-glass.md)); extra vertical padding `pb-40 pt-44 sm:pb-48 sm:pt-52`
 - **Header:** Eyebrow `Loan Officer Personal Assistant` + centered headline + intro
 - Centered intro + 2×2 `.neu-pad` grid
 - **Cards:** Unique marks (ask / notes / bell / workspace) + title + body

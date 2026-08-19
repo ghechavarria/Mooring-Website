@@ -16,3 +16,5 @@ Dark bands (hero, problem, pipeline, memory, blueprint band, contact, footer) an
 ## CSS (`src/index.css`)
 
 `.section-neu` · `.neu-pad` · `.section-glass` · `.glass-folder` · `.glass-stamp` · `.section-swiss` · `.swiss-rail`
+
+Mid-page bands use extra vertical padding for breathing room (`.section-marketing` is `py-36 sm:py-44`; per-section overrides add more). Hero and the contact band (`#contact`) keep their original spacing.

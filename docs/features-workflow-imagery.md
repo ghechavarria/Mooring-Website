@@ -24,7 +24,7 @@ Staggered hanging-file sheets (`sm:grid-cols-2`) with generous gaps. Each file i
 | Conditions | Condition tracking |
 | Closing deadlines | TRID, Title, HOI, and Appraisal tracking |
 
-Spacing: title → body `mt-5`. Extra room between intro, example panel, and file grid. See [section-glass.md](./section-glass.md).
+Spacing: title → body `mt-5`. Extra room between intro, example panel, and file grid. Section padding `pb-40 sm:pb-48` on top of `.section-marketing` (`py-36 sm:py-44`). See [section-glass.md](./section-glass.md).
 
 ## Example panel
 

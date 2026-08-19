@@ -82,7 +82,7 @@ export function HeroMotionBand() {
         />
       )}
 
-      <div className="layout-shell relative z-10 flex flex-col items-center py-28 text-center sm:py-40 lg:py-48">
+      <div className="layout-shell relative z-10 flex flex-col items-center py-36 text-center sm:py-48 lg:py-56">
         <motion.p
           className="flex items-center gap-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.35em] text-accent-light"
           initial={reduceMotion ? undefined : { opacity: 0, y: 8 }}

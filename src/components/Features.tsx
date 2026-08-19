@@ -91,7 +91,7 @@ export function Features() {
   return (
     <section
       id="features"
-      className="section-marketing section-glass border-t border-white/50 pb-32 sm:pb-40"
+      className="section-marketing section-glass border-t border-white/50 pb-40 sm:pb-48"
       aria-labelledby="features-heading"
     >
       <div className="w-full px-6 sm:px-10 lg:px-16 xl:px-24">

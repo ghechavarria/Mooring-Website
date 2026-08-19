@@ -4,7 +4,7 @@ Renders **`#team`** directly under the [Mooric ERP blueprint band](./hero-motion
 
 ## Layout
 
-- Surface: `.section-neu` clay; portraits in `.neu-pad` frames
+- Surface: `.section-neu` clay; portraits in `.neu-pad` frames; padding `py-36 sm:pb-48 sm:pt-40`
 - Desktop content rail capped at **`max-w-5xl`**
 - Single `flex-wrap` row — no horizontal overflow
 - Mobile: two columns (`calc(50% - 0.75rem)`)

@@ -12,6 +12,7 @@ Hero → Production Glance → Problem (`01`) → Features (`02`) → Pipeline (
 - Marketing sections use bold brand presentation (navy bands, display type)
 - Production Glance sits under the hero’s blue ticker strip
 - Light marketing bands mix neumorphism, glass, neo-brutalism, and Swiss grid
+- Mid-page sections use extra vertical padding for breathing room; hero and contact stay tighter
 - Team uses upright rounded portraits (no polaroid tilt)
 - Team is a 4 + 3 centered grid
 

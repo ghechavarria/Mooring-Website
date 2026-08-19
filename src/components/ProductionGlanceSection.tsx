@@ -45,7 +45,7 @@ export function ProductionGlanceSection() {
   return (
     <section
       id="production-glance"
-      className="section-neu relative px-6 py-20 text-ink-950 sm:px-10 sm:py-24 lg:px-16 lg:py-28 xl:px-24"
+      className="section-neu relative px-6 py-28 text-ink-950 sm:px-10 sm:py-36 lg:px-16 lg:py-40 xl:px-24"
       aria-label="Your production at a glance"
     >
       <motion.div

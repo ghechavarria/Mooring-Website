@@ -72,7 +72,7 @@ export function TeamSection() {
   return (
     <section
       id="team"
-      className="section-marketing section-neu pb-16 sm:pb-24"
+      className="section-marketing section-neu"
       aria-labelledby="team-heading"
     >
       <div className="layout-shell">
